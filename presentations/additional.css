@@ -1,0 +1,81 @@
+div.sourceCode {
+  font-size: 1.2em;
+}
+section.slide > pre {
+  font-size: 1em;
+}
+section.slide.left > *, .left > * {
+  text-align: left;
+}
+.reveal div.owl {
+  background-size: 65%;
+}
+.owl p, .owl h1 {
+
+  -webkit-text-stroke-width: 1.1pt;
+-webkit-text-stroke-color: #fff;
+  font-weight: 700;
+}
+
+span.four-em {
+  width: 4em;
+}
+
+.green-box {
+  background-color: #afa;
+}
+.red-box {
+  background-color: #faa;
+}
+.yellow-box {
+  background-color: #ff0;
+}
+
+.reveal div.fobos-bg {
+  background-size: 45%;
+}
+
+.reveal div.heartbleed-bg {
+  background-size: auto;
+  background-position: 90% 10%;
+}
+
+.reveal div.heartbleed1 {
+  background-size: 50%;
+  background-position: top center;
+}
+
+.reveal div.heartbleed2 {
+  background-size: 50%;
+  background-position: bottom center;
+}
+
+.reveal .heartbleed1 h1, .reveal .heartbleed2 h1 {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.reveal .fobos-bg p, .heartbleed-bg p {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.reveal .debruijn img {
+  border: none;
+  zoom: 2;
+}
+
+.reveal .left-column {
+  width: 45%;
+  float: left;
+}
+
+.reveal .right-column {
+  width: 45%;
+  float: right;
+}
+
+.reveal .background {
+  position: absolute;
+  left: 85%;
+  top: 15%;
+  background-color: rgba(0.2,0.2,0.2,1)
+}

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/maxxk.css" id="theme">
+  <link rel="stylesheet" href="additional.css"/>
+  <link rel="stylesheet" href="reveal.js/css/highlight-github.css"/>
+  <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+  <script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'reveal.js/css/print/pdf.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<style type="text/css">.reveal pre code{white-space: pre; font-size: 1.5em; line-height: 1.3;}
+.reveal abbr { border-bottom: 0.1pt dashed blue;}
+</style>
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="методы-приближения-функций" class="slide level1">
+<h1>Методы приближения функций</h1>
+<h2 id="семестр-6">Семестр 6</h2>
+<h2 id="задачи">Задачи</h2>
+<h3 id="решение-линейной-системы-mpi">Решение линейной системы — MPI</h3>
+<h3 id="приближение-функции-одной-переменной">Приближение функции одной переменной</h3>
+<h3 id="приближение-функции-нескольких-переменных">Приближение функции нескольких переменных</h3>
+<h2 id="введение-в-mpi">Введение в MPI</h2>
+<p><a href="https://maxxk.github.io/programming-semester-6/" class="uri">https://maxxk.github.io/programming-semester-6/</a></p>
+</section>
+<section id="задача-1" class="slide level1">
+<h1>Задача 1</h1>
+<h2 id="решение-линейной-системы-mpi-1">Решение линейной системы — MPI</h2>
+<p>— метод решения линейной системы (обращения матрицы), с которым вы работали в предыдущем семестре, необходимо адаптировать для исполнения в системах с распределённой памятью с использованием стандарта MPI (о нём — чуть позже).</p>
+<p>Требования по ускорению такие же, как и для версии на Pthreads.</p>
+<p>Добавляется дополнительное требование на пересылки данных между процессами: не более O(n) пересылок, объём каждой — не более O(n). Про пересылки — тоже чуть позже.</p>
+<p>Матрица должна быть распределена между процессами. Если процессов больше одного, ни один процесс не должен выделять память под всю матрицу (или под всю обратную). Использование памяти для P процессов должно быть <span class="math inline">\(n^2/P + O(n)\)</span> для решения линейной системы и <span class="math inline">\(2n^2/P + O(n)\)</span> для обращения матрицы.</p>
+</section>
+<section id="задача-2" class="slide level1">
+<h1>Задача 2</h1>
+<h2 id="приближение-функции-одной-переменной-1">Приближение функции одной переменной</h2>
+<p>— реализация двух методов и графического интерфейса к ним (на основе заготовки).<br />
+<img src="images/task2-Bigushev.png" alt="" /></p>
+</section>
+<section id="задача-3" class="slide level1">
+<h1>Задача 3</h1>
+<h2 id="приближение-функции-нескольких-переменных-1">Приближение функции нескольких переменных</h2>
+<p>— реализация двух методов (или одного — метода конечных элементов) и графического интерфейса к ним (на основе той же заготовки).<br />
+<img src="images/task3-Bigushev.png" alt="" /></p>
+</section>
+<section id="зачёт" class="slide level1">
+<h1>Зачёт</h1>
+<p>— по тому же принципу, что и в предыдущем семестре.</p>
+<ul>
+<li class="fragment">3 задачи = допуск к теоретическому зачёту.</li>
+<li class="fragment">Теория сдаётся письменно, ~1.5 часа на 2.5 вопроса.</li>
+<li class="fragment">Возможен досрочный теоретический зачёт, но к нему нужно сдать 3 задачи.</li>
+<li class="fragment">В начале зачётной недели — первый теоретический зачёт.</li>
+<li class="fragment">После него — два практических зачёта по 1.5 часа для тех, кто не сдал 3 задачи.</li>
+<li class="fragment">Если вы не сдали задачи за 2 практических зачёта, следующая попытка — на пересдаче.</li>
+<li class="fragment">В конце зачётной недели — второй теоретический зачёт.</li>
+<li class="fragment">Если вы не сдали теорию со второго раза, следующая попытка — на пересдаче.</li>
+</ul>
+</section>
+<section id="литература" class="slide level1">
+<h1>Литература</h1>
+<h2 id="теория-по-задачам-23-и-для-зачёта">Теория по задачам 2,3 и для зачёта</h2>
+<ol type="1">
+<li class="fragment">К. Ю. Богачев. Практикум на ЭВМ. Методы приближений функций.</li>
+</ol>
+<h2 id="mpi">MPI</h2>
+<ol start="2" type="1">
+<li class="fragment">К. Ю. Богачев. Основы параллельного программирования (MPI).</li>
+<li class="fragment">(англ.) <a href="http://mpitutorial.com/tutorials/" class="uri">http://mpitutorial.com/tutorials/</a></li>
+<li class="fragment">Наша «краткая шпаргалка» на основе, в том числе, п.3: <a href="https://maxxk.github.io/programming-semester-6/mpi-cheatsheet" class="uri">https://maxxk.github.io/programming-semester-6/mpi-cheatsheet</a></li>
+</ol>
+</section>
+<section id="общая-и-распределённая-память" class="slide level1">
+<h1>Общая и распределённая память</h1>
+<p>Современные суперкомпьютеры выглядят приблизительно так:<br />
+<img src="images/IBM_Blue_Gene_P_supercomputer.jpg" alt="IBM&#39;s Blue Gene/P supercomputer at Argonne National Laboratory runs over 250,000 processors using normal data center air conditioning, grouped in 72 racks/cabinets connected by a high-speed optical network. This image was originally posted to Flickr by Argonne National Laboratory at http://flickr.com/photos/35734278@N05/3323018571. It was reviewed on 4 April 2009 by the FlickreviewR robot and was confirmed to be licensed under the terms of the cc-by-sa-2.0." /></p>
+</section>
+<section id="общая-и-распределённая-память-1" class="slide level1">
+<h1>Общая и распределённая память</h1>
+<p>На фотографии на предыдущем слайде — IBM Blue Gene/P. Он составлен из 72 стоек. В каждой стойке — 16 блейд-серверов, на каждом сервере — несколько процессоров, у каждого из которых — 8 или больше ядер.</p>
+<p><strong>Ядра</strong> одного процессора имеют быстрый доступ к одному блоку памяти.</p>
+<p>Несколько процессоров образуют <abbr title="Узел с неоднородным доступом к памяти, non-uniform memory access"><strong>NUMA-узел</strong></abbr> — в несколько раз более медленный доступ к участкам памяти, которые принадлежат другим процессорам, но с точки зрения программиста это можно назвать общей памятью (могут работать, например, программы использующие pthreads).</p>
+<p>NUMA-узлы связаны <abbr title="тот или иной метод высокоскоростной связи между узлами суперкомпьютера">интерконнектом</abbr>. Интерконнект можно считать высокоскоростной сетью — но прямого доступа к памяти соседнего узла интерконнект не предоставляет.</p>
+</section>
+<section id="mpi-1" class="slide level1">
+<h1>MPI</h1>
+<p>На машинах с распределённой памятью части программы, работающие на разных узлах, передают данные с использованием обмена сообщениями.</p>
+<p>На настоящее время стандартом для разработки программ для машин с распределённой памятью является <abbr title="Message Passing Interface">MPI</abbr>, дословно — «интерфейс передачи сообщений».</p>
+</section>
+<section id="как-работает-mpi" class="slide level1">
+<h1>Как работает MPI</h1>
+<h2 id="pthreads">Pthreads</h2>
+<ol type="1">
+<li class="fragment">Запускается одна копия программы</li>
+<li class="fragment">Программа с помощью <code>pthread_create</code> создаёт несколько потоков с заданными аргументами и управляет их выполнением.</li>
+</ol>
+<h2 id="mpi-2">MPI</h2>
+<ol type="1">
+<li class="fragment">Запускается сразу P процессов (копий) программы, возможно, на разных узлах кластера. Другие копии программы в процессе выполнения запустить нельзя.</li>
+<li class="fragment">Копиям передаётся общее число процессов и номер текущего процесса, кроме этого они ничем* не отличаются.</li>
+</ol>
+</section>
+<section id="сборка-программ" class="slide level1">
+<h1>Сборка программ</h1>
+<p>Для работы с MPI во все файлы с исходным кодом, в которых используются функции или типы данных MPI, должен быть включён заголовочный файл <code>mpi.h</code>:</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &lt;mpi.h&gt;</span></code></pre></div>
+<p>Для компиляции используются обёртки над <code>gcc</code> и <code>g++</code> — <code>mpicc</code> и <code>mpicxx</code> соответственно. Вместо <code>ld</code> можно использовать <code>mpicc</code>. Командная строка для компиляции отличается от той, которую вы использовали ранее, <strong>только</strong> тем, что вместо <code>gcc</code> используется <code>mpicc</code> и т.п., все ключи сохраняют своё значение.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">gcc</span> -g -lm
+<span class="kw">mpicc</span> -g -lm myprog.c -o myprog
+
+<span class="kw">gcc</span> -O3 myprog.c
+<span class="kw">mpicc</span> -O3 myprog.c</code></pre></div>
+</section>
+<section id="выполнение-программ" class="slide level1">
+<h1>Выполнение программ</h1>
+<p>Запуск осуществляется с использованием команды <code>mpirun</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mpirun</span> -np количество_процессов имя_программы аргументы_программы</code></pre></div>
+<p>например:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mpirun</span> -np 4 ./a.out --formula 2 -n 2000</code></pre></div>
+<p>Аргументы <code>--formula 2</code> и <code>-n 2000</code> передаются в вашу программу (<code>./a.out</code>), аргумент <code>-np 4</code> не передаётся.</p>
+</section>
+<section id="инициализация-и-завершение" class="slide level1">
+<h1>Инициализация и завершение</h1>
+<p>В начале программы, работающей с MPI, необходимо инициализировать библиотеку MPI с помощью функции <code>MPI_Init</code>; перед завершением — вызвать функцию завершения <code>MPI_Finalize</code>.</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="dt">int</span> MPI_Init(<span class="dt">int</span> *argc, <span class="dt">char</span>*** argv);
+<span class="dt">int</span> MPI_Finalize();</code></pre></div>
+<p>Аргументы <code>argc</code> и <code>argv</code> функции <code>MPI_Init</code> должны быть указателями на соответствующие аргументы функции <code>main</code>, см. пример далее. Функция <code>MPI_Finalize</code> не содержит аргументов.</p>
+</section>
+<section id="номер-и-общее-количество-процессов" class="slide level1">
+<h1>Номер и общее количество процессов</h1>
+<p>Количество запущенных процессов не должно передаваться в программу в качестве отдельного аргумента командной строки, но определяется с использованием функций <code>MPI_Comm_size</code>. Номер, который автоматически присваивается процессу, может быть получен с помощью функции <code>MPI_Comm_rank</code>. Пример: при запуске <code>p</code> процессов, в каждом из результат выполнения <code>MPI_Comm_size</code> равен <code>p</code>, а результат выполнения <code>MPI_Comm_rank</code> — числам от <code>0</code> до <code>p-1</code>. Нулевой процесс обычно для простоты считают «главным» и выполняют из него весь ввод-вывод (при разработке допускается использовать отладочный <code>printf</code>-вывод во всех процессах).</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="dt">int</span> MPI_Comm_rank(MPI_Comm comm, <span class="dt">int</span> *rank);
+<span class="dt">int</span> MPI_Comm_size(MPI_Comm comm, <span class="dt">int</span> *total_procs);</code></pre></div>
+<!--* -->
+<p>Далее под «номером процесса» будем понимать число, которое возвращает в переменной <code>rank</code> вызов функции <code>MPI_Comm_rank</code>.</p>
+</section>
+<section id="минимальный-пример" class="slide level1">
+<h1>Минимальный пример</h1>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &lt;stdio.h&gt;</span>
+<span class="ot">#include &lt;mpi.h&gt;</span>
+
+<span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> **argv) {
+  <span class="dt">int</span> rank, size;
+
+  MPI_Init(&amp;argc, &amp;argv);
+  MPI_Comm_rank(MPI_COMM_WORLD, &amp;rank);
+  MPI_Comm_size(MPI_COMM_WORLD, &amp;size);
+  printf(<span class="st">&quot;Process #%d of %d</span><span class="ch">\n</span><span class="st">&quot;</span>, rank, size);
+  MPI_Finalize();
+  <span class="kw">return</span> <span class="dv">0</span>;
+}</code></pre></div>
+</section>
+<section id="задание-к-следующему-занятию" class="slide level1">
+<h1>Задание к следующему занятию</h1>
+<ol type="1">
+<li class="fragment">В код программы добавить инициализацию и завершение MPI, получение общего количества и текущего номера процесса.</li>
+<li class="fragment">Подготовить схему распределения матрицы по <span class="math inline">\(P\)</span> процессам и обмена данными между процессами, с использованием которой ваша программа будет удовлетворять требованиям по ускорению, используемой памяти и пересылкам.</li>
+</ol>
+</section>
+    </div>
+  </div>
+
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,         // Display controls in the bottom right corner
+        progress: true,         // Display a presentation progress bar
+        history: true,          // Push each slide change to the browser history
+        fragments: true,
+        center: true,                       // Vertical centering of slides
+        maxScale: 1.5,                  // Bounds for smallest/largest possible content scale
+        slideNumber: "c / t",                // Display the page number of the current slide
+        theme: 'maxxk', // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+        math: {
+          //mathjax: 'reveal.js/../MathJax-2.5.3/MathJax.js',
+          config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+        },
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/math/math.js', async: true },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    </body>
+</html>

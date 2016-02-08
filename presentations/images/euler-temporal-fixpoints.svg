@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 20001102//EN'
+'http://www.w3.org/TR/2000/CR-SVG-20001102/DTD/svg-20001102.dtd' [
+]>
+<svg width='600' height='500' x='0' y='0' xmlns='http://www.w3.org/2000/svg'>
+	<title>BioVenn - a web application for the comparison and visualization of biological lists using area-proportional Venn diagrams</title>
+	<desc>
+		<!-- Created by BioVenn (C) 2007 - 2015 Tim Hulsen //-->
+	</desc>
+	<script>
+	<![CDATA[
+	var Root=document.documentElement
+	standardize(Root)
+	function standardize(R){
+		var Attr={
+			'onmouseup':'add(evt)',
+			'onmousedown':'grab(evt)',
+			'onmousemove':null
+		}
+		assignAttr(R,Attr)
+	}
+	function grab(evt){
+		var O=evt.target
+		var Attr={
+			'onmousemove':'slide(evt,"'+O.id+'")',
+			'onmouseup':'standardize(Root)'
+		}
+		assignAttr(Root,Attr)
+	}
+	function slide(evt,id){
+		if(id!='rect'&&id!='circlex'&&id!='circley'&&id!='circlez'){
+			var o=document.getElementById(id)
+			o.setAttributeNS(null, 'x', evt.clientX)
+			o.setAttributeNS(null, 'y', evt.clientY)
+		}
+	}
+	function assignAttr(O,A){
+		for (i in A) O.setAttributeNS(null,i, A[i])
+	}
+	]]>
+	</script>
+	<rect id='rect' x='0' y='0' width='600' height='500' style='fill:#FFFFFF' />
+	<circle id='circlex' r='83.3313162427' cx='286.20035080878' cy='163.80140748024' style='fill:#FF0000;opacity:.5' />
+	<circle id='circley' r='204.11920438911' cx='257.42114329163' cy='281.11070437335' style='fill:#00FF00;opacity:.5' />
+	<circle id='circlez' r='117.84827760083' cx='449.63767164307' cy='281.11070437335' style='fill:#0000FF;opacity:.5' />
+	<text id='title' x='250' y='24.4' font-size='24' font-family='XITS Math' style='fill:#000000'></text>
+	<text id='subtitle' x='250' y='51.2' font-size='18' font-family='Courier New bold' font-weight='bold' style='fill:#000000'></text>
+	<text id='titlex' x='275.40035080878' y='163.80140748024' font-size='36' font-family='XITS MAth' style='fill:#000000'>¬p</text>
+	<text id='titley' x='217.82114329163' y='281.11070437335' font-size='36' font-family='XITS MAth' style='fill:#000000'>∃◇(¬p)</text>
+	<text id='titlez' x='392.03767164307' y='281.11070437335' font-size='30' font-family='XITS MAth' style='fill:#000000'>I (исходные)</text>
+</svg>

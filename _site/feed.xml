@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Формальные модели вычислений</title>
+    <description> М.А. Кривчиков, 2015 г. </description>
+    <link>https://maxxk.github.io/formal-models-2015//</link>
+    <atom:link href="https://maxxk.github.io/formal-models-2015//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 06 Oct 2015 16:05:47 +0300</pubDate>
+    <lastBuildDate>Tue, 06 Oct 2015 16:05:47 +0300</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+  </channel>
+</rss>

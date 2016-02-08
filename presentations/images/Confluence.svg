@@ -1,0 +1,64 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" width="4.1in" height="3.7in" viewBox="2818 1937 4874 4456">
+<g style="stroke-width:.025in; stroke:black; fill:none">
+<polyline points="3307,2362
+5196,2362
+6582,2362
+" style="stroke:#000000;stroke-width:48;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<polygon points="6543 2488
+7047 2362
+6543 2236
+6543 2488
+
+" style="stroke:#000000;stroke-width:48;
+fill:#000000;"/>
+<polyline points="3307,2362
+3307,5637
+" style="stroke:#000000;stroke-width:48;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<polygon points="3181 5598
+3307 6102
+3433 5598
+3181 5598
+
+" style="stroke:#000000;stroke-width:48;
+fill:#000000;"/>
+<polyline points="3307,6141
+6582,6141
+" style="stroke:#000000;stroke-width:48;
+stroke-linejoin:miter; stroke-linecap:butt;
+stroke-dasharray:104 104;"/>
+<polygon points="6543 6267
+7047 6141
+6543 6015
+6543 6267
+
+" style="stroke:#000000;stroke-width:48;
+fill:#000000;"/>
+<polyline points="7086,2362
+7086,5637
+" style="stroke:#000000;stroke-width:48;
+stroke-linejoin:miter; stroke-linecap:butt;
+stroke-dasharray:104 104;"/>
+<polygon points="6960 5598
+7086 6102
+7212 5598
+6960 5598
+
+" style="stroke:#000000;stroke-width:48;
+fill:#000000;"/>
+<text xml:space="preserve" x="2834" y="6377" stroke="#000000" fill="#000000"  font-family="Times" font-style="normal" font-weight="bold" font-size="500" text-anchor="start">c</text>
+<text xml:space="preserve" x="7322" y="6377" stroke="#000000" fill="#000000"  font-family="Times" font-style="normal" font-weight="bold" font-size="500" text-anchor="start">d</text>
+<text xml:space="preserve" x="2834" y="2362" stroke="#000000" fill="#000000"  font-family="Times" font-style="normal" font-weight="bold" font-size="500" text-anchor="start">a</text>
+<text xml:space="preserve" x="7322" y="2362" stroke="#000000" fill="#000000"  font-family="Times" font-style="normal" font-weight="bold" font-size="500" text-anchor="start">b</text>
+<text xml:space="preserve" x="3543" y="4251" stroke="#000000" fill="#000000"  font-family="Times" font-style="normal" font-weight="bold" font-size="500" text-anchor="start">*</text>
+<text xml:space="preserve" x="7322" y="4251" stroke="#000000" fill="#000000"  font-family="Times" font-style="normal" font-weight="bold" font-size="500" text-anchor="start">*</text>
+<text xml:space="preserve" x="4960" y="2362" stroke="#000000" fill="#000000"  font-family="Times" font-style="normal" font-weight="bold" font-size="500" text-anchor="start">*</text>
+<text xml:space="preserve" x="4960" y="6141" stroke="#000000" fill="#000000"  font-family="Times" font-style="normal" font-weight="bold" font-size="500" text-anchor="start">*</text>
+</g>
+</svg>
