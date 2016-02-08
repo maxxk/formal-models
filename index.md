@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-[Краткая справка по MPI](MPI-cheatsheet.md)
+[Краткая справка по MPI](MPI-cheatsheet)
 
 # Презентации
 1. Задачи шестого семестра. Введение в MPI
