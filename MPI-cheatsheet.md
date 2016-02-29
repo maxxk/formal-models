@@ -78,8 +78,8 @@ int MPI_Comm_size(MPI_Comm comm, int *total_procs);
 Программа в каждом процессе получает и выводит общее количество и номер текущего процесса.
 
 ```c
-#include <stdio.h>
 #include <mpi.h>
+#include <stdio.h>
 
 int main(int argc, char **argv) {
   int rank, size;

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/maxxk.css" id="theme">
+  <link rel="stylesheet" href="additional.css"/>
+  <link rel="stylesheet" href="reveal.js/css/highlight-github.css"/>
+  <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+  <script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'reveal.js/css/print/pdf.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<style type="text/css">.reveal pre code{white-space: pre; font-size: 1.5em; line-height: 1.3;}
+.reveal abbr { border-bottom: 0.1pt dashed blue;}
+</style>
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="методы-приближения-функций" class="slide level1">
+<h1>Методы приближения функций</h1>
+<h2 id="mpi">MPI</h2>
+<h3 id="разбиение-матрицы">Разбиение матрицы</h3>
+<h3 id="пересылка-матрицы">Пересылка матрицы</h3>
+<p><a href="http://maxxk.github.io/programming-semester-6/" class="uri">http://maxxk.github.io/programming-semester-6/</a></p>
+<p><span style="font-size: small">Рекомендуется просматривать с использованием Firefox (в дисплейных классах) или Chrome</span></p>
+</section>
+<section id="разбиение-матрицы-1" class="slide level1">
+<h1>Разбиение матрицы</h1>
+<p>Матрицу между процессами можно делить по строкам или по столбцам.</p>
+<p>Обычно выгоднее всего с позиций распараллеливания делить таким образом, чтобы в той части программы, которая занимает <span class="math inline">\(O(n^3)\)</span> операций, внутренний цикл до <span class="math inline">\(n\)</span> выполнялся в одном процессе (т.е. параллельно выполняется цикл «второго уровня вложенности»).</p>
+<p>Как правило (методы Гаусса, Жордана, LU, QR и вращений-отражений), это применение преобразования к оставшейся части матрицы.</p>
+</section>
+<section id="разбиение-матрицы-2" class="slide level1">
+<h1>Разбиение матрицы</h1>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="kw">for</span> (<span class="dt">int</span> diag=<span class="dv">0</span>; diag &lt; n; diag++) {
+  <span class="co">// Здесь может потребоваться пересылка</span>
+  <span class="co">// Потом — вычисление какого-то параметра шага</span>
+  <span class="co">// Потом — ещё одна пересылка</span>
+  <span class="co">// Следующий цикл нужно распараллелить:</span>
+  <span class="kw">for</span> (<span class="dt">int</span> i = diag; i &lt; n; i++) {
+    <span class="co">// Следующий цикл должен выполняться на одном узле</span>
+    <span class="co">// (или не иметь точек синхронизации/пересылки для элементов)</span>
+    <span class="kw">for</span> (<span class="dt">int</span> k = diag; k &lt; n; k++) {
+      <span class="co">// ...</span>
+    }
+  }
+}</code></pre></div>
+</section>
+<section id="пересылка-матрицы-1" class="slide level1">
+<h1>Пересылка матрицы</h1>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="dt">int</span> MPI_Type_vector(<span class="dt">int</span> count,
+                   <span class="dt">int</span> blocklength,
+                   <span class="dt">int</span> stride,
+                   MPI_Datatype oldtype,
+                   MPI_Datatype *newtype)</code></pre></div>
+<dl>
+<dt class="fragment"><strong>count</strong></dt>
+<dd class="fragment">количество векторов (столбцов/строк в матрице)
+</dd>
+<dt class="fragment"><strong>blocklength</strong></dt>
+<dd class="fragment">длина вектора (матрицы)
+</dd>
+<dt class="fragment"><strong>stride</strong></dt>
+<dd class="fragment">отступ между началом последовательных блоков
+</dd>
+<dt class="fragment"><strong>oldtype</strong></dt>
+<dd class="fragment">тип элементов вектора
+</dd>
+<dt class="fragment"><strong>newtype</strong></dt>
+<dd class="fragment">указатель на новый тип
+</dd>
+</dl>
+</section>
+<section id="использование-mpi_type_vector" class="slide level1">
+<h1>Использование MPI_Type_vector</h1>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c">MPI_Datatype matrix;
+
+MPI_Type_vector(N/P, <span class="dv">1</span>, N*(P<span class="dv">-1</span>)/P <span class="co">/*  или P-1 */</span>,
+  MPI_DOUBLE, &amp;matrix)
+
+<span class="co">// Разделить строку между процессами</span>
+MPI_Scatter(..., matrix, ...)</code></pre></div>
+<p>Обратите внимание, что здесь предполагается, что размер матрицы нацело делится на количество процессов!<br />
+Если не делится нацело — нужно выделять дополнительную память и считать размер как N/P+1.</p>
+</section>
+<section id="пересылка-матрицы-разбитой-по-столбцу" class="slide level1">
+<h1>Пересылка матрицы, разбитой по столбцу</h1>
+<p>N — размер матрицы, P — количество процессов; для использования нужно изменить код, чтобы учитывался случай, когда N не делится нацело на P.</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c">MPI_Datatype matrix;
+<span class="dt">double</span> *matrix_buffer = calloc(N*N/P, <span class="kw">sizeof</span>(<span class="dt">double</span>));
+<span class="co">// только в 0-м процессе</span>
+<span class="dt">double</span> *row_buffer = calloc(N, <span class="kw">sizeof</span>(<span class="dt">double</span>));
+MPI_Type_vector(N/P, <span class="dv">1</span>, P<span class="dv">-1</span>, MPI_DOUBLE, &amp;matrix);
+<span class="co">// ...</span>
+<span class="kw">for</span> (<span class="dt">int</span> row=<span class="dv">0</span>; row &lt; N; row++) {
+  <span class="co">// считать/сгенерировать</span>
+  <span class="co">// строку row размера N в row_buffer</span>
+  read_row(N, row, row_buffer);
+  <span class="co">// считать из row_buffer части строки через P элементов</span>
+  <span class="co">// записать в matrix_buffer подряд</span>
+  MPI_Scatter(row_buffer, N/P, matrix,
+    matrix_buffer, N/P, MPI_DOUBLE,
+    <span class="dv">0</span>, MPI_COMM_WORLD);
+}</code></pre></div>
+</section>
+<section id="последовательный-вывод" class="slide level1">
+<h1>Последовательный вывод</h1>
+<p>Иногда для отладки требуется вывести на экран части матрицы последовательно для каждого процесса. Для этого можно использовать следующую схему:</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#ifdef DEBUG </span><span class="co">// не использовать при компиляции без -DDEBUG</span>
+<span class="co">// size — количество процессов</span>
+<span class="co">// rank — номер процесса</span>
+<span class="kw">for</span> (<span class="dt">int</span> pproc = <span class="dv">0</span>; pproc &lt; size; pproc++) {
+  <span class="kw">if</span> (rank == pproc) {
+    printf(...); <span class="co">// вывести на экран</span>
+  }
+  MPI_Barrier(MPI_COMM_WORLD);
+}
+<span class="ot">#endif</span></code></pre></div>
+<p>Компилировать с ключом <code>-DDEBUG</code>, чтобы код был активен</p>
+</section>
+<section id="отладка-разбиения-матрицы" class="slide level1">
+<h1>Отладка разбиения матрицы</h1>
+<p>Проверьте для чётных и нечётных N, P; для взаимно-простых N и P. Используйте формулу <span class="math inline">\(a_{ij} = i·n+j\)</span>, тогда значение каждого элемента матрицы — его номер. Пример (N = 5, P = 3):<br />
+Матрица:<br />
+<span class="math display">\[
+\pmatrix{
+  0 &amp; 1 &amp; 2 &amp; 3 &amp; 4 \\
+  5 &amp; 6 &amp; 7 &amp; 8 &amp; 9 \\
+  10 &amp; 11 &amp; 12 &amp; 13 &amp; 14 \\
+  15 &amp; 16 &amp; 17 &amp; 18 &amp; 19 \\
+  20 &amp; 21 &amp; 22 &amp; 23 &amp; 24
+}
+\]</span><br />
+По процессам:<br />
+<span class="math display">\[
+\matrix{
+  0 &amp; 1 &amp; 2 \\
+\pmatrix{
+  0 &amp; 3 \\ 5 &amp; 8 \\ 10 &amp; 13 \\ 15 &amp; 18 \\ 20 &amp; 23
+} &amp;
+\pmatrix {
+  1 &amp; 4 \\ 6 &amp; 9 \\ 11 &amp; 14 \\ 16 &amp; 18 \\ 21 &amp; 24
+} &amp;
+\pmatrix{
+  2 \\ 7 \\ 12 \\ 17 \\ 22
+}
+}
+\]</span></p>
+</section>
+<section id="правая-часть" class="slide level1">
+<h1>Правая часть</h1>
+<ul>
+<li class="fragment">для решения линейной системы, если разбиение по столбцам, проще всего хранить и обрабатывать правую часть в одном из процессов (последнем: <code>rank == size -1</code>);</li>
+<li class="fragment">для обращения матрицы можно разбивать так же, как и исходную, в некоторых случаях можно транспонировать разбиение (по строкам, а не по столбцам).</li>
+</ul>
+</section>
+<section id="следующие-шаги" class="slide level1">
+<h1>Следующие шаги</h1>
+<ol type="1">
+<li class="fragment">Задать диагональную матрицу, для неё реализовать и отладить норму невязки.</li>
+<li class="fragment">Задать верхнюю треугольную матрицу, реализовать обратный ход.</li>
+<li class="fragment">Реализовать приведение к треугольному виду согласно своему методу :)</li>
+</ol>
+</section>
+    </div>
+  </div>
+
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,         // Display controls in the bottom right corner
+        progress: true,         // Display a presentation progress bar
+        history: true,          // Push each slide change to the browser history
+        fragments: true,
+        center: true,                       // Vertical centering of slides
+        maxScale: 1.5,                  // Bounds for smallest/largest possible content scale
+        slideNumber: "c / t",                // Display the page number of the current slide
+        theme: 'maxxk', // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+        math: {
+          mathjax: 'reveal.js/../MathJax-2.5.3/MathJax.js',
+          config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+        },
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/math/math.js', async: true },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    </body>
+</html>
