@@ -26,3 +26,6 @@ layout: default
 
 ## Пересылка сообщений в рамках одного процесса
 [презентация — html](presentations/04-MPI-send-to-self.html)
+
+## Постановка задачи линейной интерполяции. Базовые требования к программе.
+[презентация — html](presentations/05-Interpolation-Start.html)
