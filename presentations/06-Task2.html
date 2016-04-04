@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/maxxk.css" id="theme">
+  <link rel="stylesheet" href="additional.css"/>
+  <link rel="stylesheet" href="reveal.js/css/highlight-github.css"/>
+  <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+  <script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'reveal.js/css/print/pdf.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+<style type="text/css">.reveal pre code{white-space: pre; font-size: 1.5em; line-height: 1.3;}
+.reveal abbr { border-bottom: 0.1pt dashed blue;}
+</style>
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="методы-приближения-функций" class="slide level1">
+<h1>Методы приближения функций</h1>
+<h2 id="как-работать-с-заготовкой-на-qt">как работать с заготовкой на Qt</h2>
+<h2 id="пункты-меню">пункты меню</h2>
+<h2 id="ввод-с-клавиатуры">ввод с клавиатуры</h2>
+<h2 id="рисование-с-использованием-qpainter">рисование с использованием QPainter</h2>
+<style>
+.twocolumn {
+  -moz-column-count: 2;
+  -webkit-column-count: 2;
+}
+.small { font-size: small !important; }
+.smaller { font-size: 0.8em !important; }
+img { width: 95%; border: none; }
+</style>
+<p><a href="https://maxxk.github.io/programming-semester-6/" class="uri">https://maxxk.github.io/programming-semester-6/</a></p>
+</section>
+<section id="qt" class="slide level1">
+<h1>Qt</h1>
+<p>Скачать Qt 4: <a href="http://download.qt.io/archive/qt/4.8/4.8.6/" class="uri">http://download.qt.io/archive/qt/4.8/4.8.6/</a></p>
+<p>При установке проверить, что отмечен Qt Creator, он может открыть файл проекта <code>basic_graph.pro</code></p>
+<p>Проще компилировать в терминале. Вместо <code>Makefile</code> используется файл проекта:</p>
+<pre class="make"><code>HEADERS       = window.h
+SOURCES       = main.cpp \
+              window.cpp</code></pre>
+<p>Сборка (в каталоге с программой):</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">qmake</span>        <span class="co"># qmake-qt4 в дисплейных классах</span>
+             <span class="co"># Для отладки: qmake CONFIG+=debug</span>
+<span class="kw">make</span></code></pre></div>
+</section>
+<section id="c-на-уровне-c-с-классами-i" class="slide level1">
+<h1>C++ (на уровне «C с классами») I</h1>
+<h3 id="window.h"><code>window.h</code></h3>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="kw">class</span> Window : <span class="kw">public</span> <span class="ot">QWidget</span> {
+
+<span class="kw">private</span>: <span class="co">// внутренние поля</span>
+  <span class="dt">int</span> func_id, n; <span class="co">// переменная-член</span>
+  <span class="dt">double</span> *x, *f, *params; <span class="co">// параметры программы</span>
+  <span class="dt">int</span> prepare(); <span class="co">// функция подготовки для приближения</span>
+<span class="kw">public</span>: <span class="co">// общедоступные поля</span>
+  Window (<span class="ot">QWidget</span> *parent); <span class="co">// конструктор</span>
+  <span class="ot">QSize</span> minimumSizeHint () <span class="dt">const</span>; <span class="co">// функция-член</span>
+  <span class="co">// const = не меняет состояния переменных-членов класса</span>
+}</code></pre></div>
+</section>
+<section id="c-на-уровне-c-с-классами-ii" class="slide level1">
+<h1>C++ (на уровне «C с классами») II</h1>
+<h3 id="window.cpp"><code>window.cpp</code></h3>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="dt">static</span> <span class="co">// статическая функция = не член класса</span>
+<span class="dt">double</span> f_0 (<span class="dt">double</span> x) {
+<span class="co">// return f[0]; // ERROR - нет доступа к переменной-члену f</span>
+<span class="kw">return</span> x;
+}
+<span class="co">// Конструктор инициализирует переменные</span>
+Window::Window (<span class="ot">QWidget</span> *parent)
+: <span class="ot">QWidget</span> (parent)
+{
+  a = DEFAULT_A;
+  x = (<span class="dt">double</span>*)malloc(n * <span class="kw">sizeof</span>(<span class="dt">double</span>));
+}</code></pre></div>
+</section>
+<section id="c-на-уровне-c-с-классами-iii" class="slide level1">
+<h1>C++ (на уровне «C с классами») III</h1>
+<h3 id="window.cpp-1"><code>window.cpp</code></h3>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="co">// Функция-член</span>
+<span class="dt">void</span> Window::change_func ()
+{
+  <span class="co">// есть доступ к членам класса</span>
+  func_id = (func_id + <span class="dv">1</span>) % <span class="dv">2</span>;
+
+  <span class="co">// Warning: если определить локальную переменную</span>
+  <span class="co">// с именем, совпадающим с именем члена класса</span>
+  <span class="co">// использоваться будет локальная переменная</span>
+  <span class="dt">double</span> func_id = <span class="fl">-1.</span>; <span class="co">// не делайте так</span>
+
+  func_id == <span class="fl">-1.</span>;
+
+  <span class="co">// доступ к члену класса в этом случае:</span>
+  <span class="kw">this</span>-&gt;func_id
+}</code></pre></div>
+</section>
+<section id="меню-и-горячие-клавиши" class="slide level1">
+<h1>Меню и горячие клавиши</h1>
+<h3 id="window.h-1"><code>window.h</code></h3>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="kw">public</span> <span class="kw">slots</span>:  <span class="co">// специфично для Qt</span>
+<span class="dt">void</span> change_func (); <span class="co">// тип void, без аргументов</span></code></pre></div>
+<h3 id="main.cpp"><code>main.cpp</code></h3>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">action = tool_bar-&gt;addAction (<span class="st">&quot;Change function&quot;</span>,
+  graph_area, <span class="kw">SLOT</span> (change_func ()));
+action-&gt;setShortcut (<span class="ot">QString</span> (<span class="st">&quot;Ctrl+C&quot;</span>));</code></pre></div>
+<h3 id="window.cpp-2"><code>window.cpp</code></h3>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="co">// обработчик</span>
+<span class="dt">void</span> Window::change_func () {
+  func_id = (func_id + <span class="dv">1</span>) % <span class="dv">2</span>;
+  update ();
+}</code></pre></div>
+</section>
+<section id="ввод-с-клавиатуры-i" class="slide level1">
+<h1>Ввод с клавиатуры I</h1>
+<h3 id="консольный">(консольный)</h3>
+<p>С использованием стандартных функций C:</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="ot">#include &lt;cstdio&gt;  </span><span class="co">// вместо &lt;stdio.h&gt;</span>
+<span class="ot">#include &lt;cstdlib&gt; </span><span class="co">// вместо &lt;stdlib.h&gt;</span>
+<span class="co">// ...</span>
+<span class="dt">double</span> x;
+<span class="kw">if</span> (scanf(<span class="st">&quot;</span><span class="ch">%lf</span><span class="st">&quot;</span>, &amp;x) != <span class="dv">1</span>) {
+<span class="co">/* ... */</span>
+}</code></pre></div>
+<p>С использованием стандартных потоков C++:</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="ot">#include &lt;iostream&gt;</span>
+<span class="co">// ...</span>
+<span class="dt">double</span> x;
+std::cin &gt;&gt; x;</code></pre></div>
+</section>
+<section id="ввод-с-клавиатуры-ii" class="slide level1">
+<h1>Ввод с клавиатуры II</h1>
+<h3 id="графический-httpdoc.qt.ioqt-4.8qinputdialog.htmldetails">(графический) <a href="http://doc.qt.io/qt-4.8/qinputdialog.html#details" class="uri">http://doc.qt.io/qt-4.8/qinputdialog.html#details</a></h3>
+<p>С использованием диалога (в других программах лучше не использовать — раздражает пользователя, по-хорошему нужно просто держать рядом с основным окном общий диалог со всеми параметрами и кнопкой «обновить»)</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="ot">#include &lt;QInputDialog&gt;</span>
+
+<span class="dt">bool</span> ok;
+<span class="co">// есть ещё ::getInt, ::getText, ::getItem</span>
+<span class="dt">double</span> d = <span class="ot">QInputDialog::</span>getDouble(<span class="kw">this</span>,
+<span class="st">&quot;QInputDialog::getDouble()&quot;</span>, <span class="co">// заголовок диалога</span>
+<span class="st">&quot;Amount:&quot;</span>,                   <span class="co">// подпись</span>
+<span class="fl">37.56</span>, <span class="dv">-10000</span>, <span class="dv">10000</span>, <span class="dv">2</span>, <span class="co">// default, min, max, decimal</span>
+&amp;ok);                    <span class="co">// нажал ли пользователь «ОК»</span>
+
+<span class="kw">if</span> (ok)
+    doubleLabel-&gt;setText(<span class="ot">QString</span>(<span class="st">&quot;$%1&quot;</span>).arg(d));</code></pre></div>
+</section>
+<section id="рисование-в-qpainter-i" class="slide level1">
+<h1>Рисование в QPainter I</h1>
+<h3 id="httpdoc.qt.ioqt-4.8qpainter.html"><a href="http://doc.qt.io/qt-4.8/qpainter.html" class="uri">http://doc.qt.io/qt-4.8/qpainter.html</a></h3>
+<p>Для перерисовки окна после обновления параметров вызывайте <code>update()</code>.</p>
+<p>Всё рисование выполняется в <code>Window::paintEvent</code>.</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">painter.setPen(<span class="st">&quot;black&quot;</span>); <span class="co">// установить цвет</span></code></pre></div>
+<p>Полный список цветов: <a href="http://doc.qt.io/qt-4.8/qcolor.html#setNamedColor" class="uri">http://doc.qt.io/qt-4.8/qcolor.html#setNamedColor</a></p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="co">// линия от (x1, y1) до (x2, y2)</span>
+<span class="co">// в текущей системе координат</span>
+painter.drawLine(<span class="ot">QPointF</span>(x1, y1), <span class="ot">QPointF</span>(x2, y2));</code></pre></div>
+<p>Для рисования можно использовать количество точек <code>width()</code> или <code>width()/2</code>, меньше точек — хуже картинка.</p>
+</section>
+<section id="рисование-в-qpainter-ii" class="slide level1">
+<h1>Рисование в QPainter II</h1>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="co">// сохранить систему координат</span>
+painter.save();
+
+<span class="co">// восстановить сохранённую систему</span>
+painter.restore();
+
+<span class="co">// написать текст</span>
+painter.drawText (<span class="co">/* x */</span> <span class="dv">0</span>, <span class="co">/* y */</span> <span class="dv">20</span>, <span class="st">&quot;Some text&quot;</span>);</code></pre></div>
+</section>
+<section id="замена-координат" class="slide level1">
+<h1>Замена координат</h1>
+<p>Исходная система координат</p>
+<p><img src="tikz-images/bd5e0a878649e21f9b5203519ee59e959a25927b.svg" /></p>
+</section>
+<section id="замена-координат-1" class="slide level1">
+<h1>Замена координат</h1>
+<p>масштабирование</p>
+<p><img src="tikz-images/11a89795266f148824c4a1f82e277f35028a7846.svg" /></p>
+</section>
+<section id="замена-координат-2" class="slide level1">
+<h1>Замена координат</h1>
+<p><code>painter.scale (width () / (b - a), -height () / (max_y - min_y));</code></p>
+<p><img src="tikz-images/72ea4ef8f4a9cef9475564663dd2bcd15cc64a5b.svg" /></p>
+</section>
+<section id="замена-координат-3" class="slide level1">
+<h1>Замена координат</h1>
+<p><code>painter.translate (-0.5 * (a + b), -0.5 * (min_y + max_y));</code><br />
+<code>(a, b)</code> и <code>(min_y, max_y)</code> задают ограничивающий прямоугольник <strong>отображаемой</strong> части графика</p>
+<p><img src="tikz-images/0afbbcc6d090712587f3a204e2f50d41834723da.svg" /></p>
+</section>
+    </div>
+  </div>
+
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,         // Display controls in the bottom right corner
+        progress: true,         // Display a presentation progress bar
+        history: true,          // Push each slide change to the browser history
+        fragments: true,
+        center: false,                       // Vertical centering of slides
+        maxScale: 1.5,                  // Bounds for smallest/largest possible content scale
+        slideNumber: "c / t",                // Display the page number of the current slide
+        theme: 'maxxk', // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+        math: {
+          mathjax: 'reveal.js/../MathJax-2.5.3/MathJax.js',
+          config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+        },
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/math/math.js', async: true },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    </body>
+</html>

@@ -29,3 +29,6 @@ layout: default
 
 ## Постановка задачи линейной интерполяции. Базовые требования к программе.
 [презентация — html](presentations/05-Interpolation-Start.html)
+
+## Рисование в Qt4
+[презентация — html](presentations/06-Task2.html)
