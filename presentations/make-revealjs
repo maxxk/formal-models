@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+input=$1
+pandoc -f markdown_github+tex_math_dollars+inline_code_attributes+header_attributes+auto_identifiers+startnum+definition_lists-ascii_identifiers+fancy_lists+fenced_code_attributes+markdown_in_html_blocks+simple_tables  -t revealjs  -s --template=my.revealjs  --slide-level=1 -V theme=maxxk -V css="reveal.js/css/highlight-github.css"  -V css="additional.css" -V slideNumber="c / t" --mathjax -o ${input%.*}.html $input
