@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/maxxk.css" id="theme">
+  <link rel="stylesheet" href="additional.css"/>
+  <link rel="stylesheet" href="reveal.js/css/highlight-github.css"/>
+  <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+  <script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'reveal.js/css/print/pdf.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="добрый-день-группа-312" class="slide level1">
+<h1>Добрый день, группа 312!</h1>
+<style type="text/css">
+div.sourceCode {
+  font-size: 1.2em;
+}
+section.slide > pre {
+  font-size: 0.8em;
+}
+
+.reveal pre {
+  width: 99%;
+}
+.reveal pre code {
+  font-size: 1.2em;
+}
+.yellow-box {
+  background-color: #afa;
+}
+.sparse-matrix img {
+  height: 450px;
+}
+.twocolumn {
+  -moz-column-count: 2;
+  -webkit-column-count: 2;
+}
+</style>
+<h2 id="курс-практикум-на-эвм-по-численным-методам">Курс «Практикум на ЭВМ» (по численным методам)</h2>
+<h3 id="осенний-семестр.-методы-решения-линейных-систем-нахождений-собственных-значений">Осенний семестр. Методы решения линейных систем нахождений собственных значений</h3>
+<p>Я — <strong>Максим Александрович Кривчиков</strong></p>
+<p>email: <script type="text/javascript">
+<!--
+h='&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#x6d;&#x61;&#120;&#x69;&#x6d;&#46;&#x6b;&#114;&#x69;&#118;&#x63;&#104;&#x69;&#x6b;&#x6f;&#118;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#x6d;&#x61;&#120;&#x69;&#x6d;&#46;&#x6b;&#114;&#x69;&#118;&#x63;&#104;&#x69;&#x6b;&#x6f;&#118;&#32;&#x61;&#116;&#32;&#x67;&#x6d;&#x61;&#x69;&#108;&#32;&#100;&#x6f;&#116;&#32;&#x63;&#x6f;&#x6d;</noscript></p>
+<p>Материалы к занятиям: <a href="https://maxxk.github.io/programming-semester-5/" class="uri">https://maxxk.github.io/programming-semester-5/</a></p>
+<p>В дисплейных классах рекомендуется просматривать в браузере Firefox.<br />
+В нём установлено расширение <a href="http://www.our-firefox.ru/kak-v-mozilla-firefox/noscript-dlya-firefox-nastrojjka.html">NoScript</a>, обратите внимание на инструкцию, иначе значительная часть сайтов не будет работать.</p>
+</section>
+<section id="как-получить-зачёт" class="slide level1">
+<h1>Как получить зачёт</h1>
+<p>Зачёт по теории, письменный, общий (весь курс пишет одновременно).</p>
+<p>Для допуска к зачёту нужно сдать решения 3 задач (не считая двух подготовительных на этом занятии).</p>
+<p>Каждая последующая задача выдаётся после сдачи предыдущей.</p>
+<p>Схема проведения зачётов:</p>
+<ol start="0" type="1">
+<li>До начала зачётной недели — досрочный теоретический зачёт (для тех, кто сдал все 3 задачи заранее, примерно до середины ноября).</li>
+<li>В начале зачётной недели — теоретический зачёт (для тех, кто успел сдать 3 задачи на занятиях).</li>
+<li>Два практических зачёта по 1.5 часа. Те, кто не успел сдать задачи за эти два зачёт отправляются на пересдачу.</li>
+<li>Во второй половине зачётной недели — второй теоретический зачёт (для тех, кто успел сдать 3 задачи за время практических зачётов).</li>
+<li>Пересдача — после каникул, в феврале. Задачи принимает комиссия из нескольких преподавателей кафедры.</li>
+</ol>
+</section>
+<section id="литература" class="slide level1">
+<h1>Литература</h1>
+<p>Основной курс со списком вопросов к зачёту:</p>
+<ul>
+<li>К. Ю. Богачёв. <strong>Практикум на ЭВМ. Методы решения линейных систем и нахождения собственных значений.</strong><br />
+(«Методы приближения функций» — в следующем семестре)</li>
+</ul>
+<p>Материалы по практике:</p>
+<ul>
+<li><em>Язык программирования C</em>: <a href="http://people.toiit.sgu.ru/Sinelnikov/PT/C/Kern_Ritch.pdf">Б. Керниган, Д. Ритчи. Язык программирования C</a> (а также <a href="https://ru.wikibooks.org/wiki/Язык_Си_в_примерах">С. Прата. «Язык программирования C. Лекции и упражнения» и online-ресурсы</a>);</li>
+<li><em>Отладчик GDB:</em> <a href="http://rus-linux.net/nlib.php?name=/MyLDP/algol/gdb/otladka-s-gdb.html">Руководство по использованию отладчика GDB</a>, Н.Н. Иванов «Программирование в Linux. Самоучитель» (глава 28)</li>
+<li><p><em>Командная оболочка Linux:</em> Д. Тейнсли. Linux и Unix: программирование в Shell. Руководство разработчика.</p></li>
+<li><p>К. Ю. Богачёв. Основы параллельного программирования (для третьей задачи и для следующего семестра).</p></li>
+</ul>
+</section>
+<section id="как-готовить-задачи" class="slide level1">
+<h1>Как готовить задачи</h1>
+<p>Разрабатывать и отлаживать можно на своих компьютерах, но сдавать — <strong>только на компьютерах в дисплейном классе.</strong> Можно приносить задачи на флэшке, лучше всего — через Интернет (отправить себе на почту, сохранить на Яндекс.Диск и т.п.).</p>
+<p>В дисплейных классах установлена ОС Fedora 20 со средой рабочего стола KDE. Варианты по получению похожего окружения:</p>
+<ul>
+<li>Установить Linux (проще всего Ubuntu/Kubuntu), установить туда gcc, gdb.</li>
+<li>Для Macbook — можно работать в Mac OS X, почти всё будет близко к Linux.</li>
+<li>Установить Linux в виртуальной машине (компьютер должен иметь &gt;= 8 Gb памяти, можно попробовать Xubuntu с 4).</li>
+<li>Для Windows — установить <a href="http://cygwin.com">Cygwin</a>, для Windows 10 — попытаться установить Windows Subsystem for Linux.</li>
+</ul>
+</section>
+<section id="настройки-компилятора" class="slide level1">
+<h1>Настройки компилятора</h1>
+<p>В дисплейных классах установлены специальные настройки компилятора — более строго, чем обычно, контролируется соответствие программ стандарту, кроме того, более широкий класс ошибок приводит к аварийному завершению программы. Как получить близкое поведение на своей машине:</p>
+<ul>
+<li><p>Добавить к командной строке флаги:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">gcc</span> -std=c99 -Wall -Werror -Wshadow -pedantic-errors \
+-Wpointer-arith -Waggregate-return \
+-Wstrict-prototypes -Wmissing-declarations \
+-Wlong-long -Winline -Wredundant-decls \
+-Wcast-qual -Wcast-align -D__STRICT_ANSI__</code></pre></div></li>
+<li><p>Активировать исключения underflow для чисел с плавающей точкой:</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="co">// В начале файла:</span>
+<span class="ot">#include &lt;fenv.h&gt;</span>
+<span class="co">// В начале функции main:</span>
+fenableexcept(FE_DIVBYZERO | FE_INVALID
+  | FE_OVERFLOW | FE_UNDERFLOW);</code></pre></div>
+<!--
+```
+--></li>
+</ul>
+</section>
+<section id="вход-в-систему" class="slide level1">
+<h1>Вход в систему</h1>
+<p>Данные учётной записи для входа я выдам на одном из следующих занятий.</p>
+<p>Пока что:</p>
+<dl>
+<dt><strong>логин:</strong></dt>
+<dd>student
+</dd>
+<dt><strong>пароль:</strong></dt>
+<dd>mexmat
+</dd>
+</dl>
+<p>Данные, сохранённые в домашнем каталоге учётной записи student не сохраняются после перезагрузки.</p>
+</section>
+<section id="работа-в-системе" class="slide level1">
+<h1>Работа в системе</h1>
+<p>Для редактирования исходного кода лучше всего использовать:</p>
+<ul>
+<li>Qt Creator</li>
+<li>или gedit</li>
+</ul>
+<p>В терминале:</p>
+<ul>
+<li>vim (нужно прочитать хотя бы <a href="https://ru.wikibooks.org/wiki/Vim">какое-нибудь</a> <a href="http://rus-linux.net/MyLDP/BOOKS/Vim/prosto-o-vim.pdf">руководство</a>)</li>
+<li>nano (наиболее простой; команды: Ctrl+X — выход, Ctrl+O — сохранение, Ctrl+W — поиск).</li>
+</ul>
+</section>
+<section id="использование-терминала" class="slide level1">
+<h1>Использование терминала</h1>
+<p>Вызов терминала в дисплейных классах:</p>
+<p>Правой кнопкой мыши на рабочем столе ⟶ Konsole</p>
+<p>Запуск программы из текущего каталога:</p>
+<p><code>./task-19 test-1.in</code></p>
+<p>Переход между каталогами:</p>
+<p><code>cd ~/task-19</code></p>
+<p>Специальные символы:</p>
+<ul>
+<li><code>~</code> — домашний каталог (Shift + клавиша слева от 1)</li>
+<li><code>..</code> — переход на один уровень вверх</li>
+</ul>
+<p>Вывод содержимого каталога: <code>ls</code></p>
+</section>
+<section id="сборка-программы" class="slide level1">
+<h1>Сборка программы</h1>
+<p>Сборка программы из нескольких файлов:</p>
+<p><code>gcc -o task-19 main.c task-19.c</code></p>
+<p>в несколько этапов:</p>
+<p><code>gcc -c -o main.o main.c</code></p>
+<p><code>gcc -o task-19 main.o task-19.o</code></p>
+<p>Аргументы командной строки для компилятора:</p>
+<ul>
+<li>-O0, ..., -O3, -Os — уровни оптимизации; сдавать программы, скомпилированные с ключом -O3;</li>
+<li>-g — запись отладочной информации (для отладки с использованием gdb), при разработке используйте этот ключ;</li>
+<li>-lm — подключение библиотеки math (для компоновки, последняя команда, если выводятся ошибки о ненайденных символах _sqrt, _fmax, ...)</li>
+</ul>
+</section>
+<section id="работа-с-файлами" class="slide level1">
+<h1>Работа с файлами</h1>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &lt;stdio.h&gt;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c">FILE *f;
+f = fopen(fileName, mode); <span class="co">// открыть файл</span></code></pre></div>
+<ul>
+<li><code>&quot;r&quot;</code> — чтение</li>
+<li><code>&quot;w&quot;</code> — запись (если файл уже существует, он будет перезаписан, т.е. его содержмое будет удалено)</li>
+<li><code>&quot;a&quot;</code> — добавление в конец файла<br />
+При ошибке <code>f == 0</code>.</li>
+</ul>
+<pre><code>fclose(f) // закрыть файл</code></pre>
+<p>при ошибке возвращает <code>EOF</code></p>
+</section>
+<section id="вводвывод" class="slide level1">
+<h1>Ввод/вывод</h1>
+<p>Вывод:</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c">printf(<span class="st">&quot;x = %e&quot;</span>, x) <span class="co">// на экран</span>
+fprintf(f, <span class="st">&quot;x = %e&quot;</span>, x) <span class="co">// в файл `f`</span></code></pre></div>
+<p>Чтение: <code>fscanf(f, &quot; %lf &quot;, &amp;x)</code><br />
+возвращает количество успешно считанных аргументов,<br />
+EOF при ошибке перед первым аргументом.</p>
+<p>Спецификаторы форматирования:</p>
+<ul>
+<li><code>%c</code> — <code>char</code></li>
+<li><code>%s</code> — <code>char*</code></li>
+<li><code>%d</code> — <code>int, long, ...</code></li>
+<li><code>%f</code> — вывод <code>double</code></li>
+<li><code>%lf</code> — ввод <code>double</code></li>
+<li><code>%e</code> — вывод <code>double</code>, экспоненциальная запись, лучше не использовать для <code>scanf</code></li>
+</ul>
+</section>
+<section id="операции-с-числами-с-плавающей-точкой" class="slide level1">
+<h1>Операции с числами с плавающей точкой</h1>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &lt;math.h&gt;</span></code></pre></div>
+<p>Сравнение: <code>a == b</code> — для чисел с плавающей точкой использовать нельзя.</p>
+<pre><code>// в начале файла:
+#define EPS 1e-16
+// в программе: | a - b | &lt; ε
+fabs(a - b) &lt; EPS</code></pre>
+<p>max(a, b) ⟼ <code>fmax(a, b)</code>; min(a, b) ⟼ <code>fmin(a, b)</code> (-std=c99)<br />
+<span class="math inline">\(e^x\)</span> ⟼ <code>exp(x)</code>; ln x ⟼ <code>log(x)</code>; <span class="math inline">\(x^y\)</span> ⟼ <code>pow(x, y)</code><br />
+<code>sin, cos, tan, asin, acos, atan, sinh, ...</code></p>
+<p><span class="math inline">\(\sqrt{x}\)</span> ⟼ <code>sqrt(x)</code>; <span class="math inline">\(\sqrt{x^2+y^2}\)</span> ⟼ <code>hypot(x, y)</code><br />
+<span class="math inline">\(⌈x⌉\)</span> ⟼ <code>ceil(x)</code>; <span class="math inline">\(⌊x⌋\)</span> ⟼ <code>floor(x)</code><br />
+$ x · sgn^*(y)$ ⟼ <code>copysign(x, y)</code> (<span class="math inline">\(sgn^*(0) ≡ 1\)</span>)<br />
+<span class="math inline">\(x · y + z ⟼\)</span> <code>fma(x, y ,z)</code> (округляется только результат)<br />
+$ y = [x], z = { x } ⟼$ <code>z = modf(x, \&amp;y)</code></p>
+<p><a href="http://en.cppreference.com/w/c/numeric/math" class="uri">http://en.cppreference.com/w/c/numeric/math</a></p>
+</section>
+<section id="некоторые-английские-термины" class="slide level1">
+<h1>Некоторые английские термины</h1>
+<div class="twocolumn">
+<p>sequence последовательность<br />
+min (minimum), max (maximum)<br />
+Fibbonacci, Pell<br />
+average среднее<br />
+monotonic монотонная<br />
+increasing возрастающая<br />
+decreasing убывающая<br />
+non-increasing, non-decreasing<br />
+constant постоянная<br />
+element элемент<br />
+greater than, less than</p>
+next, previous<br />
+first, last<br />
+number, count количество<br />
+arithmetic progression, common difference<br />
+geometric progression, common ratio<br />
+local, global<br />
+equals to<br />
+contains, contained<br />
+member of
+</div>
+</section>
+<section id="заключение" class="slide level1">
+<h1>Заключение</h1>
+<p>В конце занятия нужно выслать исходный код ваших программ мне на электронную почту (<script type="text/javascript">
+<!--
+h='&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#x6d;&#x61;&#120;&#x69;&#x6d;&#46;&#x6b;&#114;&#x69;&#118;&#x63;&#104;&#x69;&#x6b;&#x6f;&#118;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#x6d;&#x61;&#120;&#x69;&#x6d;&#46;&#x6b;&#114;&#x69;&#118;&#x63;&#104;&#x69;&#x6b;&#x6f;&#118;&#32;&#x61;&#116;&#32;&#x67;&#x6d;&#x61;&#x69;&#108;&#32;&#100;&#x6f;&#116;&#32;&#x63;&#x6f;&#x6d;</noscript>)</p>
+</section>
+    </div>
+  </div>
+
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,         // Display controls in the bottom right corner
+        progress: true,         // Display a presentation progress bar
+        history: true,          // Push each slide change to the browser history
+        center: false,                       // Vertical centering of slides
+        maxScale: 1.5,                  // Bounds for smallest/largest possible content scale
+        slideNumber: true,                // Display the page number of the current slide
+        theme: 'maxxk', // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+        math: {
+          mathjax: 'reveal.js/../MathJax-2.5.3/MathJax.js',
+          config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+        },
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/math/math.js', async: true },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    </body>
+</html>
