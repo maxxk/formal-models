@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/maxxk.css" id="theme">
+  <link rel="stylesheet" href="additional.css"/>
+  <link rel="stylesheet" href="reveal.js/css/highlight-github.css"/>
+  <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+  <script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'reveal.js/css/print/pdf.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="добрый-день-группа-312" class="slide level1">
+<h1>Добрый день, группа 312!</h1>
+<style type="text/css">
+div.sourceCode {
+  font-size: 1.2em;
+}
+section.slide > pre {
+  font-size: 0.8em;
+}
+
+.reveal pre {
+  width: 99%;
+}
+.reveal pre code {
+  font-size: 1.2em;
+}
+.yellow-box {
+  background-color: #afa;
+}
+.sparse-matrix img {
+  height: 450px;
+}
+.twocolumn {
+  -moz-column-count: 2;
+  -webkit-column-count: 2;
+}
+</style>
+<h2 id="план-занятия">План занятия</h2>
+<ul>
+<li>стиль написания программ</li>
+<li>разбор аргументов командной строки</li>
+<li>измерение времени выполнения функции</li>
+<li>отладка</li>
+</ul>
+<p>Материалы к занятиям: <a href="https://maxxk.github.io/programming-semester-5/" class="uri">https://maxxk.github.io/programming-semester-5/</a><br />
+email: <script type="text/javascript">
+<!--
+h='&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#x6d;&#x61;&#120;&#x69;&#x6d;&#46;&#x6b;&#114;&#x69;&#118;&#x63;&#104;&#x69;&#x6b;&#x6f;&#118;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#x6d;&#x61;&#120;&#x69;&#x6d;&#46;&#x6b;&#114;&#x69;&#118;&#x63;&#104;&#x69;&#x6b;&#x6f;&#118;&#32;&#x61;&#116;&#32;&#x67;&#x6d;&#x61;&#x69;&#108;&#32;&#100;&#x6f;&#116;&#32;&#x63;&#x6f;&#x6d;</noscript></p>
+<p>В дисплейных классах рекомендуется просматривать в браузере Firefox.<br />
+В нём установлено расширение <a href="http://www.our-firefox.ru/kak-v-mozilla-firefox/noscript-dlya-firefox-nastrojjka.html">NoScript</a>, обратите внимание на инструкцию, иначе значительная часть сайтов не будет работать.</p>
+</section>
+<section id="стиль-написания" class="slide level1">
+<h1>Стиль написания</h1>
+<p>Приоритеты:</p>
+<ol type="1">
+<li>Корректная работа</li>
+<li>Минимальная достаточная производительность</li>
+<li>Понятность кода</li>
+<li>Краткость кода</li>
+<li>Более, чем достаточная производительность</li>
+</ol>
+</section>
+<section id="стиль-написания-1" class="slide level1">
+<h1>Стиль написания</h1>
+<ul>
+<li>выделяйте функции, которые выполняют некоторое отдельное действие в предметной области (например, умножение матриц, или умножение вектора на матрицу, или разбор аргументов)</li>
+<li>функция не должна быть больше 200 строк, оптимально — от одного экрана до 100 строк</li>
+<li>если вы несколько раз повторяете в программе одни и те же 5-10 строк, их тоже имеет смысл выделить в функцию</li>
+<li>предельный размер одного файла — 500-1000 строк</li>
+<li>разделяйте тело функции на «абзацы» — группы похожих по смыслу команд, разделённые пустыми строками</li>
+<li>оформляйте код однородно (условные операторы, циклы, положение фигурных скобок, отступы)</li>
+</ul>
+</section>
+<section id="стиль-написания-2" class="slide level1">
+<h1>Стиль написания</h1>
+<p>Рекомендации из Mozilla Style Guide:</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="kw">if</span> (...) {
+  ...
+} <span class="kw">else</span> <span class="kw">if</span> (...) {
+} <span class="kw">else</span> {
+}
+
+<span class="kw">while</span> (...) {
+}
+
+<span class="kw">do</span> {
+} <span class="kw">while</span> (...);
+
+<span class="kw">for</span> (...; ...; ...) {
+}</code></pre></div>
+</section>
+<section id="стиль-написания-3" class="slide level1">
+<h1>Стиль написания</h1>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="dt">int</span> a = <span class="dv">0</span>,
+    b = <span class="dv">3</span>;
+<span class="dt">int</span> i, j, k;
+<span class="dt">double</span>* d;
+
+<span class="kw">switch</span> (...) {
+  <span class="kw">case</span> <span class="dv">1</span>: {
+    <span class="co">// When you need to declare a variable in a switch, put the block in braces</span>
+    <span class="dt">int</span> var;
+    <span class="kw">break</span>;
+  }
+  <span class="kw">case</span> <span class="dv">2</span>:
+    ...
+    <span class="kw">break</span>;
+  <span class="kw">default</span>:
+    <span class="kw">break</span>;
+}</code></pre></div>
+</section>
+<section id="разбор-аргументов-командной-строки" class="slide level1">
+<h1>Разбор аргументов командной строки</h1>
+<p><code>./myprog -n 10 -f abs_i-j -v</code><br />
+Функция <code>getopt</code>:</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &lt;unistd.h&gt;</span>
+
+<span class="kw">extern</span> <span class="dt">char</span> *optarg;
+<span class="kw">extern</span> <span class="dt">int</span> optind;
+<span class="kw">extern</span> <span class="dt">int</span> optopt;
+<span class="kw">extern</span> <span class="dt">int</span> opterr;
+<span class="kw">extern</span> <span class="dt">int</span> optreset;
+
+<span class="dt">int</span>
+getopt(<span class="dt">int</span> argc, <span class="dt">char</span> * <span class="dt">const</span> argv[], <span class="dt">const</span> <span class="dt">char</span> *optstring);</code></pre></div>
+<p><code>optstring</code>: строка с последовательностью букв — имён аргументов командной строки. Если после имени указано двоеточие, соответствующий аргумент командной строки имеет параметр; если нет — это просто флаг.</p>
+</section>
+<section id="разбор-аргументов-командной-строки-1" class="slide level1">
+<h1>Разбор аргументов командной строки</h1>
+<p><code>./myprog -n 10 -f abs_i-j -v</code></p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &lt;unistd.h&gt;</span>
+
+<span class="kw">struct</span> Params {
+  <span class="dt">int</span> size; <span class="co">// размер массива</span>
+  <span class="dt">char</span>* formula; <span class="co">// формула заполнения</span>
+  <span class="dt">char</span> verbose; <span class="co">// отладочный вывод</span>
+}
+
+<span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span>** argv) {
+  <span class="kw">struct</span> Params params;
+  <span class="dt">int</span> opt;
+  <span class="kw">while</span> ((opt = getopt(argc, argv, <span class="st">&quot;vn:f:&quot;</span>)) != -<span class="dv">1</span>) {
+    <span class="kw">switch</span> (opt) {
+      ...
+    }
+  }
+}</code></pre></div>
+</section>
+<section id="разбор-аргументов-командной-строки-2" class="slide level1">
+<h1>Разбор аргументов командной строки</h1>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="kw">case</span> &#39;n&#39;: {
+  <span class="dt">char</span> *next;
+  params.size = strtol(optarg, &amp;next, <span class="dv">10</span>);
+}</code></pre></div>
+<p>Подробнее про <code>getopt</code>:</p>
+<ol type="1">
+<li><code>man 3 getopt</code> в консоли</li>
+<li><a href="https://www.ibm.com/developerworks/ru/library/au-unix-getopt/#toggle" class="uri">https://www.ibm.com/developerworks/ru/library/au-unix-getopt/#toggle</a></li>
+<li><a href="http://www.firststeps.ru/linux/r.php?10" class="uri">http://www.firststeps.ru/linux/r.php?10</a></li>
+</ol>
+</section>
+<section id="измерение-времени-работы-функции" class="slide level1">
+<h1>Измерение времени работы функции</h1>
+<p>Не следует использовать:</p>
+<ul>
+<li><code>time()</code> — «календарное» время; точность — 1 секунда; между двумя измерениями может измениться произвольным образом, вплоть до перехода назад (переход на зимнее время; перевод часов вручную)</li>
+<li><code>clock()</code> — точность — 1 микросекунда; 32-битный счётчик, переполняется за час с небольшим.</li>
+<li><code>gettimeofday</code> — «календарное» время, может идти назад</li>
+</ul>
+<p>Нужно использовать:<br />
+<strong><code class="sourceCode c">clock_gettime(CLOCK_MONOTONIC)</code></strong><br />
+— таймер с наносекундным разрешением; предназначен именно для измерения промежутков времени в программе с высокой точностью (специфичен для Linux).</p>
+</section>
+<section id="время-работы-с-clock_gettime" class="slide level1">
+<h1>Время работы с clock_gettime</h1>
+<p><code class="sourceCode c"><span class="ot">#include &lt;unistd.h&gt;</span></code><br />
+Прототип:</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="kw">struct</span> timespec {
+    time_t tv_sec;  <span class="co">// секунды</span>
+    <span class="dt">long</span> tv_nsec;   <span class="co">// наносекунды</span>
+}  <span class="co">// Объявлено в unistd.h</span></code></pre></div>
+<p><code class="sourceCode c"><span class="dt">int</span> clock_gettime(clockid_t clk_id, <span class="kw">struct</span> timespec *tp)</code></p>
+<p>Значения <code>clockid_t</code>:</p>
+<ul>
+<li><code>CLOCK_MONOTONIC</code> — реальное время от произвольной точки отсчёта (можно использовать только как разность);</li>
+<li><code>CLOCK_PROCESS_CPUTIME_ID</code> — использование процессорного времени;</li>
+<li><code>CLOCK_THREAD_CPUTIME_ID</code> — использование процессорного времени потоком</li>
+</ul>
+<p>Последние два значения понядобятся в третьей задаче.</p>
+</section>
+<section id="пример-использования-c-или-gnu90-с" class="slide level1">
+<h1>Пример использования (C++ или GNU90 С)</h1>
+<p>Компилировать лучше с <code>-std=c99</code>, т.к. в стандартах C89 и C90 нет типа <code class="sourceCode c"><span class="dt">long</span> <span class="dt">long</span></code>. <a href="https://github.com/olekristensen/LongingFastForward/blob/%201201aec0f10f39fc21af4b3de9a98ecd306643dc/Experiments/lffCinderCapture/lib/libjp4/clock.h">Источник</a>, там же есть реализация для Mac OS X.</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &lt;time.h&gt;</span>
+
+<span class="dt">unsigned</span> <span class="dt">long</span> <span class="dt">long</span> currentTimeNano() {
+  <span class="kw">struct</span> timespec t;
+  clock_gettime(CLOCK_MONOTONIC, &amp;t);
+  <span class="kw">return</span> t.tv_sec*<span class="dv">1000000000</span> + t.tv_nsec;
+}
+
+<span class="dt">unsigned</span> <span class="dt">long</span> <span class="dt">long</span> currentTimeMillis() {
+  <span class="kw">struct</span> timespec t;
+  clock_gettime(CLOCK_MONOTONIC, &amp;t);
+  <span class="kw">return</span> t.tv_sec*<span class="dv">1000</span> + t.tv_nsec/<span class="dv">1000000</span>;
+}
+
+<span class="dt">long</span> <span class="dt">long</span> time = <span class="dv">0</span>;
+time = currentTimeNano();
+Solve(n, a, b, tmp_double, tmp_int, debug);
+time = currentTimeNano() - time;
+CheckAnswer(n, a, b);</code></pre></div>
+</section>
+<section id="пример-использования-c89" class="slide level1">
+<h1>Пример использования (C89)</h1>
+<p>Этот пример должен собираться в дисплейных классах с параметрами компилятора по умолчанию. <a href="https://github.com/EverlastingFire/informatica/blob/128519be92eb34b9c09859272d0187252506da5b/c/euclide/timediff.c">Источник</a></p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &lt;time.h&gt;</span>
+
+<span class="kw">struct</span> timespec diff(<span class="kw">struct</span> timespec start, <span class="kw">struct</span> timespec end)
+{
+    <span class="kw">struct</span> timespec temp;
+    <span class="kw">if</span> ((end.tv_nsec-start.tv_nsec)&lt;<span class="dv">0</span>) {
+        temp.tv_sec = end.tv_sec-start.tv_sec<span class="dv">-1</span>;
+        temp.tv_nsec = <span class="dv">1000000000</span>+end.tv_nsec-start.tv_nsec;
+    } <span class="kw">else</span> {
+        temp.tv_sec = end.tv_sec-start.tv_sec;
+        temp.tv_nsec = end.tv_nsec-start.tv_nsec;
+    }
+    <span class="kw">return</span> temp;
+}
+
+<span class="kw">struct</span> timespec time_start, time_end;
+clock_gettime(CLOCK_MONOTONIC, &amp;time_start);
+Solve(n, a, b, tmp_double, tmp_int, debug);
+clock_gettime(CLOCK_MONOTONIC, &amp;time_end);
+time_end = diff(time_start, time_end);</code></pre></div>
+</section>
+<section id="отладчик" class="slide level1">
+<h1>Отладчик</h1>
+<p>Сценарии использования отладчика:</p>
+<ol type="1">
+<li>Программа падает:
+<ul>
+<li>при выполнении какой строки?</li>
+<li>из какой функции была вызвана текущая?</li>
+<li>какие значения переменных?</li>
+</ul></li>
+<li>Программа работает не так, как надо:
+<ul>
+<li>чему равны значения переменных?</li>
+<li>в какой момент вызывается тот или иной фрагмент кода (срабатывает условие, выход из цикла и т.п.)?</li>
+<li>в каком месте программа уходит в бесконечный цикл?</li>
+</ul></li>
+</ol>
+</section>
+<section id="вызов-отладчика-gdb" class="slide level1">
+<h1>Вызов отладчика GDB</h1>
+<p>Для отладки программу нужно скомпилировать с отладочной информацией (ключ <code>-g</code>) без оптимизации (<code>g++</code> — аналогично):<br />
+<code>gcc -g myprog.c main.c</code><br />
+Запуск отладчика</p>
+<ul>
+<li><p>программа без аргументов</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">gdb</span> ./a.out
+<span class="co"># Вместо ./a.out</span></code></pre></div></li>
+</ul>
+</section>
+<section id="вызов-отладчика-gdb-1" class="slide level1">
+<h1>Вызов отладчика GDB</h1>
+<ul>
+<li><p>аргументы при запуске</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">gdb</span> --args ./a.out -f 2 -n 1000
+<span class="co"># Вместо ./a.out --formula 2 -s 1000</span></code></pre></div>
+<p>После запуска отображается командная строка gdb.</p></li>
+</ul>
+<p>Аргументы можно изменить в командной строке gdb:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">set</span> <span class="kw">args</span> -f 1 -n 500
+<span class="kw">show</span> args    <span class="co"># Показать текущие аргументы</span></code></pre></div>
+</section>
+<section id="команды-отладчика-gdb" class="slide level1">
+<h1>Команды отладчика GDB</h1>
+<ul>
+<li><p><code>run</code> (<code>r</code>) — запустить программу; в случае исключения выполнение останавливается на строке, на которой исключение произошло:</p>
+<pre><code>(gdb) r
+Program received signal SIGFPE, Arithmetic exception.
+0x08048681 in divint(int, int) (a=3, b=0) at crash.c:21
+21        return a / b;</code></pre></li>
+<li><code>quit</code> (<code>q</code>) — выйти из отладчика (если выполнение программы было прервано, отладчик запросит подтверждение)</li>
+<li><code>list</code> (<code>l</code>) — напечатать «окрестность» текущей строки исходного кода</li>
+<li><p><code>print &lt;expression&gt;</code> (<code>p &lt;expr&gt;</code>) — вывести значение выражения (можно использовать арифметические операторы, получение элемента массива, по-моему даже вызовы функций)</p></li>
+</ul>
+</section>
+<section id="команды-отладчика-gdb-ii" class="slide level1">
+<h1>Команды отладчика GDB (II)</h1>
+<ul>
+<li><p><code>where</code> (<code>backtrace</code>, <code>bt</code>) — показать стек вызовов функций:</p>
+<pre><code>(gdb) where
+#0  0x08048681 in divint(int, int) (a=3, b=0) at crash.c:21
+#1  0x08048654 in main () at crash.c:13</code></pre></li>
+<li><p><code>frame &lt;n&gt;</code> (<code>up</code>) — перейти на указанный уровень в стеке вызовов (чтобы посмотреть значения переменных в вызывающей функции)</p></li>
+<li><p>при нажатии Ctrl+C выполнение программы приостанавливается</p></li>
+</ul>
+</section>
+<section id="команды-отладчика-gdb-iii" class="slide level1">
+<h1>Команды отладчика GDB (III)</h1>
+<ul>
+<li><code>break &lt;location&gt;</code> (<code>b &lt;loc&gt;</code>) — установить точку останова в указанной локации:
+<ul>
+<li><em>function</em> — на входе в функцию <em>function</em> в текущем файле</li>
+<li><em>filename:line</em> — на строке <em>line</em> в файле <em>filename</em></li>
+<li><em>filename:function</em> — на входе в функцию <em>function</em> в файле <em>filename</em></li>
+</ul></li>
+<li><code>delete</code> — удалить все точки останова</li>
+<li><code>clear &lt;location&gt;</code> — удалить точку останова в указанной локации</li>
+<li><code>next</code> (<code>n</code>) — выполнить до следующей строки программы</li>
+<li><code>step</code> (<code>s</code>) — выполнить одну строку, «проваливаясь» в вызываемые функции</li>
+<li><code>continue</code> (<code>c</code>) — продолжить выполнение программы (до следующей точки останова или исключения)</li>
+</ul>
+</section>
+<section id="valgrind" class="slide level1">
+<h1>Valgrind</h1>
+<p><a href="http://valgrind.org">Valgrind</a> — средство динамического (= во время выполнения) анализа программ.</p>
+<p>Позволяет анализировать, в частности, следующие показатели:</p>
+<ul>
+<li><strong>ошибки доступа к памяти</strong> (доступ по неинициализированному указателю, выход за границы массива, использование неинициализированных переменных, копирование «внахлёст», утечки памяти)</li>
+<li>частота не-попаданий в кэш (L1, L2)</li>
+<li>источники взаимных блокировок в многопоточной программе</li>
+</ul>
+</section>
+<section id="запуск-valgrind" class="slide level1">
+<h1>Запуск Valgrind</h1>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Вместо ./a.out --fun 1 --size 2</span>
+<span class="kw">valgrind</span> ./a.out --fun 1 --size 2</code></pre></div>
+<pre><code>==19182== Invalid write of size 4
+==19182==    at 0x804838F: f (example.c:6)
+==19182==    by 0x80483AB: main (example.c:11)
+==19182==  Address 0x1BA45050 is 0 bytes after a block of size 40 alloc&#39;d
+==19182==    at 0x1B8FF5CD: malloc (vg_replace_malloc.c:130)
+==19182==    by 0x8048385: f (example.c:5)
+==19182==    by 0x80483AB: main (example.c:11)
+# ...
+==19182== 40 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==19182==    at 0x1B8FF5CD: malloc (vg_replace_malloc.c:130)
+==19182==    by 0x8048385: f (a.c:5)
+==19182==    by 0x80483AB: main (a.c:11)</code></pre>
+</section>
+<section id="задания" class="slide level1">
+<h1>Задания</h1>
+<ol type="1">
+<li>Дописать разбор параметров командной строки:</li>
+</ol>
+<ul>
+<li><code>-n</code> (размер матрицы, число)</li>
+<li><code>-f</code> (имя формулы, строка);</li>
+<li><code>-i</code> (имя входного файла, строка);</li>
+<li><code>-o</code> (имя выходного файла, строка);</li>
+<li><code>-v</code> (отладочный вывод, флаг).<br />
+Программа должна:</li>
+<li>обрабатывать аргументы командной строки;</li>
+<li>сохранять их в структуру;</li>
+<li>проверять их корректность (имя формулы — одна из заданных строк; если задано имя формулы, размер матрицы должен быть задан и должен быть больше 0, кроме того не должен быть задан входной файл; если задан входной файл, он должен существовать; если не заданы входной и выходной файлы, то по умолчанию это — <code>stdin</code> и <code>stdout</code>, соответственно)</li>
+</ul>
+</section>
+<section id="задания-1" class="slide level1">
+<h1>Задания</h1>
+<ul>
+<li>если аргументы некорректны, то нужно выводить в терминал краткую справку с описанием доступных аргументов;</li>
+<li><p>если аргументы корректны и задан флаг отладочного вывода, выводить обработанные аргументы в следующем виде:</p>
+<pre><code>Formula: ... (или &quot;no&quot;)
+Matrix size: ...(или &quot;from file&quot;)
+Input file: ... (или &quot;stdin&quot;)
+Output file: ... (или &quot;stdout&quot;)
+Verbose mode: ...</code></pre></li>
+</ul>
+<ol start="2" type="1">
+<li>Добавить измерение времени, затраченного на разбор аргументов командной строки. Время должно выводиться в конце программы.</li>
+</ol>
+</section>
+    </div>
+  </div>
+
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,         // Display controls in the bottom right corner
+        progress: true,         // Display a presentation progress bar
+        history: true,          // Push each slide change to the browser history
+        center: false,                       // Vertical centering of slides
+        maxScale: 1.5,                  // Bounds for smallest/largest possible content scale
+        slideNumber: true,                // Display the page number of the current slide
+        theme: 'maxxk', // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+        math: {
+          mathjax: 'reveal.js/../MathJax-2.5.3/MathJax.js',
+          config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+        },
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/math/math.js', async: true },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    </body>
+</html>

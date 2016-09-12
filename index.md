@@ -7,3 +7,6 @@ layout: default
 
 ## Практикум на ЭВМ. Пятый семестр. Введение.
 [презентация — html](presentations/01-Introduction.html)
+
+## Стиль написания программ. Разбор аргументов командной строки. Измерение времени выполнения функции. Отладка.
+[презентация — html](presentations/02-CommandLine-Time-Debugging.html)
