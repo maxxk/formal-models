@@ -1,0 +1,279 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+ <metadata id="metadata4173">image/svg+xml</metadata>
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="602" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g id="g7924">
+   <g id="g7614">
+    <g id="g7153">
+     <g id="g7129">
+      <circle opacity="0.99" fill="#000000" stroke="#000000" stroke-width="1px" id="circle3823" r="2" cy="349.172511" cx="262.429902"/>
+      <circle opacity="0.99" fill="#000000" stroke="#000000" stroke-width="1px" id="circle3833" r="2" cy="319.923761" cx="244.971371"/>
+      <circle opacity="0.99" fill="#000000" stroke="#000000" stroke-width="1px" id="circle3855" r="2" cy="343.745661" cx="257.881992"/>
+      <circle opacity="0.99" fill="#000000" stroke="#000000" stroke-width="1px" id="circle3859" r="2" cy="316.447201" cx="212.242864"/>
+      <circle opacity="0.99" fill="#000000" stroke="#000000" stroke-width="1px" id="circle3909" r="2" cy="336.429891" cx="207.783884"/>
+      <circle opacity="0.99" fill="#000000" stroke="#000000" stroke-width="1px" id="circle3995" r="2" cy="355.136762" cx="243.416059"/>
+      <circle opacity="0.99" fill="#000000" stroke="#000000" stroke-width="1px" id="circle4003" r="2" cy="336.451701" cx="257.873692"/>
+      <circle opacity="0.99" fill="#000000" stroke="#000000" stroke-width="1px" id="circle4009" r="2" cy="368.314171" cx="224.370942"/>
+      <circle opacity="0.99" fill="#000000" stroke="#000000" stroke-width="1px" id="circle4023" r="2" cy="327.188201" cx="237.337181"/>
+      <circle opacity="0.99" fill="#000000" stroke="#000000" stroke-width="1px" id="circle4049" r="2" cy="308.062241" cx="244.227961"/>
+      <circle opacity="0.99" fill="#000000" stroke="#000000" stroke-width="1px" id="circle4059" r="2" cy="307.249267" cx="212.537312"/>
+      <circle opacity="0.99" fill="#000000" stroke="#000000" stroke-width="1px" id="circle4067" r="2" cy="329.881111" cx="250.219601"/>
+      <circle opacity="0.99" fill="#000000" stroke="#000000" stroke-width="1px" id="circle4081" r="2" cy="362.534022" cx="245.589369"/>
+      <circle opacity="0.99" fill="#000000" stroke="#000000" stroke-width="1px" id="circle4155" r="2" cy="361.194541" cx="221.833194"/>
+      <rect opacity="0.99" fill="none" stroke="#000000" stroke-width="0.703844" stroke-miterlimit="4" y="298.714654" x="200.920689" height="77.059608" width="72.888885" id="rect2987-5"/>
+      <g id="g6644">
+       <circle opacity="0.99" fill="#ff0000" stroke="#ff0000" stroke-width="1px" cx="226.900188" cy="351.297262" r="2" id="circle4015"/>
+       <g opacity="0.99" id="g4905-4">
+        <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4876-9" y="346.017773" x="221.951917" xml:space="preserve">
+         <tspan font-size="22px" font-style="italic" font-weight="normal" font-family="Liberation Serif" y="346.017773" x="221.951917" id="tspan4878-4">x</tspan>
+        </text>
+        <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4273-6-6" y="349.760083" x="230.725877" xml:space="preserve">
+         <tspan font-size="12px" y="349.760083" x="230.725877" id="tspan4275-0-0">0.01</tspan>
+        </text>
+       </g>
+      </g>
+     </g>
+     <g opacity="0.99" id="g4277-3-0">
+      <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4269-1-8" y="290.289696" x="199.568689" xml:space="preserve">
+       <tspan y="290.289696" x="199.568689" id="tspan4271-6-9">S</tspan>
+      </text>
+      <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4273-8-2" y="296.285126" x="225.896429" xml:space="preserve">
+       <tspan font-size="25px" y="296.285126" x="225.896429" id="tspan4275-8-8">0.01</tspan>
+      </text>
+     </g>
+    </g>
+    <g id="g7208">
+     <g id="g6178">
+      <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4269-7" y="278.298838" x="115.261774" xml:space="preserve">
+       <tspan y="278.298838" x="115.261774" id="tspan4271-8">S</tspan>
+      </text>
+      <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4273-0" y="284.294298" x="141.589525" xml:space="preserve">
+       <tspan font-size="25px" font-style="italic" y="284.294298" x="141.589525" id="tspan4275-2">π</tspan>
+      </text>
+     </g>
+     <g id="g7183">
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3769" r="2" cy="348.208523" cx="134.92222"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3825" r="2" cy="335.008259" cx="107.682213"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3917" r="2" cy="309.087299" cx="115.738261"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3935" r="2" cy="326.17508" cx="140.364865"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3961" r="2" cy="296.323947" cx="131.165491"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3967" r="2" cy="300.643994" cx="155.250418"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3993" r="2" cy="359.227867" cx="112.94627"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle4029" r="2" cy="339.617029" cx="152.241915"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle4111" r="2" cy="344.429437" cx="105.787205"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle4113" r="2" cy="323.692377" cx="156.529481"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3815-8" r="2" cy="301.065132" cx="110.721548"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3875-2" r="2" cy="350.154485" cx="106.057261"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3879-4" r="2" cy="344.44017" cx="142.832449"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3901-5" r="2" cy="352.579292" cx="163.374135"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle4057-9" r="2" cy="296.094704" cx="144.017792"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle4077-9" r="2" cy="300.088303" cx="163.177012"/>
+      <circle fill="#ff0000" stroke="#ff0000" stroke-width="1px" id="circle4145-8" r="2" cy="330.894999" cx="124.965076"/>
+      <rect fill="none" stroke="#000000" stroke-width="0.703844" stroke-miterlimit="4" y="286.884924" x="99.230959" height="77.059608" width="72.888885" id="rect2987-3"/>
+      <g id="g4905-7">
+       <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" xml:space="preserve" x="119.753795" y="325.453648" id="text4876-6">
+        <tspan font-size="22px" font-style="italic" font-weight="normal" font-family="Liberation Serif" id="tspan4878-7" x="119.753795" y="325.453648">x</tspan>
+       </text>
+       <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" xml:space="preserve" x="128.527755" y="329.195958" id="text4273-6-8">
+        <tspan font-size="12px" font-style="italic" id="tspan4275-0-7" x="128.527755" y="329.195958">π</tspan>
+       </text>
+      </g>
+     </g>
+    </g>
+    <g id="g7591">
+     <g id="g6172">
+      <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4269" y="156.143792" x="73.265614" xml:space="preserve">
+       <tspan y="156.143792" x="73.265614" id="tspan4271">S</tspan>
+      </text>
+      <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4273" y="162.139221" x="99.593363" xml:space="preserve">
+       <tspan font-size="25px" y="162.139221" x="99.593363" id="tspan4275">1.2</tspan>
+      </text>
+     </g>
+     <g id="g6977">
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3815" r="2" cy="178.910077" cx="68.725385"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3875" r="2" cy="227.999432" cx="64.061099"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3879" r="2" cy="222.285114" cx="100.836287"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3901" r="2" cy="230.424236" cx="121.377975"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle4007" r="2" cy="202.714686" cx="117.132154"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle4057" r="2" cy="173.939651" cx="102.02163"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle4077" r="2" cy="177.93325" cx="121.18085"/>
+      <rect fill="none" stroke="#000000" stroke-width="0.703844" stroke-miterlimit="4" y="164.729874" x="57.234798" height="77.059608" width="72.888885" id="rect2987"/>
+      <g id="g6789">
+       <circle fill="#ff0000" stroke="#ff0000" stroke-width="1px" cx="82.968914" cy="208.739943" r="2" id="circle4145"/>
+       <g id="g4905">
+        <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4876" y="203.298588" x="77.757635" xml:space="preserve">
+         <tspan font-size="22px" font-style="italic" font-weight="normal" font-family="Liberation Serif" y="203.298588" x="77.757635" id="tspan4878">x</tspan>
+        </text>
+        <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4273-6" y="207.040898" x="86.531595" xml:space="preserve">
+         <tspan font-size="12px" y="207.040898" x="86.531595" id="tspan4275-0">1.2</tspan>
+        </text>
+       </g>
+      </g>
+     </g>
+    </g>
+    <g id="g7107">
+     <g id="g4277-3-2">
+      <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4269-1-7" y="156.143791" x="264.59321" xml:space="preserve">
+       <tspan y="156.143791" x="264.59321" id="tspan4271-6-7">S</tspan>
+      </text>
+      <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4273-8-1" y="162.139221" x="290.92095" xml:space="preserve">
+       <tspan font-size="25px" y="162.139221" x="290.92095" id="tspan4275-8-2">4</tspan>
+      </text>
+     </g>
+     <g id="g7091">
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3791" r="2" cy="222.017357" cx="312.404284"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3829" r="2" cy="232.683017" cx="274.135084"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3843" r="2" cy="194.100931" cx="279.730415"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3849" r="2" cy="177.576258" cx="306.669255"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle4033" r="2" cy="199.062616" cx="299.732405"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle4127" r="2" cy="180.760702" cx="277.695905"/>
+      <rect fill="none" stroke="#000000" stroke-width="0.703844" stroke-miterlimit="4" y="164.729874" x="248.623429" height="77.059608" width="72.888885" id="rect2987-5-2"/>
+      <g id="g6841">
+       <circle fill="#ff0000" stroke="#ff0000" stroke-width="1px" cx="257.094744" cy="204.792793" r="2" id="circle4065"/>
+       <g id="g4905-4-3">
+        <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4876-9-6" y="199.464756" x="252.49497" xml:space="preserve">
+         <tspan font-size="22px" font-style="italic" font-weight="normal" font-family="Liberation Serif" y="199.464756" x="252.49497" id="tspan4878-4-2">x</tspan>
+        </text>
+        <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4273-6-6-4" y="203.207066" x="261.26893" xml:space="preserve">
+         <tspan font-size="12px" y="203.207066" x="261.26893" id="tspan4275-0-0-5">4</tspan>
+        </text>
+       </g>
+      </g>
+     </g>
+    </g>
+    <g id="g7051">
+     <g id="g4277-3">
+      <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4269-1" y="141.546231" x="173.177139" xml:space="preserve">
+       <tspan y="141.546231" x="173.177139" id="tspan4271-6">S</tspan>
+      </text>
+      <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4273-8" y="147.541661" x="199.504879" xml:space="preserve">
+       <tspan font-size="25px" y="147.541661" x="199.504879" id="tspan4275-8">-7</tspan>
+      </text>
+     </g>
+     <g id="g7017">
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3863" r="2" cy="222.012688" cx="218.216309"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3897" r="2" cy="207.588708" cx="165.998079"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3915" r="2" cy="213.131488" cx="165.715119"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3927" r="2" cy="197.360648" cx="188.421759"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3929" r="2" cy="196.590448" cx="203.847839"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3959" r="2" cy="199.571618" cx="172.137419"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3983" r="2" cy="155.123438" cx="167.365049"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle4013" r="2" cy="160.878109" cx="160.819045"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle4123" r="2" cy="223.941548" cx="210.909149"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle4129" r="2" cy="181.922418" cx="179.017699"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle4165" r="2" cy="156.986868" cx="217.879669"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3823-8" r="2" cy="201.272712" cx="217.362031"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3833-6" r="2" cy="172.023954" cx="199.903507"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3855-9" r="2" cy="195.845862" cx="212.814121"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3859-8" r="2" cy="168.547382" cx="167.175"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3909-6" r="2" cy="188.530072" cx="162.71602"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle3995-6" r="2" cy="207.236953" cx="198.348199"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle4009-3" r="2" cy="220.414372" cx="179.303071"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle4023-2" r="2" cy="179.288394" cx="192.269317"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle4049-6" r="2" cy="160.162434" cx="199.160097"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle4059-2" r="2" cy="171.600986" cx="221.94962"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle4067-7" r="2" cy="181.981304" cx="205.151737"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle4081-5" r="2" cy="214.634213" cx="200.521509"/>
+      <circle fill="#000000" stroke="#000000" stroke-width="1px" id="circle4155-7" r="2" cy="213.29473" cx="176.76533"/>
+      <rect fill="none" stroke="#000000" stroke-width="0.703844" stroke-miterlimit="4" y="150.814823" x="155.852839" height="77.059608" width="72.888885" id="rect2987-5-8"/>
+      <g id="g6833">
+       <circle fill="#ff0000" stroke="#ff0000" stroke-width="1px" cx="180.304095" cy="169.97553" r="2" id="circle4015-8"/>
+       <g id="g4905-4-8">
+        <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4876-9-1" y="164.696041" x="175.355821" xml:space="preserve">
+         <tspan font-size="22px" font-style="italic" font-weight="normal" font-family="Liberation Serif" y="164.696041" x="175.355821" id="tspan4878-4-6">x</tspan>
+        </text>
+        <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4273-6-6-0" y="168.438351" x="184.129781" xml:space="preserve">
+         <tspan font-size="12px" y="168.438351" x="184.129781" id="tspan4275-0-0-9">-7</tspan>
+        </text>
+       </g>
+      </g>
+     </g>
+    </g>
+    <path fill="none" stroke="#000000" stroke-width="1px" id="path6382" d="m36.826308,281.060541c7.91999,-48.29477 -24.71108,-104.44291 2.08537,-149.10365c27.76743,-46.27905 60.91341,-10.81048 96.44817,-25.02439c12.47641,-4.99056 20.2572,-19.40119 34.40853,-22.93902c46.70093,-11.67523 133.09144,24.00709 160.05182,59.95427c11.84713,15.79616 19.8641,100.40638 15.1189,119.38718c-4.83789,19.35158 -22.79906,31.48339 -26.06707,51.09146c-2.37006,14.22038 -20.90469,65.59358 -31.57596,71.99634c-20.19971,12.11983 -107.59812,-9.51134 -138.38135,-10.47805c-40.17504,-1.26165 -56.16156,13.30286 -85.49999,-6.2561c-30.2989,-20.19926 -21.56625,-58.49503 -26.58842,-88.62804z"/>
+   </g>
+   <g id="g7762" transform="matrix(0.65996023,0,0,0.65996023,110.84167,64.22223) ">
+    <text font-size="94.284935px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" transform="translate(30.30485725402832,53.03349685668945) scale(0.972817063331604,1.0279425382614136) " id="text4269-9" y="-52.664729" x="11.250164" xml:space="preserve">
+     <tspan font-size="95px" y="-52.664729" x="11.250164" id="tspan4271-4">(S )</tspan>
+    </text>
+    <text font-size="94.284935px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" transform="translate(30.30485725402832,53.03349685668945) scale(0.972817063331604,1.0279425382614136) " id="text4273-63" y="-33.156643" x="108.9247" xml:space="preserve">
+     <tspan font-size="60px" font-style="italic" font-weight="normal" font-family="Liberation Serif" y="-33.156643" x="108.9247" id="tspan4275-4">i</tspan>
+    </text>
+   </g>
+  </g>
+  <g id="g7878">
+   <g id="g7839">
+    <path fill="none" stroke="#000000" stroke-miterlimit="4" id="path6382-1" d="m417.02981,214.46998c3.96,-24.14739 -12.35554,-52.22145 1.04268,-74.55182c13.88372,-23.13953 30.45671,-5.40525 48.22408,-12.5122c6.23821,-2.49528 10.1286,-9.70059 17.20427,-11.46951c23.35046,-5.83762 66.54572,12.00354 80.02591,29.97713c5.92356,7.89809 9.93205,50.20319 7.55945,59.69359c-2.41895,9.67579 -11.39953,15.7417 -13.03354,25.54573c-1.18503,7.11019 -10.45234,32.79679 -15.78798,35.99817c-10.09985,6.05992 -53.79906,-4.75567 -69.19067,-5.23902c-20.08752,-0.63083 -28.08078,6.65143 -42.74999,-3.12805c-15.14945,-10.09963 -10.78312,-29.24752 -13.29421,-44.31402z"/>
+    <g id="g6929">
+     <g id="g6644-9">
+      <circle opacity="0.99" fill="#ff0000" stroke="#ff0000" stroke-width="1px" id="circle4015-5" r="2" cy="231.571874" cx="508.59558"/>
+      <g opacity="0.99" id="g4905-4-5">
+       <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" xml:space="preserve" x="503.64731" y="226.292385" id="text4876-9-7">
+        <tspan font-size="22px" font-style="italic" font-weight="normal" font-family="Liberation Serif" id="tspan4878-4-4" x="503.64731" y="226.292385">x</tspan>
+       </text>
+       <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" xml:space="preserve" x="512.42127" y="230.034695" id="text4273-6-6-7">
+        <tspan font-size="12px" id="tspan4275-0-0-3" x="512.42127" y="230.034695">0.01</tspan>
+       </text>
+      </g>
+     </g>
+    </g>
+    <g id="g6921">
+     <circle fill="#ff0000" stroke="#ff0000" stroke-width="1px" cx="461.75875" cy="226.439722" r="2" id="circle4145-8-4"/>
+     <g id="g4905-7-0">
+      <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4876-6-8" y="220.998371" x="456.547471" xml:space="preserve">
+       <tspan font-size="22px" font-style="italic" font-weight="normal" font-family="Liberation Serif" y="220.998371" x="456.547471" id="tspan4878-7-8">x</tspan>
+      </text>
+      <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4273-6-8-1" y="224.740681" x="465.321431" xml:space="preserve">
+       <tspan font-size="12px" font-style="italic" y="224.740681" x="465.321431" id="tspan4275-0-7-5">π</tspan>
+      </text>
+     </g>
+    </g>
+    <g id="g6789-2">
+     <circle fill="#ff0000" stroke="#ff0000" stroke-width="1px" cx="441.145967" cy="173.886374" r="2" id="circle4145-3"/>
+     <g id="g4905-2">
+      <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4876-4" y="168.445019" x="435.934688" xml:space="preserve">
+       <tspan font-size="22px" font-style="italic" font-weight="normal" font-family="Liberation Serif" y="168.445019" x="435.934688" id="tspan4878-6">x</tspan>
+      </text>
+      <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4273-6-66" y="172.187329" x="444.708648" xml:space="preserve">
+       <tspan font-size="12px" y="172.187329" x="444.708648" id="tspan4275-0-2">1.2</tspan>
+      </text>
+     </g>
+    </g>
+    <g id="g6841-9">
+     <circle fill="#ff0000" stroke="#ff0000" stroke-width="1px" cx="532.330527" cy="169.663315" r="2" id="circle4065-0"/>
+     <g id="g4905-4-3-4">
+      <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4876-9-6-9" y="164.335277" x="527.730753" xml:space="preserve">
+       <tspan font-size="22px" font-style="italic" font-weight="normal" font-family="Liberation Serif" y="164.335277" x="527.730753" id="tspan4878-4-2-3">x</tspan>
+      </text>
+      <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4273-6-6-4-1" y="168.077587" x="536.504713" xml:space="preserve">
+       <tspan font-size="12px" y="168.077587" x="536.504713" id="tspan4275-0-0-5-1">4</tspan>
+      </text>
+     </g>
+    </g>
+    <g id="g6833-9">
+     <circle fill="#ff0000" stroke="#ff0000" stroke-width="1px" cx="486.325568" cy="158.292372" r="2" id="circle4015-8-9"/>
+     <g id="g4905-4-8-5">
+      <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4876-9-1-5" y="153.012882" x="481.377294" xml:space="preserve">
+       <tspan font-size="22px" font-style="italic" font-weight="normal" font-family="Liberation Serif" y="153.012882" x="481.377294" id="tspan4878-4-6-5">x</tspan>
+      </text>
+      <text font-size="40px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" id="text4273-6-6-0-6" y="156.755192" x="490.151254" xml:space="preserve">
+       <tspan font-size="12px" y="156.755192" x="490.151254" id="tspan4275-0-0-9-0">-7</tspan>
+      </text>
+     </g>
+    </g>
+   </g>
+   <g id="g7762-9" transform="matrix(0.50014218,0,0,0.50014218,130.65724,451.89396) ">
+    <text font-size="94.284935px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" transform="translate(641.8175048828125,-679.8067016601562) scale(0.972817063331604,1.0279425382614136) " id="text4269-9-0" y="-24.003756" x="17.480494" xml:space="preserve">
+     <tspan font-size="95px" y="-24.003756" x="17.480494" id="tspan4271-4-5">(<tspan font-style="italic" font-weight="normal" font-family="Liberation Serif" id="tspan7798">x </tspan>)</tspan>
+    </text>
+    <text font-size="94.284935px" font-style="normal" font-weight="normal" fill="#000000" font-family="Liberation Sans" transform="translate(641.8175048828125,-679.8067016601562) scale(0.972817063331604,1.0279425382614136) " id="text4273-63-3" y="-6.59693" x="96.948318" xml:space="preserve">
+     <tspan font-size="60px" font-style="italic" font-weight="normal" font-family="Liberation Serif" y="-6.59693" x="96" id="tspan4275-4-9">i</tspan>
+    </text>
+   </g>
+  </g>
+ </g>
+</svg>

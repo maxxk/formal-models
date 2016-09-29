@@ -160,9 +160,6 @@ section.fobos-bg-ka:after {
   background-position: right;
   opacity: 0.4;
 }
-section.small > p {
-  font-size: 0.7em;
-}
 </style>
 # Фобос-Грунт ([Wikipedia](https://ru.wikipedia.org/wiki/Фобос-Грунт)) {.bg .fobos-bg-ka .small}
 2011 г. 9 ноября — запуск и ожидаемое выведение на траекторию полёта к Марсу:

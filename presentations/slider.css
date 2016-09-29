@@ -190,6 +190,9 @@
   height: 1em;
   color: #666;
 }
+.slider > section.small > p, .slider > section.small > * > li {
+  font-size: 0.7em;
+}
 #slider-max:checked + .slider-indicator #slider-default:target ~ section[default]:first-of-type::before,
 #slider-max:checked + .slider-indicator > section:target::before {
   font-size: 0.5em;
@@ -368,7 +371,7 @@
   font-size: 1.2em;
 }
 .slider > section h1 {
-  margin-top: 1em;
+  margin-top: 0.25em;
   font-size: 1.5em;
 }
 .slider > section p {
@@ -400,6 +403,10 @@
   padding: 1em;
   line-height: 1;
   font-size: 0.6em;
+}
+.slider > section img {
+  max-width: 80%;
+  max-height: 90%;
 }
 .slider > section ul,
 .slider > section ol {
