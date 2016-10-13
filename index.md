@@ -37,3 +37,7 @@ layout: default
 
 [презентация — html](presentations/03-Logics.html)
 
+
+## Введение в верификацию с использованием методов Model Checking
+
+[презентация — html](presentations/04-Model-Checking.html)
