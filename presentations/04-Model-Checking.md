@@ -1,5 +1,7 @@
 # Математические модели вычислений
 
+# TODO: Пример кода на Dafny
+
 ## Введение в Model Checking. Темпоральные логики LTL и CTL
 
 ## Software Model Checking via Counterexample Guided Abstraction Refinement
