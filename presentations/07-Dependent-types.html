@@ -675,28 +675,30 @@ get : Π (T : Type). (n : ℕ). (a : Array T n). (i : ℕ). (i &lt; n) → T</p>
 </tr>
 </tbody>
 </table>
-<p>split — терм <strong>зависимого удаления</strong>.</p>
+<p>split — пример терма <strong>зависимого удаления</strong>. Он выразим через <strong>fst</strong>, <strong>snd</strong> только в исчислении с η-расширением, а для такого исчисления на настоящее время нет доказательства сильной нормализации.</p>
+<p>Функция, которая возвращает массив, имеющий длину не менее заданной:<br>
+Π (n : ℕ) . Σ (m : ℕ) (p : n &lt; m). (b : Array double m)</p>
+<p>Функция, которая факторизует число:<br>
+Π (n : ℕ). Σ (m : ℕ). (Eq 0 (mod n m))</p>
 </section><div><a class="slider-prev" href="#массив-с-контролем-границ-1"></a><a class="slider-next" href="#разрешимые-свойства"></a></div>
 <section id="разрешимые-свойства" class="slide level1">
 <h1>Разрешимые свойства</h1>
-</section><div><a class="slider-prev" href="#зависимая-сумма-пара-терм-свойство"></a><a class="slider-next" href="#деление-на-0"></a></div>
-<section id="деление-на-0" class="slide level1">
-<h1>Деление на 0</h1>
-</section><div><a class="slider-prev" href="#разрешимые-свойства"></a><a class="slider-next" href="#тип-идентичности"></a></div>
-<section id="тип-идентичности" class="slide level1">
-<h1>Тип идентичности</h1>
-</section><div><a class="slider-prev" href="#деление-на-0"></a><a class="slider-next" href="#перенос-вдоль-идентичности"></a></div>
-<section id="перенос-вдоль-идентичности" class="slide level1">
-<h1>Перенос вдоль идентичности</h1>
-</section><div><a class="slider-prev" href="#тип-идентичности"></a><a class="slider-next" href="#прогонка-в-λpω"></a></div>
+<p>В некоторых случаях задавать какие-то ограничения на этапе компиляции затруднительно, лучше принимать решение в процессе исполнения.</p>
+<p>Сравнение <code>a &lt; b</code> можно представить в более типизированном и менее типизированном виде:</p>
+<p>Менее типизированный:<br>
+compare(a, b) : Bool</p>
+<p>Более типизированный (разрешение свойства <code>a&lt;b</code>):<br>
+compare(a, b) : {a &lt; b} + { b ⩽ a }</p>
+<p>В последнем случае оператор удаления <code>case</code> может передать полученный тип далее. В языках с зависимыми типами использовать «менее типизированный» способ разрешения свойств почти никогда не имеет смысла.</p>
+</section><div><a class="slider-prev" href="#зависимая-сумма-пара-терм-свойство"></a><a class="slider-next" href="#прогонка-в-λpω"></a></div>
 <section id="прогонка-в-λpω" class="slide level1">
 <h1>Прогонка в λPω</h1>
-</section><div><a class="slider-prev" href="#перенос-вдоль-идентичности"></a><a class="slider-next" href="#что-осталось-непроверенным"></a></div>
+</section><div><a class="slider-prev" href="#разрешимые-свойства"></a><a class="slider-next" href="#что-осталось-непроверенным"></a></div>
 <section id="что-осталось-непроверенным" class="slide level1">
 <h1>Что осталось непроверенным</h1>
 <ul>
 <li class="fragment">корректная последовательность доступа к элементам массива</li>
-<li class="fragment">корректность результата (после обработки )</li>
+<li class="fragment">корректность результата (после обработки для матрицы с диагональным преобладанием в массиве x должно быть решение исходной системы линейных уравнений).</li>
 </ul>
 </section><div><a class="slider-prev" href="#прогонка-в-λpω"></a><a class="slider-next" href="#литература"></a></div>
 <section id="литература" class="slide level1">
