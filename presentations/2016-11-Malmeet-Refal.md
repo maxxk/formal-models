@@ -526,7 +526,7 @@ EMIT CONST 1 0;
 #### к.ф.-м.н., н.с. МГУ имени М. В. Ломоносова
 #### maxim.krivchikov@gmail.com
 
-URL презентации: https://maxxk.github.io/formal-models/2016-11-Malmeet-Refal.html
+URL презентации: https://maxxk.github.io/formal-models/presentations/2016-11-Malmeet-Refal.html
 
 <span class="small">
 Исследования поддержаны грантом РФФИ № 16-07-01178 А «Методы и средства разработки верифицируемого программного обеспечения с использованием предметно-ориентированных языков, имеющих заданную формальную семантику».
