@@ -1,1 +1,621 @@
-2016-11-Maltsev-refal.html
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="slider.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+</head>
+<body>
+  <div style="width: 640px;height: 400px;">
+  <input id="slider-max" type="checkbox" checked="">
+   <article class="slider slider-indicator">
+   <a id="slider-default"></a>
+   <label for="slider-max" title="Maximize"></label>
+
+
+<section id="к-системе-типов-языков-семейства-рефал-для-промежуточного-представления-программ" class="slide level1">
+<h1>К системе типов языков семейства Рефал для промежуточного представления программ</h1>
+<h2 id="д.ф.-м.н.-проф.-в.-а.-васенин-к.ф.-м.н.-м.-а.-кривчиков">д.ф.-м.н., проф. В. А. Васенин, к.ф.-м.н. М. А. Кривчиков</h2>
+<h3 id="мгу-имени-м.-в.-ломоносова-москва">МГУ имени М. В. Ломоносова, Москва</h3>
+<h4 id="мальцевские-чтения-новосибирск-21-25-ноября-2016-г.">Мальцевские чтения, Новосибирск, 21-25 ноября 2016 г.</h4>
+<style>
+.bsods-everywhere:after {
+  background: url(images/bsods-everywhere.jpg);
+  background-position: left, right;
+  background-repeat: repeat-x, repeat-y;
+  opacity: 0.3;
+  width: 100%;
+  height: 100%;
+}
+.bsods-everywhere {
+  text-shadow: rgba(0.5,0.5,0.5,0.5) 0 0 1px;
+}
+
+span.small {
+  font-size: 0.75em;
+}
+.inference table {
+    display: inline-block;
+    padding: 1em;
+}
+
+.inference table th {
+    font-weight: normal;
+    border-bottom: 1px solid black;
+}
+
+.slider > section {
+  font-size: 20pt !important;
+}
+
+</style>
+</section><div><a class="slider-prev"></a><a class="slider-next" href="#программы-окружают-нас"></a></div>
+<section id="программы-окружают-нас" class="slide level1 center bg bsods-everywhere">
+<h1>Программы окружают нас</h1>
+<p>Например, в следующих сферах жизни общества:</p>
+<ul>
+<li class="fragment">развлечения</li>
+<li class="fragment">рабочие места</li>
+<li class="fragment">коммуникации</li>
+<li class="fragment">транспорт</li>
+<li class="fragment">медицина</li>
+<li class="fragment">наука</li>
+<li class="fragment">производство</li>
+<li class="fragment">энергетика</li>
+<li class="fragment">вооружение</li>
+</ul>
+</section><div><a class="slider-prev" href="#к-системе-типов-языков-семейства-рефал-для-промежуточного-представления-программ"></a><a class="slider-next" href="#программы-содержат-ошибки"></a></div>
+<section id="программы-содержат-ошибки" class="slide level1">
+<h1>Программы содержат ошибки</h1>
+<h3 id="уязвимости-в-по">Уязвимости в ПО</h3>
+<ul>
+<li class="fragment">Stuxnet, Иранская ядерная программа (2009) — предположительно, повреждены центрифуги, используемые при обогащении урана</li>
+<li class="fragment">OpenSSL Heartbleed (CVE-2014-0160) — значительная часть TLS-серверов в Интернет (популярные дистрибутивы Linux — Debian-based, RedHat-based; OpenBSD, FreeBSD, NetBSD, роутеры Cisco, Juniper, …) имели уязвимость в течение более 1 года</li>
+</ul>
+<h3 id="некорректная-работа-по">Некорректная работа ПО</h3>
+<ul>
+<li class="fragment">«Фобос-Грунт» (2011) — утрачена автоматическая межпланетная станция</li>
+<li class="fragment">Панама, установки лучевой терапии (2000-2001)</li>
+<li class="fragment">Therac-25, установки лучевой терапии (1985-1987)</li>
+<li class="fragment">ExoMars, крушение зонда Schiaparelli (2016)</li>
+</ul>
+<h3 id="недокументированные-возможности">Недокументированные возможности</h3>
+<ul>
+<li class="fragment">Volkswagen (2015) — занижались данные по выбросам вредных веществ дизельными двигателями, компанию ожидает штраф до 18 млрд. долл.</li>
+</ul>
+</section><div><a class="slider-prev" href="#программы-окружают-нас"></a><a class="slider-next" href="#верификация"></a></div>
+<section id="верификация" class="slide level1">
+<h1>Верификация</h1>
+<p>— процесс, целью которого является показать соответствие продукта, сервиса или системы требованиям, спецификациям и другим условиям, которые накладываются на продукт</p>
+<ul>
+<li class="fragment">рецензирование (peer review), ручное тестирование
+<ul>
+<li class="fragment">зависит от экспертного мнения;</li>
+<li class="fragment">не автоматизировано;</li>
+<li class="fragment">на больших объёмах кода сложно в применении.</li>
+</ul></li>
+<li class="fragment">(динамическое автоматизированное) тестирование
+<ul>
+<li class="fragment">большой объём кода тестов по сравнению с кодом продукта (SQLite: 80 тыс. строк кода / 90 млн. строк тестов);</li>
+<li class="fragment">тесты необходимо поддерживать в актуальном состоянии;</li>
+<li class="fragment">тесты не гарантируют отсутствия дефектов/ошибок.</li>
+</ul></li>
+<li class="fragment">Статический и динамический анализ
+<ul>
+<li class="fragment">нетривиальные свойства неразрешимы согласно теореме Райса;</li>
+<li class="fragment">большое количество ложных срабатываний;</li>
+<li class="fragment">на практике встречаются дефекты, необнаружимые средствами статического анализа (OpenSSL Heartbleed bug: информация раскрыта 7 апреля 2014 г., адаптированные средства статического анализа появились 18 апреля 2014 г.).</li>
+</ul></li>
+</ul>
+</section><div><a class="slider-prev" href="#программы-содержат-ошибки"></a><a class="slider-next" href="#формальная-верификация"></a></div>
+<section id="формальная-верификация" class="slide level1">
+<h1>Формальная верификация</h1>
+<p>— процесс, результатом которого является получение строгого математического доказательства соответствия программы требуемой спецификации, наличия у программы требуемых свойств.</p>
+<h3 id="недостатки">Недостатки</h3>
+<ul>
+<li class="fragment">является трудоёмким и наукоёмким процессом</li>
+<li class="fragment">сложно получить строгую постановку</li>
+<li class="fragment">не имеет широкого распространения</li>
+</ul>
+<h3 id="подходы">Подходы</h3>
+<ul>
+<li class="fragment">теоретико-модельные — исчерпывающая автоматическая проверка пространства конфигураций модели программы (верификация моделей программ, model checking)<sup>1</sup>;</li>
+<li class="fragment"><strong>теоретико-доказательные</strong> — представление программ и свойств в виде логических формул с дальнейшим построением доказательств;
+<ul>
+<li class="fragment">корректные по построению программы на языках программирования с системами типов, которые предоставляют сильные гарантии корректности<sup>2</sup>.</li>
+</ul></li>
+</ul>
+<p><span class="small"><br>
+<sup>1</sup> Э.М. Кларк и др. Верификация моделей программ. Model checking. М.:МЦНМО, 2002.<br>
+<sup>2</sup> Chen, Haogang, Daniel Ziegler, Tej Chajed, Adam Chlipala, M. Frans Kaashoek, Nickolai Zeldovich. «Using Crash Hoare Logic for Certifying the FSCQ File System», 18–37. ACM Press, 2015. <a href="http://dx.doi.org/10.1145/2815400.2815402">doi:10.1145/2815400.2815402</a>.<br>
+</span></p>
+</section><div><a class="slider-prev" href="#верификация"></a><a class="slider-next" href="#программы-сложны-и-объёмны"></a></div>
+<section id="программы-сложны-и-объёмны" class="slide level1">
+<h1>Программы сложны и объёмны</h1>
+<table>
+<tbody><tr>
+<td>
+OpenSSL 1.1.0c, <span class="small">оптимизированные реализации криптографических алгоритмов (подкаталоги crypto, doc/crypto)</span>
+</td>
+<td>
+<span class="small">410 тыс. строк<br>
+(код (300), документация (30), комментарии (40) и пустые строки (40)),</span>
+<div style="display:inline-block">
+около 10 000 страниц<sup>1</sup>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+Микроядро операционной системы SeL4
+</td>
+<td>
+<span class="small">10 тыс. строк кода на C, 480 тыс. строк формальных доказательств</span><br>
+
+<div style="display:inline-block">
+около 12 000 страниц<sup>2</sup>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+Классификация простых конечных групп <span class="small">(для сравнения, на основе информации в Daniel Gorenstein (1985), "The Enormous Theorem", Scientific American, vol. 253, no. 6, pp. 104–115.)</span>
+</td>
+<td>
+<div style="display:inline-block">
+около 15 000 страниц
+</div>
+</td>
+</tr>
+<tr>
+<td>
+Формальное доказательство в среде Coq теоремы Томпсона-Фейта о разрешимости всякой конечной группы нечётного порядка
+</td>
+<td>
+<span class="small">150 тыс. строк в среде Coq</span><br>
+
+<div style="display:inline-block">
+около 3 750 страниц<sup>3</sup>
+</div>
+</td>
+</tr>
+</tbody></table>
+<p><span class="small"><br>
+<sup>1</sup> ГОСТ 7.32-2001: 40±3 строк на страницу.<br>
+<sup>2</sup> Klein G. et al. Comprehensive Formal Verification of an OS Microkernel // ACM Trans. Comput. Syst. 2014. Vol. 32, № 1. P. 2:1–2:70.<br>
+<sup>3</sup> G. Gonthier et al. A Machine-Checked Proof of the Odd Order Theorem. In Proc. of ITP 2013, LNCS 7998, pp.163-179, 2013.<br>
+</span></p>
+</section><div><a class="slider-prev" href="#формальная-верификация"></a><a class="slider-next" href="#системы-типов-и-верификация"></a></div>
+<section id="системы-типов-и-верификация" class="slide level1">
+<h1>Системы типов и верификация</h1>
+<p>Система типов [языка программирования] — это гибко управляемый синтаксический метод доказательства отсутствия в программе определенных видов поведения при помощи классификаций выражений языка по разновидностям вычисляемых ими значений.<sup>1</sup></p>
+<p>Соответствие Карри-Говарда — типы в системе, обладающей свойством нормализации, можно рассматривать как утверждения интуиционистской логики, а термы, имеющие заданный тип — как доказательства утверждения.</p>
+<p>Разновидности типизированного λ-исчисления, активно используются в исследованиях как в области формальной верификации, так и в области проверки доказательств, в особенности — Исчисление конструкций (среды Coq, Agda).</p>
+<p><span class="small"><br>
+<sup>1</sup> Б. Пирс. Типы в языках программирования. М.: Лямбда-пресс: Добросвет, 2011.<br>
+</span></p>
+</section><div><a class="slider-prev" href="#программы-сложны-и-объёмны"></a><a class="slider-next" href="#существующие-языки-программирования"></a></div>
+<section id="существующие-языки-программирования" class="slide level1">
+<h1>Существующие языки программирования</h1>
+<ul>
+<li class="fragment">системы типов распространённых языков программирования (C/C++, Java, Python) не могут представить строгие математические спецификации программ:
+<ul>
+<li class="fragment">недостаточно мощны для описания точных спецификаций<br>
+MatrixMultiply : ∀ (m, n, p : ℕ), Matrix m×n → Matrix n×p → Matrix m×p</li>
+<li class="fragment">противоречивы, т.к. допускают описание незавершимых программ и неограниченную рекурсию</li>
+</ul></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// omega : T → ⊥</span>
+<span class="kw">function</span> <span class="at">omega</span>(a) <span class="op">{</span> <span class="cf">return</span> <span class="at">omega</span>(a)<span class="op">;</span> <span class="op">}</span></code></pre></div>
+<ul>
+<li class="fragment">языки программирования на основе исчисления конструкций сложны в применении для специалистов без математического образования (и для математиков, не имеющих специальной подготовки)</li>
+</ul>
+</section><div><a class="slider-prev" href="#системы-типов-и-верификация"></a><a class="slider-next" href="#предметно-ориентированные-языки-программирования"></a></div>
+<section id="предметно-ориентированные-языки-программирования" class="slide level1">
+<h1>Предметно-ориентированные языки программирования</h1>
+<p>— языки программирования, адекватно отражающие специфику предметной области.</p>
+<p>Примеры: SQL, языки шаблонов в Web-приложениях, языки конфигурации, языки описания входных данных для сред математического моделирования физических процессов.</p>
+<h2 id="задача">Задача</h2>
+<p>Разработать представление для описания семантики различных (в первую очередь, предметно-ориентированных) языков программирования и программ, записанных на наборах таких языков, предназначенное для формальной верификации функциональных свойств таких программ.</p>
+</section><div><a class="slider-prev" href="#существующие-языки-программирования"></a><a class="slider-next" href="#подход"></a></div>
+<section id="подход" class="slide level1">
+<h1>Подход</h1>
+<p><img src="images/DSL-scheme.svg"></p>
+<!--
+# Исчисление конструкций {.inference}
+
+   Γ ⊦ A : **Type** $\qquad$  Γ, x : A ⊦ B : **Type**
+ -----------------------------------------------------
+  Γ ⊦ Π (x : A). B : **Type**
+
+
+  Γ ⊦ Π (x : A). B : **Type** $\qquad$ Γ, x : A ⊦ M : B
+ -----------------------------------------------------------
+  Γ ⊦ λ (x : A). M : Π (x : A). B
+
+
+  Γ ⊦ F : Π (x : A). B $\qquad$ Γ ⊦ N : A
+ --------------------------------------------
+  Γ ⊦ F · N : B[x := N]
+
+  (λ (x : A). M) · N ⟶~β~ M[x := N]
+
+  **Type**~i~ : **Type**~j~, i⩽j
+-->
+</section><div><a class="slider-prev" href="#предметно-ориентированные-языки-программирования"></a><a class="slider-next" href="#индуктивные-типы"></a></div>
+<section id="индуктивные-типы" class="slide level1">
+<h1>Индуктивные типы</h1>
+<p>Индуктивные типы — расширения исчисления конструкций — позволяют определять корректные рекурсивные программы, а также расширяют выразительные возможности для описания спецификации программ.</p>
+<pre class="coq"><code>Inductive assign_loc (ty: type) (m: mem) (b: block) (ofs: int):
+  val -&gt; trace -&gt; mem -&gt; Prop :=
+| assign_loc_value: forall v chunk m',
+    access_mode ty = By_value chunk -&gt;
+    type_is_volatile ty = false -&gt;
+    Mem.storev chunk m (Vptr b ofs) v = Some m' -&gt;
+    assign_loc ty m b ofs v E0 m'</code></pre>
+<p><span class="small"><br>
+Индуктивные типы в фрагменте описания семантики языка C для компилятора CompCert. Xavier Leroy. Formal verification of a realistic compiler. Communications of the ACM, 52(7):107-115, 2009.<br>
+</span></p>
+</section><div><a class="slider-prev" href="#подход"></a><a class="slider-next" href="#высшие-индуктивные-типы"></a></div>
+<section id="высшие-индуктивные-типы" class="slide level1">
+<h1>Высшие индуктивные типы</h1>
+<p>Гомотопическая теория типов устанавливает связь между теорией типов и алгебраической топологией.<sup>1</sup></p>
+<pre><code>R : Type
+document : R
+patch (old new : String) (sequence : Fin n) : document = document
+indep (i != j) -&gt; patch s t i ∘ patch u v j  = patch u v i ∘ patch s t j
+noop : patch s s i = refl</code></pre>
+<p><span class="small"><br>
+Пример применения высших индуктивных типов для спецификации системы контроля версий: Angiuli, Carlo, Edward Morehouse, Daniel R. Licata, и Robert Harper. «Homotopical patch theory». В Proceedings of the 19th ACM SIGPLAN international conference on Functional programming, 243–56. ACM, 2014. <a href="doi:10.1145/2628136.2628158" class="uri">doi:10.1145/2628136.2628158</a>.<br>
+<sup>1</sup> Homotopy Type Theory: Univalent Foundations of Mathematics. — Princeton: Institute for Advanced Study, 2013. — 603 p.<br>
+</span></p>
+</section><div><a class="slider-prev" href="#индуктивные-типы"></a><a class="slider-next" href="#нетривиальные-правила-редукции"></a></div>
+<section id="нетривиальные-правила-редукции" class="slide level1">
+<h1>Нетривиальные правила редукции</h1>
+s =<sub>A</sub> t ⇔ I — отношение структуры типа идентичности между элементами типа A (элементы типа идентичности s = t имеют структуру типа I(s, t)).<br>
+
+<table style="font-size: 0.8em">
+<tbody><tr>
+<td>
+J(B, u, v, a =<sub>A</sub> b, ξ, x) ⟶ <strong>let</strong><br>
+<span class="math inline">  </span> A<sub>1</sub> ≡ A(u, <strong>refl</strong> u)<br>
+<span class="math inline">  </span> A<sub>2</sub> ≡ A(v, ξ)<br>
+<span class="math inline">  </span> s =<sub>A2</sub> t ⇔ I<sub>2</sub><br>
+<span class="math inline">  </span> a<sub>1</sub> ≡ a(u, <strong>refl</strong> u) : A<sub>1</sub><br>
+<span class="math inline">  </span> a<sub>2</sub> ≡ a(v, ξ) : A<sub>2</sub><br>
+<span class="math inline">  </span> a'<sub>1</sub> ≡ J(B, u, v, A, ξ, a<sub>1</sub>) : A<sub>2</sub><br>
+<span class="math inline">  </span> b<sub>1</sub> ≡ b(u, <strong>refl</strong> u) : A<sub>1</sub>
+</td>
+<td>
+<span class="math inline">  </span> b<sub>2</sub> ≡ b(v, ξ) : A<sub>2</sub><br>
+<span class="math inline">  </span> b'<sub>1</sub> ≡ J(B, u, v, A, ξ, b<sub>1</sub>) : A<sub>2</sub><br>
+<span class="math inline">  </span> x<sub>1</sub> ≡ <strong>itoe</strong>(<strong>refl</strong> a'<sub>1</sub>) : I<sub>2</sub>(a'<sub>1</sub>, a'<sub>1</sub>)<br>
+<span class="math inline">  </span> x<sub>2</sub> : I<sub>2</sub>(a'<sub>1</sub>, b'<sub>1</sub>)<br>
+<span class="math inline">  </span> x<sub>2</sub> ≡ J(A<sub>1</sub>, a<sub>1</sub>, b<sub>1</sub>, (r, ρ) ↦ I<sub>2</sub>(a'<sub>1</sub>, J(B, u, v, A, ξ, r)), x, x<sub>1</sub>)<br>
+<span class="math inline">  </span> z ≡ λ (w : B) (ω : v =<sub>B</sub> w) (a<sub>wω</sub> : A(w, ω)). J(B, w, v, A, ξ ∘ ω<sup>-1</sup>, a<sub>wω</sub>)<br>
+<span class="math inline">  </span> x<sub>3</sub> ≡ J(B, u, v, (r, ρ) ↦ I<sub>2</sub>(z(r, ρ, a(r, ρ)), b'<sub>1</sub>), ξ, x<sub>2</sub>)<br>
+<span class="math inline">  </span> <strong>in</strong> J(B, u, v, I<sub>2</sub>(a<sub>2</sub>, z · b), ξ, x<sub>3</sub>) <span class="math inline">  </span> .
+</td>
+</tr>
+</tbody></table>
+<p>Как исследовать поведение таких сложных правил?</p>
+<span class="small"><br>
+Правило редукции переноса вдоль идентичности ξ : u =<sub>B</sub> v элемента другого типа идентичности x : a(t, σ) =<sub>A</sub> b(t, σ).
+<div style="display: inline-block">
+В. А. Васенин,
+</div>
+<div style="display: inline-block">
+М. А. Кривчиков.
+</div>
+<p>«Предметно-ориентированные языки с заданной формальной семантикой на основе лямбда-исчисления с зависимыми типами». Международная конференция «Мальцевские чтения-2014», Новосибирск, 2014.<br>
+</p>
+</span></section><div><a class="slider-prev" href="#высшие-индуктивные-типы"></a><a class="slider-next" href="#рефал"></a></div>
+<section id="рефал" class="slide level1">
+<h1>Рефал</h1>
+<p>— [РЕкурсивных Функций АЛгоритмический] язык программирования, построенный на основе модели нормальных алгорифмов Маркова.</p>
+<p>Функции задаются в терминах правил переписывания входных строк (деревьев) в выходные.<br>
+Последовательность правил, разделённых символом <code>;</code>. Слева от знака <code>=</code> записываются образцы, справа — результаты. После унификации входной строки с образцом выполняется подстановка полученных значений переменных в результат. Вызов функции — в угловых скобках, круглые скобки позволяют задавать и сопоставлять деревья и образцы на деревьях.</p>
+<pre><code>Beta {
+   (λ s.var '.'  e.body) t.value e.rest =
+      Step &lt;Subst s.var t.value e.body&gt; e.rest ;
+    = Stuck;
+}</code></pre>
+<p><span class="small"><br>
+Турчин В. Ф. «Метаалгоритмический язык». Кибернетика, вып. 4 (1968 г.): 45–54.<br>
+</span></p>
+</section><div><a class="slider-prev" href="#нетривиальные-правила-редукции"></a><a class="slider-next" href="#расширения-базового-рефала"></a></div>
+<section id="расширения-базового-рефала" class="slide level1">
+<h1>Расширения Базового Рефала</h1>
+<p>Условия: промежуточный результат сопоставляется с образцом (Рефал-5):</p>
+<pre><code>t.neutral e.rest,
+  &lt;Beta e.rest&gt; : s.state e.result =
+  s.state t.neutral e.result ;</code></pre>
+<p>Функции высшего порядка: функции передаются так же, как и данные (Рефал-7):</p>
+<pre><code>(e.1) e.rest,
+  &lt;Beta e.1&gt; : e.betaResult =
+  &lt;{
+    Step e.result = Step (e.result) e.rest ;
+    Stuck e.result,
+      &lt;Beta e.rest&gt; : s.state e.result2 =
+      s.state (e.result) e.result2 ;
+  } e.betaResult&gt;;</code></pre>
+<p><span class="small"><br>
+Рефал-5: В.Ф. Турчин. «Рефал-5. Руководство по программированию и справочник» <a href="http://refal.net/rf5_frm.htm" class="uri">http://refal.net/rf5_frm.htm</a><br>
+Рефал-7: С.Ю. Скоробогатов, А. М. Чеповский. «Разработка нового диалекта языка Refal». Информационные технологии, вып. 9 (2006 г.): 31–38.<br>
+</span></p>
+</section><div><a class="slider-prev" href="#рефал"></a><a class="slider-next" href="#метавычисления-и-суперкомпиляция"></a></div>
+<section id="метавычисления-и-суперкомпиляция" class="slide level1">
+<h1>Метавычисления и суперкомпиляция</h1>
+<p>Метавычисления — это раздел теории и практики программирования, связанный с разработкой и использованием метапрограмм — конструктивных метасистем над программами.<sup>1</sup></p>
+<p>Суперкомпиляция — техника преобразования программ [в первую очередь — оптимизации], основанная на построении полной и самодостаточной модели программы.<sup>2</sup></p>
+<p>Две основные стадии суперкомпиляции:</p>
+<ol type="1">
+<li class="fragment"><em>Прогонка</em> программы на параметризованных входных данных (частичная специализация).</li>
+<li class="fragment"><em>Свёртка</em> результата прогонки для получения остаточной программы (выделение рекурсии).</li>
+</ol>
+<p><span class="small"><br>
+<sup>1</sup> С.М. Абрамов. Основы метавычислений. Курс НОУ ИНТУИТ. <a href="http://www.intuit.ru/studies/courses/1067/221/info" class="uri">http://www.intuit.ru/studies/courses/1067/221/info</a><br>
+<sup>2</sup> И.Г. Ключников. Суперкомпиляция: идеи и методы. Практика функционального программирования, № 7, 2011.<br>
+</span></p>
+</section><div><a class="slider-prev" href="#расширения-базового-рефала"></a><a class="slider-next" href="#система-типов-для-языков-семейства-рефал"></a></div>
+<section id="система-типов-для-языков-семейства-рефал" class="slide level1">
+<h1>Система типов для языков семейства Рефал</h1>
+<p>Ограничимся функциями без побочных эффектов. Тип значения — завершимая функция, принимающая или отвергающая значение.</p>
+<pre><code>Bool = { 0 = ; 1 = ; }</code></pre>
+<p>Тип функций задаёт допустимый набор типов аргумента и типов выходных значений (разделены знаком <code>--</code>) Суждение «функция f обладает типом g» означает, что для любого входного значения, распознаваемого g, f завершится без ошибок, и её возвращаемое значение будет распознано соответствующим типом для g.</p>
+<pre><code>BoolBinaryOperation = { s.1 s.2, &lt;Bool s.1&gt; &lt;Bool s.2&gt; -- s.3, &lt;Bool s.3&gt; }
+BoolIdentity = { s.1, &lt;Bool s.1&gt; -- s.1 }</code></pre>
+</section><div><a class="slider-prev" href="#метавычисления-и-суперкомпиляция"></a><a class="slider-next" href="#суждение-типизации"></a></div>
+<section id="суждение-типизации" class="slide level1">
+<h1>Суждение типизации</h1>
+<p>— применение суперкомпиляции к типу и функции на произвольном выражении.</p>
+<pre><code>BoolBinaryOperation ≡ { t.FN = { s.1 s.2, &lt;Bool s.1&gt; &lt;Bool s.2&gt; : s.1 s.2 = &lt;t.FN s.1 s.2&gt; : s.3, &lt;Bool s.3&gt; = ;
+  e.skip = ; } }
+&lt;HasType BoolBinaryOperation F&gt; ≡ &lt; Supercompile [&lt;BoolBinaryOperation F&gt; e.1] &gt;</code></pre>
+<p>Последний образец <code>e.skip</code> срабатывает в случае, если входные данные не удовлетворяют условиям типа.<br>
+Возможные случаи:</p>
+<ol type="1">
+<li class="fragment">Успешная типизация: Суперкомпиляция уничтожает вызов функции t.FN, результат — общезначимый тип <code>{ e.1 = }</code>.</li>
+<li class="fragment">Ошибка типизации: Суперкомпиляция приходит к возможному контрпримеру <code>{ … = &lt; &gt; ; … }</code></li>
+<li class="fragment">Неопределённый результат: Суперкомпиляция не может уничтожить вызов функции и генерирует нетривиальную остаточную программу. <code>R ≡ { … ; … }</code>. В этом случае можно предоставить дополнительные данные в исходном определении, или в определении R':</li>
+</ol>
+<pre><code>&lt;HasType T F&gt; ⟶ R
+&lt;HasType T F R'&gt; ⟶ &lt;HasType R' &lt;Supercompile [&lt;T F&gt; e.1]&gt;&gt; &lt;HasType { e.1 = } R'&gt;</code></pre>
+</section><div><a class="slider-prev" href="#система-типов-для-языков-семейства-рефал"></a><a class="slider-next" href="#подтипы"></a></div>
+<section id="подтипы" class="slide level1">
+<h1>Подтипы</h1>
+<p>Наиболее точный тип можно получить из определения функции.</p>
+<pre><code>XorDef = { 0 0 = 0 ; 0 1 = 1; 1 0 = 1; 1 1 = 0; }
+XorSpec = { 0 0 -- 0; 0 1 -- 1; 1 0 -- 1; 1 1 -- 0; }</code></pre>
+<p>Другие типы могут, например, более свободно трактовать возможные выходные значения, или же задавать дополнительные ограничения на входные значения и получать таким образом дополнительные свойства выходных значений. Фактически, тип — это свойство функции (утверждение о функции).</p>
+<pre><code>XorNeg = { 1 s.1 -- s.2, &lt;Not s.1&gt; : s.2 }</code></pre>
+<p>Можно попытаться получить XorNeg ⩽ XorSpec, в терминах пересечения спецификаций:</p>
+<pre><code>&lt;HasType XorNeg XorSpec&gt;</code></pre>
+</section><div><a class="slider-prev" href="#суждение-типизации"></a><a class="slider-next" href="#проверка-на-завершимость"></a></div>
+<section id="проверка-на-завершимость" class="slide level1">
+<h1>Проверка на завершимость</h1>
+<p>Индуктивные типы.</p>
+<pre><code>ℕ {
+  = ;
+  1 e.1, &lt;ℕ e.1&gt; : = 1 e.1
+}</code></pre>
+<p>Известные условия завершимости:</p>
+<ol type="1">
+<li class="fragment">Длина аргумента: функция F завершима, если в рекурсивных вызовах используется только убывающий по длине аргумент.</li>
+<li class="fragment">Размер аргумента: функция F завершима, если на аргументах можно определить другую функцию G : dom F → ℕ, такую, что в рекурсивных вызовах используется аргумент меньшего размера.</li>
+<li class="fragment">Трансфинитная индукция.</li>
+</ol>
+</section><div><a class="slider-prev" href="#подтипы"></a><a class="slider-next" href="#λ-исчисление-с-зависимыми-типами"></a></div>
+<section id="λ-исчисление-с-зависимыми-типами" class="slide level1">
+<h1>λ-исчисление с зависимыми типами</h1>
+<p>Для определения типов функций высшего порядка введём понятие функциональной переменной <code>f</code>, сопоставление которой успешно в точности для функций.<br>
+Определим виды, типы и термы λ-исчисления с зависимыми типами в виде трансляции<br>
+⟦ Type ⟧ = Type { f.FN, &lt; Finite f.FN &gt; -- f.FN }<br>
+В качестве контекстов используем простую последовательность переменных:<br>
+⟦ (x : A), (y : B), … ⟧ = t.x t.y …, &lt; Type ⟦A⟧ &gt; &lt; Type ⟦B ⟧&gt; … &lt; HasType s.x ⟦A⟧ &gt; &lt; HasType s.y ⟦B⟧ &gt; …<br>
+⟦ Var v ⟧ = t.v<br>
+⟦ Π(x : A).B ⟧ = { t.x, &lt; HasType Type ⟦A⟧ &gt; &lt; HasType ⟦A⟧ t.x &gt; -- t.b, &lt; HasType Type ⟦B⟧ &gt; &lt; HasType ⟦B⟧ t.b &gt; }<br>
+⟦ λ(x : A).N ⟧ = { t.x, &lt; HasType Type ⟦A⟧ &gt; &lt; HasType ⟦A⟧ t.x &gt; = ⟦ N ⟧ }<br>
+⟦ M N ⟧ = &lt; ⟦M⟧ ⟦N⟧ &gt;</p>
+</section><div><a class="slider-prev" href="#проверка-на-завершимость"></a><a class="slider-next" href="#промежуточное-представление"></a></div>
+<section id="промежуточное-представление" class="slide level1">
+<h1>Промежуточное представление</h1>
+<p>В какой форме удобнее представлять рефал-программы для суперкомпиляции? Необходимо представление, определяющее последовательность разбора.</p>
+<pre><code>XorDef = { ... 1 0 = 1 ; 1 1 = 0;}</code></pre>
+<ol type="1">
+<li class="fragment">Рефал-графы. <sup>1</sup></li>
+</ol>
+<pre><code>:(
+  ...
+  e0 -&gt; 1 e1; :( e1 -&gt; 0; 1 &lt;- e0;
+     + e1 -&gt; 1; 0 &lt;- e0
+     )
+)</code></pre>
+<ol start="2" type="1">
+<li class="fragment">Язык сборки. <sup>2</sup></li>
+</ol>
+<pre><code>  ...
+  RECOGNIZE CONST 1; BRANCH L1; RECOGNIZE CONST 0; EMIT CONST 1;
+  L1: RECOGNIZE CONST 1; EMIT 0; RETURN;</code></pre>
+<p>Язык сборки можно понимать как аналог индексов де Брёйна для рефал-графов.</p>
+<p><span class="small"><br>
+<sup>1</sup> Turchin V.F. The algorithm of generalization in the supercompiler. In Bjorner D., Ershov A.P., Jones N. (ed.), Partial Evaluation and Mixed Computation. (Gammel Avernaes, Denmark). pp.341--353, North-Holland, 1988.<br>
+<sup>2</sup> Романенко, С. А. «Машинно независимый компилятор с языка рекурсивных функций». Диссертация на соискание учёной степени к.ф.-м.н. (01.01.10), ИПМ АН СССР, 1978.<br>
+</span></p>
+</section><div><a class="slider-prev" href="#λ-исчисление-с-зависимыми-типами"></a><a class="slider-next" href="#расширение-промежуточного-представления"></a></div>
+<section id="расширение-промежуточного-представления" class="slide level1">
+<h1>Расширение промежуточного представления</h1>
+<p>Мы предлагаем:</p>
+<ol type="1">
+<li class="fragment">использовать явное построение выходной строки (в оригинале используется перестроение выходной строки из входной);</li>
+<li class="fragment">считать константные выражения последовательностью инструкций построения выходной строки;</li>
+<li class="fragment">представлять функции высшего порядка как последовательность инструкций;</li>
+<li class="fragment">представлять замыкания как инструкции, модифицирующие код функции.</li>
+</ol>
+<p>Основные положения</p>
+<ol type="1">
+<li class="fragment">Уровень цитирования отражает глубину функциональных скобок в выходной строке.</li>
+<li class="fragment">Инструкции распознавания на ненулевом уровне цитирования считаются инструкциями записи выходной строки.</li>
+<li class="fragment">Уровень выхода из цитаты инструкции <code>EMIT</code>: если при выполнении инструкции текущий уровень цитирования равен уровню выхода из цитаты, инструкция выполняется, в противном случае — записывается как данные.</li>
+<li class="fragment">Инструкция <code>PUSH</code> вычисляет текущее значение выходного выражения, записывает его значение в переменную и очищает выходное выражение.</li>
+</ol>
+</section><div><a class="slider-prev" href="#промежуточное-представление"></a><a class="slider-next" href="#пример"></a></div>
+<section id="пример" class="slide level1">
+<h1>Пример</h1>
+<p>Распознать один символ и вернуть функцию, распознающую пару таких символов.</p>
+<pre><code>{ s.1 = { s.1 s.1 = 1 ; } }</code></pre>
+<pre><code>RECOGNIZE LITERAL; EMIT CONST { 0;   // уровень цитирования 0 -&gt; 1
+  EMIT VARIABLE 1 1;                 // выход из цитаты 1, внешняя функция
+  PUSH;                              // выходное выражение -&gt; переменная 1 (внутр. функции)
+  RECOGNIZE VARIABLE 1;
+  RECOGNIZE VARIABLE 1;
+  EMIT CONST 1 0;                    // выход из цитаты 0, внутренняя функция
+EMIT CONST } 0;                      // уровень цитирования 1 -&gt; 0</code></pre>
+<p>Код функции, возвращаемой при выполнении примера на аргументе <code>1</code>.</p>
+<pre><code>EMIT CONST 1;
+PUSH;
+RECOGNIZE VARIABLE 1;
+RECOGNIZE VARIABLE 1;
+EMIT CONST 1 0;</code></pre>
+</section><div><a class="slider-prev" href="#расширение-промежуточного-представления"></a><a class="slider-next" href="#проверка-типов"></a></div>
+<section id="проверка-типов" class="slide level1">
+<h1>Проверка типов</h1>
+<p>Методы суперкомпиляции требуют адаптации для работы с функциями высших порядков.<br>
+Схема обоснования существования метода суперкомпиляции:</p>
+<ol type="1">
+<li class="fragment"><p>Для типов-значений с ограничениями (без перебора и с раскрытием переменных типа <code>t</code>)<sup>1</sup><br>
+Определен. Существует также суперкомпилятор SCP4, который работает на языке Рефал-5.<sup>2</sup></p></li>
+<li class="fragment"><p>Новые функциональные переменные <code>f.1</code> в образцах имеют семантику, аналогичную образцу-паре скобок <code>(e.1)</code>, с единственным отличием — распознаются функциональные скобки. Функциональные переменные непрозрачны для сопоставления с образцом.</p></li>
+<li class="fragment"><p>Суждения типизации для функциональных переменных пока не раскрываются, записываются в контекст синтаксически.</p></li>
+</ol>
+<p>Тип ложных высказываний — «пустая» функция с единственной инструкцией <code>FAIL</code>. Тип истинных высказываний — общезначимая функция <code>{ e.1 = }</code>.</p>
+<p><span class="small"><br>
+<sup>1</sup> А.П. Немытых. О суперкомпиляции (к 80-летию со дня рождения В.Ф. Турчина). Международная конференция<br>
+"Современные проблемы математики, информатики и биоинформатики", Новосибирск, 2011.<br>
+<sup>2</sup> А.П. Немытых. Суперкомпилятор SCP-4. Общая структура. М.: URSS. 2007. 152 с.<br>
+</span></p>
+</section><div><a class="slider-prev" href="#пример"></a><a class="slider-next" href="#связанные-работы"></a></div>
+<section id="связанные-работы" class="slide level1">
+<h1>Связанные работы</h1>
+<p>Автоматическая верификация с использованием методов суперкомпиляции (ближе к теоретико-модельным методам):</p>
+<ul>
+<li class="fragment">Климов А.В., Ключников И.Г., Романенко С.А. Автоматизированная верификация счетчиковых систем посредством предметно-ориентированной многорезультатной суперкомпиляции.</li>
+<li class="fragment">A. P. Lisitsa and A. P. Nemytykh. Towards verification via supercompilation. In Proceedings of the 29th Annual International Computer Software and Applications Conference (COMPSAC’05), 25-28 July 2005, Edinburgh, Scotland, UK, pages 9–10. IEEE Computer Society, 2005.</li>
+</ul>
+<p>Методы суперкомпиляции для автоматизированного доказательства эквивалентности термов в λ-исчислении высших порядков (без зависимых типов):</p>
+<ul>
+<li class="fragment">I. G. Klyuchnikov and S. A. Romanenko. Proving the equivalence of higher-order terms by means of supercompilation. In Pnueli et al. [33], pages 193–205. 2009</li>
+</ul>
+</section><div><a class="slider-prev" href="#проверка-типов"></a><a class="slider-next" href="#заключение"></a></div>
+<section id="заключение" class="slide level1">
+<h1>Заключение</h1>
+<ul>
+<li class="fragment">предложен подход к построению системы типов для языков семейства Рефал, которые поддерживают функции высшего порядка</li>
+<li class="fragment">система типов допускает последовательную детализацию спецификации, от максимально детальной (реализация функции в терминах Рефал) до более общих (типы с различными ограничениями на входные данные)</li>
+<li class="fragment">продемонстрирована возможность применения системы типов для пошагового построения доказательств</li>
+<li class="fragment">предложена трансляция λ-исчисления с зависимыми типами первого порядка в Рефал, сохраняющая типизацию</li>
+</ul>
+<h2 id="следующие-шаги">Следующие шаги</h2>
+<ul>
+<li class="fragment">практическая реализация схемы проверки типов</li>
+<li class="fragment">среда автоматизации доказательств на основе Рефал-подобных языков</li>
+<li class="fragment">доказательства включения в систему типов других разновидностей типизированного λ-исчисления (в первую очередь — исчисления конструкций с индуктивными типами)</li>
+</ul>
+</section><div><a class="slider-prev" href="#связанные-работы"></a><a class="slider-next" href="#спасибо-за-внимание"></a></div>
+<section id="спасибо-за-внимание" class="slide level1">
+<h1>Спасибо за внимание!</h1>
+<h3 id="докладчик-максим-александрович-кривчиков">Докладчик — Максим Александрович Кривчиков,</h3>
+<h4 id="к.ф.-м.н.-н.с.-мгу-имени-м.-в.-ломоносова">к.ф.-м.н., н.с. МГУ имени М. В. Ломоносова</h4>
+<h4 id="maxim.krivchikovgmail.com"><a href="mailto:maxim.krivchikov@gmail.com" class="email">maxim.krivchikov@gmail.com</a></h4>
+<p>URL презентации: <a href="https://maxxk.github.io/formal-models/2016-11-Malmeet-Refal.html" class="uri">https://maxxk.github.io/formal-models/2016-11-Malmeet-Refal.html</a></p>
+<p><span class="small"><br>
+Исследования поддержаны грантом РФФИ № 16-07-01178 А «Методы и средства разработки верифицируемого программного обеспечения с использованием предметно-ориентированных языков, имеющих заданную формальную семантику».<br>
+</span></p>
+</section><div><a class="slider-prev" href="#заключение"></a><a class="slider-next"></a></div>
+
+<!-- start page -->
+   <div id="slider">
+       <a href="#к-системе-типов-языков-семейства-рефал-для-промежуточного-представления-программ" class="slider-start">PLAY</a>
+   </div>
+
+   <!-- progressbar container -->
+   <div class="slider-progress"></div>
+   </article>
+  </div>
+
+  
+  <script type="text/javascript">
+  document.addEventListener("keydown", function(e) {
+     if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) { return; }
+     switch (e.keyCode) {
+       case 35: // End
+          var arr = document.querySelectorAll("a.slider-next:link");
+          var a = arr[arr.length - 1];
+          if (a && a.href) {
+            window.location = a.href;
+          }
+          break;
+       case 36: // Home
+          var a = document.querySelector("a.slider-start");
+          if (a && a.href) {
+            window.location = a.href;
+          }
+          break;
+       case 37: // left arrow
+         var a = document.querySelector("section:target ~ div a.slider-prev");
+         if (a && a.href) {
+           window.location = a.href;
+         }
+         break;
+       case 39: // right arrow
+         var a = document.querySelector("section:target ~ div a.slider-next");
+         if (a && a.href) {
+           window.location = a.href;
+         }
+         break;
+     }
+  });
+  </script>
+  
+
+</body></html>
