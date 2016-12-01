@@ -1,0 +1,331 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="slider.css">
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+  <div style="width: 640px;height: 400px;">
+  <input id="slider-max" type="checkbox" checked="">
+   <article class="slider slider-indicator">
+   <a id="slider-default"></a>
+   <label for="slider-max" title="Maximize"></label>
+
+
+<section id="математические-модели-вычислений" class="slide level1">
+<h1>Математические модели вычислений</h1>
+<h2 id="гомотопическая-теория-типов">Гомотопическая теория типов</h2>
+<h2 id="высшие-индуктивные-типы">Высшие индуктивные типы</h2>
+<p><a href="mailto:maxim.krivchikov@gmail.com" class="email">maxim.krivchikov@gmail.com</a></p>
+<a href="https://maxxk.github.io/formal-models/" class="uri">https://maxxk.github.io/formal-models/</a><br>
+
+<style>
+.inference table {
+    display: inline-block;
+    padding: 1em;
+}
+
+.inference table th {
+    font-weight: normal;
+    border-bottom: 1px solid black;
+}
+</style>
+</section><div><a class="slider-prev"></a><a class="slider-next" href="#типы-идентичности"></a></div>
+<section id="типы-идентичности" class="slide level1 inference">
+<h1>Типы идентичности</h1>
+<p>Ранее для Системы Fω было дано определение типа равенства между двумя <strong>типами</strong>:<br>
+Eq = λ (α β : *). ∀ (φ : * ⇒ *). φ α → φ β</p>
+<p>В Исчислении конструкций аналогичным образом можно задать тип равенства на <strong>значениях</strong> (и на типах, т.к. тип в Исчислении конструкций это значение универсума).</p>
+<p><strong>Формация</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Γ ⊦ X : <strong>Type</strong> <span class="math inline">  </span> Γ ⊦ a, b : X</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Γ ⊦ a =<sub>X</sub> b : <strong>Type</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Введение</strong> (рефлексивность)</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Γ ⊦ X : <strong>Type</strong> <span class="math inline">  </span> Γ ⊦ a : X</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Γ ⊦ <strong>refl</strong> a : a =<sub>X</sub> b</td>
+</tr>
+</tbody>
+</table>
+</section><div><a class="slider-prev" href="#математические-модели-вычислений"></a><a class="slider-next" href="#перенос-вдоль-идентичности"></a></div>
+<section id="перенос-вдоль-идентичности" class="slide level1 inference">
+<h1>Перенос вдоль идентичности</h1>
+<p>Терм зависимого <strong>удаления</strong> типа идентичности (определение C. Paulin-Möhring)</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Γ ⊦ X : <strong>Type</strong> <span class="math inline">  </span> Γ ⊦ a, b : X <span class="math inline">  </span> Γ, c : X, β : a =<sub>X</sub> c ⊦ C : <strong>Type</strong> <span class="math inline">  </span> Γ ⊦ x : C(a, <strong>refl a</strong>) <span class="math inline">  </span> Γ ⊦ α : a =<sub>X</sub> b</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Γ ⊦ J(X, a, b, α, C, x) : C(b, α)</td>
+</tr>
+</tbody>
+</table>
+<p>X — тип равных элементов</p>
+<p>a, b — равные элементы</p>
+<p>C — «структура» переноса.</p>
+<p>x — исходный элемент</p>
+<p>α — равенство, вдоль которого выполняется перенос</p>
+<p>Есть альтернативное определение, в котором C не «привязан» к точке a (определение P. Martin-Löf):<br>
+Γ, x : X, y : X, α : x =<sub>X</sub> y ⊦ C : <strong>Type</strong></p>
+</section><div><a class="slider-prev" href="#типы-идентичности"></a><a class="slider-next" href="#тип-идентичности-в-coqagda"></a></div>
+<section id="тип-идентичности-в-coqagda" class="slide level1">
+<h1>Тип идентичности в Coq/Agda</h1>
+<p>В системах с индексированными индуктивными типами, тип идентичности можно представить как индуктивный:</p>
+<pre><code>Inductive eq (A:Type) (x:A) : A -&gt; Prop :=
+    eq_refl : eq A x x.</code></pre>
+<p>Использовать терм удаления можно двумя способами:</p>
+<ul>
+<li class="fragment">в явном виде с помощью конструкции <code>match</code></li>
+</ul>
+<pre><code>eq_sym = fun (A : Type) (x y : A) (H : x = y) =&gt;
+  match H in (_ = y0) return (y0 = x)
+  with
+  | eq_refl =&gt; eq_refl
+  end.</code></pre>
+<ul>
+<li class="fragment">в интерактивном режиме с помощью тактики <code>rewrite</code> (на следующей странице)</li>
+</ul>
+</section><div><a class="slider-prev" href="#перенос-вдоль-идентичности"></a><a class="slider-next" href="#пример-тактики-rewrite-в-coq"></a></div>
+<section id="пример-тактики-rewrite-в-coq" class="slide level1">
+<h1>Пример тактики rewrite в Coq</h1>
+<p>Пример из Y. Bertot. Coq in a Hurry. <a href="https://cel.archives-ouvertes.fr/inria-00001173v5/document" class="uri">https://cel.archives-ouvertes.fr/inria-00001173v5/document</a></p>
+<pre><code>Require Import Coq.Arith.Mult.
+
+Lemma example6 : forall x y, (x + y) * (x + y) = x*x + 2*x*y + y*y.
+intros x y.
+SearchRewrite (_ * (_ + _)).
+rewrite mult_plus_distr_l.
+rewrite mult_plus_distr_r.
+rewrite mult_plus_distr_r.
+rewrite plus_assoc.
+rewrite &lt;- plus_assoc with (n := x * x).
+rewrite mult_comm with (n:= y) (m:=x).
+pattern (x * y) at 1; rewrite &lt;- mult_1_l.
+rewrite &lt;- mult_succ_l.
+rewrite mult_assoc.
+reflexivity.
+Qed.
+
+Print example6.</code></pre>
+</section><div><a class="slider-prev" href="#тип-идентичности-в-coqagda"></a><a class="slider-next" href="#структура-типа-идентичности"></a></div>
+<section id="структура-типа-идентичности" class="slide level1 inference">
+<h1>Структура типа идентичности</h1>
+<p>Из каких элементов могут состоять типы идентичности?</p>
+<ol type="1">
+<li class="fragment">Только из рефлексивности (экстензиональная теория типов)</li>
+</ol>
+<ul>
+<li class="fragment">по определению</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Γ ⊦ p : a =<sub>X</sub> b</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Γ ⊦ a ≡ b</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li class="fragment">уникальность доказательств идентичности</li>
+</ul>
+<p>UIP : ∀ (A : <strong>Type</strong>) (x y : A) (p q : x =<sub>A</sub> y) . p =<sub>x=y</sub> q</p>
+<ul>
+<li class="fragment">аксиома K</li>
+<li class="fragment">сильное сопоставление с образцом</li>
+<li class="fragment">функциональная экстензиональность (более слабое свойство) — поточечное равенство функций:<br>
+∀ x, f(x) =<sub>B</sub> g(x) → f =<sub>A→B</sub> g</li>
+</ul>
+<ol start="2" type="1">
+<li class="fragment"><p>Могут быть какие-то неканонические элементы (интензиональная теория типов)</p></li>
+<li class="fragment"><p>Можно вывести явную структуру (наблюдательная теория типов)</p></li>
+</ol>
+<p>Altenkirch T., McBride C., Swierstra W. Observational Equality, Now! // Proceedings of the ACM Workshop Programming Languages meets Program Verification, PLPV 2007, Freiburg, Germany, October 5, 2007 / ed. Stump A., Xi H. 2007. P. 57–68.</p>
+</section><div><a class="slider-prev" href="#пример-тактики-rewrite-в-coq"></a><a class="slider-next" href="#гомотопическая-теория-типов-1"></a></div>
+<section id="гомотопическая-теория-типов-1" class="slide level1">
+<h1>Гомотопическая теория типов</h1>
+<p>— развитие интензиональной теории типов, которое устанавливает соответствие между термами теории типов и объектами теории гомотопий.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Интензиональная теория типов</th>
+<th>Гомотопическая теория типов</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>тип A</td>
+<td>топологическое пространство A</td>
+</tr>
+<tr class="even">
+<td>терм a</td>
+<td>точка a</td>
+</tr>
+<tr class="odd">
+<td>суждение a : A</td>
+<td>a ∈ A</td>
+</tr>
+<tr class="even">
+<td>Π(x : A).B(x)</td>
+<td>расслоение B → A</td>
+</tr>
+<tr class="odd">
+<td>тип идентичности p : a =<sub>A</sub> b</td>
+<td>путь p : a ↦ b</td>
+</tr>
+<tr class="even">
+<td>α : p =<sub>a=b</sub> q</td>
+<td>гомотопия α : p ⇒ q</td>
+</tr>
+</tbody>
+</table>
+</section><div><a class="slider-prev" href="#структура-типа-идентичности"></a><a class="slider-next" href="#аксиома-унивалентности"></a></div>
+<section id="аксиома-унивалентности" class="slide level1">
+<h1>Аксиома унивалентности</h1>
+<p>Понятие эквивалентных типов:</p>
+<p>f : A → B <span class="math inline">  </span> g : B → A</p>
+<p>f(g(y)) =<sub>A</sub> y <span class="math inline">  </span> g(f(x)) =<sub>A</sub> x (при условии функциональной экстензиональности)</p>
+<p>Из идентичности следует эквивалентность:</p>
+<p>IdEq : (A = B) → Equiv(A, B)</p>
+<p><strong>Аксиома унивалентности</strong> утверждает, что идентичность эквивалентна эквивалентности:</p>
+<p>Equiv(A=B, Equiv(A, B))</p>
+<p>Таким образом, по эквивалентности можно обратной функцией получить идентичность («изоморфные типы равны»).</p>
+<p>Гипотеза Воеводского: аксиома унивалентности имеет вычислительное содержание, т.е., например, для термов, использующих перенос вдоль равенства, полученного с использованием аксиомы унивалентности, можно раскрыть это равенство и получить каноническую форму терма.</p>
+</section><div><a class="slider-prev" href="#гомотопическая-теория-типов-1"></a><a class="slider-next" href="#h-уровни-типов"></a></div>
+<section id="h-уровни-типов" class="slide level1">
+<h1>h-уровни типов</h1>
+<p>— уровень, определяющий, насколько сложную структуру имеет тип идентичности для элементов данного типа.</p>
+<p>«Утверждения» — «-1» h-уровень (все элементы-доказательства утверждений равны, пространства утверждений эквивалентны)<br>
+«Множества» — «0» h-уровень (равенство элементов множества — это утверждение, выполняется аксиома UIP)<br>
+...<br>
+«k-й» h-уровень — равенство элементов типа — это элемент типа k-1-го h-уровня.</p>
+</section><div><a class="slider-prev" href="#аксиома-унивалентности"></a><a class="slider-next" href="#программирование-с-типами-идентичности"></a></div>
+<section id="программирование-с-типами-идентичности" class="slide level1">
+<h1>Программирование с типами идентичности</h1>
+<p>— в некотором смысле, программирование с обобщёнными типами.</p>
+<ul>
+<li class="fragment"><p>список List A с двумя конструкторами (Nil, Cons) эквивалентен вектору с известной длиной Σ(length : ℕ).Vec A length. С использованием аксиомы унивалентности можно получить реализации произвольных функций для вектора из таких реализаций для списка простым применением терма переноса вдоль идентичности.</p></li>
+<li class="fragment"><p>доказуемо корректное параллельное программирование с ассоциативностью:</p></li>
+</ul>
+<p>reduce F t<sub>0</sub> [t<sub>1</sub>, t<sub>2</sub>, t<sub>3</sub>, t<sub>4</sub>]</p>
+</section><div><a class="slider-prev" href="#h-уровни-типов"></a><a class="slider-next" href="#высшие-индуктивные-типы-1"></a></div>
+<section id="высшие-индуктивные-типы-1" class="slide level1">
+<h1>Высшие индуктивные типы</h1>
+<p>— типы, в которых можно задавать конструкторы не только для элементов, но и для других типов идентичности.</p>
+</section><div><a class="slider-prev" href="#программирование-с-типами-идентичности"></a><a class="slider-next" href="#система-контроля-версий-как-высший-индуктивный-тип"></a></div>
+<section id="система-контроля-версий-как-высший-индуктивный-тип" class="slide level1">
+<h1>Система контроля версий как высший индуктивный тип</h1>
+<p>Angiuli C. et al. Homotopical patch theory // Proceedings of the 19th ACM SIGPLAN international conference on Functional programming. ACM, 2014. P. 243–256.</p>
+</section><div><a class="slider-prev" href="#высшие-индуктивные-типы-1"></a><a class="slider-next" href="#теория-категорий"></a></div>
+<section id="теория-категорий" class="slide level1">
+<h1>Теория категорий</h1>
+<p>— раздел математики, изучающий свойства и отношения между математическими объектами, не зависящие от внутренней структуры объектов.</p>
+<p><a href="https://maxxk.github.io/formal-models-2015/" class="uri">https://maxxk.github.io/formal-models-2015/</a></p>
+<p>F. William Lawvere, Stephen H. Schaunel. Conceptual Mathematics: A first introduction to categories. Cambridge University Press, 1997. 358 P.</p>
+</section><div><a class="slider-prev" href="#система-контроля-версий-как-высший-индуктивный-тип"></a><a class="slider-next" href="#категория"></a></div>
+<section id="категория" class="slide level1">
+<h1>Категория</h1>
+<h2 id="примеры-категорий">Примеры категорий</h2>
+<h2 id="коммутативная-диаграмма">Коммутативная диаграмма</h2>
+<h2 id="функтор">Функтор</h2>
+<h2 id="инициальность-и-терминальность">Инициальность и терминальность</h2>
+<h2 id="f-алгебры">F-алгебры</h2>
+<h2 id="индуктивные-и-коиндуктивные-типы-в-теории-категорий">Индуктивные и коиндуктивные типы в теории категорий</h2>
+<h2 id="дуализм">Дуализм</h2>
+<h2 id="произведение-и-сумма">Произведение и сумма</h2>
+<h2 id="высшие-категории-и-гомотопическая-теория-типов">Высшие категории и гомотопическая теория типов</h2>
+</section><div><a class="slider-prev" href="#теория-категорий"></a><a class="slider-next" href="#литература"></a></div>
+<section id="литература" class="slide level1">
+<h1>Литература</h1>
+<ol type="1">
+<li class="fragment"><p>Homotopy Type Theory: Univalent Foundations of Mathematics. — Princeton: Institute for Advanced Study, 2013. — 603 p. <a href="https://homotopytypetheory.org/book/" class="uri">https://homotopytypetheory.org/book/</a></p></li>
+<li class="fragment"><p>F. William Lawvere, Stephen H. Schanuel. Conceptual Mathematics: A First Introduction to Categories. Cambridge University Press — 1997. — 374 p.</p></li>
+</ol>
+</section><div><a class="slider-prev" href="#категория"></a><a class="slider-next" href="#задачи"></a></div>
+<section id="задачи" class="slide level1">
+<h1>Задачи</h1>
+<dl>
+<dt class="fragment"><strong>Задача 10.1 *</strong></dt>
+<dd class="fragment">Построить термы, соответствующие доказательствам свойств симметричности и транзитивности равенства с использованием терма зависимого удаления типов идентичности J.
+</dd>
+<dt class="fragment"><strong>Задача 10.2 *</strong></dt>
+<dd class="fragment">Построить терм IdEq, преобразующий идентичность в эквивалентность.
+</dd>
+<dt class="fragment"><strong>Задача 10.3 ***</strong></dt>
+<dd class="fragment">Предложить другие возможные приложения высших индуктивных типов в программировании (требования аналогично задаче 9.1).
+</dd>
+</dl>
+<p>За «1*» принимаются решения упражнений из книги Homotopy Type Theory, начиная со второй главы.</p>
+</section><div><a class="slider-prev" href="#литература"></a><a class="slider-next"></a></div>
+
+<!-- start page -->
+   <div id="slider">
+       <a href="#математические-модели-вычислений" class="slider-start">PLAY</a>
+   </div>
+
+   <!-- progressbar container -->
+   <div class="slider-progress"></div>
+   </article>
+  </div>
+
+  
+  <script type="text/javascript">
+  document.addEventListener("keydown", function(e) {
+     if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) { return; }
+     switch (e.keyCode) {
+       case 35: // End
+          var arr = document.querySelectorAll("a.slider-next:link");
+          var a = arr[arr.length - 1];
+          if (a && a.href) {
+            window.location = a.href;
+          }
+          break;
+       case 36: // Home
+          var a = document.querySelector("a.slider-start");
+          if (a && a.href) {
+            window.location = a.href;
+          }
+          break;
+       case 37: // left arrow
+         var a = document.querySelector("section:target ~ div a.slider-prev");
+         if (a && a.href) {
+           window.location = a.href;
+         }
+         break;
+       case 39: // right arrow
+         var a = document.querySelector("section:target ~ div a.slider-next");
+         if (a && a.href) {
+           window.location = a.href;
+         }
+         break;
+     }
+  });
+  </script>
+  
+
+</body></html>

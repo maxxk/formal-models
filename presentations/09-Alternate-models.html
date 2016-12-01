@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="reveal.js/css/theme/maxxk.css" id="theme">
+  <link rel="stylesheet" href="additional.css"/>
+  <link rel="stylesheet" href="reveal.js/css/highlight-github.css"/>
+  <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+  <script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'reveal.js/css/print/pdf.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="математические-модели-вычислений" class="slide level1">
+<h1>Математические модели вычислений</h1>
+<h2 id="альтернативные-модели-вычислений">Альтернативные модели вычислений</h2>
+<h3 id="клеточные-автоматы">Клеточные автоматы</h3>
+<h3 id="понятие-тьюринг-полноты-в-компьютерных-языках">Понятие «Тьюринг-полноты» в компьютерных языках</h3>
+<h3 id="μ-рекурсивные-функции-клини">μ-рекурсивные функции Клини</h3>
+<h3 id="теория-доменов-скотта-ершова">Теория доменов Скотта-Ершова</h3>
+<h4 id="maxim.krivchikovgmail.com"><script type="text/javascript">
+<!--
+h='&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#x6d;&#x61;&#120;&#x69;&#x6d;&#46;&#x6b;&#114;&#x69;&#118;&#x63;&#104;&#x69;&#x6b;&#x6f;&#118;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#x6d;&#x61;&#120;&#x69;&#x6d;&#46;&#x6b;&#114;&#x69;&#118;&#x63;&#104;&#x69;&#x6b;&#x6f;&#118;&#32;&#x61;&#116;&#32;&#x67;&#x6d;&#x61;&#x69;&#108;&#32;&#100;&#x6f;&#116;&#32;&#x63;&#x6f;&#x6d;</noscript></h4>
+<h4 id="httpsmaxxk.github.ioformal-models"><a href="https://maxxk.github.io/formal-models/" class="uri">https://maxxk.github.io/formal-models/</a></h4>
+<style>
+.inference table {
+    display: inline-block;
+    padding: 1em;
+}
+
+.inference table th {
+    font-weight: normal;
+    border-bottom: 1px solid black;
+}
+</style>
+</section>
+<section id="клеточный-автомат" class="slide level1">
+<h1>Клеточный автомат</h1>
+<p>Решётка («таблица» произвольной размерности) из ячеек, каждая из которых может находиться в конечном числе состояний.</p>
+<p>На каждом шаге следующее состояние каждой ячейки определяется по заданному фиксированному правилу, которое может использовать текущее состояние ячейки и текущие состояния ячеек в некоторой окрестности.</p>
+<p>Более строго:</p>
+<ol type="1">
+<li>Пространство ячеек C.</li>
+<li>Конечный набор возможных состояний ячеек — Σ, |Σ| = k; ∀ c ∈ C, σ(c) ∈ Σ.</li>
+<li>Понятие окрестности ячейки — N(c) — конечное множество ячеек из C. Для всех ячеек окрестность имеет один и тот же размер |N(c)| = n. Окрестность «взаимна» — для каждой ячейки d из окрестности ячейки c, c ∈ N(d).</li>
+<li>Правило перехода φ : Σ^n^ → Σ.</li>
+</ol>
+<p>На каждом шаге t правило перехода одновременно применяется к каждой ячейке с состояниями окрестности на предыдущий момент времени t-1.</p>
+</section>
+<section id="типы-поведения-автоматов" class="slide level1">
+<h1>Типы поведения автоматов</h1>
+<p>Классификация правил перехода Вольфрама:</p>
+<p><strong>Класс 1.</strong> Быстрая стабилизация состояния и его гомогенность.<br />
+<strong>Класс 2.</strong> Быстрая стабилизация состояния либо возникновение колебаний. Локальные изменения в начальных условиях оказывают локальный характер на дальнейший ход эволюции системы.<br />
+<strong>Класс 3.</strong> Почти все начальные условия приводят к псевдо-случайным последовательностям, стабильные структуры почти сразу уничтожаются окружающим шумом.<br />
+<strong>Класс 4.</strong> Результатом эволюции почти всех начальных состояний являются структуры, которые взаимодействуют сложным образом с формированием локальных, устойчивых структур, которые способны сохраняться длительное время.</p>
+<p>Некоторые клеточные автоматы демонстрируют поведение, достаточное для эмуляции машины Тьюринга.</p>
+</section>
+<section id="тьюринг-эквивалентные-клеточные-автоматы" class="slide level1">
+<h1>Тьюринг-эквивалентные клеточные автоматы</h1>
+<ol type="1">
+<li><a href="http://www.igblan.free-online.co.uk/igblan/ca/">Игра «Жизнь» Конвэя</a> (<a href="http://www.rendell-attic.org/gol/fullutm/index.htm">и ещё одна схема</a>)</li>
+<li>«Rule 110» — одномерный клеточный автомат</li>
+</ol>
+</section>
+<section id="rule-110" class="slide level1">
+<h1>Rule 110</h1>
+<p>Из Wolfram MathWorld: <a href="http://mathworld.wolfram.com/Rule110.html" class="uri">http://mathworld.wolfram.com/Rule110.html</a><br />
+<img src="images/ElementaryCARule110_1000.gif" /></p>
+</section>
+<section id="понятие-тьюринг-полноты-в-компьютерных-языках-1" class="slide level1">
+<h1>Понятие «Тьюринг-полноты» в компьютерных языках</h1>
+</section>
+<section id="машины-с-регистрами" class="slide level1">
+<h1>Машины с регистрами</h1>
+<p>Машина с регистрами включает:</p>
+<ol type="1">
+<li>Неограниченное (как правило, конечное) количество именованных регистров, каждый из которых может содержать одно неотрицательное число неограниченного размера.</li>
+<li>Набор меток.</li>
+<li>Ограниченный набор инструкций, который может включать:
+<ol type="1">
+<li>Арифметические инструкции (Increment(r), Decrement(r), Clear-to-zero(r), Load-constant(r, k), Add, Subtract, ...)</li>
+<li>Управляющие инструкции (Copy(r~1~, r~2~), LoadAccumulator(r), StoreAccumulator(r))</li>
+<li><strong>Условный переход</strong> (обязательно; как правило, по заданному регистру): Jump-if-zero, Jump-if-not-zero, Jump-if-equal, ...</li>
+<li>Операции непрямой адресации (Load-from-address(r), Store-by-address(r))</li>
+<li>Ввод-вывод</li>
+</ol></li>
+<li>Регистр состояний — содержит текущую инструкцию и её адрес в программе.</li>
+<li>Список инструкций с метками (как правило, последовательный).</li>
+</ol>
+<p>Классы: машины со счётчиками, машины с указателями, машины с памятью с произвольным доступом, машины с памятью с произвольным доступом с программой в регистрах (архитектура фон Неймана)</p>
+</section>
+<section id="аппаратные-реализации" class="slide level1">
+<h1>«Аппаратные» реализации</h1>
+<ol type="1">
+<li>URISC (Ultimate Restricted Instruction Set Computer) — машина с одной инструкцией. Для того, чтобы иметь возможность эмулировать машину Тьюринга, память должна быть бесконечной, а адреса и ячейки — произвольными целыми числами (возможно, неотрицательными)
+<ul>
+<li><code>subleq a, b, c</code> — посчитать <code>M[b] - M[a]</code>, записать в <code>M[b]</code> и перейти на адрес <code>c</code>. В памяти хранятся тройки <code>a, b, c</code></li>
+<li><code>dln a, b</code> — уменьшить на 1 значение <code>M[a]</code>; если получился <code>0</code>, перейти по адресу <code>b</code></li>
+</ul></li>
+<li><p>Механизм защиты памяти в x86-процессорах допускает реализацию <code>subleq</code> с помощью вложенных исключений page fault</p></li>
+<li><p>Magic: The Gathering (и другие примеры на странице <a href="http://beza1e1.tuxen.de/articles/accidentally_turing_complete.html">Accidentally Turing-complete</a>)</p></li>
+</ol>
+</section>
+<section id="μ-рекурсивные-функции-клини-1" class="slide level1">
+<h1>μ-рекурсивные функции Клини</h1>
+</section>
+<section id="частичные-функции" class="slide level1">
+<h1>Частичные функции</h1>
+</section>
+<section id="теория-доменов-скотта-ершова-1" class="slide level1">
+<h1>Теория доменов Скотта-Ершова</h1>
+</section>
+<section id="частично-упорядоченные-множества" class="slide level1">
+<h1>Частично упорядоченные множества</h1>
+</section>
+<section id="домены" class="slide level1">
+<h1>Домены</h1>
+</section>
+<section id="монотонность-и-непрерывность" class="slide level1">
+<h1>Монотонность и непрерывность</h1>
+</section>
+<section id="непрерывные-функции-в-вычислениях" class="slide level1">
+<h1>Непрерывные функции в вычислениях</h1>
+</section>
+<section id="литература" class="slide level1">
+<h1>Литература</h1>
+<p>Клеточные автоматы: Stephen Wolfram. A New Kind of Science. Wolfram Media, Inc. 2007</p>
+</section>
+<section id="задачи" class="slide level1">
+<h1>Задачи</h1>
+<dl>
+<dt><strong>Задача 9.1***</strong></dt>
+<dd>предложите возможные способы задания системы типов, не допускающей задание незавершимых функций, для клеточных автоматов или для μ-рекурсивных функций Клини (текст, от 5 страниц A4, шрифт 14пт, междустрочный интервал 1.5).
+</dd>
+</dl>
+</section>
+    </div>
+  </div>
+
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,         // Display controls in the bottom right corner
+        progress: true,         // Display a presentation progress bar
+        history: true,          // Push each slide change to the browser history
+        center: false,                       // Vertical centering of slides
+        maxScale: 1.5,                  // Bounds for smallest/largest possible content scale
+        slideNumber: true,                // Display the page number of the current slide
+        theme: 'maxxk', // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+        math: {
+          mathjax: 'reveal.js/../MathJax-2.5.3/MathJax.js',
+          config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+        },
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/math/math.js', async: true },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    </body>
+</html>

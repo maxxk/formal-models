@@ -60,3 +60,11 @@ layout: default
 ## Индуктивные и коиндуктивные типы. Работа в среде Coq.
 
 [презентация — html](presentations/08-Coq.html)
+
+## Альтернативные модели вычислений.
+
+[презентация — html](presentations/09-Alternate-models.html)
+
+## Гомотопическая теория типов.
+
+[презентация — html](presentations/10-Homotopy-type-theory.html)
