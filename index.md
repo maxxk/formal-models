@@ -68,3 +68,7 @@ layout: default
 ## Гомотопическая теория типов.
 
 [презентация — html](presentations/10-Homotopy-type-theory.html)
+
+## Операторные схемы программ. Нормальные алгорифмы Маркова
+
+[презентация — html](presentations/11-Ershov-Markov.html)
