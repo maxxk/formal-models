@@ -1,0 +1,91 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="slider.css">
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+  <div style="width: 640px;height: 400px;">
+  <input id="slider-max" type="checkbox" checked="">
+   <article class="slider slider-indicator">
+   <a id="slider-default"></a>
+   <label for="slider-max" title="Maximize"></label>
+
+
+<section id="математические-модели-вычислений" class="slide level1">
+<h1>Математические модели вычислений</h1>
+<h2 id="дополнительные-разделы">Дополнительные разделы</h2>
+<h3 id="субструктурные-системы-типов">Субструктурные системы типов</h3>
+<h3 id="подтипы">Подтипы</h3>
+<p>Кривчиков Максим Александрович</p>
+<p><a href="mailto:maxim.krivchikov@gmail.com" class="email">maxim.krivchikov@gmail.com</a></p>
+<p><a href="https://maxxk.github.io/formal-models/" class="uri">https://maxxk.github.io/formal-models/</a></p>
+<p>Анонимный опрос по итогам курса: <a href="https://goo.gl/forms/g8zRZxAsILnILrnL2" class="uri">https://goo.gl/forms/g8zRZxAsILnILrnL2</a></p>
+</section><div><a class="slider-prev"></a><a class="slider-next" href="#субструктурные-системы-типов-мотивация"></a></div>
+<section id="субструктурные-системы-типов-мотивация" class="slide level1">
+<h1>Субструктурные системы типов — мотивация</h1>
+<p>Программы работают с внешними ресурсами, которые имеют некоторое внутреннее состояние (файловая система, сетевые соединения, периферийные устройства).</p>
+</section><div><a class="slider-prev" href="#математические-модели-вычислений"></a><a class="slider-next" href="#контекст-в-правилах-типизации"></a></div>
+<section id="контекст-в-правилах-типизации" class="slide level1">
+<h1>Контекст в правилах типизации</h1>
+</section><div><a class="slider-prev" href="#субструктурные-системы-типов-мотивация"></a><a class="slider-next" href="#линейные-типы"></a></div>
+<section id="линейные-типы" class="slide level1">
+<h1>Линейные типы</h1>
+</section><div><a class="slider-prev" href="#контекст-в-правилах-типизации"></a><a class="slider-next" href="#аффинные-типы"></a></div>
+<section id="аффинные-типы" class="slide level1">
+<h1>Аффинные типы</h1>
+</section><div><a class="slider-prev" href="#линейные-типы"></a><a class="slider-next" href="#упорядоченные-типы"></a></div>
+<section id="упорядоченные-типы" class="slide level1">
+<h1>Упорядоченные типы</h1>
+</section><div><a class="slider-prev" href="#аффинные-типы"></a><a class="slider-next"></a></div>
+
+<!-- start page -->
+   <div id="slider">
+       <a href="#математические-модели-вычислений" class="slider-start">PLAY</a>
+   </div>
+
+   <!-- progressbar container -->
+   <div class="slider-progress"></div>
+   </article>
+  </div>
+
+  
+  <script type="text/javascript">
+  document.addEventListener("keydown", function(e) {
+     if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) { return; }
+     switch (e.keyCode) {
+       case 35: // End
+          var arr = document.querySelectorAll("a.slider-next:link");
+          var a = arr[arr.length - 1];
+          if (a && a.href) {
+            window.location = a.href;
+          }
+          break;
+       case 36: // Home
+          var a = document.querySelector("a.slider-start");
+          if (a && a.href) {
+            window.location = a.href;
+          }
+          break;
+       case 37: // left arrow
+         var a = document.querySelector("section:target ~ div a.slider-prev");
+         if (a && a.href) {
+           window.location = a.href;
+         }
+         break;
+       case 39: // right arrow
+         var a = document.querySelector("section:target ~ div a.slider-next");
+         if (a && a.href) {
+           window.location = a.href;
+         }
+         break;
+     }
+  });
+  </script>
+  
+
+</body></html>
