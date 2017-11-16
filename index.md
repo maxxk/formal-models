@@ -32,7 +32,7 @@ layout: default
 
 [презентация — html](presentations/01-Introduction.html)
 
-<!-- ## Entscheidungsproblem (проблема разрешения). Машина Тьюринга. Конечные автоматы и формальные языки. (29 сентября 2016 г.)
+## Entscheidungsproblem (проблема разрешения). Машина Тьюринга. Конечные автоматы и формальные языки.
 
 [презентация — html](presentations/02-Entscheidungsproblem.html)
 
@@ -40,7 +40,7 @@ layout: default
 
 [презентация — html](presentations/03-Logics.html)
 
-
+<!--
 ## Введение в верификацию с использованием методов Model Checking
 
 [презентация — html](presentations/04-Model-Checking.html)
