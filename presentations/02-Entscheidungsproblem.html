@@ -7,13 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="slider.css">
   <style type="text/css">code{white-space: pre;}</style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><script type="text/javascript">window.onload = function(){var mathElements = document.getElementsByClassName("math");
-  for (var i=0; i < mathElements.length; i++)
-  {
-   var texText = mathElements[i].firstChild
-   katex.render(texText.data, mathElements[i])
-  }}
-  </script>
 </head>
 <body>
   <div style="width: 640px;height: 400px;">
@@ -253,7 +246,7 @@ div.nop > p {
 </section><div><a class="slider-prev" href="#формальные-языки"></a><a class="slider-next" href="#формальная-грамматика-мотивация"></a></div>
 <section id="формальная-грамматика-мотивация" class="slide level1">
 <h1>Формальная грамматика: мотивация</h1>
-<p><strong>Корректность алгоритма</strong> — свойство, согласно которому для любого входа алгоритм завершается и возвращает решение задачи для этого входа (или, скажем, некоторый признак ошибки, если алгоритм неприменим к заданному входу). Т.е. «программа должна выводить правильный ответ, никогда не падать и никодга не зависать».</p>
+<p><strong>Корректность алгоритма</strong> — свойство, согласно которому для любого входа алгоритм завершается и возвращает решение задачи для этого входа (или, скажем, некоторый признак ошибки, если алгоритм неприменим к заданному входу). Т.е. «программа должна выводить правильный ответ, никогда не падать и никогда не зависать».</p>
 <p>В связи с неразрешимостью проблемы останова, мы не можем описать множество всех корректных алгоритмов (решить в общем виде задачу верификации программ). Но можно попробовать ограничить набор задач, которые мы хотим решать так, чтобы все задачи такого ограниченного набора имели решение.</p>
 </section><div><a class="slider-prev" href="#формальная-грамматика"></a><a class="slider-next" href="#конечные-автоматы"></a></div>
 <section id="конечные-автоматы" class="slide level1">
@@ -263,7 +256,7 @@ div.nop > p {
 <strong>Конечный автомат</strong> (finite automaton) — это четвёрка:</p>
 <ul>
 <li class="fragment"><p>Q — множество состояний</p></li>
-<li class="fragment"><p>I, O — входной и выходной алфавит</p></li>
+<li class="fragment"><p>I, O — входной и выходной алфавит (конечные множества)</p></li>
 <li class="fragment"><p>δ : I × Q → O × Q — функция перехода</p></li>
 <li class="fragment"><p>q<sub>0</sub> ∈ Q — исходное состояние</p></li>
 </ul>
@@ -326,8 +319,8 @@ div.nop > p {
 <p>(Noam Chomsky, 1956)</p>
 <ul>
 <li class="fragment">регулярные языки: ∅, a ∈ Σ, A ∪ B, A ∩ B, A<sup>*</sup> (любой конечный язык и некоторые бесконечные; распознаются детерминированным конечным автоматом)</li>
-<li class="fragment">контекстно-свободные языки (произвольное количество парных скобок <span class="math inline">(^n )^n</span> — контекстно-свободный язык, распознаются автоматом с магазинной памятью (стеком))</li>
-<li class="fragment">контекстно-зависимые языки (произвольное количество троек <span class="math inline">(^n|^n)^n</span> — контекстно-зависимый язык, распознаются линейно-ограниченным автоматом — машиной Тьюринга с лентой, длина которой линейно зависит от длины входа)</li>
+<li class="fragment">контекстно-свободные языки (произвольное количество парных скобок <span class="math inline">(<sup><em>n</em></sup>)<sup><em>n</em></sup></span> — контекстно-свободный язык, распознаются автоматом с магазинной памятью (стеком))</li>
+<li class="fragment">контекстно-зависимые языки (произвольное количество троек <span class="math inline">(<sup><em>n</em></sup>|<sup><em>n</em></sup>)<sup><em>n</em></sup></span> — контекстно-зависимый язык, распознаются линейно-ограниченным автоматом — машиной Тьюринга с лентой, длина которой линейно зависит от длины входа)</li>
 <li class="fragment">неограниченные языки (распознаются машиной Тьюринга)</li>
 </ul>
 </section><div><a class="slider-prev" href="#контекстно-свободные-языки-и-мп-автоматы"></a><a class="slider-next" href="#контекстно-зависимые-языки-на-практике"></a></div>
