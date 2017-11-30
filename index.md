@@ -45,6 +45,11 @@ layout: default
 
 [презентация — html](presentations/04-Model-Checking.html)
 
+## Альтернативные модели вычислений.
+
+[презентация — html](presentations/05-Alternate-models.html)
+
+
 <!--## Нетипизированное λ-исчисление. λ-исчисление с простыми типами.
 
 [презентация — html](presentations/05-Lambda-calculus.html)
