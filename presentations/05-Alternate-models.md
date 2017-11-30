@@ -54,6 +54,11 @@
 1. [Игра «Жизнь» Конвэя](http://www.igblan.free-online.co.uk/igblan/ca/) ([и ещё одна схема](http://www.rendell-attic.org/gol/fullutm/index.htm))
 2. «Rule 110» — одномерный клеточный автомат
 
+Дополнительно:
+1. Эмулятор двумерного клеточного автомата: http://golly.sourceforge.net/
+2. Эмулятор игры Тетрис в игре "Жизнь": https://codegolf.stackexchange.com/q/11880 
+3. Универсальная машина Тьюринга в игре "Жизнь": http://rendell-attic.org/gol/utm/index.htm
+
 # Rule 110
 Из Wolfram MathWorld: http://mathworld.wolfram.com/Rule110.html
 ![](images/ElementaryCARule110_1000.gif)
