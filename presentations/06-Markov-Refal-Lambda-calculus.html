@@ -1,0 +1,498 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="slider.css">
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+  <div style="width: 640px;height: 400px;">
+  <input id="slider-max" type="checkbox" checked="">
+   <article class="slider slider-indicator">
+   <a id="slider-default"></a>
+   <label for="slider-max" title="Maximize"></label>
+
+
+<section id="математические-модели-вычислений" class="slide level1">
+<h1>Математические модели вычислений</h1>
+<h2 id="нормальные-алгорифмы-маркова.-язык-программирования-рефал.-суперкомпиляция.">Нормальные алгорифмы Маркова. Язык программирования Рефал. Суперкомпиляция.</h2>
+<h2 id="λ-исчисление-чёрча.-рекурсивные-комбинаторы-и-парадоксы.">λ-исчисление Чёрча. Рекурсивные комбинаторы и парадоксы.</h2>
+<h2 id="λ-исчисление-с-простыми-типами.-свойство-сильной-нормализации.">λ-исчисление с простыми типами. Свойство сильной нормализации.</h2>
+<style>
+span.math {
+    letter-spacing: 0.15em;
+    word-spacing: 0.2em;
+}
+</style>
+<p><a href="mailto:maxim.krivchikov@gmail.com" class="email">maxim.krivchikov@gmail.com</a></p>
+<p><a href="https://maxxk.github.io/formal-models/" class="uri">https://maxxk.github.io/formal-models/</a></p>
+</section><div><a class="slider-prev"></a><a class="slider-next" href="#алгорифмы-маркова"></a></div>
+<section id="алгорифмы-маркова" class="slide level1">
+<h1>Алгорифмы Маркова</h1>
+<p>Пусть задан конечный алфавит <strong>A</strong>, не содержащий символов «перевод строки» (γ), «→» и «→.». Нормальным алгорифмом назовём последовательность <em>формул подстановки</em> вида:</p>
+<p>&lt; строка <strong>A<sup>*</sup></strong> &gt; (образец) → &lt; строка <strong>A<sup>*</sup></strong> &gt; (результат)<br>
+&lt; строка <strong>A<sup>*</sup></strong> &gt; → . (останов) &lt; строка <strong>A<sup>*</sup></strong> &gt;</p>
+<p>На вход алгорифма подаётся строка <strong>A<sup>*</sup></strong>. Далее для каждого правила по порядку выполняется поиск образца в строке слева.</p>
+<p>Если образец найден, т.е. для правила L → D входная строка T представлена в виде T = R · L · S, то подстрока L заменяется на D и результатом шага объявляется строка T' = R · D · S. Если стрелка — стрелка останова, то выполнение завершается с результатом T', в противном случае выполняется следующий шаг (просмотр образцов сначала).</p>
+<p>Если образец не найден, переходим к следующему правилу.</p>
+<p>Если ни для одного правила образец не найден, выполнение завершается с результатом T.</p>
+</section><div><a class="slider-prev" href="#математические-модели-вычислений"></a><a class="slider-next" href="#примеры"></a></div>
+<section id="примеры" class="slide level1">
+<h1>Примеры</h1>
+<ol type="1">
+<li class="fragment"><p>Алгоритм вычисления разности унарных чисел N, M.<br>
+На вход подаётся строка N*M, где N и M — унарные числа в алфавите 1.<br>
+1 * 1 → *<br>
+* → .</p></li>
+<li class="fragment"><p>Алгоритм поиска наибольшего общего делителя чисел N*M. Пусть a, b, c – служебные символы.<br>
+1 a → a 1<br>
+1 * 1 → a *<br>
+1 * → * b<br>
+b → 1<br>
+a → c<br>
+c → 1<br>
+* → .</p></li>
+</ol>
+<p>Визуализатор:<br>
+<a href="http://cmcmsu.info/1course/alg.schema.nam.htm" class="uri">http://cmcmsu.info/1course/alg.schema.nam.htm</a></p>
+</section><div><a class="slider-prev" href="#алгорифмы-маркова"></a><a class="slider-next" href="#рефал"></a></div>
+<section id="рефал" class="slide level1">
+<h1>Рефал</h1>
+<p>— [РЕкурсивных Функций АЛгоритмический] язык программирования, построенный на основе модели нормальных алгорифмов Маркова.</p>
+<p>Функции задаются в терминах правил переписывания входных строк (деревьев) в выходные.<br>
+Последовательность правил, разделённых символом <code>;</code>. Слева от знака <code>=</code> записываются образцы, справа — результаты. После унификации входной строки с образцом выполняется подстановка полученных значений переменных в результат. Вызов функции — в угловых скобках, круглые скобки позволяют задавать и сопоставлять деревья и образцы на деревьях.</p>
+<p>Для наглядности знак <code>=</code> заменён на →</p>
+<pre><code>Beta {
+   (λ s.var '.'  e.body) t.value e.rest →
+      Step &lt;Subst s.var t.value e.body&gt; e.rest ;
+    → Stuck;
+}</code></pre>
+<p><span class="small"><br>
+Турчин В. Ф. «Метаалгоритмический язык». Кибернетика, вып. 4 (1968 г.): 45–54.<br>
+</span></p>
+</section><div><a class="slider-prev" href="#примеры"></a><a class="slider-next" href="#рефал-1"></a></div>
+<section id="рефал-1" class="slide level1">
+<h1>Рефал</h1>
+<p>В образцах можно задавать переменные:</p>
+<ul>
+<li class="fragment"><code>s.имя-переменной</code> принимает любой символ, не являющийся скобкой</li>
+<li class="fragment"><code>t.имя-переменной</code> (терм) принимает любой символ, или парные скобки с их содержимым</li>
+<li class="fragment"><code>e.имя-переменной</code> выполняет поиск. На первом шаге <code>e</code>-переменная пуста. Если не удалось сопоставить образец, <code>e</code>-переменная расширяется на следующий терм.</li>
+</ul>
+<p>При успешном сопоставлении с образцом, значения переменных можно использовать при генерации результата.</p>
+<pre><code>Beta {
+   (λ s.var '.'  e.body) t.value e.rest →
+      Step &lt;Subst s.var t.value e.body&gt; e.rest ;
+    → Stuck;
+}</code></pre>
+<p>Н.М. Нагорный: алгорифмы Маркова можно эквивалентным образом задавать в виде нескольких конечных наборов правил подстановок [«функций»], бесконечного количества [функций] и бесконечного набора бесконечных функций.</p>
+</section><div><a class="slider-prev" href="#рефал"></a><a class="slider-next" href="#расширения-базового-рефала"></a></div>
+<section id="расширения-базового-рефала" class="slide level1">
+<h1>Расширения Базового Рефала</h1>
+<p>Условия: промежуточный результат сопоставляется с образцом (Рефал-5):</p>
+<pre><code>t.neutral e.rest,
+  &lt;Beta e.rest&gt; : s.state e.result =
+  s.state t.neutral e.result ;</code></pre>
+<p>Функции высшего порядка: функции передаются так же, как и данные (Рефал-7):</p>
+<pre><code>(e.1) e.rest,
+  &lt;Beta e.1&gt; : e.betaResult =
+  &lt;{
+    Step e.result = Step (e.result) e.rest ;
+    Stuck e.result,
+      &lt;Beta e.rest&gt; : s.state e.result2 =
+      s.state (e.result) e.result2 ;
+  } e.betaResult&gt;;</code></pre>
+<p><span class="small"><br>
+Рефал-5: В.Ф. Турчин. «Рефал-5. Руководство по программированию и справочник» <a href="http://refal.net/rf5_frm.htm" class="uri">http://refal.net/rf5_frm.htm</a><br>
+Рефал-7: С.Ю. Скоробогатов, А. М. Чеповский. «Разработка нового диалекта языка Refal». Информационные технологии, вып. 9 (2006 г.): 31–38.<br>
+</span></p>
+</section><div><a class="slider-prev" href="#рефал-1"></a><a class="slider-next" href="#метавычисления-и-суперкомпиляция"></a></div>
+<section id="метавычисления-и-суперкомпиляция" class="slide level1">
+<h1>Метавычисления и суперкомпиляция</h1>
+<p>Метавычисления — это раздел теории и практики программирования, связанный с разработкой и использованием метапрограмм — конструктивных метасистем над программами.<sup>1</sup></p>
+<p>Суперкомпиляция — техника преобразования программ [в первую очередь — оптимизации], основанная на построении полной и самодостаточной модели программы.<sup>2</sup></p>
+<p>Две основные стадии суперкомпиляции:</p>
+<ol type="1">
+<li class="fragment"><em>Прогонка</em> программы на параметризованных входных данных (частичная специализация). Выполняется построение множетсва конфигураций машины.</li>
+<li class="fragment"><em>Свёртка</em> результата прогонки для получения остаточной программы (выделение рекурсии).</li>
+</ol>
+<p><span class="small"><br>
+<sup>1</sup> С.М. Абрамов. Основы метавычислений. Курс НОУ ИНТУИТ. <a href="http://www.intuit.ru/studies/courses/1067/221/info" class="uri">http://www.intuit.ru/studies/courses/1067/221/info</a><br>
+<sup>2</sup> И.Г. Ключников. Суперкомпиляция: идеи и методы. Практика функционального программирования, № 7, 2011.<br>
+</span></p>
+</section><div><a class="slider-prev" href="#расширения-базового-рефала"></a><a class="slider-next" href="#нетипизированное-λ-исчисление-чёрча-1932"></a></div>
+<section id="нетипизированное-λ-исчисление-чёрча-1932" class="slide level1">
+<h1>(Нетипизированное) λ-исчисление Чёрча (1932)</h1>
+<p>— изначально было предложено в качестве формальной системы для оснований математики.</p>
+<p>Вычисления представлены в виде последовательности подстановок значений переменных в выражения.</p>
+<p>Пример: <span class="math inline"><em>f</em>(<em>x</em>)=<em>x</em> + 3/<em>x</em></span> в «λ-исчислении»:</p>
+<p><span class="math inline"><em>λ</em><em>x</em>.(<em>x</em> + 3)/<em>x</em></span> — функция от аргумента <span class="math inline"><em>x</em></span>, значение которой равно <span class="math inline">(<em>x</em> + 3)/<em>x</em></span>.</p>
+<p>Вызов <span class="math inline"><em>f</em>(2)</span>:</p>
+<p><span class="math inline">(<em>λ</em><em>x</em>.(<em>x</em> + 3)/<em>x</em>)·2</span> — подставить 2 вместо <span class="math inline"><em>x</em></span> в выражение <span class="math inline">(<em>x</em> + 3)/<em>x</em></span>:</p>
+<p><span class="math inline">(<em>λ</em><em>x</em>.(<em>x</em> + 3)/<em>x</em>)·2 ⟶ (2 + 3)/<em>x</em> ⟶ (2 + 3)/2</span></p>
+</section><div><a class="slider-prev" href="#метавычисления-и-суперкомпиляция"></a><a class="slider-next" href="#строгое-определение"></a></div>
+<section id="строгое-определение" class="slide level1">
+<h1>Строгое определение</h1>
+<p>Рассмотрим формулы, составленные из выражений вида:</p>
+<ol type="1">
+<li class="fragment"><span class="math inline"><em>x</em>, <em>y</em>, <em>z</em>, …</span> — переменная</li>
+<li class="fragment"><span class="math inline"><em>λ</em><em>x</em>.<em>F</em></span> — абстракция (<span class="math inline"><em>x</em></span> — имя переменной, которая может встречаться в формуле <span class="math inline"><em>F</em></span>)</li>
+<li class="fragment"><span class="math inline"><em>A</em> · <em>B</em></span> — приложение (применение, аппликация), <span class="math inline"><em>A</em>, <em>B</em></span> — формулы. Оператор «·» левоассоциативен (A · B · C = (A · B) · C).</li>
+</ol>
+<p>Правило подстановки (<span class="math inline"><em>β</em></span>-редукция):<br>
+<br><span class="math display">(<em>λ</em><em>x</em>.<em>F</em>)·<em>G</em>⟶<sub><em>β</em></sub><em>F</em>[<em>x</em> := <em>G</em>]</span><br></p>
+<p>Буква <span class="math inline"><em>α</em></span> зарезервирована для понятия <span class="math inline"><em>α</em></span>-эквивалентности — формулы, эквивалентные с точностью до переименования переменных:</p>
+<p><span class="math inline"><em>λ</em><em>x</em>.<em>x</em>=<sub><em>α</em></sub><em>λ</em><em>y</em>.<em>y</em></span></p>
+<p>Переменная, перед которой стоит соответствующая абстракция называется <em>связанной</em>, в противном случае — <em>свободной</em>:</p>
+<p><span class="math inline"><em>λ</em><em>x</em>.<em>x</em> · <em>y</em></span> — x связана, y свободна.</p>
+<p>Вычисление считается завершённым когда нет <span class="math inline"><em>β</em></span>-редексов (подформул, к которым применима <span class="math inline"><em>β</em></span>-редукция)</p>
+</section><div><a class="slider-prev" href="#нетипизированное-λ-исчисление-чёрча-1932"></a><a class="slider-next" href="#индексы-де-брёйна-de-bruijn-дебраун"></a></div>
+<section id="индексы-де-брёйна-de-bruijn-дебраун" class="slide level1 debruijn">
+<h1>Индексы де Брёйна (de Bruijn, де&nbsp;Браун)</h1>
+<p>Чтобы избавиться от <span class="math inline"><em>α</em></span>-эквивалентности, вместо имён переменных можно использовать числа числа — глубину терма:</p>
+<p><img src="images/debruijn.svg" alt="de Bruijn indices" style="width:60.0%"></p>
+</section><div><a class="slider-prev" href="#строгое-определение"></a><a class="slider-next" href="#примеры-1"></a></div>
+<section id="примеры-1" class="slide level1">
+<h1>Примеры</h1>
+<ol type="1">
+<li class="fragment"><p>Нумералы Чёрча — представляем натуральное число <span class="math inline"><em>n</em></span> как <span class="math inline"><em>n</em></span>-кратное применение функции:<br>
+<span class="math inline">0 ≡ <em>λ</em><em>f</em>.<em>λ</em><em>x</em>.<em>x</em></span><br>
+<span class="math inline">1 ≡ <em>λ</em><em>f</em>.<em>λ</em><em>x</em>.<em>f</em> · <em>x</em></span><br>
+<span class="math inline">2 ≡ <em>λ</em><em>f</em>.<em>λ</em><em>x</em>.<em>f</em> · (<em>f</em> · <em>x</em>)</span><br>
+...</p></li>
+<li class="fragment"><p>Композиция функций:<br>
+<span class="math inline"><em>f</em> ∘ <em>g</em> ≡ <em>g</em>(<em>f</em>(<em>x</em>)) ≡ <em>λ</em><em>f</em>.<em>λ</em><em>g</em>.<em>λ</em><em>x</em>.<em>g</em> · (<em>f</em> · <em>x</em>)</span></p></li>
+<li class="fragment"><p><span class="math inline"><em>Ω</em> ≡ (<em>λ</em><em>x</em>.<em>x</em> · <em>x</em>)·(<em>λ</em><em>x</em>.<em>x</em> · <em>x</em>)</span> — редукция этого терма уходит в бесконечный цикл.</p></li>
+</ol>
+</section><div><a class="slider-prev" href="#индексы-де-брёйна-de-bruijn-дебраун"></a><a class="slider-next" href="#комбинаторная-логика"></a></div>
+<section id="комбинаторная-логика" class="slide level1">
+<h1>Комбинаторная логика</h1>
+<p>M. Schönfinkel (1924), H. Curry (1930)<br>
+Формальная система, синтаксис которой состоит из переменных, парных скобок и <em>комбинаторов</em> (правил преобразования строк символов). Эквивалентна машине Тьюринга, близко связана с <span class="math inline"><em>λ</em></span>-исчислением (может считаться «синтаксическим сахаром» для λ-исчисления)</p>
+<ul>
+<li class="fragment"><strong>S</strong> x y z = x z (y z) — распределение</li>
+<li class="fragment"><strong>K</strong> x y = x — отмена</li>
+<li class="fragment">(<strong>S, K</strong> — базис, из них можно получить остальные комбинаторы)</li>
+<li class="fragment"><strong>I</strong> x = x — идентичность</li>
+<li class="fragment"><strong>D</strong> x = x x — дублирование</li>
+<li class="fragment"><strong>C</strong> x y z = x z y — перестановка</li>
+<li class="fragment"><strong>B</strong> x y z = x (y z) — композиция</li>
+<li class="fragment"><strong>W</strong> x y = x y y — копирование</li>
+<li class="fragment"><strong>Y</strong> x = x (<strong>Y</strong> x) — неподвижная точка</li>
+</ul>
+</section><div><a class="slider-prev" href="#примеры-1"></a><a class="slider-next" href="#y-комбинатор"></a></div>
+<section id="y-комбинатор" class="slide level1">
+<h1>Y-комбинатор</h1>
+<p>Y-комбинатор — примитивный комбинатор рекурсии. Принимает на вход функцию двух аргументов, первый из которых — «рекурсивный вызов», а второй — входные данные для функции:</p>
+<p><br><span class="math display"><em>Y</em> = <em>λ</em><em>f</em>.(<em>λ</em><em>x</em>.<em>f</em>(<em>x</em> · <em>x</em>)) · (<em>λ</em><em>x</em>.<em>f</em>(<em>x</em> · <em>x</em>)).</span><br></p>
+<p>Если вместо переменных использовать <span class="math inline"><em>λ</em></span>-абстракцию и арифметические выражения, наивная реализация факториала могла бы выглядеть следующим образом:</p>
+<pre><code>Fact := Y (λ fact. λ x.
+    if (x == 0) return 1
+    else return x*fact(x - 1))</code></pre>
+<p><br><span class="math display"><em>Y</em><em>x</em> = <em>x</em> · (<em>Y</em><em>x</em>)</span><br></p>
+<p>«Тип» Y-комбинатора: ((T → T) → T → T) → T → T.</p>
+</section><div><a class="slider-prev" href="#комбинаторная-логика"></a><a class="slider-next" href="#парадокс-карри"></a></div>
+<section id="парадокс-карри" class="slide level1">
+<h1>Парадокс Карри</h1>
+<p>1935 (Клини, Россер), 1941 (Карри), 1942 (Карри)<br>
+Если дана формальная система, удовлетворяющая следующим свойствам:</p>
+<ul>
+<li class="fragment">конечное число примитивных термов, единственная операция — бинарная операция применения, единственный унарный предикат — предикат выводимости «⊦ A»</li>
+<li class="fragment">определено равенство в терминах примитивного терма Q и применении (X = Y ≡ ⊦ Q · X · Y)</li>
+<li class="fragment">равенство симметрично, транзитивно, сохраняется при применении и подразумевает взаимную выводимость (A = B, A ⊦ B)</li>
+<li class="fragment">для любого терма <span class="math inline"><em>M</em></span> со свободными переменными <span class="math inline"><em>X</em><sub>1</sub>, …, <em>X</em><sub><em>n</em></sub></span> существует терм <span class="math inline"><em>M</em><sup>*</sup></span>, такой, что <span class="math inline"><em>M</em><sup>*</sup> · <em>X</em><sub>1</sub> · … · <em>X</em><sub><em>n</em></sub> = <em>M</em></span></li>
+<li class="fragment"><p>может быть определён оператор импликации <span class="math inline">→</span>, такой, что для любых термов <span class="math inline"><em>M</em>, <em>N</em></span>:</p>
+<ul>
+<li>⊦ M → M</li>
+<li>⊦ (M → (M → N)) → (M → N)</li>
+<li>⊦ M и ⊦ M → N ⟹ ⊦ N<br>
+...</li>
+</ul></li>
+</ul>
+</section><div><a class="slider-prev" href="#y-комбинатор"></a><a class="slider-next" href="#парадокс-карри-1"></a></div>
+<section id="парадокс-карри-1" class="slide level1">
+<h1>Парадокс Карри</h1>
+<p>...то любой терм ξ выводим с помощью следующего построения:</p>
+<ol type="1">
+<li class="fragment">Положим φ ≡ Y (λ x . x → (x → ξ))</li>
+<li class="fragment">⊦ φ = (φ → (φ → ξ)) по определению Y</li>
+<li class="fragment">⊦ φ = (φ → (φ → ξ)) → (φ → ξ) по определению Y</li>
+<li class="fragment">п. 3 — аксиома импликации, поэтому ⊦ (φ → (φ → ξ)) → (φ → ξ)</li>
+<li class="fragment">φ → (φ → ξ) (подставляем равенство из шага 2)</li>
+<li class="fragment">⊦ φ Опять подставляем равенство из шага 2</li>
+<li class="fragment">По MP получаем φ → ξ и наконец ξ.</li>
+</ol>
+<p>Основная идея — если формальная система допускает неограниченный оператор рекурсии (неподвижной точки), то она противоречива. Это справедливо для любой формальной системы, эквивалентной комбинаторной логике или λ-исчислению.</p>
+</section><div><a class="slider-prev" href="#парадокс-карри"></a><a class="slider-next" href="#principia-mathematica"></a></div>
+<section id="principia-mathematica" class="slide level1">
+<h1>Principia Mathematica</h1>
+<p>B. Russel, A. Whitehead. 1910 – 1913 (3 тома).<br>
+— фундаментальный труд по формализованным основаниям математики.</p>
+<p>В книгах используется слегка отличающаяся от современной логическая нотация, но в целом их достаточно легко понять.<br>
+Авторы (до результатов Гёделя) пытались описать математику с позиций формализма и в этом преуспели.</p>
+<p>Для того, чтобы преодолеть парадокс Рассела, предлагалось рассматривать объекты как принадлежащие к некоторым <em>типам</em>. Типы определяются как область истинности некоторого утверждения.</p>
+<div class="fragment">
+<p>При изучении функций комплексного переменного, мы не пытаемся подставить вместо аргумента, например, бесконечномерный оператор. Все утверждения формируются с подразумеваемым условием «x — комплексное число».<br>
+Типы позволяют избавиться от циклических определений.</p>
+</div>
+</section><div><a class="slider-prev" href="#парадокс-карри-1"></a><a class="slider-next" href="#λ-исчисление-с-простыми-типами"></a></div>
+<section id="λ-исчисление-с-простыми-типами" class="slide level1">
+<h1>λ-исчисление с простыми типами</h1>
+<p>1940 (Чёрч); далее представлено определение ближе к современной записи.<br>
+<a href="http://plato.stanford.edu/entries/type-theory-church/" class="uri">http://plato.stanford.edu/entries/type-theory-church/</a></p>
+<p>Пусть дано множество базовых типов B, * ∈ B</p>
+<p>Допустимые типы:<br>
+<br><span class="math display"><em>τ</em> ≡ <em>b</em> | <em>τ</em><sub>1</sub> → <em>τ</em><sub>2</sub>,   <em>b</em> ∈ <em>B</em>.</span><br><br>
+Стрелка — правоассоциативна:<br>
+α → β → γ ≡ α → (β → γ)</p>
+<p>Сокращение: α' ≡ α → α</p>
+<ul>
+<li class="fragment"><p>* — «тип типов», тип высказываний</p></li>
+<li class="fragment"><p>У Чёрча — в обратном порядке и без стрелок (α → β → γ ≡ (γβα))</p></li>
+</ul>
+</section><div><a class="slider-prev" href="#principia-mathematica"></a><a class="slider-next" href="#λ-исчисление-с-простыми-типами-1"></a></div>
+<section id="λ-исчисление-с-простыми-типами-1" class="slide level1">
+<h1>λ-исчисление с простыми типами</h1>
+<p>В оригинальной формулировке формулы:</p>
+<ul>
+<li class="fragment">Символы λ, [, ] для описания абстракции</li>
+<li class="fragment">Переменные <span class="math inline"><em>a</em><sub><em>α</em></sub></span>, <span class="math inline"><em>b</em><sub><em>α</em></sub></span>, … типа α</li>
+<li class="fragment">Логические константы :
+<ul>
+<li class="fragment"><span class="math inline">¬<sub>* → *</sub></span> отрицание<br>
+</li>
+<li class="fragment"><span class="math inline">∨<sub>* → * → *</sub></span> дизъюнкция,<br>
+</li>
+<li class="fragment"><span class="math inline"><em>Π</em><sub>(<em>α</em> → *)→*</sub></span> универсальная квантификация,</li>
+<li class="fragment"><span class="math inline"><em>i</em><sub>(<em>α</em> → *)→<em>α</em></sub></span> оператор выбора</li>
+</ul></li>
+<li class="fragment">Константы произвольных типов α</li>
+</ul>
+</section><div><a class="slider-prev" href="#λ-исчисление-с-простыми-типами"></a><a class="slider-next" href="#λ-исчисление-с-простыми-типами-2"></a></div>
+<section id="λ-исчисление-с-простыми-типами-2" class="slide level1">
+<h1>λ-исчисление с простыми типами</h1>
+<p>Современная формулировка исчисления (только вычислительная часть) не содержит логических констант и типа * (точнее, * — это «тип всех типов», но не входит в константу τ)</p>
+<p>Грамматика:</p>
+<ul>
+<li class="fragment">Абстракция (записывается как <span class="math inline"><em>λ</em><em>x</em><sub><em>α</em></sub>[<em>A</em><sub><em>α</em></sub>]</span>)</li>
+<li class="fragment">Приложение</li>
+<li class="fragment">Константы и переменные</li>
+</ul>
+<p>У Чёрча индексы типов обязательны, но мы будем их пропускать, если это уместно и использовать отношение типизации.</p>
+</section><div><a class="slider-prev" href="#λ-исчисление-с-простыми-типами-1"></a><a class="slider-next" href="#отношение-типизации"></a></div>
+<section id="отношение-типизации" class="slide level1 left">
+<h1>Отношение типизации</h1>
+<p><strong>Окружение типизации</strong> Γ — конечный набор высказываний <span class="math inline"><em>x</em> : <em>α</em></span> (x имеет тип α), где <span class="math inline"><em>x</em></span> — символ переменной, а <span class="math inline"><em>α</em></span> — тип.<br>
+[] — пустое окружение, <span class="math inline"><em>x</em> : <em>α</em> ∈ <em>Γ</em></span> записывается как суждение <span class="math inline"><em>Γ</em> ⊦ <em>x</em> : <em>α</em></span> (из окружения выводимо, что x имеет тип α).<br>
+<span class="math inline"><em>Γ</em>, <em>x</em> : <em>α</em></span> — окружение Γ, расширенное суждением <span class="math inline"><em>x</em> : <em>α</em></span>.</p>
+<p>Расширенная грамматика и правила вывода исчисления задаются в терминах таких суждений — правил типизации (и известного нам правила β-редукции)</p>
+<ul>
+<li class="fragment"><p>T-Const <span class="math inline"><em>c</em><sub><em>α</em></sub></span> — константа типа <span class="math inline"><em>α</em> ⟹ <em>Γ</em> ⊦ <em>c</em> : <em>α</em></span>, включая логические константы, если мы их рассматриваем</p></li>
+<li class="fragment"><p>T-Abs <span class="math inline"><em>Γ</em>, <em>x</em> : <em>σ</em> ⊦ <em>e</em> : <em>τ</em> ⟹ <em>λ</em><em>x</em><sub><em>σ</em></sub>.<em>e</em> : <em>σ</em> → <em>τ</em></span>, обычно абстракция записывается как <span class="math inline"><em>λ</em><em>x</em> : <em>σ</em>.<em>e</em></span></p></li>
+<li class="fragment"><p>T-App <span class="math inline"><em>Γ</em> ⊦ <em>x</em> : <em>σ</em> → <em>τ</em>, <em>Γ</em> ⊦ <em>y</em> : <em>σ</em> ⟹ <em>Γ</em> ⊦ <em>x</em><sub><em>σ</em> → <em>τ</em></sub> · <em>y</em><sub><em>σ</em></sub> : <em>τ</em></span></p></li>
+</ul>
+<p>Допустимы только типизируемые формулы, т.е. те, для которых из данного окружения можно вывести тип.</p>
+</section><div><a class="slider-prev" href="#λ-исчисление-с-простыми-типами-2"></a><a class="slider-next" href="#аксиомы-и-правила-вывода"></a></div>
+<section id="аксиомы-и-правила-вывода" class="slide level1 left">
+<h1>Аксиомы и правила вывода</h1>
+<dl>
+<dt class="fragment"><span class="math inline">(<em>λ</em><em>x</em>.<em>F</em>)·<em>G</em>⟶<sub><em>β</em></sub><em>F</em>[<em>G</em>/<em>x</em>]</span></dt>
+<dd class="fragment">β-редукция <!--_ -->
+</dd>
+</dl>
+<p>Если используются логические константы, то импликация, как в алгебре логики:<br>
+<span class="math inline"><em>A</em><sub><em>o</em></sub> ⊃ <em>B</em><sub><em>o</em></sub> ≡ (¬<em>A</em>)∨<em>B</em></span> и Modus Ponens (A ⊃ B, A ⟹ B)</p>
+<ol type="1">
+<li class="fragment"><span class="math inline">[<em>p</em><sub>*</sub> ∨ <em>p</em><sub>*</sub>]⊃<em>p</em><sub>*</sub></span></li>
+<li class="fragment"><span class="math inline"><em>p</em><sub>*</sub> ⊃ [<em>p</em><sub>*</sub> ∨ <em>q</em><sub>*</sub>]</span></li>
+<li class="fragment"><span class="math inline">[<em>p</em><sub>*</sub> ∨ <em>q</em><sub>*</sub>]⊃[<em>q</em><sub>*</sub> ∨ <em>p</em><sub>*</sub>]</span></li>
+<li class="fragment"><span class="math inline">[<em>p</em><sub>*</sub> ⊃ <em>q</em><sub>*</sub>]⊃[[<em>r</em><sub>*</sub> ∨ <em>p</em><sub>*</sub>]⊃[<em>r</em><sub>*</sub> ∨ <em>q</em><sub>*</sub>]]</span><br>
+(5<sup>α</sup>) <span class="math inline"><em>Π</em><sub>(<em>α</em> → *)→*</sub><em>f</em><sub><em>α</em> → *</sub> ⊃ <em>f</em><sub><em>α</em> → *</sub><em>x</em><sub><em>α</em></sub></span><br>
+(6<sup>α</sup>) <span class="math inline">∀<em>x</em><sub><em>α</em></sub>[<em>p</em><sub>*</sub> ∨ <em>f</em><sub><em>α</em> → *</sub><em>x</em><sub><em>α</em></sub>]⊃[<em>p</em><sub>*</sub> ∨ <em>Π</em><em>f</em><sub><em>α</em> → *</sub>]</span> <!--* --><br>
+(и еще несколько аксиом в оригинале)</li>
+</ol>
+</section><div><a class="slider-prev" href="#отношение-типизации"></a><a class="slider-next" href="#естественная-дедукция"></a></div>
+<section id="естественная-дедукция" class="slide level1">
+<h1>Естественная дедукция</h1>
+<p>τ ≡ b | α → β</p>
+<p>Правила типизации, используемые для определения типов, можно структурировать (следующая структура носит название «естественная дедукция», natural deduction):</p>
+<dl>
+<dt class="fragment"><strong>формация</strong> (Formation) — как определяется конструктор типа</dt>
+<dd class="fragment"><span class="math inline"><em>α</em>, <em>β</em>—<em>т</em><em>и</em><em>п</em><em>ы</em> ⟹ <em>α</em> → <em>β</em>—<em>т</em><em>и</em><em>п</em></span>
+</dd>
+<dt class="fragment"><strong>введение</strong> (Introduction) — как определяются элементы типа</dt>
+<dd class="fragment"><span class="math inline"><em>Γ</em>, <em>x</em> : <em>σ</em> ⊦ <em>e</em> : <em>τ</em> ⟹ <em>λ</em><em>x</em><sub><em>σ</em></sub>.<em>e</em> : <em>σ</em> → <em>τ</em></span>
+</dd>
+<dt class="fragment"><strong>удаление</strong> (Elimination) — что можно делать с элементами типа, чтобы получить элементы некоторого другого типа</dt>
+<dd class="fragment"><span class="math inline"><em>Γ</em> ⊦ <em>x</em> : <em>σ</em> → <em>τ</em>, <em>Γ</em> ⊦ <em>y</em> : <em>σ</em> ⟹ <em>Γ</em> ⊦ <em>x</em><sub><em>σ</em> → <em>τ</em></sub> · <em>y</em><sub><em>σ</em></sub> : <em>τ</em></span>, <span class="math inline"><em>x</em></span> — удаляемый терм
+</dd>
+<dt class="fragment"><strong>редукция</strong> (Reduction) — взаимное уничтожение термов введения и удаления (не входит в обычное понятие естественной дедукции)</dt>
+<dd class="fragment"><span class="math inline">[<em>λ</em><em>x</em>.<em>F</em>]·<em>G</em>⟶<sub><em>β</em></sub><em>F</em>[<em>G</em>/<em>x</em>]</span> <!--_ -->
+</dd>
+</dl>
+</section><div><a class="slider-prev" href="#аксиомы-и-правила-вывода"></a><a class="slider-next" href="#соответствие-карри-ховарда-λ-исчисления-с-простыми-типами"></a></div>
+<section id="соответствие-карри-ховарда-λ-исчисления-с-простыми-типами" class="slide level1">
+<h1>Соответствие Карри-Ховарда λ-исчисления с простыми типами</h1>
+<p>Типы можно рассматривать как импликативные суждения (α → β — импликация). Доказательства — термы, имеющие этот тип.<br>
+Если ввести тип ложных высказываний как базовый тип False без правил введения и с термом удаления ex falso:</p>
+<p><br><span class="math display"><em>e</em><em>x</em><em>f</em><em>a</em><em>l</em><em>s</em><em>o</em><sub><em>τ</em></sub>(<em>f</em> : <em>F</em><em>a</em><em>l</em><em>s</em><em>e</em>):<em>τ</em></span><br></p>
+<p>, то можно ввести и отрицание — «не α» ≡ α → False.</p>
+</section><div><a class="slider-prev" href="#естественная-дедукция"></a><a class="slider-next" href="#свойства-типизированного-λ-исчисления"></a></div>
+<section id="свойства-типизированного-λ-исчисления" class="slide level1">
+<h1>Свойства типизированного λ-исчисления</h1>
+<ul>
+<li class="fragment">сохранение типизации правилами редукции (<span class="math inline"><em>x</em> : <em>α</em> ⟶ <em>y</em> : <em>α</em></span>)</li>
+<li class="fragment">теорема Чёрча-Россера: β-редукция конфлюэнтна (верно и для нетипизированного исчисления)<br>
+правила редукции можно применять в разном порядке (λ x . f · (g · x))<br>
+Формулировка: если <span class="math inline"><em>x</em>⟶<sup>*</sup><em>y</em></span> и <span class="math inline"><em>x</em>⟶<sup>*</sup><em>z</em></span> с помощью разной последовательности применения правил редукции, то существует терм <span class="math inline"><em>w</em></span>, для которого <span class="math inline"><em>y</em>⟶<sup>*</sup><em>w</em></span> и <span class="math inline"><em>z</em>⟶<sup>*</sup><em>w</em></span>.<br>
+Результат не зависит от порядка вычисления.</li>
+</ul>
+<p>«свойство ромба»<br>
+<img src="images/Confluence.svg"></p>
+</section><div><a class="slider-prev" href="#соответствие-карри-ховарда-λ-исчисления-с-простыми-типами"></a><a class="slider-next" href="#схема-доказательства-теоремы-чёрча-россера"></a></div>
+<section id="схема-доказательства-теоремы-чёрча-россера" class="slide level1">
+<h1>Схема доказательства теоремы Чёрча-Россера</h1>
+<p>(Тэйт, Такахаши)</p>
+<ol type="1">
+<li class="fragment">Определяем отношение параллельной редукции <span class="math inline">&gt;&gt;</span> (Тэйт):</li>
+</ol>
+<p>pr-refl: x &gt;&gt; x</p>
+<p>pr-β: a &gt;&gt; a', b &gt;&gt; b'</p>
+<p>⟹ (λu . a) b &gt;&gt; a'[u := b']</p>
+<p>pr-ξ: a &gt;&gt; a'</p>
+<p>⟹ λ u . a &gt;&gt; λ u . a'</p>
+<p>pr-app: a &gt;&gt; a', b &gt;&gt; b'</p>
+<p>⟹ a · b &gt;&gt; a' · b'</p>
+<p>Оно рефлексивно и параллельно, но содержит недетерминированный выбор pr-β / pr-app (ветвление).</p>
+<ol start="2" type="1">
+<li class="fragment">Определим стратегию «максимальной» параллельной редукции <span class="math inline">&gt; &gt; &gt;</span> (Такахаши):</li>
+</ol>
+<p>cd-var, cd-β, cd-ξ идентичны pr-refl, pr-β, pr-ξ.</p>
+<p>cd-app: к pr-app добавляется условие того, что a — не абстракция, тем самым «максимальная» редукция детерминирована.</p>
+<p>Заметим, что отношения &gt;&gt; и &gt;&gt;&gt; выполняют однократную подстановку для всех редексов, которые есть в формуле (но не для новых редексов).</p>
+</section><div><a class="slider-prev" href="#свойства-типизированного-λ-исчисления"></a><a class="slider-next" href="#схема-доказательства-теоремы-чёрча-россера-1"></a></div>
+<section id="схема-доказательства-теоремы-чёрча-россера-1" class="slide level1">
+<h1>Схема доказательства теоремы Чёрча-Россера</h1>
+<ol start="3" type="1">
+<li class="fragment">Лемма. Отношения &gt;&gt; и &gt;&gt;&gt; корректно определены.</li>
+<li class="fragment">Лемма (нетривиальная). Для любого a, b, d: a &gt;&gt;&gt; d и a &gt;&gt; b ⇒ b &gt;&gt; d.<br>
+По индукции вывода a &gt;&gt;&gt; d рассматриваем все возможные варианты b, такого, что a &gt;&gt; b.</li>
+<li class="fragment">Лемма. Отношение &gt;&gt; обладает свойством ромба.</li>
+<li class="fragment">Следствие. Транзитивное замыкание <span class="math inline">&gt;&gt;<sup>*</sup></span> обладает свойством ромба.</li>
+<li class="fragment">Следствие. a &gt;&gt;* b ⇔ a ⟶<sub>β</sub> b.</li>
+</ol>
+</section><div><a class="slider-prev" href="#схема-доказательства-теоремы-чёрча-россера"></a><a class="slider-next" href="#нормализация"></a></div>
+<section id="нормализация" class="slide level1">
+<h1>Нормализация</h1>
+<p><strong>Редекс</strong> — терм удаления, к которому можно применить правило редукции.<br>
+<strong>Нормальная форма</strong> терма относительно редукции — это такой вид, при котором к нему неприменимы правила редукции.<br>
+<strong>Головная нормальная форма</strong> терма — если в головной позиции (корне дерева) не стоит редекс.</p>
+<p><strong>Нормализация</strong> — свойство формальной системы: если у терма есть нормальная форма, то она единственная.<br>
+<strong>Сильная нормализация</strong> — у всех термов есть единственная нормальная форма (= нет термов, редукция которых не завершается).</p>
+</section><div><a class="slider-prev" href="#схема-доказательства-теоремы-чёрча-россера-1"></a><a class="slider-next" href="#безопасность-типов"></a></div>
+<section id="безопасность-типов" class="slide level1">
+<h1>Безопасность типов</h1>
+<p>С позиций программирования, типы должны обеспечивать представленные далее свойства корректно типизированных программ.<br>
+Определим множество «канонических» (простых) форм для типов. Каноническая форма — это значение, записанное в явном виде:<br>
+- <span class="math inline">1</span> — это каноническая форма натурального числа;<br>
+- <span class="math inline">(<em>λ</em><em>x</em><sub><em>ℕ</em></sub>.<em>x</em>)·1</span> — это не каноническая форма натурального числа;<br>
+- <span class="math inline">1 · 1</span> — это некорректно типизированное выражение.</p>
+<ol start="2" type="1">
+<li class="fragment"><p>(Progress) Любой корректно типизированный терм <span class="math inline"><em>t</em> : <em>T</em></span> без свободных переменных или находится в канонической форме, или является редексом.<br>
+Доказательство — по индукции вывода типа. Нетривиальный случай — применение T-App.</p></li>
+<li class="fragment"><p>(Preservation) Редукция сохраняет тип, т.е. если <span class="math inline"><em>t</em> : <em>T</em></span> и <span class="math inline"><em>t</em> ⟶ <em>t</em>′</span>, то <span class="math inline"><em>t</em>′:<em>T</em></span>.<br>
+Доказательство — по индукции по выводу типа.<br>
+Для случая подстановки нужно доказать, что операция подстановки сохраняет типизацию.<br>
+Для этого, в свою очередь, нужно показать, что типизация сохраняется при изменениях в контексте, которые не изменяют значения свободных переменных.</p></li>
+<li class="fragment"><p>Безопасность типов: если вычисление любого корректно типизированного терма завершается, то результатом вычисления является каноническая форма.</p></li>
+</ol>
+</section><div><a class="slider-prev" href="#нормализация"></a><a class="slider-next" href="#схема-доказательства-сильной-нормализации-λ-исчисления-с-простыми-типами"></a></div>
+<section id="схема-доказательства-сильной-нормализации-λ-исчисления-с-простыми-типами" class="slide level1">
+<h1>Схема доказательства сильной нормализации λ-исчисления с простыми типами</h1>
+</section><div><a class="slider-prev" href="#безопасность-типов"></a><a class="slider-next" href="#эквивалентность-термов"></a></div>
+<section id="эквивалентность-термов" class="slide level1">
+<h1>Эквивалентность термов</h1>
+<p>Обычно определяется следующим образом: A эквивалентен B, если A и B приводятся β-редукцией к идентичному виду, с точностью до корректных (без конфликтов имён) переименований переменных. На индексах де Брёйна последнее замечание неактуально.</p>
+<h2 id="η-эквивалентность">η-эквивалентность</h2>
+<p>Пусть <span class="math inline"><em>f</em> : <em>α</em> → <em>β</em></span>. Тогда <span class="math inline"><em>λ</em>(<em>x</em> : <em>α</em>).<em>f</em> · <em>x</em></span> интуитивно эквивалентен исходной <span class="math inline"><em>f</em></span>, но по указанному выше определению формально это разные термы.</p>
+<p>η-эквивалентность включает такое понятие и, в случае просто типизированного λ-исчисления, не нарушает разрешимости эквивалентности типов.</p>
+<p><strong>Проверка типов разрешима</strong> — если есть алгоритм, который для любого терма определяет, корректно ли он типизирован.<br>
+<strong>Эквивалентность термов разрешима</strong> — если есть алгоритм, который для любой пары термов определяет, эквивалентны ли они при заданных правилах.</p>
+</section><div><a class="slider-prev" href="#схема-доказательства-сильной-нормализации-λ-исчисления-с-простыми-типами"></a><a class="slider-next" href="#не-все-утверждения-удобно-представимы-в-λ-исчислении-с-простыми-типами"></a></div>
+<section id="не-все-утверждения-удобно-представимы-в-λ-исчислении-с-простыми-типами" class="slide level1">
+<h1>Не все утверждения удобно представимы в λ-исчислении с простыми типами</h1>
+<p>В частности, для нумералов Чёрча представимый класс называется «расширенные полиномы» над ℕ:</p>
+<ul>
+<li class="fragment">0, 1, проекции</li>
+<li class="fragment">сложение, умножение</li>
+<li class="fragment">функция <code>ifzero</code>(n, m, p) = <code>if</code> n = 0 <code>then</code> m <code>else</code> p</li>
+</ul>
+<p>В следующий раз мы рассмотрим различные способы расширения набора типов и постараемся убрать разделение между типами и термами.</p>
+</section><div><a class="slider-prev" href="#эквивалентность-термов"></a><a class="slider-next" href="#задачи"></a></div>
+<section id="задачи" class="slide level1">
+<h1>Задачи</h1>
+<dl>
+<dt class="fragment"><strong>Задача 5.1. *</strong></dt>
+<dd class="fragment">Определить умножение и сложение для нумералов Чёрча.
+</dd>
+<dt class="fragment"><strong>Задача 5.2. **</strong></dt>
+<dd class="fragment">Показать, что, хотя для некоторого базового типа <span class="math inline"><em>T</em></span> нумералы Чёрча и их умножение и сложение типизируемо, нельзя определить операцию вычитания нумералов в λ-исчислении с простыми типами.
+</dd>
+<dt class="fragment"><strong>Задача 5.3а. ***</strong></dt>
+<dd class="fragment">Построить машину Тьюринга, которая делает β-редукцию.
+</dd>
+<dt class="fragment"><strong>Задача 5.3б. **</strong></dt>
+<dd class="fragment">Предложить схему эмуляции работы универсальной машины Тьюринга в нетипизированном λ-исчислении.
+</dd>
+</dl>
+</section><div><a class="slider-prev" href="#не-все-утверждения-удобно-представимы-в-λ-исчислении-с-простыми-типами"></a><a class="slider-next"></a></div>
+
+<!-- start page -->
+   <div id="slider">
+       <a href="#математические-модели-вычислений" class="slider-start">PLAY</a>
+   </div>
+
+   <!-- progressbar container -->
+   <div class="slider-progress"></div>
+   </article>
+  </div>
+
+  
+  <script type="text/javascript">
+  document.addEventListener("keydown", function(e) {
+     if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) { return; }
+     switch (e.keyCode) {
+       case 35: // End
+          var arr = document.querySelectorAll("a.slider-next:link");
+          var a = arr[arr.length - 1];
+          if (a && a.href) {
+            window.location = a.href;
+          }
+          break;
+       case 36: // Home
+          var a = document.querySelector("a.slider-start");
+          if (a && a.href) {
+            window.location = a.href;
+          }
+          break;
+       case 37: // left arrow
+         var a = document.querySelector("section:target ~ div a.slider-prev");
+         if (a && a.href) {
+           window.location = a.href;
+         }
+         break;
+       case 39: // right arrow
+         var a = document.querySelector("section:target ~ div a.slider-next");
+         if (a && a.href) {
+           window.location = a.href;
+         }
+         break;
+     }
+  });
+  </script>
+  
+
+</body></html>

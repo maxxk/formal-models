@@ -50,18 +50,19 @@ layout: default
 [презентация — html](presentations/05-Alternate-models.html)
 
 
-<!--## Нетипизированное λ-исчисление. λ-исчисление с простыми типами.
+## Нормальные алгорифмы Маркова. Нетипизированное λ-исчисление. λ-исчисление с простыми типами.
 
-[презентация — html](presentations/05-Lambda-calculus.html)
+[презентация — html](presentations/06-Markov-Refal-Lambda-calculus.html)
 
 ## Расширения типизированного λ-исчисления. Полиморфное λ-исчисление.
 
 [презентация — html](presentations/06-Lambda-cube.html)
 
+
 ## Расширения типизированного λ-исчисления. Конструкторы типов и зависимые типы.
 
 [презентация — html](presentations/07-Dependent-types.html)
-
+<!--
 ## Индуктивные и коиндуктивные типы. Работа в среде Coq.
 
 [презентация — html](presentations/08-Coq.html)

@@ -73,30 +73,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     border-bottom: 1px solid black;
 }
 </style>
-</section><div><a class="slider-prev"></a><a class="slider-next" href="#среда-coq"></a></div>
-<section id="среда-coq" class="slide level1">
-<h1>Среда Coq</h1>
-<p>В презентации некоторые примеры будут показаны в Coq — интерактивной среде автоматизированного доказательства теорем (и разработки программ), основанной на разновидности типизированного λ-исчисления. Подробно о ней — в следующий раз.</p>
-<p><a href="https://coq.inria.fr/" class="uri">https://coq.inria.fr/</a> — официальный сайт, руководство</p>
-<p>Web-интерфейс для достаточно старой версии:<br>
-<a href="http://proofweb.cs.ru.nl/login.php" class="uri">http://proofweb.cs.ru.nl/login.php</a> → Guest Login → Access the interface</p>
-<p>Брошюра В.Н. Крупского, С.Л. Кузнецова (кафедра мат. логики): <a href="http://lpcs.math.msu.su/~sk/lehre/coq/coq_pract.pdf" class="uri">http://lpcs.math.msu.su/~sk/lehre/coq/coq_pract.pdf</a></p>
-</section><div><a class="slider-prev" href="#математические-модели-вычислений"></a><a class="slider-next" href="#синтаксис-среды-coq"></a></div>
-<section id="синтаксис-среды-coq" class="slide level1">
-<h1>Синтаксис среды Coq</h1>
-<p>Предложения языка разделяются точкой; ключевые слова регистрозависимы и пишутся с большой буквы.</p>
-<ul>
-<li class="fragment"><code>Variable имена переменных : тип.</code> — объявление переменных</li>
-<li class="fragment"><p>Определение функции; в круглых и фигурных скобках — аргументы.</p>
-<pre><code>Definition имя (переменная : тип) ... { переменная : тип } 
-... : тип := терм.</code></pre></li>
-<li class="fragment">аналогично можно вводить определения ключевыми словами <code>Theorem</code>, <code>Lemma</code>.</li>
-<li class="fragment"><code>Check (терм : тип)</code> — проверить, что терм имеет заданный тип.</li>
-<li class="fragment"><code>Compute терм</code> — вычислить значение терма.</li>
-<li class="fragment">тип «стрелки» — -&gt;; (у меня шрифт с лигатурами, поэтому будет отображаться как →)</li>
-<li class="fragment"><p>λ-абстракция — терм <code>fun (переменная : тип) ... , терм</code> (у меня — λ вместо fun)</p></li>
-</ul>
-</section><div><a class="slider-prev" href="#среда-coq"></a><a class="slider-next" href="#λ-исчисление-с-простыми-типами-1"></a></div>
+</section><div><a class="slider-prev"></a><a class="slider-next" href="#λ-исчисление-с-простыми-типами-1"></a></div>
 <section id="λ-исчисление-с-простыми-типами-1" class="slide level1 inference">
 <h1>λ-исчисление с простыми типами</h1>
 <p><br><span class="math display"><em>τ</em> ≡  <em>b</em> | <em>τ</em><sub>1</sub> → <em>τ</em><sub>2</sub>,   <em>b</em> ∈ <em>B</em>.</span><br></p>
@@ -148,7 +125,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-</section><div><a class="slider-prev" href="#синтаксис-среды-coq"></a><a class="slider-next" href="#исчисление-высказываний-соответствие-карри-говарда"></a></div>
+</section><div><a class="slider-prev" href="#математические-модели-вычислений"></a><a class="slider-next" href="#исчисление-высказываний-соответствие-карри-говарда"></a></div>
 <section id="исчисление-высказываний-соответствие-карри-говарда" class="slide level1 inference">
 <h1>Исчисление высказываний / соответствие Карри-Говарда</h1>
 <p>Импликативный фрагмент схем аксиом исчисления высказываний:</p>
