@@ -85,8 +85,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Любые возникающие вопросы лучше задавать прямо по ходу занятия.</p>
 <h2 id="зачётэкзамен">Зачёт/экзамен</h2>
 <p>Курс — по выбору кафедры Вычислительной математики; студенты с других кафедр могут сдавать его как спецкурс (проконсультируйтесь в учебной части).</p>
-<p>В этом семестре — зачёт (для 510 группы) или экзамен, если нужен экзамен.</p>
-<p>В следующем семестре курс продолжится на английском языке под названием «Математические модели программ и языков программирования», по этому курсу будет экзамен для всех.</p>
+<p>В этом семестре — зачёт (для 504 группы).</p>
+<p>В следующем семестре курс продолжится на английском языке под названием «Математические модели программ и языков программирования», по этому курсу будет экзамен.</p>
 <p>В рамках курса будут даваться задания для самостоятельного выполнения «со звёздочками». 10* — зачёт «автоматом», 6* — один вопрос, 3* — два вопроса, менее 3* — три вопроса.</p>
 <p>Принимаются предложения по семестровым проектам и инициативным заданиям, не включённым в список, но позволяющим лучше иллюстрировать темы курса.</p>
 </section><div><a class="slider-prev" href="#обзор-курса"></a><a class="slider-next" href="#похожие-курсы-в-других-университетах-мира"></a></div>
@@ -355,7 +355,7 @@ index 7a5596a..2e8cf68 100644 (file)
 <li class="fragment">рецензирование «из-за спины»</li>
 <li class="fragment">коммиты по email</li>
 <li class="fragment">парное программирование</li>
-<li class="fragment">средства рецензирования (например, <a href="https://reviewable.io">Reviewable</a>)</li>
+<li class="fragment">средства рецензирования (например, <a href="https://reviewable.io">Reviewable</a>, или встроенные в GitHub, GitLab)</li>
 <li class="fragment">pull-requests</li>
 </ul></li>
 </ol>
@@ -367,8 +367,7 @@ index 7a5596a..2e8cf68 100644 (file)
 <li class="fragment">разработка ведётся на GitHub</li>
 <li class="fragment">все изменения в код вносятся в отдельных ветках, которые вливаются в основную после рецензирования</li>
 </ul>
-<p>Пример: <a href="https://github.com/servo/servo/pull/7204/">#7204 Very basic touch events and touch scrolling</a><br>
-Пример рецензии для того же запроса на внесение изменений (pull request): <a href="https://reviewable.io/reviews/servo/servo/7204">servo/servo #7204 @ Reviewable.io</a></p>
+<p>Пример запроса на внесение изменений (pull request) с рецензией: <a href="https://github.com/servo/servo/pull/24148"> Prefetch img, scripts and stylesheets during parsing</a></p>
 </section><div><a class="slider-prev" href="#рецензирование-code-review"></a><a class="slider-next" href="#рецензирование-в-chromium"></a></div>
 <section id="рецензирование-в-chromium" class="slide level1">
 <h1>Рецензирование в Chromium</h1>
@@ -577,7 +576,7 @@ span.s4 {font-variant-ligatures: no-common-ligatures; color: #c33720}
 <section id="статический-анализ-достоверные-средства" class="slide level1">
 <h1>Статический анализ — достоверные средства</h1>
 <ul>
-<li class="fragment"><a href="http://frama-c.com">Frama-C</a>, OpenSource, <a href="https://bts.frama-c.com/dokuwiki/lib/exe/fetch.php?media=mantis:frama-c:tutorial:lifo-2014:slides.pdf">пример</a></li>
+<li class="fragment"><a href="http://frama-c.com">Frama-C</a>, OpenSource, <a href="http://frama-c.com/try_out.html">пример</a></li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="dt">int</span> max_array(<span class="dt">int</span>* a, <span class="dt">int</span> length) {
   <span class="dt">int</span> m = a[<span class="dv">0</span>];
