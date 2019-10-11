@@ -39,12 +39,12 @@ layout: default
 
 [презентация — html](presentations/02-Entscheidungsproblem.html)
 
-<!--
 
 ## Формальные системы
 
 [презентация — html](presentations/03-Logics.html)
 
+<!--
 
 ## Введение в верификацию с использованием методов Model Checking
 
