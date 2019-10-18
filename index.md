@@ -44,16 +44,16 @@ layout: default
 
 [презентация — html](presentations/03-Logics.html)
 
-<!--
-
-## Введение в верификацию с использованием методов Model Checking
-
-[презентация — html](presentations/04-Model-Checking.html)
 
 ## Альтернативные модели вычислений.
 
 [презентация — html](presentations/05-Alternate-models.html)
 
+<!--
+
+## Введение в верификацию с использованием методов Model Checking
+
+[презентация — html](presentations/04-Model-Checking.html)
 
 ## Нормальные алгорифмы Маркова. Нетипизированное λ-исчисление. λ-исчисление с простыми типами.
 
@@ -71,10 +71,6 @@ layout: default
 ## Индуктивные и коиндуктивные типы. Работа в среде Coq.
 
 [презентация — html](presentations/08-Coq.html)
-
-## Альтернативные модели вычислений.
-
-[презентация — html](presentations/09-Alternate-models.html)
 
 ## Гомотопическая теория типов.
 
