@@ -63,8 +63,8 @@ https://www.cs.colorado.edu/~bec/courses/csci5535/meetings/meeting04.pdf
 Моделирование энергосетей на солнечной энергетике: 
 https://solar-nets.herokuapp.com/
 
-Web-визуализатор: http://kaukeb.github.io/petri-nets/
-Один из OpenSource-редакторов: http://www.pneditor.org/  
+Web-визуализатор: http://blkdev2.github.io/petri-nets/
+Один из OpenSource-редакторов: https://github.com/matmas/pneditor
 
 # Темпоральная логика
 <style>
@@ -141,14 +141,14 @@ $α$ **гарантированно достижимо** (eventual, «когда
 
 
 ``` {.left-column .normalsize} 
-￼10: while(true) {
+10: while(true) {
 11:   wait(turn == 0)
     // Критическая секция
 12:   work(); turn = 1
 13: }
 ```
 ``` {.right-column .normalsize}
-￼20: while(true) {
+20: while(true) {
 21:   wait(turn == 1)
     // Критическая секция
 22:   work(); turn = 0
@@ -157,6 +157,8 @@ $α$ **гарантированно достижимо** (eventual, «когда
 
 # Граф достижимых состояний примера
 Состояние — все возможные сочетания значения переменной `turn` и счётчиков инструкций двух процессов.
+
+<div class="left-column">
 ``` {.graphviz .fdp .left-column}
 digraph  g {
   node [penwidth=2]
@@ -192,14 +194,16 @@ digraph  g {
   "t=1,\n11, 22" -> "t=0,\n11, 20";
 }
 ```
+</div>
+
 ```{.right-column .small}
-￼10: while(true) {
+10: while(true) {
 11:   wait(turn == 0)
     // Критическая секция
 12:   work(); turn = 1
 13: }
 ||
-￼20: while(true) {
+20: while(true) {
 21:   wait(turn == 1)
     // Критическая секция
 22:   work(); turn = 0
@@ -321,9 +325,11 @@ $$ O( |f | · (|S| + |R|)) $$
 
 ## приблизительно — «Верификация моделей программ с использованием абстракции и уточнения по контрпримерам»
 
-Реализация — анализатор [BLAST (Berkeley Lazy Abstraction Software verification Tool)](http://forge.ispras.ru/projects/blast), разработан в Беркли; на настоящее время поддерживается в России, в ИСП РАН.
+Реализация — анализатор [BLAST (Berkeley Lazy Abstraction Software verification Tool)](http://forge.ispras.ru/projects/blast), разработан в Беркли; после этого поддерживался в России, в ИСП РАН.
 
 [Статья с примером работы BLAST](http://www.sosy-lab.org/~dbeyer/Publications/2004-SAS.The_Blast_Query_Language_for_Software_Verification.pdf)
+
+Развитие BLAS — верификатор [CPAChecker](https://cpachecker.sosy-lab.org/)
 
 # Общие принципы SLAM
 1. **Входные данные**
@@ -419,7 +425,7 @@ http://www.rise4fun.com/iZ3/tutorial/guide
 
 **Задача 4.1б\*\*** Аналогично — для поразрядной сортировки (radix sort).
 
-**Задача 4.2\*\*** Представить пример доказательства не совсем тривиального свойства для не совсем тривиальной программы на используемых на практике языках программирования :) (> 40 строк кода без учёта комментариев и пустых строк) с использованием BLAST или [других](https://en.wikipedia.org/wiki/List_of_model_checking_tools) средств model checking. 
+**Задача 4.2\*\*** Представить пример доказательства не совсем тривиального свойства для не совсем тривиальной программы на используемых на практике языках программирования :) (> 40 строк кода без учёта комментариев и пустых строк) с использованием CPAChecker или [других](https://en.wikipedia.org/wiki/List_of_model_checking_tools) средств model checking. [Пример, с которого можно начать](https://sosy-lab.gitlab.io/research/tutorials/CPAchecker/Witnesses.html#witnesscorrectnessgeneration)
 
 Требуется самостоятельно установить одно из средств model checking, просмотреть документацию по нему, расширить приведённые примеры (или придумать свой) и написать мини-отчёт объёмом от 1000 букв текста на русском языке. 
 

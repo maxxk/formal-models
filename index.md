@@ -49,11 +49,13 @@ layout: default
 
 [презентация — html](presentations/05-Alternate-models.html)
 
-<!--
-
 ## Введение в верификацию с использованием методов Model Checking
 
 [презентация — html](presentations/04-Model-Checking.html)
+
+
+<!--
+
 
 ## Нормальные алгорифмы Маркова. Нетипизированное λ-исчисление. λ-исчисление с простыми типами.
 

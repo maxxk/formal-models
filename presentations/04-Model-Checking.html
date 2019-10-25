@@ -1,7 +1,7 @@
 <!DOCTYPE html><html><head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <title></title>
+  <title>04-Model-Checking</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -18,20 +18,15 @@
 
 <section id="математические-модели-вычислений" class="slide level1">
 <h1>Математические модели вычислений</h1>
-<h2 id="введение-в-model-checking.-темпоральные-логики-ltl-и-ctl">Введение в Model Checking. Темпоральные логики LTL и CTL</h2>
+<h2 id="введение-в-model-checking-темпоральные-логики-ltl-и-ctl">Введение в Model Checking. Темпоральные логики LTL и CTL</h2>
 <h2 id="software-model-checking-via-counterexample-guided-abstraction-refinement">Software Model Checking via Counterexample Guided Abstraction Refinement</h2>
 <p><a href="mailto:maxim.krivchikov@gmail.com" class="email">maxim.krivchikov@gmail.com</a></p>
 <p><a href="https://maxxk.github.io/formal-models/" class="uri">https://maxxk.github.io/formal-models/</a></p>
 </section><div><a class="slider-prev"></a><a class="slider-next" href="#источники"></a></div>
 <section id="источники" class="slide level1">
 <h1>Источники</h1>
-<p>Классическая книга:<br>
-Clarke E.M., Grumberg O., Peled D.A. Model Checking. Cambridge, Mass: The MIT Press, 1999. 314 p.<br>
-Э.М. Кларк и др. Верификация моделей программ. Model checking. М.:МЦНМО, 2002.</p>
-<p>Презентации:<br>
-Bor-Yuh Evan Chang<br>
-<a href="https://www.cs.colorado.edu/~bec/courses/csci5535/meetings/meeting03.pdf" class="uri">https://www.cs.colorado.edu/~bec/courses/csci5535/meetings/meeting03.pdf</a><br>
-<a href="https://www.cs.colorado.edu/~bec/courses/csci5535/meetings/meeting04.pdf" class="uri">https://www.cs.colorado.edu/~bec/courses/csci5535/meetings/meeting04.pdf</a></p>
+<p>Классическая книга: Clarke E.M., Grumberg O., Peled D.A. Model Checking. Cambridge, Mass: The MIT Press, 1999. 314 p. Э.М. Кларк и др. Верификация моделей программ. Model checking. М.:МЦНМО, 2002.</p>
+<p>Презентации: Bor-Yuh Evan Chang <a href="https://www.cs.colorado.edu/~bec/courses/csci5535/meetings/meeting03.pdf" class="uri">https://www.cs.colorado.edu/~bec/courses/csci5535/meetings/meeting03.pdf</a> <a href="https://www.cs.colorado.edu/~bec/courses/csci5535/meetings/meeting04.pdf" class="uri">https://www.cs.colorado.edu/~bec/courses/csci5535/meetings/meeting04.pdf</a></p>
 </section><div><a class="slider-prev" href="#математические-модели-вычислений"></a><a class="slider-next" href="#model-checking"></a></div>
 <section id="model-checking" class="slide level1">
 <h1>Model checking</h1>
@@ -56,7 +51,7 @@ Bor-Yuh Evan Chang<br>
 <h1>Модели состояний и переходов</h1>
 <p>Простейший пример — конечные автоматы.</p>
 <p>Более сложный — сети Петри:</p>
-<p><img src="images/petri_net.gif"></p>
+<p><img data-src="images/petri_net.gif" src="images/petri_net.gif"></p>
 </section><div><a class="slider-prev" href="#общие-принципы-model-checking"></a><a class="slider-next" href="#сети-петри"></a></div>
 <section id="сети-петри" class="slide level1">
 <h1>Сети Петри</h1>
@@ -67,10 +62,8 @@ Bor-Yuh Evan Chang<br>
 </section><div><a class="slider-prev" href="#модели-состояний-и-переходов"></a><a class="slider-next" href="#сети-петри-примеры"></a></div>
 <section id="сети-петри-примеры" class="slide level1">
 <h1>Сети Петри: примеры</h1>
-<p>Моделирование энергосетей на солнечной энергетике:<br>
-<a href="https://solar-nets.herokuapp.com/" class="uri">https://solar-nets.herokuapp.com/</a></p>
-<p>Web-визуализатор: <a href="http://kaukeb.github.io/petri-nets/" class="uri">http://kaukeb.github.io/petri-nets/</a><br>
-Один из OpenSource-редакторов: <a href="http://www.pneditor.org/" class="uri">http://www.pneditor.org/</a></p>
+<p>Моделирование энергосетей на солнечной энергетике: <a href="https://solar-nets.herokuapp.com/" class="uri">https://solar-nets.herokuapp.com/</a></p>
+<p>Web-визуализатор: <a href="http://blkdev2.github.io/petri-nets/" class="uri">http://blkdev2.github.io/petri-nets/</a> Один из OpenSource-редакторов: <a href="https://github.com/matmas/pneditor" class="uri">https://github.com/matmas/pneditor</a></p>
 </section><div><a class="slider-prev" href="#сети-петри"></a><a class="slider-next" href="#темпоральная-логика"></a></div>
 <section id="темпоральная-логика" class="slide level1">
 <h1>Темпоральная логика</h1>
@@ -153,22 +146,22 @@ tbody > tr:last-child > td {
 <tr class="odd">
 <td>X α , ◯α</td>
 <td>α будет верно в <strong>следующем</strong> состоянии</td>
-<td><img src="images/modal-next.png"></td>
+<td><img data-src="images/modal-next.png" src="images/modal-next.png"></td>
 </tr>
 <tr class="even">
 <td>G α , <strong>□</strong> α</td>
 <td>α верно <strong>во всех следующих</strong> состояниях</td>
-<td><img src="images/modal-globally.png"></td>
+<td><img data-src="images/modal-globally.png" src="images/modal-globally.png"></td>
 </tr>
 <tr class="odd">
 <td>F α , <strong>◇</strong> α</td>
 <td>α будет верно <strong>в одном из следующих</strong> состояний</td>
-<td><img src="images/modal-future.png"></td>
+<td><img data-src="images/modal-future.png" src="images/modal-future.png"></td>
 </tr>
 <tr class="even">
 <td>ε U δ</td>
 <td>ε верно <strong>до некоторого</strong> состояния, <strong>после которого</strong> становится верно δ</td>
-<td><img src="images/modal-until.png"></td>
+<td><img data-src="images/modal-until.png" src="images/modal-until.png"></td>
 </tr>
 </tbody>
 </table>
@@ -179,8 +172,8 @@ tbody > tr:last-child > td {
 <p>Позволяет выразить свойства, связанные со временем, такие как «инвариантность» и «гарантированная достижимость».</p>
 <p><span class="math inline"><em>α</em></span> — <strong>инвариант</strong> (invariant) для данного состояния <span class="math inline"><em>i</em></span>, если начиная с этого состояния <span class="math inline"><em>α</em></span> выполняется во всех последующих на любом возможном пути исполнения.</p>
 <p><span class="math inline"><em>α</em></span> <strong>гарантированно достижимо</strong> (eventual, «когда-нибудь произойдёт») из данного состояния <span class="math inline"><em>i</em></span>, если на любом пути исполнения начиная с этого состояния найдётся хотя бы одно состояние, в котором выполняется <span class="math inline"><em>α</em></span>.</p>
-</section><div><a class="slider-prev" href="#темпоральная-логика-1"></a><a class="slider-next" href="#пример-параллельная-программа"></a></div>
-<section id="пример-параллельная-программа" class="slide level1 left">
+</section><div><a class="slider-prev" href="#темпоральная-логика-1"></a><a class="slider-next" href="#пример--параллельная-программа"></a></div>
+<section id="пример--параллельная-программа" class="slide level1 left">
 <h1>Пример — параллельная программа</h1>
 <style>
 .left-column { float: left; }
@@ -194,12 +187,12 @@ tbody > tr:last-child > td {
 <li class="fragment">В общей памяти задана переменная <code>turn</code>.</li>
 <li class="fragment">Общая переменная используется для определения критической секции, в которой в каждый момент времени может находиться только один поток.</li>
 </ul>
-<pre class="left-column normalsize"><code>￼10: while(true) {
+<pre class="left-column normalsize"><code>10: while(true) {
 11:   wait(turn == 0)
     // Критическая секция
 12:   work(); turn = 1
 13: }</code></pre>
-<pre class="right-column normalsize"><code>￼20: while(true) {
+<pre class="right-column normalsize"><code>20: while(true) {
 21:   wait(turn == 1)
     // Критическая секция
 22:   work(); turn = 0
@@ -208,19 +201,21 @@ tbody > tr:last-child > td {
 <section id="граф-достижимых-состояний-примера" class="slide level1">
 <h1>Граф достижимых состояний примера</h1>
 <p>Состояние — все возможные сочетания значения переменной <code>turn</code> и счётчиков инструкций двух процессов.</p>
-<p><img src="graphviz-images/fceafd988c6a773fae32b17b5ec68c5adf81555a.svg"></p>
-<pre class="right-column small"><code>￼10: while(true) {
+<div class="left-column">
+<p><img data-src="graphviz-images/fceafd988c6a773fae32b17b5ec68c5adf81555a.svg" src="graphviz-images/fceafd988c6a773fae32b17b5ec68c5adf81555a.svg"></p>
+</div>
+<pre class="right-column small"><code>10: while(true) {
 11:   wait(turn == 0)
     // Критическая секция
 12:   work(); turn = 1
 13: }
 ||
-￼20: while(true) {
+20: while(true) {
 21:   wait(turn == 1)
     // Критическая секция
 22:   work(); turn = 0
 23: }</code></pre>
-</section><div><a class="slider-prev" href="#пример-параллельная-программа"></a><a class="slider-next" href="#модель-состояний-и-переходов"></a></div>
+</section><div><a class="slider-prev" href="#пример--параллельная-программа"></a><a class="slider-next" href="#модель-состояний-и-переходов"></a></div>
 <section id="модель-состояний-и-переходов" class="slide level1 center">
 <h1>Модель состояний и переходов</h1>
 <p>Напоминает недетерминированный автомат со специальными метками на состояниях:</p>
@@ -241,51 +236,42 @@ tbody > tr:last-child > td {
 <section id="примеры-свойств" class="slide level1">
 <h1>Примеры свойств</h1>
 <ol type="1">
-<li class="fragment">во всех достижимых конфигурациях системы два процесса <em>никогда не находятся одновременно в критической секции</em><br>
-(<code>pc1=12</code>, <code>pc2=22</code> — атомарные утверждения «процесс находится в критической секции»)<br>
-<code>Invariant(¬(pc1 = 12 ∧ pc2=22))</code></li>
-<li class="fragment">первый процесс <em>обязательно попадёт</em> в критическую секцию<br>
-<code>Eventually(pc1 = 12)</code></li>
+<li class="fragment">во всех достижимых конфигурациях системы два процесса <em>никогда не находятся одновременно в критической секции</em> (<code>pc1=12</code>, <code>pc2=22</code> — атомарные утверждения «процесс находится в критической секции») <code>Invariant(¬(pc1 = 12 ∧ pc2=22))</code></li>
+<li class="fragment">первый процесс <em>обязательно попадёт</em> в критическую секцию <code>Eventually(pc1 = 12)</code></li>
 </ol>
 </section><div><a class="slider-prev" href="#модель-состояний-и-переходов"></a><a class="slider-next" href="#пути-исполнения"></a></div>
 <section id="пути-исполнения" class="slide level1 center">
 <h1>Пути исполнения</h1>
-<p><strong>Путь</strong> в модели состояний и переходов — это бесконечная последовательность состояний, последовательно связанных переходами:<br>
-<br><span class="math display">(<em>s</em><sub>0</sub>, <em>s</em><sub>1</sub>, <em>s</em><sub>2</sub>, …)  (<em>s</em><sub><em>i</em></sub>, <em>s</em><sub><em>i</em> + 1</sub>)∈<em>R</em></span><br></p>
+<p><strong>Путь</strong> в модели состояний и переходов — это бесконечная последовательность состояний, последовательно связанных переходами: <br><span class="math display">(<em>s</em><sub>0</sub>, <em>s</em><sub>1</sub>, <em>s</em><sub>2</sub>, …)  (<em>s</em><sub><em>i</em></sub>, <em>s</em><sub><em>i</em> + 1</sub>) ∈ <em>R</em></span><br></p>
 <p><strong>Путь исполнения</strong> — путь, который начинается из начального состояния (<span class="math inline"><em>s</em><sub>0</sub> ∈ <em>I</em></span>)</p>
 <p>Дополнительно к уже рассмотренным операторам темпоральной логики можно ввести квантификацию по путям (∀ x, ∃ x)</p>
 </section><div><a class="slider-prev" href="#примеры-свойств"></a><a class="slider-next" href="#отношения-выводимости"></a></div>
 <section id="отношения-выводимости" class="slide level1 center">
 <h1>Отношения выводимости</h1>
-<p>В «обычной» логике, как на прошлом занятии:<br>
-<span class="math inline"><em>A</em>, <em>B</em>, <em>C</em> ⊦ <em>D</em></span> — <span class="math inline"><em>D</em></span> выводимо при наличии выводов <span class="math inline"><em>A</em>, <em>B</em>, <em>C</em></span>.</p>
-<p>В темпоральной логике вводится следующее отношение:<br>
-<br><span class="math display"><em>h</em> ⊧ <em>p</em></span><br><br>
-Для пути <span class="math inline"><em>h</em></span> выполняется предикат <span class="math inline"><em>p</em></span>.</p>
-<p>Пример (1):<br>
-<code>∀ h . h ⊧ G (¬ (pc1 = 12 ∧ pc2 = 22))</code></p>
+<p>В «обычной» логике, как на прошлом занятии: <span class="math inline"><em>A</em>, <em>B</em>, <em>C</em> ⊦ <em>D</em></span> — <span class="math inline"><em>D</em></span> выводимо при наличии выводов <span class="math inline"><em>A</em>, <em>B</em>, <em>C</em></span>.</p>
+<p>В темпоральной логике вводится следующее отношение: <br><span class="math display"><em>h</em> ⊧ <em>p</em></span><br> Для пути <span class="math inline"><em>h</em></span> выполняется предикат <span class="math inline"><em>p</em></span>.</p>
+<p>Пример (1): <code>∀ h . h ⊧ G (¬ (pc1 = 12 ∧ pc2 = 22))</code></p>
 </section><div><a class="slider-prev" href="#пути-исполнения"></a><a class="slider-next" href="#linear-time-logic"></a></div>
 <section id="linear-time-logic" class="slide level1">
 <h1>Linear Time Logic</h1>
 <p>LTL (Linear Time Logic) — путь рассматривается как линейная последовательность переходов, значение предикатов определено на путях.</p>
-<p><img src="graphviz-images/4a144705efd59f352772bbdd4df71f58b81309b6.svg"></p>
+<p><img data-src="graphviz-images/4a144705efd59f352772bbdd4df71f58b81309b6.svg" src="graphviz-images/4a144705efd59f352772bbdd4df71f58b81309b6.svg"></p>
 </section><div><a class="slider-prev" href="#отношения-выводимости"></a><a class="slider-next" href="#computational-tree-logic"></a></div>
 <section id="computational-tree-logic" class="slide level1 center">
 <h1>Computational Tree Logic</h1>
 <p>CTL (Computational Tree Logic) — рассматривается дерево всех возможных путей; именно в этой логике используется квантификация по путям.</p>
-<p><img src="graphviz-images/083cbe083d7db5ec699bafb83bdd52a38bfda17d.svg"></p>
+<p><img data-src="graphviz-images/083cbe083d7db5ec699bafb83bdd52a38bfda17d.svg" src="graphviz-images/083cbe083d7db5ec699bafb83bdd52a38bfda17d.svg"></p>
 </section><div><a class="slider-prev" href="#linear-time-logic"></a><a class="slider-next" href="#вычислительная-сложность"></a></div>
 <section id="вычислительная-сложность" class="slide level1">
 <h1>Вычислительная сложность</h1>
-<p>Для множества состояний <span class="math inline"><em>S</em></span> и переходов <span class="math inline"><em>R</em></span> проверить, удовлетворяет ли модель формуле <span class="math inline"><em>f</em></span> можно за время:<br>
-<br><span class="math display"><em>O</em>(|<em>f</em>|·(|<em>S</em>|+|<em>R</em>|))</span><br></p>
+<p>Для множества состояний <span class="math inline"><em>S</em></span> и переходов <span class="math inline"><em>R</em></span> проверить, удовлетворяет ли модель формуле <span class="math inline"><em>f</em></span> можно за время: <br><span class="math display"><em>O</em>(|<em>f</em>| · (|<em>S</em>| + |<em>R</em>|))</span><br></p>
 <p>Сложность растёт линейно по отношению к размеру модели состояний и переходов.</p>
 <p>Однако размер модели состояний и переходов растёт экспоненциально по отношению к количеству переменных и числу параллельных процессов.</p>
 <p>Основная проблема model checking — проблема «комбинаторного взрыва» количества состояний.</p>
 </section><div><a class="slider-prev" href="#computational-tree-logic"></a><a class="slider-next" href="#проверка-утверждений-с-кванторами"></a></div>
 <section id="проверка-утверждений-с-кванторами" class="slide level1">
 <h1>Проверка утверждений с кванторами</h1>
-<h2 id="квантифицированные-свойства-неподвижные-точки">Квантифицированные свойства = неподвижные точки</h2>
+<h2 id="квантифицированные-свойства--неподвижные-точки">Квантифицированные свойства = неподвижные точки</h2>
 <p>∀□(p) ≡ ∃◇(¬p) (p — глобальный инвариант = не существует состояния, из которого достижимо другое состояние, в котором p — не выполняется)</p>
 <p>Алгоритм:</p>
 <ol type="1">
@@ -298,7 +284,7 @@ tbody > tr:last-child > td {
 </section><div><a class="slider-prev" href="#вычислительная-сложность"></a><a class="slider-next" href="#неподвижные-точки"></a></div>
 <section id="неподвижные-точки" class="slide level1 center">
 <h1>Неподвижные точки</h1>
-<p><img src="images/euler-temporal-fixpoints.svg"></p>
+<p><img data-src="images/euler-temporal-fixpoints.svg" src="images/euler-temporal-fixpoints.svg"></p>
 </section><div><a class="slider-prev" href="#проверка-утверждений-с-кванторами"></a><a class="slider-next" href="#symbolic-model-checking"></a></div>
 <section id="symbolic-model-checking" class="slide level1">
 <h1>Symbolic Model Checking</h1>
@@ -313,7 +299,7 @@ tbody > tr:last-child > td {
 <section id="binary-decision-diagrams" class="slide level1">
 <h1>Binary Decision Diagrams</h1>
 <h2 id="бинарные-диаграммы-решений">Бинарные диаграммы решений</h2>
-<p><img src="images/BDD.png"> <img src="images/BDD.svg"></p>
+<p><img data-src="images/BDD.png" src="images/BDD.png"> <img data-src="images/BDD.svg" src="images/BDD.svg"></p>
 </section><div><a class="slider-prev" href="#symbolic-model-checking"></a><a class="slider-next" href="#binary-decision-diagrams-1"></a></div>
 <section id="binary-decision-diagrams-1" class="slide level1">
 <h1>Binary Decision Diagrams</h1>
@@ -326,9 +312,10 @@ tbody > tr:last-child > td {
 </section><div><a class="slider-prev" href="#binary-decision-diagrams"></a><a class="slider-next" href="#software-model-checking-via-counterexample-guided-abstraction-refinement-slam"></a></div>
 <section id="software-model-checking-via-counterexample-guided-abstraction-refinement-slam" class="slide level1">
 <h1>Software Model Checking via Counterexample Guided Abstraction Refinement (SLAM)</h1>
-<h2 id="приблизительно-верификация-моделей-программ-с-использованием-абстракции-и-уточнения-по-контрпримерам">приблизительно — «Верификация моделей программ с использованием абстракции и уточнения по контрпримерам»</h2>
-<p>Реализация — анализатор <a href="http://forge.ispras.ru/projects/blast">BLAST (Berkeley Lazy Abstraction Software verification Tool)</a>, разработан в Беркли; на настоящее время поддерживается в России, в ИСП РАН.</p>
+<h2 id="приблизительно--верификация-моделей-программ-с-использованием-абстракции-и-уточнения-по-контрпримерам">приблизительно — «Верификация моделей программ с использованием абстракции и уточнения по контрпримерам»</h2>
+<p>Реализация — анализатор <a href="http://forge.ispras.ru/projects/blast">BLAST (Berkeley Lazy Abstraction Software verification Tool)</a>, разработан в Беркли; после этого поддерживался в России, в ИСП РАН.</p>
 <p><a href="http://www.sosy-lab.org/~dbeyer/Publications/2004-SAS.The_Blast_Query_Language_for_Software_Verification.pdf">Статья с примером работы BLAST</a></p>
+<p>Развитие BLAS — верификатор <a href="https://cpachecker.sosy-lab.org/">CPAChecker</a></p>
 </section><div><a class="slider-prev" href="#binary-decision-diagrams-1"></a><a class="slider-next" href="#общие-принципы-slam"></a></div>
 <section id="общие-принципы-slam" class="slide level1">
 <h1>Общие принципы SLAM</h1>
@@ -351,19 +338,18 @@ tbody > tr:last-child > td {
 <li class="fragment">возможны ложные положительные</li>
 </ul></li>
 </ol>
-</section><div><a class="slider-prev" href="#software-model-checking-via-counterexample-guided-abstraction-refinement-slam"></a><a class="slider-next" href="#свойство-1-двойная-блокировка"></a></div>
-<section id="свойство-1-двойная-блокировка" class="slide level1 center">
+</section><div><a class="slider-prev" href="#software-model-checking-via-counterexample-guided-abstraction-refinement-slam"></a><a class="slider-next" href="#свойство-1--двойная-блокировка"></a></div>
+<section id="свойство-1--двойная-блокировка" class="slide level1 center">
 <h1>Свойство 1 — двойная блокировка</h1>
-<p><img src="graphviz-images/ea8755750d26513811655d9de6194073674898ad.svg"></p>
+<p><img data-src="graphviz-images/ea8755750d26513811655d9de6194073674898ad.svg" src="graphviz-images/ea8755750d26513811655d9de6194073674898ad.svg"></p>
 <p>Повторный вызов <code>lock</code> или <code>unlock</code> приводит к deadlock.</p>
 <p>Свойство: вызовы <code>lock</code> и <code>unlock</code> должны чередоваться.</p>
 </section><div><a class="slider-prev" href="#общие-принципы-slam"></a><a class="slider-next" href="#свойство-2"></a></div>
 <section id="свойство-2" class="slide level1">
 <h1>Свойство 2</h1>
 <h2 id="понижение-привилегий-суперпользователя">понижение привилегий суперпользователя</h2>
-<p>Произвольные пользовательские приложения не должны быть запущены с привилегиями суперпользователя. Свойство: при вызове <code>execv</code> всегда <code>suid ≠ 0</code>.<br>
-<img src="images/Chen-Wagner-Dean.png"></p>
-</section><div><a class="slider-prev" href="#свойство-1-двойная-блокировка"></a><a class="slider-next" href="#псевдокод-slam"></a></div>
+<p>Произвольные пользовательские приложения не должны быть запущены с привилегиями суперпользователя. Свойство: при вызове <code>execv</code> всегда <code>suid ≠ 0</code>. <img data-src="images/Chen-Wagner-Dean.png" src="images/Chen-Wagner-Dean.png"></p>
+</section><div><a class="slider-prev" href="#свойство-1--двойная-блокировка"></a><a class="slider-next" href="#псевдокод-slam"></a></div>
 <section id="псевдокод-slam" class="slide level1">
 <h1>Псевдокод SLAM</h1>
 <pre><code>SLAM(Program p, Spec s) =
@@ -394,8 +380,7 @@ tbody > tr:last-child > td {
 <p>Задача выполнимости формул в теориях (satisfiability modulo theories) — по данной формуле в терминах логики первого порядка с равенством и набором некоторых условий первого порядка на предикатные и функциональные символы определить, существует ли такой набор переменных, что при подстановке формула принимает истинное значение в любой сигнатуре, удовлетворяющей условиям.</p>
 <p>Может использоваться как в методах model checking наподобие SLAM, так и в компьютерной матматике, для получения доказательств или контрпримеров к теоремам.</p>
 <p>Один из популярных SMT-решателей на настоящее время — Z3 от Microsoft Research (<a href="https://github.com/Z3Prover/z3" class="uri">https://github.com/Z3Prover/z3</a>).</p>
-<p><a href="http://www.rise4fun.com/iZ3/even_odd" class="uri">http://www.rise4fun.com/iZ3/even_odd</a><br>
-<a href="http://www.rise4fun.com/iZ3/tutorial/guide" class="uri">http://www.rise4fun.com/iZ3/tutorial/guide</a></p>
+<p><a href="http://www.rise4fun.com/iZ3/even_odd" class="uri">http://www.rise4fun.com/iZ3/even_odd</a> <a href="http://www.rise4fun.com/iZ3/tutorial/guide" class="uri">http://www.rise4fun.com/iZ3/tutorial/guide</a></p>
 </section><div><a class="slider-prev" href="#инструментальные-средства-sat-решатели"></a><a class="slider-next" href="#выводы"></a></div>
 <section id="выводы" class="slide level1">
 <h1>Выводы</h1>
@@ -411,7 +396,7 @@ tbody > tr:last-child > td {
 <h1>Задачи</h1>
 <p><strong>Задача 4.1а*</strong> Вручную перевести реализацию одного из алгоритмов сортировки (быстрая сортировка, сортировка слиянием, пирамидальная сортировка, пузырьковая сортировка) в терминах SMT-решателя (например, Z3) и попытаться проверить корректность реализации.</p>
 <p><strong>Задача 4.1б**</strong> Аналогично — для поразрядной сортировки (radix sort).</p>
-<p><strong>Задача 4.2**</strong> Представить пример доказательства не совсем тривиального свойства для не совсем тривиальной программы на используемых на практике языках программирования :) (&gt; 40 строк кода без учёта комментариев и пустых строк) с использованием BLAST или <a href="https://en.wikipedia.org/wiki/List_of_model_checking_tools">других</a> средств model checking.</p>
+<p><strong>Задача 4.2**</strong> Представить пример доказательства не совсем тривиального свойства для не совсем тривиальной программы на используемых на практике языках программирования :) (&gt; 40 строк кода без учёта комментариев и пустых строк) с использованием CPAChecker или <a href="https://en.wikipedia.org/wiki/List_of_model_checking_tools">других</a> средств model checking. <a href="https://sosy-lab.gitlab.io/research/tutorials/CPAchecker/Witnesses.html#witnesscorrectnessgeneration">Пример, с которого можно начать</a></p>
 <p>Требуется самостоятельно установить одно из средств model checking, просмотреть документацию по нему, расширить приведённые примеры (или придумать свой) и написать мини-отчёт объёмом от 1000 букв текста на русском языке.</p>
 <p>Например, интересно было бы проверить корректность тех же реализации сортировки.</p>
 </section><div><a class="slider-prev" href="#выводы"></a><a class="slider-next"></a></div>
