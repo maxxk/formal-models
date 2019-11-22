@@ -203,7 +203,7 @@ callback · fst main_args
 
 Для λ-исчисления с простыми типами все эти задачи разрешимы, в частности, четвёртая — тривиальна.
 
-(слайд по мотивам презентации по [ссылке](http://compsciclub.ru/media/slides/systemsoftypedlambdacalculi_2011_spring/2011_03_13_systemsoftypedlambdacalculi_20_7KkC746.pdf); сам [курс Д.В. Москвина](http://compsciclub.ru/courses/systemsoftypedlambdacalculi/2011-spring/) можно рекомендовать как дополнительный источник по предыдущей, этой и, частично, следующей лекциям)
+(слайд по мотивам презентации по [ссылке](https://compsciclub.ru/media/courses/2011-spring/spb-systemsoftypedlambdacalculi/slides/systemsoftypedlambdacalculi_lecture_130311.pdf); сам [курс Д.Н. Москвина](http://compsciclub.ru/courses/systemsoftypedlambdacalculi/2011-spring/) можно рекомендовать как дополнительный источник по предыдущей, этой и, частично, следующей лекциям)
 
 
 # Двусторонний алгоритм проверки типов {.inference}

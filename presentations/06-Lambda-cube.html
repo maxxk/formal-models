@@ -1,48 +1,75 @@
 <!DOCTYPE html><html><head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <title></title>
+  <title>06-Lambda-cube</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="slider.css">
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
 </head>
 <body>
@@ -60,8 +87,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2 id="полиморфное-λ-исчисление">Полиморфное λ-исчисление</h2>
 <h2 id="λ-исчисление-с-конструкторами-типов">λ-исчисление с конструкторами типов</h2>
 <p><a href="mailto:maxim.krivchikov@gmail.com" class="email">maxim.krivchikov@gmail.com</a></p>
-<a href="https://maxxk.github.io/formal-models/" class="uri">https://maxxk.github.io/formal-models/</a><br>
-
+<a href="https://maxxk.github.io/formal-models/" class="uri">https://maxxk.github.io/formal-models/</a>
 <style>
 .inference table {
     display: inline-block;
@@ -76,7 +102,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section><div><a class="slider-prev"></a><a class="slider-next" href="#λ-исчисление-с-простыми-типами-1"></a></div>
 <section id="λ-исчисление-с-простыми-типами-1" class="slide level1 inference">
 <h1>λ-исчисление с простыми типами</h1>
-<p><br><span class="math display"><em>τ</em> ≡  <em>b</em> | <em>τ</em><sub>1</sub> → <em>τ</em><sub>2</sub>,   <em>b</em> ∈ <em>B</em>.</span><br></p>
+<p><br><span class="math display"><em>τ</em>≡ <em>b</em> | <em>τ</em><sub>1</sub> → <em>τ</em><sub>2</sub>,  <em>b</em> ∈ <em>B</em>.</span><br></p>
 <table>
 <thead>
 <tr class="header">
@@ -125,8 +151,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-</section><div><a class="slider-prev" href="#математические-модели-вычислений"></a><a class="slider-next" href="#исчисление-высказываний-соответствие-карри-говарда"></a></div>
-<section id="исчисление-высказываний-соответствие-карри-говарда" class="slide level1 inference">
+</section><div><a class="slider-prev" href="#математические-модели-вычислений"></a><a class="slider-next" href="#исчисление-высказываний--соответствие-карри-говарда"></a></div>
+<section id="исчисление-высказываний--соответствие-карри-говарда" class="slide level1 inference">
 <h1>Исчисление высказываний / соответствие Карри-Говарда</h1>
 <p>Импликативный фрагмент схем аксиом исчисления высказываний:</p>
 <ol type="a">
@@ -146,21 +172,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<p>Редукция («упрощение доказательства»): <span class="math inline"><em>a</em><sub>1</sub> · <em>z</em> ≡ (<em>λ</em><em>x</em><sub><em>A</em></sub>.<em>λ</em><em>y</em><sub><em>B</em></sub>.<em>x</em>)·<em>z</em> ⟶ <em>λ</em><em>y</em><sub><em>B</em></sub>.<em>z</em></span></p>
-</section><div><a class="slider-prev" href="#λ-исчисление-с-простыми-типами-1"></a><a class="slider-next" href="#исчисление-высказываний-соответствие-карри-говарда-1"></a></div>
-<section id="исчисление-высказываний-соответствие-карри-говарда-1" class="slide level1">
+<p>Редукция («упрощение доказательства»): <span class="math inline"><em>a</em><sub>1</sub> · <em>z</em> ≡ (<em>λ</em><em>x</em><sub><em>A</em></sub>.<em>λ</em><em>y</em><sub><em>B</em></sub>.<em>x</em>) · <em>z</em> ⟶ <em>λ</em><em>y</em><sub><em>B</em></sub>.<em>z</em></span></p>
+</section><div><a class="slider-prev" href="#λ-исчисление-с-простыми-типами-1"></a><a class="slider-next" href="#исчисление-высказываний--соответствие-карри-говарда-1"></a></div>
+<section id="исчисление-высказываний--соответствие-карри-говарда-1" class="slide level1">
 <h1>Исчисление высказываний / соответствие Карри-Говарда</h1>
 <ol start="2" type="a">
-<li class="fragment"><em>(A → (B → C)) → ((A → B) → (A → C))</em> — «композиция»<br>
-a<sub>2</sub> ≡ λ g<sub>A→(B→C)</sub> . λ f<sub>A→B</sub> . λ x_A . g · x · (f · x)<br>
-a<sub>2</sub> : (A → (B → C)) → ((A → B) → (A → C))</li>
+<li class="fragment"><em>(A → (B → C)) → ((A → B) → (A → C))</em> — «композиция» a<sub>2</sub> ≡ λ g<sub>A→(B→C)</sub> . λ f<sub>A→B</sub> . λ x_A . g · x · (f · x) a<sub>2</sub> : (A → (B → C)) → ((A → B) → (A → C))</li>
 </ol>
 <p>Комбинатор <strong>S</strong> (<strong>S</strong> g f x = g x (f x))</p>
 <p>Вывод типа a<sub>2</sub> : (A → (B → C)) → ((A → B) → (A → C))</p>
 <table style="width:99%;">
 <colgroup>
 <col style="width: 19%">
-<col style="width: 79%">
+<col style="width: 80%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -183,23 +207,19 @@ a<sub>2</sub> : (A → (B → C)) → ((A → B) → (A → C))</li>
 </tr>
 <tr class="even">
 <td style="text-align: center;">T-App для <span class="math inline"><em>g</em> · <em>x</em></span></td>
-<td style="text-align: center;">Γ, g : A → (B → C) ⊦ g : A → (B → C)<br>
-Γ, x : A ⊦ x : A<br>
-g · x : B → C</td>
+<td style="text-align: center;">Γ, g : A → (B → C) ⊦ g : A → (B → C) Γ, x : A ⊦ x : A g · x : B → C</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">T-App для <span class="math inline"><em>f</em> · <em>x</em></span></td>
 <td style="text-align: center;">(аналогично)</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">T-App для<br>
-<span class="math inline">(<em>g</em> · <em>x</em>)·(<em>f</em> · <em>x</em>)</span></td>
-<td style="text-align: center;"><br>
-(аналогично)</td>
+<td style="text-align: center;">T-App для <span class="math inline">(<em>g</em> · <em>x</em>) · (<em>f</em> · <em>x</em>)</span></td>
+<td style="text-align: center;">(аналогично)</td>
 </tr>
 </tbody>
 </table>
-</section><div><a class="slider-prev" href="#исчисление-высказываний-соответствие-карри-говарда"></a><a class="slider-next" href="#типы-данных-для-λ-исчисления-с-простыми-типами"></a></div>
+</section><div><a class="slider-prev" href="#исчисление-высказываний--соответствие-карри-говарда"></a><a class="slider-next" href="#типы-данных-для-λ-исчисления-с-простыми-типами"></a></div>
 <section id="типы-данных-для-λ-исчисления-с-простыми-типами" class="slide level1 inference">
 <h1>Типы данных для λ-исчисления с простыми типами</h1>
 <h2 id="пустой-тип">Пустой тип</h2>
@@ -221,7 +241,7 @@ g · x : B → C</td>
 <h2 id="тип-из-одного-элемента">Тип из одного элемента</h2>
 <p>τ = … T …</p>
 <p>Γ ⊦ () : T</p>
-</section><div><a class="slider-prev" href="#исчисление-высказываний-соответствие-карри-говарда-1"></a><a class="slider-next" href="#произведение-конъюнкция"></a></div>
+</section><div><a class="slider-prev" href="#исчисление-высказываний--соответствие-карри-говарда-1"></a><a class="slider-next" href="#произведение-конъюнкция"></a></div>
 <section id="произведение-конъюнкция" class="slide level1 inference">
 <h1>Произведение (конъюнкция)</h1>
 <p>τ = … α × β …</p>
@@ -263,8 +283,7 @@ g · x : B → C</td>
 </tr>
 </tbody>
 </table>
-<p>Редукция:<br>
-fst (x, y) ⟶ x <span class="math inline">  </span> snd (x, y) ⟶ y</p>
+<p>Редукция: fst (x, y) ⟶ x <span class="math inline">  </span> snd (x, y) ⟶ y</p>
 <p>Операция каррирования: (α×β → γ) → α → β → γ</p>
 </section><div><a class="slider-prev" href="#типы-данных-для-λ-исчисления-с-простыми-типами"></a><a class="slider-next" href="#сумма-дизъюнкция"></a></div>
 <section id="сумма-дизъюнкция" class="slide level1 inference">
@@ -315,29 +334,20 @@ fst (x, y) ⟶ x <span class="math inline">  </span> snd (x, y) ⟶ y</p>
 <h1>Типы для простого императивного ЯП</h1>
 <p>Просто типизированное λ-исчисление можно использовать как основу для системы типов простого языка программирования (скорее Pascal-подобного, чем C-подобного).</p>
 <div style="float: left; width: 55%; font-size: 0.9em;">
-<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="kw">extern</span> <span class="dt">int</span> callback(<span class="dt">int</span>);
-<span class="kw">extern</span> <span class="dt">void</span> set_callback(<span class="dt">int</span> (*cb)(<span class="dt">int</span>));
-
-<span class="dt">int</span> main(<span class="dt">int</span> argc, StringArray argv) {
-  <span class="dt">double</span> x;
-  x = callback(<span class="dv">0</span>);
-  set_callback(callback);
-  <span class="cf">return</span> callback(argc);
-}</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">extern</span> <span class="dt">int</span> callback(<span class="dt">int</span>);</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">extern</span> <span class="dt">void</span> set_callback(<span class="dt">int</span> (*cb)(<span class="dt">int</span>));</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="dt">int</span> main(<span class="dt">int</span> argc, StringArray argv) {</span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="dt">double</span> x;</span>
+<span id="cb1-6"><a href="#cb1-6"></a>  x = callback(<span class="dv">0</span>);</span>
+<span id="cb1-7"><a href="#cb1-7"></a>  set_callback(callback);</span>
+<span id="cb1-8"><a href="#cb1-8"></a>  <span class="cf">return</span> callback(argc);</span>
+<span id="cb1-9"><a href="#cb1-9"></a>}</span></code></pre></div>
 <p>Программу на простом императивном языке можно транслировать в просто типизированное λ-исчисление и получить средство проверки типов. Наборы аргументов — произведения. Если аргументов более двух, как правило, считаем произведение правоассоциативным:</p>
-int × StringArray × double × int = int × (StringArray × (double × int)).<br>
-Доступ к аргументам тогда осуществляется с использованием последовательности термов snd.
+int × StringArray × double × int = int × (StringArray × (double × int)). Доступ к аргументам тогда осуществляется с использованием последовательности термов snd.
 </div>
 <div style="float: right; width: 31%">
-λ callback<sub>int→int</sub>.<br>
-λ set_callback<sub>(int→int)→T</sub>.<br>
-λ main_args<sub>int×StringArray→int</sub>.<br>
-λ get_x<sub>double</sub>.<br>
-λ set_x<sub>double→T</sub>.<br>
-(set_x · (callback · 0),<br>
-set_callback · callback,<br>
-callback · fst main_args<br>
-) : T × T × int
+λ callback<sub>int→int</sub>. λ set_callback<sub>(int→int)→T</sub>. λ main_args<sub>int×StringArray→int</sub>. λ get_x<sub>double</sub>. λ set_x<sub>double→T</sub>. (set_x · (callback · 0), set_callback · callback, callback · fst main_args ) : T × T × int
 </div>
 </section><div><a class="slider-prev" href="#сумма-дизъюнкция"></a><a class="slider-next" href="#задачи-анализа-термов-λ-исчисления"></a></div>
 <section id="задачи-анализа-термов-λ-исчисления" class="slide level1">
@@ -349,7 +359,7 @@ callback · fst main_args<br>
 <li class="fragment"><p><strong>Задача эквивалентности типов</strong>. Даны типы σ и τ. Определить, эквивалентны ли они.</p></li>
 </ol>
 <p>Для λ-исчисления с простыми типами все эти задачи разрешимы, в частности, четвёртая — тривиальна.</p>
-<p>(слайд по мотивам презентации по <a href="http://compsciclub.ru/media/slides/systemsoftypedlambdacalculi_2011_spring/2011_03_13_systemsoftypedlambdacalculi_20_7KkC746.pdf">ссылке</a>; сам <a href="http://compsciclub.ru/courses/systemsoftypedlambdacalculi/2011-spring/">курс Д.В. Москвина</a> можно рекомендовать как дополнительный источник по предыдущей, этой и, частично, следующей лекциям)</p>
+<p>(слайд по мотивам презентации по <a href="https://compsciclub.ru/media/courses/2011-spring/spb-systemsoftypedlambdacalculi/slides/systemsoftypedlambdacalculi_lecture_130311.pdf">ссылке</a>; сам <a href="http://compsciclub.ru/courses/systemsoftypedlambdacalculi/2011-spring/">курс Д.Н. Москвина</a> можно рекомендовать как дополнительный источник по предыдущей, этой и, частично, следующей лекциям)</p>
 </section><div><a class="slider-prev" href="#типы-для-простого-императивного-яп"></a><a class="slider-next" href="#двусторонний-алгоритм-проверки-типов"></a></div>
 <section id="двусторонний-алгоритм-проверки-типов" class="slide level1 inference">
 <h1>Двусторонний алгоритм проверки типов</h1>
@@ -366,12 +376,9 @@ callback · fst main_args<br>
 </tr>
 </tbody>
 </table>
-Определим две функции:<br>
-
+Определим две функции:
 <div style="float:left; width: 40%; font-size: 0.9em;">
-<p>Вывод неизвестного типа<br>
-infer : Контекст → Терм → Тип?<br>
-infer(Γ, x) = τ ⇒ Γ ⊦ x : τ</p>
+<p>Вывод неизвестного типа infer : Контекст → Терм → Тип? infer(Γ, x) = τ ⇒ Γ ⊦ x : τ</p>
 <pre><code>infer(… ∪ x : τ ∪ …, x) ≡ τ
 
 infer(Γ, c) = α, где c — константа типа α
@@ -390,9 +397,7 @@ infer(Γ, (x : τ)) =
 infer(Γ, λ x_α . y) = α → infer(Γ ∪ x : α, y)</code></pre>
 </div>
 <div style="float:right; width: 40%; font-size: 0.9em;">
-<p>Проверка известного типа<br>
-check : Контекст → Терм → Тип → <strong>2</strong><br>
-check(Γ, x, τ) = 1 ⇔ Γ ⊦ x : τ</p>
+<p>Проверка известного типа check : Контекст → Терм → Тип → <strong>2</strong> check(Γ, x, τ) = 1 ⇔ Γ ⊦ x : τ</p>
 <pre><code>check(Γ, λx.y, α → β) = check(Γ ∪ x : α, y, β)
 
 check(Γ, x, τ) = infer(Γ, x) == τ</code></pre>
@@ -415,22 +420,16 @@ check(Γ, x, τ) = infer(Γ, x) == τ</code></pre>
 <p>Аксиомы <span class="math inline"><em>a</em><sub>1</sub></span> и <span class="math inline"><em>a</em><sub>2</sub></span> заданы в терминах λ-исчисления с простыми типами для фиксированных типов (высказываний) A, B, C. Для каждого нового типа (высказывания) нужно заново записывать эти аксиомы.</p>
 <p>Функция id ≡ λx<sub>1</sub>.x также имеет отдельные несовместимые типы 1→1 для каждого типа x.</p>
 <p><strong>Полиморфизм</strong> — свойство системы типов, согласно которому один терм может иметь сразу несколько различных типов.</p>
-<p>Пример: тип полиморфной функции сортировки:<br>
-∀ α . (α → α → <strong>2</strong>) → List α -&gt; List α</p>
-<p>Для определённых значений α:<br>
-(int → int → <strong>2</strong>) → List int → List int</p>
-<p>Композиция:<br>
-f ∘ g ≡ g(f(x)) ≡ λf.λg.λx. g · (f · x) <span class="math inline">  </span>: <span class="math inline">  </span> ∀ α β γ. (β → γ) → (α → β) → α → γ</p>
+<p>Пример: тип полиморфной функции сортировки: ∀ α . (α → α → <strong>2</strong>) → List α -&gt; List α</p>
+<p>Для определённых значений α: (int → int → <strong>2</strong>) → List int → List int</p>
+<p>Композиция: f ∘ g ≡ g(f(x)) ≡ λf.λg.λx. g · (f · x) <span class="math inline">  </span>: <span class="math inline">  </span> ∀ α β γ. (β → γ) → (α → β) → α → γ</p>
 </section><div><a class="slider-prev" href="#метапеременные-и-унификация"></a><a class="slider-next" href="#система-f-λ2"></a></div>
 <section id="система-f-λ2" class="slide level1">
 <h1>Система F (λ2)</h1>
 <p>Жирар (1976), Рейнольдс (1974).</p>
 <p>Тип τ ≡ α | α → β | ∀ α . τ <em>(добавим переменные и полиморфный тип)</em></p>
-<p>Термы M = x<br>
-<span class="math inline">  </span> | λ x : τ . M | M · N<br>
-<span class="math inline">  </span> | Λ α . M | M · τ <em>(добавим абстракцию и применение типов)</em></p>
-<p>Редукция: β-редукция и аналогичная ей ɩ-редукция для типов:<br>
-(Λα.M) · τ ⟶<sub>ɩ</sub> M[α := τ].</p>
+<p>Термы M = x <span class="math inline">  </span> | λ x : τ . M | M · N <span class="math inline">  </span> | Λ α . M | M · τ <em>(добавим абстракцию и применение типов)</em></p>
+<p>Редукция: β-редукция и аналогичная ей ɩ-редукция для типов: (Λα.M) · τ ⟶<sub>ɩ</sub> M[α := τ].</p>
 <p>В Coq ∀ записывается как <code>forall</code>, а между λ и Λ не делается различия.</p>
 </section><div><a class="slider-prev" href="#полиморфизм"></a><a class="slider-next" href="#контексты"></a></div>
 <section id="контексты" class="slide level1 inference">
@@ -568,45 +567,34 @@ f ∘ g ≡ g(f(x)) ≡ λf.λg.λx. g · (f · x) <span class="math inline"> 
 <h2 id="пустой-тип-1">Пустой тип</h2>
 <p>⊥ ≡ ∀α.α (exfalso)</p>
 <h2 id="тривиальный-тип">Тривиальный тип</h2>
-<p>T ≡ ∀α. α → α (тип функции идентичности)<br>
-1 ≡ Λα.λx.x</p>
+<p>T ≡ ∀α. α → α (тип функции идентичности) 1 ≡ Λα.λx.x</p>
 <h2 id="тип-из-двух-элементов">Тип из двух элементов</h2>
-<p><strong>2</strong> ≡ ∀α.α → α → α<br>
-true ≡ Λα. λ x y. x <span class="math inline">  </span> false ≡ Λα. λ x y . y</p>
+<p><strong>2</strong> ≡ ∀α.α → α → α true ≡ Λα. λ x y. x <span class="math inline">  </span> false ≡ Λα. λ x y . y</p>
 </section><div><a class="slider-prev" href="#свойства-системы-f"></a><a class="slider-next" href="#типы-данных-в-системе-f-1"></a></div>
 <section id="типы-данных-в-системе-f-1" class="slide level1">
 <h1>Типы данных в системе F</h1>
 <h2 id="условный-оператор">Условный оператор</h2>
-<p>if : ∀α. <strong>2</strong> → α → α → α<br>
-if ≡ Λα. λ cond onTrue onFalse. cond · onTrue · onFalse</p>
+<p>if : ∀α. <strong>2</strong> → α → α → α if ≡ Λα. λ cond onTrue onFalse. cond · onTrue · onFalse</p>
 <h2 id="произведение">Произведение</h2>
-<p>A × B ≡ ∀α. (A → B → α) → α<br>
-(a, b) ≡ Λα. λ f. f · a · b</p>
+<p>A × B ≡ ∀α. (A → B → α) → α (a, b) ≡ Λα. λ f. f · a · b</p>
 <h2 id="сумма">Сумма</h2>
-<p>A + B ≡ ∀α. (A → α) → (B → α) → α<br>
-inl a ≡ Λα.λf g. f · a <span class="math inline">  </span> inr b ≡ Λα.λf g. g · b</p>
+<p>A + B ≡ ∀α. (A → α) → (B → α) → α inl a ≡ Λα.λf g. f · a <span class="math inline">  </span> inr b ≡ Λα.λf g. g · b</p>
 </section><div><a class="slider-prev" href="#типы-данных-в-системе-f"></a><a class="slider-next" href="#типы-данных-в-системе-f-2"></a></div>
 <section id="типы-данных-в-системе-f-2" class="slide level1">
 <h1>Типы данных в системе F</h1>
 <h2 id="нумерал-чёрча-натуральные-числа">Нумерал Чёрча (натуральные числа)</h2>
-<p>ℕ ≡ ∀α. α → (α → α) → α<br>
-0 ≡ Λα. λz s. z<br>
-x+1 ≡ λx. Λα. λ z s. s · (n · α · z · s)</p>
+<p>ℕ ≡ ∀α. α → (α → α) → α 0 ≡ Λα. λz s. z x+1 ≡ λx. Λα. λ z s. s · (n · α · z · s)</p>
 <p>Натуральные числа задают понятие итерации.</p>
-<h2 id="полиморфный-список">Полиморфный список (!)</h2>
-<p>List A ≡ ∀ α. α → (A → α → α) → α<br>
-[] ≡ Λα. λx. λf. x<br>
-head ; Tail ≡ Λα. λ Tail<sub>List<span class="math inline"> </span>A</sub>. λ head<sub>A</sub> . λ x . λ f . Tail · x · (f · head · x)</p>
+<h2 id="полиморфный-список-">Полиморфный список (!)</h2>
+<p>List A ≡ ∀ α. α → (A → α → α) → α [] ≡ Λα. λx. λf. x head ; Tail ≡ Λα. λ Tail<sub>List<span class="math inline"> </span>A</sub>. λ head<sub>A</sub> . λ x . λ f . Tail · x · (f · head · x)</p>
 <p>Сравните определение нумералов и списка.</p>
 <p>Аналогично — деревья и другие индуктивные структуры данных.</p>
 </section><div><a class="slider-prev" href="#типы-данных-в-системе-f-1"></a><a class="slider-next" href="#соответствие-карри-говарда"></a></div>
 <section id="соответствие-карри-говарда" class="slide level1">
 <h1>Соответствие Карри-Говарда</h1>
 <p>Исчисление высказываний представимо в системе F в терминах соответствия Карри-Говарда (аналогично λ-исчислению с простыми типами).</p>
-<p>Дополнительно представимы кванторы по типам:<br>
-∀α.β</p>
-<p>Квантор существования:<br>
-∃α.τ ≡ ∀β. (∀α . τ → β) → β</p>
+<p>Дополнительно представимы кванторы по типам: ∀α.β</p>
+<p>Квантор существования: ∃α.τ ≡ ∀β. (∀α . τ → β) → β</p>
 </section><div><a class="slider-prev" href="#типы-данных-в-системе-f-2"></a><a class="slider-next" href="#задачи"></a></div>
 <section id="задачи" class="slide level1">
 <h1>Задачи</h1>
