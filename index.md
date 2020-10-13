@@ -36,15 +36,15 @@ layout: default
 
 [презентация — html](presentations/02-Entscheidungsproblem.html)
 
+## Альтернативные модели вычислений. (2020-10-14)
+
+[презентация — html](presentations/03-Alternate-models.html)
+
 
 ## Формальные системы
 
-[презентация — html](presentations/03-Logics.html)
+[презентация — html](presentations/04-Logics.html)
 
-
-## Альтернативные модели вычислений.
-
-[презентация — html](presentations/05-Alternate-models.html)
 
 ## Введение в верификацию с использованием методов Model Checking
 
