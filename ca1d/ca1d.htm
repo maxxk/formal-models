@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<title>CodeDrome - Cellular Automaton 1D</title>
+    <meta charset="utf-8" />
+    <link href="projects.css" rel="stylesheet" />
+    <link href="ca1d.css" rel="stylesheet" />
+</head>
+
+<body>
+
+	<div class="maindiv">
+
+		<div class="banner"></div>
+
+			<!-- CONTROL PANEL -->
+    		<div class="roundcorners controlpanel">
+
+    			<div class="grid-container">
+
+        			<div class="cell label">Number of Cells</div>
+        			<div class="cell"><input type="number" min="3" max="128" id="udNumberOfCells" style="margin:8px; width:64px" value="32" /></div>
+
+        			<div class="cell label">Cell Size</div>
+        			<div class="cell"><input type="number" min="2" max="32" id="udCellSize" style="margin:8px; width:64px" value="16" /></div>
+
+					<div class="cell label">Rule</div>
+        			<div class="cell"><input type="number" min="0" max="255" id="udRule" style="margin:8px; width:64px" value="0" /></div>
+
+        			<div class="cell label">Iterations</div>
+        			<div class="cell"><input type="number" min="1" max="128" id="udIterations" style="margin:8px; width:64px" value="16" /></div>
+
+        			<div class="cell label">Cell Zero Color</div>
+        			<div class="cell"><input type="color" id="colCellZeroColor" style="margin:8px; width:64px" value="#FFFFFF" /></div>
+
+        			<div class="cell label">Cell One Color</div>
+        			<div class="cell"><input type="color" id="colCellOneColor" style="margin:8px; width:64px" value="#000000" /></div>
+
+        			<div class="cell columns_2col"><div class="button" style="width:220px" id="btnClear">Clear</div></div>
+
+        			<div class="cell columns_2col"><div class="button" style="width:220px" id="btnInitializeToCentre">Initialize to Centre</div></div>
+
+        			<div class="cell columns_2col"><div class="button" style="width:220px" id="btnRandomize">Initialize to Random</div></div>
+
+					<div class="cell columns_2col"><div class="button" style="width:220px" id="btnRun">Run</div></div>
+
+    			</div>
+
+    		</div>
+
+			<!-- SVG -->
+        	<div id="svgdiv" class='roundcorners cadiv'>
+
+            	<svg id="CASVG"
+                	style="position:absolute; border: 1px solid #000000;" height="0" width="0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            	</svg>
+
+        	</div>
+
+		<!-- </div> -->
+
+    <script src="ca1d.js"></script>
+    <script src="ca1dsvg.js"></script>
+    <script src="ca1dpage.js"></script>
+
+</body>
+
+</html>
