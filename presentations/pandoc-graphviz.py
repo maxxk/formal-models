@@ -3,48 +3,33 @@
 """
 Pandoc filter to process code blocks with class "graphviz" into
 graphviz-generated images.
+
+Needs pygraphviz
 """
 
-import pygraphviz
-import hashlib
 import os
 import sys
-from pandocfilters import toJSONFilter, Str, Para, Image
 
+import pygraphviz
 
-def sha1(x):
-    return hashlib.sha1(x.encode(sys.getfilesystemencoding())).hexdigest()
+from pandocfilters import toJSONFilter, Para, Image, get_filename4code, get_caption, get_extension, get_value
 
-imagedir = "graphviz-images"
-
-
-def graphviz(key, value, format, meta):
+def graphviz(key, value, format, _):
     if key == 'CodeBlock':
         [[ident, classes, keyvals], code] = value
-        caption = "caption"
         if "graphviz" in classes:
-            prog = 'dot' if 'dot' in classes else 'fdp' if 'fdp' in classes else 'neato'
-            G = pygraphviz.AGraph(string=code,prog=prog)
-            G.layout(prog=prog)
-            filename = sha1(code)
-            if format == "html":
-                filetype = "svg"
-            elif format == "latex":
-                filetype = "pdf"
-            else:
-                filetype = "svg"
-            alt = Str(caption)
-            src = imagedir + '/' + filename + '.' + filetype
-            if not os.path.isfile(src):
-                try:
-                    os.mkdir(imagedir)
-                    sys.stderr.write('Created directory ' + imagedir + '\n')
-                except OSError:
-                    pass
-                G.draw(src)
-                sys.stderr.write('Created image ' + src + '\n')
-            tit = ""
-            return Para([Image(['alt', [], []], [], [src, tit])])
+            caption, typef, keyvals = get_caption(keyvals)
+            prog, keyvals = get_value(keyvals, u"prog", u"dot")
+            filetype = get_extension(format, "svg", html="svg", latex="pdf")
+            dest = get_filename4code("graphviz", code, filetype)
+
+            if not os.path.isfile(dest):
+                g = pygraphviz.AGraph(string=code)
+                g.layout()
+                g.draw(dest, prog=prog)
+                sys.stderr.write('Created image ' + dest + '\n')
+
+            return Para([Image([ident, [], keyvals], caption, [dest, typef])])
 
 if __name__ == "__main__":
     toJSONFilter(graphviz)

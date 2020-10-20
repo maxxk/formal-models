@@ -41,7 +41,7 @@ layout: default
 [презентация — html](presentations/03-Alternate-models.html)
 
 
-## Формальные системы
+## Формальные системы. (2020-10-21)
 
 [презентация — html](presentations/04-Logics.html)
 

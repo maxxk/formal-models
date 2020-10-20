@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 f=`mktemp`
 input=$1
-pandoc -f markdown_github+footnotes+tex_math_dollars+inline_code_attributes+header_attributes+auto_identifiers+startnum+definition_lists-ascii_identifiers+fancy_lists+fenced_code_attributes+markdown_in_html_blocks+simple_tables+subscript+superscript+link_attributes+simple_tables+multiline_tables  -t revealjs  -s --template=my.slidercss --slide-level=1 -i --email-obfuscation=references -o $f $input
+pandoc -F ./pandoc-graphviz.py -f markdown_github+footnotes+tex_math_dollars+inline_code_attributes+header_attributes+auto_identifiers+startnum+definition_lists-ascii_identifiers+fancy_lists+fenced_code_attributes+markdown_in_html_blocks+simple_tables+subscript+superscript+link_attributes+simple_tables+multiline_tables  -t revealjs  -s --template=my.slidercss --slide-level=1 -i --email-obfuscation=references -o $f $input
 node ~/Source/pandoc-slider $f > ${input%.*}.html
 rm $f
