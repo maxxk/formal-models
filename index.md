@@ -46,7 +46,7 @@ layout: default
 [презентация — html](presentations/04-Logics.html)
 
 
-## Введение в верификацию с использованием методов Model Checking
+## Введение в верификацию с использованием методов Model Checking. (2020-10-28)
 
 [презентация — html](presentations/04-Model-Checking.html)
 

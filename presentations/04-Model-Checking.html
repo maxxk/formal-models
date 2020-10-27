@@ -63,7 +63,8 @@
 <section id="сети-петри-примеры" class="slide level1">
 <h1>Сети Петри: примеры</h1>
 <p>Моделирование энергосетей на солнечной энергетике: <a href="https://solar-nets.herokuapp.com/" class="uri">https://solar-nets.herokuapp.com/</a></p>
-<p>Web-визуализатор: <a href="http://blkdev2.github.io/petri-nets/" class="uri">http://blkdev2.github.io/petri-nets/</a> Один из OpenSource-редакторов: <a href="https://github.com/matmas/pneditor" class="uri">https://github.com/matmas/pneditor</a></p>
+<p>Web-визуализатор: <a href="http://blkdev2.github.io/petri-nets/" class="uri">http://blkdev2.github.io/petri-nets/</a></p>
+<p>Один из OpenSource-редакторов: <a href="https://github.com/matmas/pneditor" class="uri">https://github.com/matmas/pneditor</a></p>
 </section><div><a class="slider-prev" href="#сети-петри"></a><a class="slider-next" href="#темпоральная-логика"></a></div>
 <section id="темпоральная-логика" class="slide level1">
 <h1>Темпоральная логика</h1>
@@ -126,7 +127,7 @@ tbody > tr:last-child > td {
 <tr class="even">
 <td>A → B</td>
 <td>Из A <strong>следует</strong> B</td>
-<td>(0 → 0) = (0 → 1) = (1 → 1 )= 1; (0 → 1) = 0</td>
+<td>(0 → 0) = (0 → 1) = (1 → 1 )= 1; (1 → 0) = 0</td>
 </tr>
 </tbody>
 </table>
@@ -174,7 +175,7 @@ tbody > tr:last-child > td {
 <p><span class="math inline"><em>α</em></span> <strong>гарантированно достижимо</strong> (eventual, «когда-нибудь произойдёт») из данного состояния <span class="math inline"><em>i</em></span>, если на любом пути исполнения начиная с этого состояния найдётся хотя бы одно состояние, в котором выполняется <span class="math inline"><em>α</em></span>.</p>
 </section><div><a class="slider-prev" href="#темпоральная-логика-1"></a><a class="slider-next" href="#пример--параллельная-программа"></a></div>
 <section id="пример--параллельная-программа" class="slide level1 left">
-<h1>Пример — параллельная программа</h1>
+<h1 class="left">Пример — параллельная программа</h1>
 <style>
 .left-column { float: left; }
 .right-column { float: right; }
@@ -204,7 +205,7 @@ tbody > tr:last-child > td {
 <div class="left-column">
 <p><img data-src="graphviz-images/fceafd988c6a773fae32b17b5ec68c5adf81555a.svg" src="graphviz-images/fceafd988c6a773fae32b17b5ec68c5adf81555a.svg"></p>
 </div>
-<pre class="right-column small"><code>10: while(true) {
+<pre><code>10: while(true) {
 11:   wait(turn == 0)
     // Критическая секция
 12:   work(); turn = 1
@@ -216,7 +217,7 @@ tbody > tr:last-child > td {
 22:   work(); turn = 0
 23: }</code></pre>
 </section><div><a class="slider-prev" href="#пример--параллельная-программа"></a><a class="slider-next" href="#модель-состояний-и-переходов"></a></div>
-<section id="модель-состояний-и-переходов" class="slide level1 center">
+<section id="модель-состояний-и-переходов" class="slide level1">
 <h1>Модель состояний и переходов</h1>
 <p>Напоминает недетерминированный автомат со специальными метками на состояниях:</p>
 <p>T = (S, I ⊆ S, R ⊆ S × S, L : S → 2<sup>AP</sup>)</p>
@@ -240,16 +241,16 @@ tbody > tr:last-child > td {
 <li class="fragment">первый процесс <em>обязательно попадёт</em> в критическую секцию <code>Eventually(pc1 = 12)</code></li>
 </ol>
 </section><div><a class="slider-prev" href="#модель-состояний-и-переходов"></a><a class="slider-next" href="#пути-исполнения"></a></div>
-<section id="пути-исполнения" class="slide level1 center">
+<section id="пути-исполнения" class="slide level1">
 <h1>Пути исполнения</h1>
-<p><strong>Путь</strong> в модели состояний и переходов — это бесконечная последовательность состояний, последовательно связанных переходами: <br><span class="math display">(<em>s</em><sub>0</sub>, <em>s</em><sub>1</sub>, <em>s</em><sub>2</sub>, …)  (<em>s</em><sub><em>i</em></sub>, <em>s</em><sub><em>i</em> + 1</sub>) ∈ <em>R</em></span><br></p>
+<p><strong>Путь</strong> в модели состояний и переходов — это бесконечная последовательность состояний, последовательно связанных переходами: <span class="math display">(<em>s</em><sub>0</sub>, <em>s</em><sub>1</sub>, <em>s</em><sub>2</sub>, …)   (<em>s</em><sub><em>i</em></sub>, <em>s</em><sub><em>i</em> + 1</sub>) ∈ <em>R</em></span></p>
 <p><strong>Путь исполнения</strong> — путь, который начинается из начального состояния (<span class="math inline"><em>s</em><sub>0</sub> ∈ <em>I</em></span>)</p>
 <p>Дополнительно к уже рассмотренным операторам темпоральной логики можно ввести квантификацию по путям (∀ x, ∃ x)</p>
 </section><div><a class="slider-prev" href="#примеры-свойств"></a><a class="slider-next" href="#отношения-выводимости"></a></div>
-<section id="отношения-выводимости" class="slide level1 center">
+<section id="отношения-выводимости" class="slide level1">
 <h1>Отношения выводимости</h1>
 <p>В «обычной» логике, как на прошлом занятии: <span class="math inline"><em>A</em>, <em>B</em>, <em>C</em> ⊦ <em>D</em></span> — <span class="math inline"><em>D</em></span> выводимо при наличии выводов <span class="math inline"><em>A</em>, <em>B</em>, <em>C</em></span>.</p>
-<p>В темпоральной логике вводится следующее отношение: <br><span class="math display"><em>h</em> ⊧ <em>p</em></span><br> Для пути <span class="math inline"><em>h</em></span> выполняется предикат <span class="math inline"><em>p</em></span>.</p>
+<p>В темпоральной логике вводится следующее отношение: <span class="math display"><em>h</em> ⊧ <em>p</em></span> Для пути <span class="math inline"><em>h</em></span> выполняется предикат <span class="math inline"><em>p</em></span>.</p>
 <p>Пример (1): <code>∀ h . h ⊧ G (¬ (pc1 = 12 ∧ pc2 = 22))</code></p>
 </section><div><a class="slider-prev" href="#пути-исполнения"></a><a class="slider-next" href="#linear-time-logic"></a></div>
 <section id="linear-time-logic" class="slide level1">
@@ -257,14 +258,14 @@ tbody > tr:last-child > td {
 <p>LTL (Linear Time Logic) — путь рассматривается как линейная последовательность переходов, значение предикатов определено на путях.</p>
 <p><img data-src="graphviz-images/4a144705efd59f352772bbdd4df71f58b81309b6.svg" src="graphviz-images/4a144705efd59f352772bbdd4df71f58b81309b6.svg"></p>
 </section><div><a class="slider-prev" href="#отношения-выводимости"></a><a class="slider-next" href="#computational-tree-logic"></a></div>
-<section id="computational-tree-logic" class="slide level1 center">
+<section id="computational-tree-logic" class="slide level1">
 <h1>Computational Tree Logic</h1>
 <p>CTL (Computational Tree Logic) — рассматривается дерево всех возможных путей; именно в этой логике используется квантификация по путям.</p>
 <p><img data-src="graphviz-images/083cbe083d7db5ec699bafb83bdd52a38bfda17d.svg" src="graphviz-images/083cbe083d7db5ec699bafb83bdd52a38bfda17d.svg"></p>
 </section><div><a class="slider-prev" href="#linear-time-logic"></a><a class="slider-next" href="#вычислительная-сложность"></a></div>
 <section id="вычислительная-сложность" class="slide level1">
 <h1>Вычислительная сложность</h1>
-<p>Для множества состояний <span class="math inline"><em>S</em></span> и переходов <span class="math inline"><em>R</em></span> проверить, удовлетворяет ли модель формуле <span class="math inline"><em>f</em></span> можно за время: <br><span class="math display"><em>O</em>(|<em>f</em>| · (|<em>S</em>| + |<em>R</em>|))</span><br></p>
+<p>Для множества состояний <span class="math inline"><em>S</em></span> и переходов <span class="math inline"><em>R</em></span> проверить, удовлетворяет ли модель формуле <span class="math inline"><em>f</em></span> можно за время: <span class="math display"><em>O</em>(|<em>f</em>| · (|<em>S</em>| + |<em>R</em>|))</span></p>
 <p>Сложность растёт линейно по отношению к размеру модели состояний и переходов.</p>
 <p>Однако размер модели состояний и переходов растёт экспоненциально по отношению к количеству переменных и числу параллельных процессов.</p>
 <p>Основная проблема model checking — проблема «комбинаторного взрыва» количества состояний.</p>
@@ -282,7 +283,7 @@ tbody > tr:last-child > td {
 </ul></li>
 </ol>
 </section><div><a class="slider-prev" href="#вычислительная-сложность"></a><a class="slider-next" href="#неподвижные-точки"></a></div>
-<section id="неподвижные-точки" class="slide level1 center">
+<section id="неподвижные-точки" class="slide level1">
 <h1>Неподвижные точки</h1>
 <p><img data-src="images/euler-temporal-fixpoints.svg" src="images/euler-temporal-fixpoints.svg"></p>
 </section><div><a class="slider-prev" href="#проверка-утверждений-с-кванторами"></a><a class="slider-next" href="#symbolic-model-checking"></a></div>
@@ -339,7 +340,7 @@ tbody > tr:last-child > td {
 </ul></li>
 </ol>
 </section><div><a class="slider-prev" href="#software-model-checking-via-counterexample-guided-abstraction-refinement-slam"></a><a class="slider-next" href="#свойство-1--двойная-блокировка"></a></div>
-<section id="свойство-1--двойная-блокировка" class="slide level1 center">
+<section id="свойство-1--двойная-блокировка" class="slide level1">
 <h1>Свойство 1 — двойная блокировка</h1>
 <p><img data-src="graphviz-images/ea8755750d26513811655d9de6194073674898ad.svg" src="graphviz-images/ea8755750d26513811655d9de6194073674898ad.svg"></p>
 <p>Повторный вызов <code>lock</code> или <code>unlock</code> приводит к deadlock.</p>
@@ -365,7 +366,7 @@ tbody > tr:last-child > td {
                 else
                     abs ← abs ∪ new_preds(c)
     ￼￼￼￼￼￼done</code></pre>
-<p>Чуть подробнее (на английском языке) — по второй ссылке на втором слайде.</p>
+<p>Чуть подробнее (на английском языке) — здесь, со страницы 8: <a href="https://www.cs.colorado.edu/~bec/courses/csci5535/meetings/meeting04.pdf" class="uri">https://www.cs.colorado.edu/~bec/courses/csci5535/meetings/meeting04.pdf</a></p>
 </section><div><a class="slider-prev" href="#свойство-2"></a><a class="slider-next" href="#инструментальные-средства-sat-решатели"></a></div>
 <section id="инструментальные-средства-sat-решатели" class="slide level1">
 <h1>Инструментальные средства: SAT-решатели</h1>
@@ -394,9 +395,9 @@ tbody > tr:last-child > td {
 </section><div><a class="slider-prev" href="#smt-решатели"></a><a class="slider-next" href="#задачи"></a></div>
 <section id="задачи" class="slide level1">
 <h1>Задачи</h1>
-<p><strong>Задача 4.1а*</strong> Вручную перевести реализацию одного из алгоритмов сортировки (быстрая сортировка, сортировка слиянием, пирамидальная сортировка, пузырьковая сортировка) в терминах SMT-решателя (например, Z3) и попытаться проверить корректность реализации.</p>
-<p><strong>Задача 4.1б**</strong> Аналогично — для поразрядной сортировки (radix sort).</p>
-<p><strong>Задача 4.2**</strong> Представить пример доказательства не совсем тривиального свойства для не совсем тривиальной программы на используемых на практике языках программирования :) (&gt; 40 строк кода без учёта комментариев и пустых строк) с использованием CPAChecker или <a href="https://en.wikipedia.org/wiki/List_of_model_checking_tools">других</a> средств model checking. <a href="https://sosy-lab.gitlab.io/research/tutorials/CPAchecker/Witnesses.html#witnesscorrectnessgeneration">Пример, с которого можно начать</a></p>
+<p><strong>Задача 5.1а*</strong> Вручную перевести реализацию одного из алгоритмов сортировки (быстрая сортировка, сортировка слиянием, пирамидальная сортировка, пузырьковая сортировка) в терминах SMT-решателя (например, Z3) и попытаться проверить корректность реализации.</p>
+<p><strong>Задача 5.1б**</strong> Аналогично — для поразрядной сортировки (radix sort).</p>
+<p><strong>Задача 5.2**</strong> Представить пример доказательства не совсем тривиального свойства для не совсем тривиальной программы на используемых на практике языках программирования :) (&gt; 40 строк кода без учёта комментариев и пустых строк) с использованием CPAChecker или <a href="https://en.wikipedia.org/wiki/List_of_model_checking_tools">других</a> средств model checking. <a href="https://sosy-lab.gitlab.io/research/tutorials/CPAchecker/Witnesses.html#witnesscorrectnessgeneration">Пример, с которого можно начать</a></p>
 <p>Требуется самостоятельно установить одно из средств model checking, просмотреть документацию по нему, расширить приведённые примеры (или придумать свой) и написать мини-отчёт объёмом от 1000 букв текста на русском языке.</p>
 <p>Например, интересно было бы проверить корректность тех же реализации сортировки.</p>
 </section><div><a class="slider-prev" href="#выводы"></a><a class="slider-next"></a></div>
