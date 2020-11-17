@@ -45,6 +45,9 @@ $$ τ ≡ \; b \; | \; τ_1 → τ_2, \qquad b ∈ B. $$
 
 
 # Исчисление высказываний / соответствие Карри-Говарда {.inference}
+
+Типы можно рассматривать как импликативные суждения (α → β — импликация). Доказательства — термы, имеющие этот тип.
+
 Импликативный фрагмент схем аксиом исчисления высказываний:
 
 a.  *A → (B → A)* — абстракция
@@ -53,9 +56,9 @@ $a_1 ≡ λ x_A . λ y_B . x : A → (B → A) \qquad$  Комбинатор **K
 
 Действие правила *modus ponens:*
 
-  Γ ⊦ z : A $\qquad$ Γ ⊦ a_1 : A → (B → A)
+  Γ ⊦ z : A $\qquad$ Γ ⊦ a₁ : A → (B → A)
  -------------------------------------------------------
-    Γ ⊦ a_1 · z : B → A
+    Γ ⊦ a₁ · z : B → A
 
 Редукция («упрощение доказательства»): $a_1 · z ≡ (λ x_A . λ y_B . x) · z ⟶ λ y_B . z$
 
@@ -63,8 +66,10 @@ $a_1 ≡ λ x_A . λ y_B . x : A → (B → A) \qquad$  Комбинатор **K
 # Исчисление высказываний / соответствие Карри-Говарда
 
 b.  *(A → (B → C)) → ((A → B) → (A → C))* — «композиция»
-a~2~ ≡ λ g~A→(B→C)~ . λ f~A→B~ . λ x_A . g · x · (f · x) 
-a~2~ : (A → (B → C)) → ((A → B) → (A → C))
+
+a₂ ≡ λ g~A→(B→C)~ . λ f~A→B~ . λ x~A~ . g · x · (f · x) 
+
+a₂ : (A → (B → C)) → ((A → B) → (A → C))
 
 Комбинатор **S** (**S** g f x = g x (f x)) 
 
@@ -130,6 +135,9 @@ a~2~ : (A → (B → C)) → ((A → B) → (A → C))
 fst (x, y) ⟶ x $\qquad$ snd (x, y) ⟶ y
 
 Операция каррирования: (α×β → γ) → α → β → γ
+
+Можно сравнить с аксиомами исчисления высказываний для конъюнкции:
+https://maxxk.github.io/formal-models/presentations/04-Logics.html#%D0%B8%D1%81%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2%D1%8B%D1%81%D0%BA%D0%B0%D0%B7%D1%8B%D0%B2%D0%B0%D0%BD%D0%B8%D0%B9
 
 
 # Сумма (дизъюнкция) {.inference}
@@ -203,7 +211,7 @@ callback · fst main_args
 
 Для λ-исчисления с простыми типами все эти задачи разрешимы, в частности, четвёртая — тривиальна.
 
-(слайд по мотивам презентации по [ссылке](https://compsciclub.ru/media/courses/2011-spring/spb-systemsoftypedlambdacalculi/slides/systemsoftypedlambdacalculi_lecture_130311.pdf); сам [курс Д.Н. Москвина](http://compsciclub.ru/courses/systemsoftypedlambdacalculi/2011-spring/) можно рекомендовать как дополнительный источник по предыдущей, этой и, частично, следующей лекциям)
+(слайд по мотивам презентации по [ссылке](https://compsciclub.ru/attachments/classes/slides_y2A06WZM/systemsoftypedlambdacalculi_lecture_130311.pdf); сам [курс Д.Н. Москвина](http://compsciclub.ru/courses/systemsoftypedlambdacalculi/2011-spring/) можно рекомендовать как дополнительный источник по предыдущей, этой и, частично, следующей лекциям)
 
 
 # Двусторонний алгоритм проверки типов {.inference}
@@ -214,9 +222,12 @@ callback · fst main_args
   Γ ⊦ (x : τ) : τ
 
 Определим две функции:
+
 <div style="float:left; width: 40%; font-size: 0.9em;">
 Вывод неизвестного типа
+
 infer : Контекст → Терм → Тип?
+
 infer(Γ, x) = τ ⇒ Γ ⊦ x : τ
 
 ```
@@ -241,7 +252,9 @@ infer(Γ, λ x_α . y) = α → infer(Γ ∪ x : α, y)
 
 <div style="float:right; width: 40%; font-size: 0.9em;">
 Проверка известного типа
+
 check : Контекст → Терм → Тип → **2**
+
 check(Γ, x, τ) = 1 ⇔ Γ ⊦ x : τ
 
 ```
