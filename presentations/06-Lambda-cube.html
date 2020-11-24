@@ -244,9 +244,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 id="тип-из-одного-элемента">Тип из одного элемента</h2>
 <p>τ = … T …</p>
 <p>Γ ⊦ () : T</p>
-</section><div><a class="slider-prev" href="#исчисление-высказываний--соответствие-карри-говарда-1"></a><a class="slider-next" href="#произведение-конъюнкция"></a></div>
-<section id="произведение-конъюнкция" class="slide level1 inference">
-<h1 class="inference">Произведение (конъюнкция)</h1>
+</section><div><a class="slider-prev" href="#исчисление-высказываний--соответствие-карри-говарда-1"></a><a class="slider-next" href="#произведение-конъюнкция-кортеж"></a></div>
+<section id="произведение-конъюнкция-кортеж" class="slide level1 inference">
+<h1 class="inference">Произведение (конъюнкция; кортеж)</h1>
 <p>τ = … α × β …</p>
 <p>Введение:</p>
 <table>
@@ -289,9 +289,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Редукция: fst (x, y) ⟶ x <span class="math inline">   </span> snd (x, y) ⟶ y</p>
 <p>Операция каррирования: (α×β → γ) → α → β → γ</p>
 <p>Можно сравнить с аксиомами исчисления высказываний для конъюнкции: <a href="https://maxxk.github.io/formal-models/presentations/04-Logics.html#%D0%B8%D1%81%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2%D1%8B%D1%81%D0%BA%D0%B0%D0%B7%D1%8B%D0%B2%D0%B0%D0%BD%D0%B8%D0%B9" class="uri">https://maxxk.github.io/formal-models/presentations/04-Logics.html#%D0%B8%D1%81%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2%D1%8B%D1%81%D0%BA%D0%B0%D0%B7%D1%8B%D0%B2%D0%B0%D0%BD%D0%B8%D0%B9</a></p>
-</section><div><a class="slider-prev" href="#типы-данных-для-λ-исчисления-с-простыми-типами"></a><a class="slider-next" href="#сумма-дизъюнкция"></a></div>
-<section id="сумма-дизъюнкция" class="slide level1 inference">
-<h1 class="inference">Сумма (дизъюнкция)</h1>
+</section><div><a class="slider-prev" href="#типы-данных-для-λ-исчисления-с-простыми-типами"></a><a class="slider-next" href="#сумма-дизъюнкция-алгебраические-типы-данных"></a></div>
+<section id="сумма-дизъюнкция-алгебраические-типы-данных" class="slide level1 inference">
+<h1 class="inference">Сумма (дизъюнкция; алгебраические типы данных)</h1>
 <p>τ = … α + β …</p>
 <p>Введение:</p>
 <table>
@@ -333,7 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 <p>Редукция:</p>
 <p><span class="math inline"><em>s</em><em>w</em><em>i</em><em>t</em><em>c</em><em>h</em><sub><em>γ</em></sub></span>(<span class="math inline"><em>i</em><em>n</em><em>l</em><sub><em>β</em></sub></span> a, s, t) ⟶ s · a <span class="math inline">   </span> <span class="math inline"><em>s</em><em>w</em><em>i</em><em>t</em><em>c</em><em>h</em><sub><em>γ</em></sub></span>(<span class="math inline"><em>i</em><em>n</em><em>r</em><sub><em>α</em></sub></span> b, s, t ) ⟶ t · b</p>
-</section><div><a class="slider-prev" href="#произведение-конъюнкция"></a><a class="slider-next" href="#типы-для-простого-императивного-яп"></a></div>
+</section><div><a class="slider-prev" href="#произведение-конъюнкция-кортеж"></a><a class="slider-next" href="#типы-для-простого-императивного-яп"></a></div>
 <section id="типы-для-простого-императивного-яп" class="slide level1">
 <h1>Типы для простого императивного ЯП</h1>
 <p>Просто типизированное λ-исчисление можно использовать как основу для системы типов простого языка программирования (скорее Pascal-подобного, чем C-подобного).</p>
@@ -351,9 +351,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>int × StringArray × double × int = int × (StringArray × (double × int)). Доступ к аргументам тогда осуществляется с использованием последовательности термов snd.</p>
 </div>
 <div style="float: right; width: 31%">
-<p>λ callback<sub>int→int</sub>. λ set_callback<sub>(int→int)→T</sub>. λ main_args<sub>int×StringArray→int</sub>. λ get_x<sub>double</sub>. λ set_x<sub>double→T</sub>. (set_x · (callback · 0), set_callback · callback, callback · fst main_args ) : T × T × int</p>
+<p>λ callback<sub>int→int</sub>. λ set_callback<sub>(int→int)→T</sub>. λ main_args<sub>int×StringArray→int</sub>. λ get_x<sub>double</sub>. λ set_x<sub>double→T</sub>. (set_x · (callback · 0), set_callback · callback, callback · fst main_args ) : T × T × int</p>
 </div>
-</section><div><a class="slider-prev" href="#сумма-дизъюнкция"></a><a class="slider-next" href="#задачи-анализа-термов-λ-исчисления"></a></div>
+</section><div><a class="slider-prev" href="#сумма-дизъюнкция-алгебраические-типы-данных"></a><a class="slider-next" href="#задачи-анализа-термов-λ-исчисления"></a></div>
 <section id="задачи-анализа-термов-λ-исчисления" class="slide level1">
 <h1>Задачи анализа термов λ-исчисления</h1>
 <ol type="1">
@@ -367,21 +367,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section><div><a class="slider-prev" href="#типы-для-простого-императивного-яп"></a><a class="slider-next" href="#двусторонний-алгоритм-проверки-типов"></a></div>
 <section id="двусторонний-алгоритм-проверки-типов" class="slide level1 inference">
 <h1 class="inference">Двусторонний алгоритм проверки типов</h1>
-<p>Введём дополнительный терм «аннотация типов», подсказку для алгоритма проверки типов:</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Γ ⊦ x : τ</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">Γ ⊦ (x : τ) : τ</td>
-</tr>
-</tbody>
-</table>
-<p>Определим две функции:</p>
 <div style="float:left; width: 40%; font-size: 0.9em;">
+<p>Введём дополнительный терм «аннотация типов», подсказку для алгоритма проверки типов:</p>
+<p>Определим две функции:</p>
 <p>Вывод неизвестного типа</p>
 <p>infer : Контекст → Терм → Тип?</p>
 <p>infer(Γ, x) = τ ⇒ Γ ⊦ x : τ</p>
@@ -403,6 +391,18 @@ infer(Γ, (x : τ)) =
 infer(Γ, λ x_α . y) = α → infer(Γ ∪ x : α, y)</code></pre>
 </div>
 <div style="float:right; width: 40%; font-size: 0.9em;">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Γ ⊦ x : τ</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Γ ⊦ (x : τ) : τ</td>
+</tr>
+</tbody>
+</table>
 <p>Проверка известного типа</p>
 <p>check : Контекст → Терм → Тип → <strong>2</strong></p>
 <p>check(Γ, x, τ) = 1 ⇔ Γ ⊦ x : τ</p>
@@ -410,8 +410,8 @@ infer(Γ, λ x_α . y) = α → infer(Γ ∪ x : α, y)</code></pre>
 
 check(Γ, x, τ) = infer(Γ, x) == τ</code></pre>
 <p><strong>Замечание.</strong> Для расширений λ-исчисления можно использовать аналогичный алгоритм, но в последней строке оператора <code>check</code> равенство типов имеет сложную структуру.</p>
-</div>
 <p>Подробнее можно поискать по запросу bidirectional typechecking и в каталоге code в репозитории с презентациями.</p>
+</div>
 </section><div><a class="slider-prev" href="#задачи-анализа-термов-λ-исчисления"></a><a class="slider-next" href="#метапеременные-и-унификация"></a></div>
 <section id="метапеременные-и-унификация" class="slide level1">
 <h1>Метапеременные и унификация</h1>
@@ -422,14 +422,15 @@ check(Γ, x, τ) = infer(Γ, x) == τ</code></pre>
 <p>Задача <strong>унификации</strong> — для двух типов с метапеременными найти такую подстановку (набор значений метапеременных), что в результате подстановки типы будут эквивалентны.</p>
 <p>1 ≡ α → β</p>
 <p>Если эквивалентность типов тривиальна, то задача унификации разрешима.</p>
-<p>Существует основанный на унификации более сложный алгоритм проверки типов (алгоритм Хиндли-Милнера), который не требует аннотаций. Описан, например, в <a href="http://compsciclub.ru/media/slides/systemsoftypedlambdacalculi_2011_spring/2011_03_13_systemsoftypedlambdacalculi_20_jG0rjlA.pdf">следующей презентации</a></p>
+<p>Существует основанный на унификации более сложный алгоритм проверки типов (алгоритм Хиндли-Милнера), который не требует аннотаций. Описан, например, в <a href="https://compsciclub.ru/courses/types/2019-spring/classes/">курсе по ссылке.</a></p>
 </section><div><a class="slider-prev" href="#двусторонний-алгоритм-проверки-типов"></a><a class="slider-next" href="#полиморфизм"></a></div>
 <section id="полиморфизм" class="slide level1">
 <h1>Полиморфизм</h1>
-<p>Аксиомы <span class="math inline"><em>a</em><sub>1</sub></span> и <span class="math inline"><em>a</em><sub>2</sub></span> заданы в терминах λ-исчисления с простыми типами для фиксированных типов (высказываний) A, B, C. Для каждого нового типа (высказывания) нужно заново записывать эти аксиомы.</p>
-<p>Функция id ≡ λx<sub>1</sub>.x также имеет отдельные несовместимые типы 1→1 для каждого типа x.</p>
+<h2 id="why-no-generics-in-λ">Why no generics in λ→?</h2>
+<p>Аксиомы импликации A1 и A2 заданы в терминах λ-исчисления с простыми типами для фиксированных типов (высказываний) A, B, C. Для каждого нового типа (высказывания) нужно заново записывать эти аксиомы.</p>
+<p>Функция идентичного преобразования id ≡ λx₁.x имеет отдельные несовместимые типы 1→1 для каждого типа x.</p>
 <p><strong>Полиморфизм</strong> — свойство системы типов, согласно которому один терм может иметь сразу несколько различных типов.</p>
-<p>Пример: тип полиморфной функции сортировки: ∀ α . (α → α → <strong>2</strong>) → List α -&gt; List α</p>
+<p>Пример: тип полиморфной функции сортировки: ∀ α . (α → α → <strong>2</strong>) → List α → List α</p>
 <p>Для определённых значений α: (int → int → <strong>2</strong>) → List int → List int</p>
 <p>Композиция: f ∘ g ≡ g(f(x)) ≡ λf.λg.λx. g · (f · x) <span class="math inline">   </span>: <span class="math inline">   </span> ∀ α β γ. (β → γ) → (α → β) → α → γ</p>
 </section><div><a class="slider-prev" href="#метапеременные-и-унификация"></a><a class="slider-next" href="#система-f-λ2"></a></div>
@@ -592,10 +593,14 @@ check(Γ, x, τ) = infer(Γ, x) == τ</code></pre>
 <section id="типы-данных-в-системе-f-2" class="slide level1">
 <h1>Типы данных в системе F</h1>
 <h2 id="нумерал-чёрча-натуральные-числа">Нумерал Чёрча (натуральные числа)</h2>
-<p>ℕ ≡ ∀α. α → (α → α) → α 0 ≡ Λα. λz s. z x+1 ≡ λx. Λα. λ z s. s · (n · α · z · s)</p>
+<p>ℕ ≡ ∀α. α → (α → α) → α</p>
+<p>0 ≡ Λα. λz s. z</p>
+<p>x+1 ≡ λx. Λα. λ z s. s · (n · α · z · s)</p>
 <p>Натуральные числа задают понятие итерации.</p>
 <h2 id="полиморфный-список-">Полиморфный список (!)</h2>
-<p>List A ≡ ∀ α. α → (A → α → α) → α [] ≡ Λα. λx. λf. x head ; Tail ≡ Λα. λ Tail<sub>List<span class="math inline"> </span>A</sub>. λ head<sub>A</sub> . λ x . λ f . Tail · x · (f · head · x)</p>
+<p>List β ≡ ∀β. ∀ α. α → (β → α → α) → α</p>
+<p>[] ≡ Λα. λx. λf. x</p>
+<p>head ; Tail ≡ Λβ. Λα. λ Tail<sub>List<span class="math inline"> </span>β</sub>. λ headᵦ . λ x . λ f . Tail · x · (f · head · x)</p>
 <p>Сравните определение нумералов и списка.</p>
 <p>Аналогично — деревья и другие индуктивные структуры данных.</p>
 </section><div><a class="slider-prev" href="#типы-данных-в-системе-f-1"></a><a class="slider-next" href="#соответствие-карри-говарда"></a></div>

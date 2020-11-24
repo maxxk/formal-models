@@ -1,12 +1,76 @@
 <!DOCTYPE html><html><head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <title></title>
+  <title>07-Dependent-types</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="slider.css">
   <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
 </head>
 <body>
   <div style="width: 640px;height: 400px;">
@@ -22,8 +86,7 @@
 <h2 id="λ-исчисление-с-конструкторами-типов">λ-исчисление с конструкторами типов</h2>
 <h2 id="λ-исчисление-с-зависимыми-типами">λ-исчисление с зависимыми типами</h2>
 <p><a href="mailto:maxim.krivchikov@gmail.com" class="email">maxim.krivchikov@gmail.com</a></p>
-<a href="https://maxxk.github.io/formal-models/" class="uri">https://maxxk.github.io/formal-models/</a><br>
-
+<a href="https://maxxk.github.io/formal-models/" class="uri">https://maxxk.github.io/formal-models/</a>
 <style>
 .inference table {
     display: inline-block;
@@ -37,13 +100,13 @@
 </style>
 </section><div><a class="slider-prev"></a><a class="slider-next" href="#система-f-λ2-прошлое-занятие"></a></div>
 <section id="система-f-λ2-прошлое-занятие" class="slide level1 inference">
-<h1>Система F (λ2, прошлое занятие)</h1>
+<h1 class="inference">Система F (λ2, прошлое занятие)</h1>
 <div style="font-size: 0.9em">
-<p><br><span class="math display"><em>τ</em> ≡  <em>b</em> | <em>τ</em><sub>1</sub> → <em>τ</em><sub>2</sub> | <em>α</em> | ∀<em>α</em>.<em>τ</em>,   <em>b</em> ∈ <em>B</em>.</span><br></p>
+<p><span class="math display"><em>τ</em>≡ <em>b</em> | <em>τ</em><sub>1</sub> → <em>τ</em><sub>2</sub> | <em>α</em> | ∀<em>α</em>.<em>τ</em>,   <em>b</em> ∈ <em>B</em>.</span></p>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;"><span class="math inline">  </span></th>
+<th style="text-align: center;"><span class="math inline">   </span></th>
 </tr>
 </thead>
 <tbody>
@@ -55,7 +118,7 @@
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Γ wf <span class="math inline">  </span> τ ∈ Γ</th>
+<th style="text-align: center;">Γ wf <span class="math inline">   </span> τ ∈ Γ</th>
 </tr>
 </thead>
 <tbody>
@@ -67,7 +130,7 @@
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Γ wf <span class="math inline">  </span> α не входит в типы в Γ</th>
+<th style="text-align: center;">Γ wf <span class="math inline">   </span> α не входит в типы в Γ</th>
 </tr>
 </thead>
 <tbody>
@@ -91,7 +154,7 @@
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Γ, x : σ ⊦ e : τ <span class="math inline">  </span> Γ wf</th>
+<th style="text-align: center;">Γ, x : σ ⊦ e : τ <span class="math inline">   </span> Γ wf</th>
 </tr>
 </thead>
 <tbody>
@@ -103,7 +166,7 @@
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Γ ⊦ x : σ → τ <span class="math inline">  </span> Γ ⊦ y : σ <span class="math inline">  </span> Γ wf</th>
+<th style="text-align: center;">Γ ⊦ x : σ → τ <span class="math inline">   </span> Γ ⊦ y : σ <span class="math inline">   </span> Γ wf</th>
 </tr>
 </thead>
 <tbody>
@@ -115,7 +178,7 @@
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: right;">Γ wf <span class="math inline">  </span> α ∈ Γ</th>
+<th style="text-align: right;">Γ wf <span class="math inline">   </span> α ∈ Γ</th>
 </tr>
 </thead>
 <tbody>
@@ -127,7 +190,7 @@
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: right;">Γ wf <span class="math inline">  </span> Γ ⊦ α : * <span class="math inline">  </span> Γ ⊦ β : *</th>
+<th style="text-align: right;">Γ wf <span class="math inline">   </span> Γ ⊦ α : * <span class="math inline">   </span> Γ ⊦ β : *</th>
 </tr>
 </thead>
 <tbody>
@@ -139,7 +202,7 @@
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: right;">Γ, α wf <span class="math inline">  </span> Γ, α ⊦ β : *</th>
+<th style="text-align: right;">Γ, α wf <span class="math inline">   </span> Γ, α ⊦ β : *</th>
 </tr>
 </thead>
 <tbody>
@@ -151,7 +214,7 @@
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: right;">Γ ⊦ ∀ α . β : * <span class="math inline">  </span> Γ, α : * ⊦ M : β</th>
+<th style="text-align: right;">Γ ⊦ ∀ α . β : * <span class="math inline">   </span> Γ, α : * ⊦ M : β</th>
 </tr>
 </thead>
 <tbody>
@@ -163,7 +226,7 @@
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Γ ⊦ X : ∀α.β <span class="math inline">  </span> Γ ⊦ γ : *</th>
+<th style="text-align: center;">Γ ⊦ X : ∀α.β <span class="math inline">   </span> Γ ⊦ γ : *</th>
 </tr>
 </thead>
 <tbody>
@@ -175,7 +238,7 @@
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Γ wf <span class="math inline">  </span> <span class="math inline"><em>c</em><sub><em>α</em></sub></span> — постоянная типа α</th>
+<th style="text-align: center;">Γ wf <span class="math inline">   </span> <span class="math inline"><em>c</em><sub><em>α</em></sub></span> — постоянная типа α</th>
 </tr>
 </thead>
 <tbody>
@@ -193,32 +256,32 @@
 </section><div><a class="slider-prev" href="#система-f-λ2-прошлое-занятие"></a><a class="slider-next" href="#пример-метод-прогонки"></a></div>
 <section id="пример-метод-прогонки" class="slide level1">
 <h1>Пример: метод прогонки</h1>
-<pre><code>// Tridiagonal algorithm (solution for the tridiagonal system of linear equations)
-// (d, c, e) - matrix of the linear system
-// n - matrix size
-// d - diagonal elements
-// c - subdiagonal elements
-// e - superdiagonal elements
-// a - superdiagonal gaussian elimination coefficients
-// b - right hand side
-// x - answer
-void tridiagonal(int n, double\* d, double\* c, 
-    double\* e, double\* a, double\* b, int\* x) {
-
-    a[1] = -e[0] / d[0]; 
-    b[1] = b[0]  / d[0];
-
-    for (int i=1; i &lt; n; i++) {
-        double denominator = d[i] + c[i]\*a[i];
-        a[i+1] = -e[i]  / denominator;
-        b[i+1] = (1. - c[i])\*b[i] / denominator;
-    }
-
-    x[n] = (1. - c[n])\*b[n]\*(d[n] + c[n]\*a[n]); 
-    for (int j=n-1; j &gt;=0; j--) {
-        x[i] = a[i]\*x[i+1] + b[i+1];
-    }
-}</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">// Tridiagonal algorithm (solution for the tridiagonal system of linear equations)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="co">// (d, c, e) - matrix of the linear system</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="co">// n - matrix size</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="co">// d - diagonal elements</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="co">// c - subdiagonal elements</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a><span class="co">// e - superdiagonal elements</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a><span class="co">// a - superdiagonal gaussian elimination coefficients</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a><span class="co">// b - right hand side</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a><span class="co">// x - answer</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a><span class="dt">void</span> tridiagonal(<span class="dt">int</span> n, <span class="dt">double</span>* d, <span class="dt">double</span>* c, </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>    <span class="dt">double</span>* e, <span class="dt">double</span>* a, <span class="dt">double</span>* b, <span class="dt">int</span>* x) {</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>    a[<span class="dv">1</span>] = -e[<span class="dv">0</span>] / d[<span class="dv">0</span>]; </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>    b[<span class="dv">1</span>] = b[<span class="dv">0</span>]  / d[<span class="dv">0</span>];</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>    <span class="cf">for</span> (<span class="dt">int</span> i=<span class="dv">1</span>; i &lt; n; i++) {</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a>        <span class="dt">double</span> denominator = d[i] + c[i]*a[i];</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a>        a[i+<span class="dv">1</span>] = -e[i]  / denominator;</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a>        b[i+<span class="dv">1</span>] = (<span class="fl">1.</span> - c[i])*b[i] / denominator;</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a>    }</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a>    x[n] = (<span class="fl">1.</span> - c[n])*b[n]*(d[n] + c[n]*a[n]); </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true"></a>    <span class="cf">for</span> (<span class="dt">int</span> j=n-<span class="dv">1</span>; j &gt;=<span class="dv">0</span>; j--) {</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true"></a>        x[i] = a[i]*x[i+<span class="dv">1</span>] + b[i+<span class="dv">1</span>];</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true"></a>    }</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true"></a>}</span></code></pre></div>
 </section><div><a class="slider-prev" href="#пример-чего-мы-хотим-добиться"></a><a class="slider-next" href="#прогонка-с-простыми-типами"></a></div>
 <section id="прогонка-с-простыми-типами" class="slide level1">
 <h1>Прогонка с простыми типами</h1>
@@ -253,58 +316,60 @@ Definition tridiagonal (n : int) (d c e a b : DoubleArray) (x : IntArray) := (
 <h1>Операторы над типами</h1>
 <h2 id="как-определить-тип-абстрактного-массива">Как определить тип абстрактного массива?</h2>
 <ul>
-<li class="fragment"><p>λ (x : α). M — абстракция термов по термам<br>
-λ (x : int). x</p></li>
-<li class="fragment"><p>Λ (α : *). M — абстракция термов по типам<br>
-Λ (α : *) (β : *) . λ (p : α × β) . fst p</p></li>
+<li class="fragment"><p>λ (x : α). M — абстракция термов по термам λ (x : int). x</p></li>
+<li class="fragment"><p>Λ (α : *). M — абстракция термов по типам Λ (α : *) (β : *) . λ (p : α × β) . fst p</p></li>
 <li class="fragment"><p>Требуется — абстракция типов по типам</p></li>
 </ul>
-<p>α — тип (type)<br>
-* — вид (kind, «тип типов»)</p>
+<p>α — тип (type) * — вид (kind, «тип типов»)</p>
 <p>Для абстракции типов по типам нужно «перенести» λ-исчисление с простыми типами на уровень выше («λ-исчисление с простыми видами»).</p>
 <p>κ = * | κ<sub>1</sub> ⇒ κ<sub>2</sub></p>
 <p>⇒ — временно обозначим «стрелку» между видами</p>
-<p>Абстрактный массив:<br>
-Array : * ⇒ * — конструктор типа<br>
-Array · double : * — тип</p>
+<p>Абстрактный массив: Array : * ⇒ * — конструктор типа Array · double : * — тип</p>
 </section><div><a class="slider-prev" href="#прогонка-с-простыми-типами"></a><a class="slider-next" href="#исчисление-λω"></a></div>
 <section id="исчисление-λω" class="slide level1 inference">
-<h1>Исчисление λω</h1>
-<p>κ = * | κ<sub>1</sub> ⇒ k<sub>2</sub></p>
+<h1 class="inference">Исчисление λω</h1>
+<p>κ = * | κ₁ ⇒ κ₂</p>
 <p>Введение:</p>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Γ, α : κ<sub>1</sub> ⊦ A : κ<sub>2</sub></th>
+<th style="text-align: center;">Γ, α : κ₁ ⊦ A : κ₂</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">Γ ⊦ λ (α : κ<sub>1</sub>).A : κ<sub>1</sub> ⇒ κ<sub>2</sub></td>
+<td style="text-align: center;">Γ ⊦ λ (α : κ₁).A : κ₁ ⇒ κ₂</td>
 </tr>
 </tbody>
 </table>
-<p>Удаление:<br>
-Γ ⊦ A : κ<sub>1</sub> ⇒ κ<sub>2</sub> <span class="math inline">  </span> Γ ⊦ B : κ<sub>1</sub><br>
---------------------------------------------<br>
-Γ ⊦ A · B : κ<sub>2</sub></p>
-<p>Дополнение существующих правил:<br>
-∀ (α : κ) . …, Λ (α : κ) . …</p>
+<p>Удаление:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Γ ⊦ A : κ<sub>1</sub> ⇒ κ<sub>2</sub> <span class="math inline">   </span> Γ ⊦ B : κ<sub>1</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Γ ⊦ A · B : κ<sub>2</sub></td>
+</tr>
+</tbody>
+</table>
+<p>Дополнение существующих правил: ∀ (α : κ) . …, Λ (α : κ) . …</p>
 <p>β-редукция распространяется теперь и на типы.</p>
 </section><div><a class="slider-prev" href="#операторы-над-типами"></a><a class="slider-next" href="#эквивалентность-типов-в-λω"></a></div>
 <section id="эквивалентность-типов-в-λω" class="slide level1">
 <h1>Эквивалентность типов в λω</h1>
 <p>Типы α и (λ(t : *).t) · α должны быть эквивалентны.</p>
-<p>Эквивалентность типов определяется в терминах нормализации.<br>
-Пусть исчисление сильно нормализуемо (для λ-исчисления с простыми видами, это верно). Тогда два типа одного вида эквивалентны, если они приводятся β-редукцией к одинаковой нормальной форме.</p>
+<p>Эквивалентность типов определяется в терминах нормализации. Пусть исчисление сильно нормализуемо (для λ-исчисления с простыми видами, это верно). Тогда два типа одного вида эквивалентны, если они приводятся β-редукцией к одинаковой нормальной форме.</p>
 </section><div><a class="slider-prev" href="#исчисление-λω"></a><a class="slider-next" href="#примеры-типов-в-λω"></a></div>
 <section id="примеры-типов-в-λω" class="slide level1">
 <h1>Примеры типов в λω</h1>
-<p>Массив с операциями:<br>
-Array : * ⇒ *<br>
-new : ∀ (α : *). int -&gt; Array · α<br>
-get : ∀(α : *). Array · α → int → α<br>
-set : ∀(α : *). Array · α → int → α → T</p>
+<p>Массив с операциями:</p>
+<p>Array : * ⇒ *</p>
+<p>new : ∀ (α : *). int -&gt; Array · α</p>
+<p>get : ∀(α : *). Array · α → int → α</p>
+<p>set : ∀(α : *). Array · α → int → α → T</p>
 </section><div><a class="slider-prev" href="#эквивалентность-типов-в-λω"></a><a class="slider-next" href="#прогонка-в-λω"></a></div>
 <section id="прогонка-в-λω" class="slide level1">
 <h1>Прогонка в λω</h1>
@@ -339,61 +404,53 @@ Definition tridiagonal (n : int) (d c e a b : Array double) (x : Array int) := (
 </section><div><a class="slider-prev" href="#примеры-типов-в-λω"></a><a class="slider-next" href="#соответствие-карри-говарда-в-λω"></a></div>
 <section id="соответствие-карри-говарда-в-λω" class="slide level1">
 <h1>Соответствие Карри-Говарда в λω</h1>
-<p>Тип равенств между типами (тип идентичности по Лейбницу):<br>
-Eq = λ (α β : *). ∀ (φ : * ⇒ *). φ α → φ β</p>
-<p>Свойство рефлексивности задаёт конструктор равенства («введение»):<br>
-refl : ∀(α : *). Eq α α<br>
-refl = Λ(α : *). Λ(φ : * ⇒ *) . λ (x : φ α) . x</p>
-<p>Доказуемы свойства симметричности и транзитивности:<br>
-symm : ∀ (α β : *). Eq α β → Eq β α<br>
-trans : ∀ (α β γ : *) . Eq α β → Eq β γ → Eq α γ</p>
-<p>Доказательства:<br>
-symm = Λ(α β : *). λ (e : Eq α β). e (λ (γ : *). Eq γ α) (refl α)<br>
-trans = Λ(α β γ : *). λ (s : Eq α β) (t : Eq β γ). t (Eq α) s</p>
-<p>Свойство подстановки по равенству:<br>
-lift : ∀ (α β : * ). ∀ (φ : * ⇒ *). Eq α β → Eq (φ α) (φ β)<br>
-lift = Λ (α β : *). Λ (φ : * ⇒ *). λ (e : Eq α β). e (λ (γ : *). Eq (φ α) (φ γ)) (refl (φ α))</p>
+<p>Тип равенств между типами (тип идентичности по Лейбницу):</p>
+<p>Eq = λ (α β : *). ∀ (φ : * ⇒ *). φ α → φ β</p>
+<p>Свойство рефлексивности задаёт конструктор равенства («введение»):</p>
+<p>refl : ∀(α : *). Eq α α</p>
+<p>refl = Λ(α : *). Λ(φ : * ⇒ *) . λ (x : φ α) . x</p>
+<p>Доказуемы свойства симметричности и транзитивности:</p>
+<p>symm : ∀ (α β : *). Eq α β → Eq β α</p>
+<p>trans : ∀ (α β γ : *) . Eq α β → Eq β γ → Eq α γ</p>
+<p>Доказательства:</p>
+<p>symm = Λ(α β : *). λ (e : Eq α β). e (λ (γ : *). Eq γ α) (refl α)</p>
+<p>trans = Λ(α β γ : *). λ (s : Eq α β) (t : Eq β γ). t (Eq α) s</p>
+<p>Свойство подстановки по равенству:</p>
+<p>lift : ∀ (α β : * ). ∀ (φ : * ⇒ *). Eq α β → Eq (φ α) (φ β)</p>
+<p>lift = Λ (α β : *). Λ (φ : * ⇒ *). λ (e : Eq α β). e (λ (γ : *). Eq (φ α) (φ γ)) (refl (φ α))</p>
 </section><div><a class="slider-prev" href="#прогонка-в-λω"></a><a class="slider-next" href="#к-зависимым-типам"></a></div>
 <section id="к-зависимым-типам" class="slide level1">
 <h1>К зависимым типам</h1>
 <p>Мы определили следующие виды абстракции:</p>
 <ul>
-<li class="fragment"><p>λ (x : α). M — терм ↦ терм<br>
-λ (x : int). x</p></li>
-<li class="fragment"><p>Λ (α : *). M — тип ↦ терм<br>
-Λ (α : *) (β : *) . λ (p : α × β) . fst p</p></li>
-<li class="fragment"><p>λ (x : κ). A — тип ↦ тип<br>
-Eq = λ (α β : *). ∀ (φ : * ⇒ *). φ α → φ β</p></li>
+<li class="fragment"><p>λ (x : α). M — терм ↦ терм λ (x : int). x</p></li>
+<li class="fragment"><p>Λ (α : *). M — тип ↦ терм Λ (α : *) (β : *) . λ (p : α × β) . fst p</p></li>
+<li class="fragment"><p>λ (x : κ). A — тип ↦ тип Eq = λ (α β : *). ∀ (φ : * ⇒ *). φ α → φ β</p></li>
 </ul>
 <p>Соответствие Карри-Говарда для рассмотренных систем позволяет представлять в виде термов исчисление высказываний и различным его расширениям.</p>
 <p>Для того, чтобы замкнуть граф возможных абстракций и перейти в исчисление предикатов не хватает последнего ребра:</p>
-<h2 id="терм-тип">терм ↦ тип</h2>
+<h2 id="терм--тип">терм ↦ тип</h2>
 </section><div><a class="slider-prev" href="#соответствие-карри-говарда-в-λω"></a><a class="slider-next" href="#λ-куб-барендрегта"></a></div>
 <section id="λ-куб-барендрегта" class="slide level1">
 <h1>λ-куб Барендрегта</h1>
-<p><img src="images/lambda-cube.svg"><br>
-Barendregt H.P. Introduction to generalized type systems // J. Funct. Program. 1991. Vol. 1, № 2. P. 125–154.<br>
-Общая схема, примеры, ссылки на доказательства сильной нормализации для всех систем куба.</p>
+<p><img data-src="images/lambda-cube.svg" src="images/lambda-cube.svg"></p>
+<p>Barendregt H.P. Introduction to generalized type systems // J. Funct. Program. 1991. Vol. 1, № 2. P. 125–154. Общая схема, примеры, ссылки на доказательства сильной нормализации для всех систем куба.</p>
 </section><div><a class="slider-prev" href="#к-зависимым-типам"></a><a class="slider-next" href="#зависимое-произведение"></a></div>
 <section id="зависимое-произведение" class="slide level1">
 <h1>Зависимое произведение</h1>
-<h2 id="πx-α.-a">Π(x : α). A</h2>
+<h2 id="πx--α-a">Π(x : α). A</h2>
 <p>α и A — типы, вместо x подставляется терм.</p>
 <h2 id="массив-с-контролем-границ">Массив с контролем границ</h2>
-<p>Array : * ⇒ int ⇒ *<br>
-Array double 0<br>
-Array double 10</p>
-<p>Функция, связывающая n и длину массива:<br>
-Π (n : int) (Array double n) → Array double n<br>
-λ (n : int). (d : Array double n). d</p>
+<p>Array : * ⇒ int ⇒ * Array double 0 Array double 10</p>
+<p>Функция, связывающая n и длину массива: Π (n : int) (Array double n) → Array double n λ (n : int). (d : Array double n). d</p>
 </section><div><a class="slider-prev" href="#λ-куб-барендрегта"></a><a class="slider-next" href="#исчисление-конструкций-λpω"></a></div>
 <section id="исчисление-конструкций-λpω" class="slide level1 inference">
-<h1>Исчисление Конструкций (λPω)</h1>
+<h1 class="inference">Исчисление Конструкций (λPω)</h1>
 <p>τ = … | Π (x : α). A …</p>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Γ, x : α ⊦ A : * <span class="math inline">  </span> Γ ⊦ α : *</th>
+<th style="text-align: center;">Γ, x : α ⊦ A : * <span class="math inline">   </span> Γ ⊦ α : *</th>
 </tr>
 </thead>
 <tbody>
@@ -405,7 +462,7 @@ Array double 10</p>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Γ ⊦ Π (x : α). A : * <span class="math inline">  </span> Γ, x : α ⊦ M : A</th>
+<th style="text-align: center;">Γ ⊦ Π (x : α). A : * <span class="math inline">   </span> Γ, x : α ⊦ M : A</th>
 </tr>
 </thead>
 <tbody>
@@ -417,7 +474,7 @@ Array double 10</p>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Γ ⊦ F : Π (x : α). A <span class="math inline">  </span> Γ ⊦ N : α</th>
+<th style="text-align: center;">Γ ⊦ F : Π (x : α). A <span class="math inline">   </span> Γ ⊦ N : α</th>
 </tr>
 </thead>
 <tbody>
@@ -426,9 +483,9 @@ Array double 10</p>
 </tr>
 </tbody>
 </table>
-</section><div><a class="slider-prev" href="#зависимое-произведение"></a><a class="slider-next" href="#все-виды-абстракций-в-один"></a></div>
-<section id="все-виды-абстракций-в-один" class="slide level1 inference">
-<h1>Все виды абстракций — в один</h1>
+</section><div><a class="slider-prev" href="#зависимое-произведение"></a><a class="slider-next" href="#все-виды-абстракций--в-один"></a></div>
+<section id="все-виды-абстракций--в-один" class="slide level1 inference">
+<h1 class="inference">Все виды абстракций — в один</h1>
 <ol type="1">
 <li class="fragment">Π (x : α). β, где β не зависит от x — то же самое, что α → β.</li>
 <li class="fragment">Π (x : κ). N, где κ — вид.</li>
@@ -437,7 +494,7 @@ Array double 10</p>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;"><span class="math inline">  </span></th>
+<th style="text-align: center;"><span class="math inline">   </span></th>
 </tr>
 </thead>
 <tbody>
@@ -449,7 +506,7 @@ Array double 10</p>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Γ wf <span class="math inline">  </span> τ ∈ Γ</th>
+<th style="text-align: center;">Γ wf <span class="math inline">   </span> τ ∈ Γ</th>
 </tr>
 </thead>
 <tbody>
@@ -461,7 +518,7 @@ Array double 10</p>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Γ wf <span class="math inline">  </span> α не входит в типы в Γ</th>
+<th style="text-align: center;">Γ wf <span class="math inline">   </span> α не входит в типы в Γ</th>
 </tr>
 </thead>
 <tbody>
@@ -485,7 +542,7 @@ Array double 10</p>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Γ, x : α ⊦ A : * <span class="math inline">  </span> Γ ⊦ α : *</th>
+<th style="text-align: center;">Γ, x : α ⊦ A : * <span class="math inline">   </span> Γ ⊦ α : *</th>
 </tr>
 </thead>
 <tbody>
@@ -497,7 +554,7 @@ Array double 10</p>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Γ ⊦ Π (x : α). A : * <span class="math inline">  </span> Γ, x : α ⊦ M : A</th>
+<th style="text-align: center;">Γ ⊦ Π (x : α). A : * <span class="math inline">   </span> Γ, x : α ⊦ M : A</th>
 </tr>
 </thead>
 <tbody>
@@ -509,7 +566,7 @@ Array double 10</p>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Γ ⊦ F : Π (x : α). A <span class="math inline">  </span> Γ ⊦ N : α</th>
+<th style="text-align: center;">Γ ⊦ F : Π (x : α). A <span class="math inline">   </span> Γ ⊦ N : α</th>
 </tr>
 </thead>
 <tbody>
@@ -521,7 +578,7 @@ Array double 10</p>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Γ wf <span class="math inline">  </span> <span class="math inline"><em>c</em><sub><em>α</em></sub></span> — постоянная типа α</th>
+<th style="text-align: center;">Γ wf <span class="math inline">   </span> <span class="math inline"><em>c</em><sub><em>α</em></sub></span> — постоянная типа α</th>
 </tr>
 </thead>
 <tbody>
@@ -546,7 +603,7 @@ Array double 10</p>
 </div>
 </section><div><a class="slider-prev" href="#исчисление-конструкций-λpω"></a><a class="slider-next" href="#универсумы"></a></div>
 <section id="универсумы" class="slide level1 inference">
-<h1>Универсумы</h1>
+<h1 class="inference">Универсумы</h1>
 <h2 id="парадокс-бурали-форти-в-исчислении-конструкций">Парадокс Бурали-Форти в исчислении конструкций</h2>
 <p><span class="math inline"><strong>T</strong><strong>y</strong><strong>p</strong><strong>e</strong></span> — универсум («тип всех типов»), в общем случаи такие конструкции опасны, т.к. позволяют определить парадоксы.</p>
 <div style="color: red; display: inline-block">
@@ -564,33 +621,18 @@ Array double 10</p>
 </table>
 </div>
 <p>— рекурсивное включение универсумов, которое мы дали в первом правиле редукции сегодняшней лекции: <span class="math inline"><strong>T</strong><strong>y</strong><strong>p</strong><strong>e</strong> : <strong>T</strong><strong>y</strong><strong>p</strong><strong>e</strong></span>. Оно делает противоречивым даже System F<span class="math inline"><sub><em>ω</em></sub></span> — полиморфное λ-исчисление с конструкторами типов.</p>
-</section><div><a class="slider-prev" href="#все-виды-абстракций-в-один"></a><a class="slider-next" href="#парадокс"></a></div>
+</section><div><a class="slider-prev" href="#все-виды-абстракций--в-один"></a><a class="slider-next" href="#парадокс"></a></div>
 <section id="парадокс" class="slide level1">
 <h1>Парадокс</h1>
 <p>Hurkens A.J.C. A simplification of Girard’s paradox // Typed Lambda Calculi and Applications / ed. Dezani-Ciancaglini M., Plotkin G. Berlin, Heidelberg: Springer Berlin Heidelberg, 1995. Vol. 902. P. 266–278.</p>
 <div style="font-size:0.8em">
-<span class="math inline">2<sup><em>S</em></sup></span> ≡ Pow ≡ λ (S : Type). Π S . Type<br>
-Univ ≡ Π (X : Type). (Π (Π <span class="math inline">2<sup>2<sup><em>X</em></sup></sup></span> . X). <span class="math inline">2<sup>2<sup><em>X</em></sup></sup></span>)<br>
-PPUniv ≡ <span class="math inline">2<sup>2<sup><em>U</em><em>n</em><em>i</em><em>v</em></sup></sup></span><br>
-τ ≡ λ (t : PPUniv) (X : Type) (f : Π <span class="math inline">2<sup>2<sup><em>X</em></sup></sup></span> . X ) (p : <span class="math inline">2<sup><em>X</em></sup></span> ) .<br>
-t · (λ (x : Univ) . (p (f ((x X) f))))<br>
-σ ≡ λ (s : Univ) . ((s · Univ) (λ (t : PPUniv) . τ · t))<br>
-Δ ≡ λ (y : Univ) . (Π (Π (p : (Pow Univ)). (σ y p) (p (τ (σ y)))) ⊥)<br>
-Ω ≡ (τ · (λ (p : 2<sup>Univ</sup>)) · (Π (x : Univ). (σ · x · p) · (p · x)))<br>
-False ≡ (λ (O : (Π (p : 2<sup>Univ</sup>) (Π (x : Univ) . (σ · x · p) · (p · x)) (p · Ω) )).<br>
-(((O Δ) (λ (x : Univ) (t : σ x Δ) (u : (Π (p : (Pow Univ)). (σ y p) (p (τ (σ y))))).<br>
-(u · (λ (y : Univ)) (p (τ (σ y)))))))<br>
-· (λ (p : 2<sup>Univ</sup>) . (O (λ (y : Univ) . p (τ (σ y)))))<br>
-· (λ (p : 2<sup>Univ</sup>). (v : (Π (x : Univ). (σ x p) (p x))).<br>
-(v · Ω) · (λ (x : Univ) . (v · (τ (σ x))))))<br>
-False : ⊥
+<p><span class="math inline">2<sup><em>S</em></sup></span> ≡ Pow ≡ λ (S : Type). Π S . Type Univ ≡ Π (X : Type). (Π (Π <span class="math inline">2<sup>2<sup><em>X</em></sup></sup></span> . X). <span class="math inline">2<sup>2<sup><em>X</em></sup></sup></span>) PPUniv ≡ <span class="math inline">2<sup>2<sup><em>U</em><em>n</em><em>i</em><em>v</em></sup></sup></span> τ ≡ λ (t : PPUniv) (X : Type) (f : Π <span class="math inline">2<sup>2<sup><em>X</em></sup></sup></span> . X ) (p : <span class="math inline">2<sup><em>X</em></sup></span> ) . t · (λ (x : Univ) . (p (f ((x X) f)))) σ ≡ λ (s : Univ) . ((s · Univ) (λ (t : PPUniv) . τ · t)) Δ ≡ λ (y : Univ) . (Π (Π (p : (Pow Univ)). (σ y p) (p (τ (σ y)))) ⊥) Ω ≡ (τ · (λ (p : 2<sup>Univ</sup>)) · (Π (x : Univ). (σ · x · p) · (p · x))) False ≡ (λ (O : (Π (p : 2<sup>Univ</sup>) (Π (x : Univ) . (σ · x · p) · (p · x)) (p · Ω) )). (((O Δ) (λ (x : Univ) (t : σ x Δ) (u : (Π (p : (Pow Univ)). (σ y p) (p (τ (σ y))))). (u · (λ (y : Univ)) (p (τ (σ y))))))) · (λ (p : 2<sup>Univ</sup>) . (O (λ (y : Univ) . p (τ (σ y))))) · (λ (p : 2<sup>Univ</sup>). (v : (Π (x : Univ). (σ x p) (p x))). (v · Ω) · (λ (x : Univ) . (v · (τ (σ x)))))) False : ⊥</p>
 </div>
 <p>Терм False не нормализуем.</p>
 </section><div><a class="slider-prev" href="#универсумы"></a><a class="slider-next" href="#уровни-универсумов"></a></div>
 <section id="уровни-универсумов" class="slide level1 inference">
-<h1>Уровни универсумов</h1>
-<p>Для того, чтобы избежать таких парадоксов, рассматривают не один универсум Type : Type, а их набор Type<sub>i</sub>, где i — какой-то набор индексов с заданным строгим порядком &lt;.<br>
-Обычно используется что-то вроде решётки, чтобы у любой пары индексов был максимальный индекс max, нестрого больший i, j ⩽ max(i,j).</p>
+<h1 class="inference">Уровни универсумов</h1>
+<p>Для того, чтобы избежать таких парадоксов, рассматривают не один универсум Type : Type, а их набор Type<sub>i</sub>, где i — какой-то набор индексов с заданным строгим порядком &lt;. Обычно используется что-то вроде решётки, чтобы у любой пары индексов был максимальный индекс max, нестрого больший i, j ⩽ max(i,j).</p>
 <p>Тогда правило типизации универсума преобразуется к следующему виду:</p>
 <table>
 <thead>
@@ -606,12 +648,12 @@ False : ⊥
 </table>
 </section><div><a class="slider-prev" href="#парадокс"></a><a class="slider-next" href="#уровни-универсумов-1"></a></div>
 <section id="уровни-универсумов-1" class="slide level1 inference">
-<h1>Уровни универсумов</h1>
+<h1 class="inference">Уровни универсумов</h1>
 <p>А правила типизации зависимого произведения — к виду:</p>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: right;">Γ, x : α ⊦ A : Type<sub>i</sub> <span class="math inline">  </span> Γ ⊦ α : Type<sub>j</sub></th>
+<th style="text-align: right;">Γ, x : α ⊦ A : Type<sub>i</sub> <span class="math inline">   </span> Γ ⊦ α : Type<sub>j</sub></th>
 </tr>
 </thead>
 <tbody>
@@ -630,19 +672,17 @@ False : ⊥
 <p>· &lt; · : ℕ → ℕ → Type</p>
 <p>succ_lt : Π (n : ℕ). n &lt; S n</p>
 <p>Array : Type → ℕ → Type</p>
-<p>Функция получения элемента:<br>
-get : Π (T : Type). (n : ℕ). (a : Array T n). (i : ℕ). (i &lt; n) → T</p>
-<p>Массивы зависимой длины:<br>
-λ (n : ℕ). (d : Array double (S n)). (c e : Array double n). (a b x : Array n). …</p>
-</section><div><a class="slider-prev" href="#уровни-универсумов-1"></a><a class="slider-next" href="#зависимая-сумма-пара-терм-свойство"></a></div>
-<section id="зависимая-сумма-пара-терм-свойство" class="slide level1 inference">
-<h1>Зависимая сумма (пара «терм — свойство»)</h1>
+<p>Функция получения элемента: get : Π (T : Type). (n : ℕ). (a : Array T n). (i : ℕ). (i &lt; n) → T</p>
+<p>Массивы зависимой длины: λ (n : ℕ). (d : Array double (S n)). (c e : Array double n). (a b x : Array n). …</p>
+</section><div><a class="slider-prev" href="#уровни-универсумов-1"></a><a class="slider-next" href="#зависимая-сумма-пара-терм--свойство"></a></div>
+<section id="зависимая-сумма-пара-терм--свойство" class="slide level1 inference">
+<h1 class="inference">Зависимая сумма (пара «терм — свойство»)</h1>
 <p>Зависимое произведение Π (x : A). B обобщает тип функций A → B таким образом, что тип B зависит от значения X. Можно считать</p>
 <p>Аналогично, зависимая сумма Σ (x : A). B обобщает тип пар A * B:</p>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Γ ⊦ A : Type<sub>i</sub> <span class="math inline">  </span> Γ,A ⊦ B : Type<sub>j</sub></th>
+<th style="text-align: center;">Γ ⊦ A : Type<sub>i</sub> <span class="math inline">   </span> Γ,A ⊦ B : Type<sub>j</sub></th>
 </tr>
 </thead>
 <tbody>
@@ -654,7 +694,7 @@ get : Π (T : Type). (n : ℕ). (a : Array T n). (i : ℕ). (i &lt; n) → T</p>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: right;">Γ ⊦ Σ(x : A).B : Type<sub>k</sub> <span class="math inline">  </span> Γ ⊦ a : A <span class="math inline">  </span> Γ ⊦ b : B[x := a]</th>
+<th style="text-align: right;">Γ ⊦ Σ(x : A).B : Type<sub>k</sub> <span class="math inline">   </span> Γ ⊦ a : A <span class="math inline">   </span> Γ ⊦ b : B[x := a]</th>
 </tr>
 </thead>
 <tbody>
@@ -666,7 +706,7 @@ get : Π (T : Type). (n : ℕ). (a : Array T n). (i : ℕ). (i &lt; n) → T</p>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Γ ⊦ a : Σ(x:A).B&nbsp; <span class="math inline">  </span> Γ, s : Σ(x:A).B ⊦ C : Type <span class="math inline">  </span> Γ, a : A, b : B ⊦ r : C · pair(a, b)</th>
+<th style="text-align: center;">Γ ⊦ a : Σ(x:A).B&nbsp; <span class="math inline">   </span> Γ, s : Σ(x:A).B ⊦ C : Type <span class="math inline">   </span> Γ, a : A, b : B ⊦ r : C · pair(a, b)</th>
 </tr>
 </thead>
 <tbody>
@@ -676,21 +716,17 @@ get : Π (T : Type). (n : ℕ). (a : Array T n). (i : ℕ). (i &lt; n) → T</p>
 </tbody>
 </table>
 <p>split — пример терма <strong>зависимого удаления</strong>. Он выразим через <strong>fst</strong>, <strong>snd</strong> только в исчислении с η-расширением, а для такого исчисления на настоящее время нет доказательства сильной нормализации.</p>
-<p>Функция, которая возвращает массив, имеющий длину не менее заданной:<br>
-Π (n : ℕ) . Σ (m : ℕ) (p : n &lt; m). (b : Array double m)</p>
-<p>Функция, которая факторизует число:<br>
-Π (n : ℕ). Σ (m : ℕ). (Eq 0 (mod n m))</p>
+<p>Функция, которая возвращает массив, имеющий длину не менее заданной: Π (n : ℕ) . Σ (m : ℕ) (p : n &lt; m). (b : Array double m)</p>
+<p>Функция, которая факторизует число: Π (n : ℕ). Σ (m : ℕ). (Eq 0 (mod n m))</p>
 </section><div><a class="slider-prev" href="#массив-с-контролем-границ-1"></a><a class="slider-next" href="#разрешимые-свойства"></a></div>
 <section id="разрешимые-свойства" class="slide level1">
 <h1>Разрешимые свойства</h1>
 <p>В некоторых случаях задавать какие-то ограничения на этапе компиляции затруднительно, лучше принимать решение в процессе исполнения.</p>
 <p>Сравнение <code>a &lt; b</code> можно представить в более типизированном и менее типизированном виде:</p>
-<p>Менее типизированный:<br>
-compare(a, b) : Bool</p>
-<p>Более типизированный (разрешение свойства <code>a&lt;b</code>):<br>
-compare(a, b) : {a &lt; b} + { b ⩽ a }</p>
+<p>Менее типизированный: compare(a, b) : Bool</p>
+<p>Более типизированный (разрешение свойства <code>a&lt;b</code>): compare(a, b) : {a &lt; b} + { b ⩽ a }</p>
 <p>В последнем случае оператор удаления <code>case</code> может передать полученный тип далее. В языках с зависимыми типами использовать «менее типизированный» способ разрешения свойств почти никогда не имеет смысла.</p>
-</section><div><a class="slider-prev" href="#зависимая-сумма-пара-терм-свойство"></a><a class="slider-next" href="#прогонка-в-λpω"></a></div>
+</section><div><a class="slider-prev" href="#зависимая-сумма-пара-терм--свойство"></a><a class="slider-next" href="#прогонка-в-λpω"></a></div>
 <section id="прогонка-в-λpω" class="slide level1">
 <h1>Прогонка в λPω</h1>
 </section><div><a class="slider-prev" href="#разрешимые-свойства"></a><a class="slider-next" href="#что-осталось-непроверенным"></a></div>
@@ -706,8 +742,7 @@ compare(a, b) : {a &lt; b} + { b ⩽ a }</p>
 <ol type="1">
 <li class="fragment">Б. Пирс. Типы в языках программирования. 2010</li>
 <li class="fragment">Henk Barendregt, Wil Dekkers, Richard Statman. Lambda Calculus With Types. Cambridge University Press, 2010.</li>
-<li class="fragment">М. Кривчиков. Формальные модели и верификация свойств программ с использованием промежуточного представления. Глава 1, раздел 2.1, подраздел 3.2.6.<br>
-<a href="http://istina.msu.ru/media/dissertations/dissertation/25c/edc/10283583/dissertation_1.pdf" class="uri">http://istina.msu.ru/media/dissertations/dissertation/25c/edc/10283583/dissertation_1.pdf</a></li>
+<li class="fragment">М. Кривчиков. Формальные модели и верификация свойств программ с использованием промежуточного представления. Глава 1, раздел 2.1, подраздел 3.2.6. <a href="http://istina.msu.ru/media/dissertations/dissertation/25c/edc/10283583/dissertation_1.pdf" class="uri">http://istina.msu.ru/media/dissertations/dissertation/25c/edc/10283583/dissertation_1.pdf</a></li>
 </ol>
 </section><div><a class="slider-prev" href="#что-осталось-непроверенным"></a><a class="slider-next" href="#задачи"></a></div>
 <section id="задачи" class="slide level1">
@@ -717,8 +752,7 @@ compare(a, b) : {a &lt; b} + { b ⩽ a }</p>
 <dd class="fragment">Записать тип равенства, его свойства и их доказательства в Coq так, чтобы они прошли проверку типов.
 </dd>
 <dt class="fragment"><strong>Задача 7.2 **</strong></dt>
-<dd class="fragment">Записать парадокс, вызванный циклической иерархией универсумов, в Coq и убедиться, что он не проходит проверку типов.<br>
-Тип ⊥ в Coq обозначается False.
+<dd class="fragment">Записать парадокс, вызванный циклической иерархией универсумов, в Coq и убедиться, что он не проходит проверку типов. Тип ⊥ в Coq обозначается False.
 </dd>
 <dt class="fragment"><strong>Задача 7.3 **</strong></dt>
 <dd class="fragment">Записать в Coq (или в термах исчисления конструкций) тип функции, реализующей метод прогонки, с условием корректности ответа.
@@ -729,11 +763,7 @@ compare(a, b) : {a &lt; b} + { b ⩽ a }</p>
 <h1>Задачи</h1>
 <dl>
 <dt class="fragment"><strong>Задача 7.4 ***</strong></dt>
-<dd class="fragment">Предложить способ описания в Coq (или в термах исчисления конструкций) спецификации неинициализированного массива:<br>
-Array : Type → ℕ → ?? → Type<br>
-new : Π (T : Type) (n : ℕ) . Array T n (все элементы не инициализированы)<br>
-get : Π (T : Type) (n : ℕ) (? : ??) (a : Array T n) (i : ℕ). (i &lt; n) → (элемент i инициализирован) → T<br>
-set : Π (T : Type) (n : ℕ) (? : ??) (a : Array T n) (i : ℕ) (t : T). (i &lt; n) → Array T n (? + элемент i инициализирован)
+<dd class="fragment">Предложить способ описания в Coq (или в термах исчисления конструкций) спецификации неинициализированного массива: Array : Type → ℕ → ?? → Type new : Π (T : Type) (n : ℕ) . Array T n (все элементы не инициализированы) get : Π (T : Type) (n : ℕ) (? : ??) (a : Array T n) (i : ℕ). (i &lt; n) → (элемент i инициализирован) → T set : Π (T : Type) (n : ℕ) (? : ??) (a : Array T n) (i : ℕ) (t : T). (i &lt; n) → Array T n (? + элемент i инициализирован)
 </dd>
 </dl>
 </section><div><a class="slider-prev" href="#задачи"></a><a class="slider-next"></a></div>
