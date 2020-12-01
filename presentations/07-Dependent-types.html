@@ -279,7 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a>    x[n] = (<span class="fl">1.</span> - c[n])*b[n]*(d[n] + c[n]*a[n]); </span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true"></a>    <span class="cf">for</span> (<span class="dt">int</span> j=n-<span class="dv">1</span>; j &gt;=<span class="dv">0</span>; j--) {</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true"></a>        x[i] = a[i]*x[i+<span class="dv">1</span>] + b[i+<span class="dv">1</span>];</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true"></a>        x[j] = a[j]*x[j+<span class="dv">1</span>] + b[j+<span class="dv">1</span>];</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true"></a>    }</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true"></a>}</span></code></pre></div>
 </section><div><a class="slider-prev" href="#пример-чего-мы-хотим-добиться"></a><a class="slider-next" href="#прогонка-с-простыми-типами"></a></div>
@@ -441,8 +441,12 @@ Definition tridiagonal (n : int) (d c e a b : Array double) (x : Array int) := (
 <h2 id="πx--α-a">Π(x : α). A</h2>
 <p>α и A — типы, вместо x подставляется терм.</p>
 <h2 id="массив-с-контролем-границ">Массив с контролем границ</h2>
-<p>Array : * ⇒ int ⇒ * Array double 0 Array double 10</p>
-<p>Функция, связывающая n и длину массива: Π (n : int) (Array double n) → Array double n λ (n : int). (d : Array double n). d</p>
+<p>Array : * ⇒ int ⇒ *</p>
+<p>Array double 0</p>
+<p>Array double 10</p>
+<p>Функция, связывающая n и длину массива:</p>
+<p>Π (n : int) (Array double n) → Array double n</p>
+<p>λ (n : int). (d : Array double n). d</p>
 </section><div><a class="slider-prev" href="#λ-куб-барендрегта"></a><a class="slider-next" href="#исчисление-конструкций-λpω"></a></div>
 <section id="исчисление-конструкций-λpω" class="slide level1 inference">
 <h1 class="inference">Исчисление Конструкций (λPω)</h1>
@@ -620,15 +624,26 @@ Definition tridiagonal (n : int) (d c e a b : Array double) (x : Array int) := (
 </tbody>
 </table>
 </div>
-<p>— рекурсивное включение универсумов, которое мы дали в первом правиле редукции сегодняшней лекции: <span class="math inline"><strong>T</strong><strong>y</strong><strong>p</strong><strong>e</strong> : <strong>T</strong><strong>y</strong><strong>p</strong><strong>e</strong></span>. Оно делает противоречивым даже System F<span class="math inline"><sub><em>ω</em></sub></span> — полиморфное λ-исчисление с конструкторами типов.</p>
+<p>— рекурсивное включение универсумов, которое мы дали в первом правиле редукции сегодняшней лекции:</p>
+<p><span class="math inline"><strong>T</strong><strong>y</strong><strong>p</strong><strong>e</strong> : <strong>T</strong><strong>y</strong><strong>p</strong><strong>e</strong></span>.</p>
+<p>Оно делает противоречивым даже System F<span class="math inline"><sub><em>ω</em></sub></span> — полиморфное λ-исчисление с конструкторами типов.</p>
 </section><div><a class="slider-prev" href="#все-виды-абстракций--в-один"></a><a class="slider-next" href="#парадокс"></a></div>
 <section id="парадокс" class="slide level1">
 <h1>Парадокс</h1>
 <p>Hurkens A.J.C. A simplification of Girard’s paradox // Typed Lambda Calculi and Applications / ed. Dezani-Ciancaglini M., Plotkin G. Berlin, Heidelberg: Springer Berlin Heidelberg, 1995. Vol. 902. P. 266–278.</p>
 <div style="font-size:0.8em">
-<p><span class="math inline">2<sup><em>S</em></sup></span> ≡ Pow ≡ λ (S : Type). Π S . Type Univ ≡ Π (X : Type). (Π (Π <span class="math inline">2<sup>2<sup><em>X</em></sup></sup></span> . X). <span class="math inline">2<sup>2<sup><em>X</em></sup></sup></span>) PPUniv ≡ <span class="math inline">2<sup>2<sup><em>U</em><em>n</em><em>i</em><em>v</em></sup></sup></span> τ ≡ λ (t : PPUniv) (X : Type) (f : Π <span class="math inline">2<sup>2<sup><em>X</em></sup></sup></span> . X ) (p : <span class="math inline">2<sup><em>X</em></sup></span> ) . t · (λ (x : Univ) . (p (f ((x X) f)))) σ ≡ λ (s : Univ) . ((s · Univ) (λ (t : PPUniv) . τ · t)) Δ ≡ λ (y : Univ) . (Π (Π (p : (Pow Univ)). (σ y p) (p (τ (σ y)))) ⊥) Ω ≡ (τ · (λ (p : 2<sup>Univ</sup>)) · (Π (x : Univ). (σ · x · p) · (p · x))) False ≡ (λ (O : (Π (p : 2<sup>Univ</sup>) (Π (x : Univ) . (σ · x · p) · (p · x)) (p · Ω) )). (((O Δ) (λ (x : Univ) (t : σ x Δ) (u : (Π (p : (Pow Univ)). (σ y p) (p (τ (σ y))))). (u · (λ (y : Univ)) (p (τ (σ y))))))) · (λ (p : 2<sup>Univ</sup>) . (O (λ (y : Univ) . p (τ (σ y))))) · (λ (p : 2<sup>Univ</sup>). (v : (Π (x : Univ). (σ x p) (p x))). (v · Ω) · (λ (x : Univ) . (v · (τ (σ x)))))) False : ⊥</p>
+<p><span class="math inline">2<sup><em>S</em></sup></span> ≡ Pow ≡ λ (S : Type). Π S . Type</p>
+<p>Univ ≡ Π (X : Type). (Π (Π <span class="math inline">2<sup>2<sup><em>X</em></sup></sup></span> . X). <span class="math inline">2<sup>2<sup><em>X</em></sup></sup></span>)</p>
+<p>PPUniv ≡ <span class="math inline">2<sup>2<sup><em>U</em><em>n</em><em>i</em><em>v</em></sup></sup></span></p>
+<p>τ ≡ λ (t : PPUniv) (X : Type) (f : Π <span class="math inline">2<sup>2<sup><em>X</em></sup></sup></span> . X ) (p : <span class="math inline">2<sup><em>X</em></sup></span> ) . t · (λ (x : Univ) . (p (f ((x X) f))))</p>
+<p>σ ≡ λ (s : Univ) . ((s · Univ) (λ (t : PPUniv) . τ · t))</p>
+<p>Δ ≡ λ (y : Univ) . (Π (Π (p : (Pow Univ)). (σ y p) (p (τ (σ y)))) ⊥)</p>
+<p>Ω ≡ (τ · (λ (p : 2<sup>Univ</sup>)) · (Π (x : Univ). (σ · x · p) · (p · x)))</p>
+<p>False ≡ (λ (O : (Π (p : 2<sup>Univ</sup>) (Π (x : Univ) . (σ · x · p) · (p · x)) (p · Ω) )). (((O Δ) (λ (x : Univ) (t : σ x Δ) (u : (Π (p : (Pow Univ)). (σ y p) (p (τ (σ y))))). (u · (λ (y : Univ)) (p (τ (σ y))))))) · (λ (p : 2<sup>Univ</sup>) . (O (λ (y : Univ) . p (τ (σ y))))) · (λ (p : 2<sup>Univ</sup>). (v : (Π (x : Univ). (σ x p) (p x))). (v · Ω) · (λ (x : Univ) . (v · (τ (σ x))))))</p>
+<p>False : ⊥</p>
 </div>
 <p>Терм False не нормализуем.</p>
+<p><a href="http://liamoc.net/posts/2015-09-10-girards-paradox.html" class="uri">http://liamoc.net/posts/2015-09-10-girards-paradox.html</a></p>
 </section><div><a class="slider-prev" href="#универсумы"></a><a class="slider-next" href="#уровни-универсумов"></a></div>
 <section id="уровни-универсумов" class="slide level1 inference">
 <h1 class="inference">Уровни универсумов</h1>
@@ -742,8 +757,11 @@ Definition tridiagonal (n : int) (d c e a b : Array double) (x : Array int) := (
 <ol type="1">
 <li class="fragment">Б. Пирс. Типы в языках программирования. 2010</li>
 <li class="fragment">Henk Barendregt, Wil Dekkers, Richard Statman. Lambda Calculus With Types. Cambridge University Press, 2010.</li>
-<li class="fragment">М. Кривчиков. Формальные модели и верификация свойств программ с использованием промежуточного представления. Глава 1, раздел 2.1, подраздел 3.2.6. <a href="http://istina.msu.ru/media/dissertations/dissertation/25c/edc/10283583/dissertation_1.pdf" class="uri">http://istina.msu.ru/media/dissertations/dissertation/25c/edc/10283583/dissertation_1.pdf</a></li>
+<li class="fragment">М. Кривчиков. Формальные модели и верификация свойств программ с использованием промежуточного представления.</li>
 </ol>
+<p>Глава 1, раздел 2.1, подраздел 3.2.6.</p>
+<p><a href="https://istina.msu.ru/dissertations/10283583/" class="uri">https://istina.msu.ru/dissertations/10283583/</a></p>
+<p><a href="https://istina.msu.ru/download/10295218/1kk5zk:mNYCzzLrvKtV3M6NcjnCEr_L2tI/" class="uri">https://istina.msu.ru/download/10295218/1kk5zk:mNYCzzLrvKtV3M6NcjnCEr_L2tI/</a></p>
 </section><div><a class="slider-prev" href="#что-осталось-непроверенным"></a><a class="slider-next" href="#задачи"></a></div>
 <section id="задачи" class="slide level1">
 <h1>Задачи</h1>
@@ -763,9 +781,13 @@ Definition tridiagonal (n : int) (d c e a b : Array double) (x : Array int) := (
 <h1>Задачи</h1>
 <dl>
 <dt class="fragment"><strong>Задача 7.4 ***</strong></dt>
-<dd class="fragment">Предложить способ описания в Coq (или в термах исчисления конструкций) спецификации неинициализированного массива: Array : Type → ℕ → ?? → Type new : Π (T : Type) (n : ℕ) . Array T n (все элементы не инициализированы) get : Π (T : Type) (n : ℕ) (? : ??) (a : Array T n) (i : ℕ). (i &lt; n) → (элемент i инициализирован) → T set : Π (T : Type) (n : ℕ) (? : ??) (a : Array T n) (i : ℕ) (t : T). (i &lt; n) → Array T n (? + элемент i инициализирован)
+<dd class="fragment">Предложить способ описания в Coq (или в термах исчисления конструкций) спецификации неинициализированного массива:
 </dd>
 </dl>
+<p>Array : Type → ℕ → ?? → Type</p>
+<p>new : Π (T : Type) (n : ℕ) . Array T n (все элементы не инициализированы)</p>
+<p>get : Π (T : Type) (n : ℕ) (? : ??) (a : Array T n) (i : ℕ). (i &lt; n) → (элемент i инициализирован) → T</p>
+<p>set : Π (T : Type) (n : ℕ) (? : ??) (a : Array T n) (i : ℕ) (t : T). (i &lt; n) → Array T n (? + элемент i инициализирован)</p>
 </section><div><a class="slider-prev" href="#задачи"></a><a class="slider-next"></a></div>
 
 <!-- start page -->

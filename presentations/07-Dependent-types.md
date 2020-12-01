@@ -113,7 +113,7 @@ void tridiagonal(int n, double* d, double* c,
 
     x[n] = (1. - c[n])*b[n]*(d[n] + c[n]*a[n]); 
     for (int j=n-1; j >=0; j--) {
-        x[i] = a[i]*x[i+1] + b[i+1];
+        x[j] = a[j]*x[j+1] + b[j+1];
     }
 }
 ```
@@ -301,11 +301,15 @@ Barendregt H.P. Introduction to generalized type systems // J. Funct. Program. 1
 
 ## Массив с контролем границ
 Array : \* ⇒ int ⇒ \*
+
 Array double 0
+
 Array double 10
 
 Функция, связывающая n и длину массива:
+
 Π (n : int) (Array double n) → Array double n
+
 λ (n : int). (d : Array double n). d
 
 # Исчисление Конструкций (λPω) {.inference}
@@ -389,30 +393,45 @@ $\mathbf{Type}$ — универсум («тип всех типов»), в об
   Γ ⊦ Type : Type
 
 </div>
-— рекурсивное включение универсумов, которое мы дали в первом правиле редукции сегодняшней лекции: $\mathbf{Type} : \mathbf{Type}$. Оно делает противоречивым даже System F${}_ω$ — полиморфное λ-исчисление с конструкторами типов.
+— рекурсивное включение универсумов, которое мы дали в первом правиле редукции сегодняшней лекции:
+
+$\mathbf{Type} : \mathbf{Type}$.
+
+Оно делает противоречивым даже System F${}_ω$ — полиморфное λ-исчисление с конструкторами типов.
 
 # Парадокс
 Hurkens A.J.C. A simplification of Girard’s paradox // Typed Lambda Calculi and Applications / ed. Dezani-Ciancaglini M., Plotkin G. Berlin, Heidelberg: Springer Berlin Heidelberg, 1995. Vol. 902. P. 266–278.
 
 <div style="font-size:0.8em">
 $2^S$ ≡ Pow ≡ λ (S : Type). Π S . Type
+
 Univ ≡ Π (X : Type). (Π (Π $2^{2^X}$ . X). $2^{2^X}$)
+
 PPUniv ≡ $2^{2^{Univ}}$
+
 τ ≡ λ (t : PPUniv) (X : Type) (f : Π $2^{2^X}$ . X ) (p : $2^X$ ) .
   t · (λ (x : Univ) . (p (f ((x X) f))))
+  
 σ ≡ λ (s : Univ) . ((s · Univ) (λ (t : PPUniv) . τ · t))
+
 Δ ≡ λ (y : Univ) . (Π (Π (p : (Pow Univ)). (σ y p) (p (τ (σ y)))) ⊥)
+
 Ω ≡  (τ · (λ (p : 2^Univ^)) · (Π (x : Univ). (σ · x · p) · (p · x)))
+
 False ≡ (λ (O :  (Π (p : 2^Univ^) (Π (x : Univ) . (σ · x · p) · (p · x)) (p · Ω) )).
   (((O Δ) (λ (x : Univ) (t : σ x Δ) (u : (Π (p : (Pow Univ)). (σ y p) (p (τ (σ y))))).
       (u · (λ (y : Univ)) (p (τ (σ y)))))))
   · (λ (p : 2^Univ^) . (O (λ (y : Univ) . p (τ (σ y)))))
   · (λ (p : 2^Univ^). (v : (Π (x : Univ). (σ x p) (p x))).
         (v · Ω) · (λ (x : Univ) . (v · (τ (σ x))))))
+
 False : ⊥
 </div>
 
 Терм False не нормализуем.
+
+http://liamoc.net/posts/2015-09-10-girards-paradox.html
+
 
 # Уровни универсумов {.inference}
 
@@ -504,8 +523,13 @@ compare(a, b) : {a < b} + { b ⩽ a }
 # Литература
 1. Б. Пирс. Типы в языках программирования. 2010
 2. Henk Barendregt, Wil Dekkers, Richard Statman. Lambda Calculus With Types. Cambridge University Press, 2010.
-3. М. Кривчиков. Формальные модели и верификация свойств программ с использованием промежуточного представления. Глава 1, раздел 2.1, подраздел 3.2.6.
-http://istina.msu.ru/media/dissertations/dissertation/25c/edc/10283583/dissertation_1.pdf
+3. М. Кривчиков. Формальные модели и верификация свойств программ с использованием промежуточного представления.
+
+Глава 1, раздел 2.1, подраздел 3.2.6.
+
+https://istina.msu.ru/dissertations/10283583/
+
+https://istina.msu.ru/download/10295218/1kk5zk:mNYCzzLrvKtV3M6NcjnCEr_L2tI/
 
 # Задачи
 **Задача 7.1 \***
@@ -522,7 +546,11 @@ http://istina.msu.ru/media/dissertations/dissertation/25c/edc/10283583/dissertat
 # Задачи 
 **Задача 7.4 \*\*\***
 ~ Предложить способ описания в Coq (или в термах исчисления конструкций)  спецификации неинициализированного массива:
+
 Array : Type → ℕ → ?? → Type
+
 new : Π (T : Type) (n : ℕ) . Array T n (все элементы не инициализированы)
+
 get : Π (T : Type) (n : ℕ) (? : ??) (a : Array T n) (i : ℕ). (i < n) → (элемент i инициализирован) → T
+
 set : Π (T : Type) (n : ℕ) (? : ??) (a : Array T n) (i : ℕ) (t : T). (i < n) → Array T n (? + элемент i инициализирован) 
