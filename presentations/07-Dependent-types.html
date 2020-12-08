@@ -757,9 +757,9 @@ Definition tridiagonal (n : int) (d c e a b : Array double) (x : Array int) := (
 <p>Менее типизированный: compare(a, b) : Bool</p>
 <p>Более типизированный (разрешение свойства <code>a&lt;b</code>): compare(a, b) : {a &lt; b} + { b ⩽ a }</p>
 <p>В последнем случае оператор удаления <code>case</code> может передать полученный тип далее. В языках с зависимыми типами использовать «менее типизированный» способ разрешения свойств почти никогда не имеет смысла.</p>
-</section><div><a class="slider-prev" href="#зависимая-сумма-пара-терм--свойство"></a><a class="slider-next" href="#прогонка-в-λpω"></a></div>
-<section id="прогонка-в-λpω" class="slide level1">
-<h1>Прогонка в λPω</h1>
+</section><div><a class="slider-prev" href="#зависимая-сумма-пара-терм--свойство"></a><a class="slider-next" href="#прогонка-в-λπω"></a></div>
+<section id="прогонка-в-λπω" class="slide level1">
+<h1>Прогонка в λΠω</h1>
 <p><a href="07.v">./07.v</a></p>
 </section><div><a class="slider-prev" href="#разрешимые-свойства"></a><a class="slider-next" href="#что-осталось-непроверенным"></a></div>
 <section id="что-осталось-непроверенным" class="slide level1">
@@ -768,7 +768,17 @@ Definition tridiagonal (n : int) (d c e a b : Array double) (x : Array int) := (
 <li class="fragment">корректная последовательность доступа к элементам массива</li>
 <li class="fragment">корректность результата (после обработки для матрицы с диагональным преобладанием в массиве x должно быть решение исходной системы линейных уравнений).</li>
 </ul>
-</section><div><a class="slider-prev" href="#прогонка-в-λpω"></a><a class="slider-next" href="#литература"></a></div>
+</section><div><a class="slider-prev" href="#прогонка-в-λπω"></a><a class="slider-next" href="#соответствие-карри-говарда"></a></div>
+<section id="соответствие-карри-говарда" class="slide level1">
+<h1>Соответствие Карри-Говарда</h1>
+<h2 id="λπ-λ-исчисление-с-простыми-зависимыми-типами">λΠ (λ-исчисление с простыми зависимыми типами)</h2>
+<p>Типы могут зависеть от значений; нет полиморфизма или конструкторов типов.</p>
+<p>Можно связать с конструктивной логикой первого порядка (?).</p>
+<h2 id="λπω-исчисление-конструкций">λΠω (исчисление конструкций)</h2>
+<p>Можно связать с конструктивным исчислением предикатов второго порядка (?).</p>
+<p>Есть пример, демонстрирующий эквивалентность исчисления конструкций и аксиоматики IZF (интуиционистская аксиоматика Цермело-Френкеля):</p>
+<p><a href="http://www.lix.polytechnique.fr/Labo/Bruno.Barras/proofs/sets/">B. Barras. Sets in Coq, Coq in Sets.</a></p>
+</section><div><a class="slider-prev" href="#что-осталось-непроверенным"></a><a class="slider-next" href="#литература"></a></div>
 <section id="литература" class="slide level1">
 <h1>Литература</h1>
 <ol type="1">
@@ -779,7 +789,7 @@ Definition tridiagonal (n : int) (d c e a b : Array double) (x : Array int) := (
 <p>Глава 1, раздел 2.1, подраздел 3.2.6.</p>
 <p><a href="https://istina.msu.ru/dissertations/10283583/" class="uri">https://istina.msu.ru/dissertations/10283583/</a></p>
 <p><a href="https://istina.msu.ru/download/10295218/1kk5zk:mNYCzzLrvKtV3M6NcjnCEr_L2tI/" class="uri">https://istina.msu.ru/download/10295218/1kk5zk:mNYCzzLrvKtV3M6NcjnCEr_L2tI/</a></p>
-</section><div><a class="slider-prev" href="#что-осталось-непроверенным"></a><a class="slider-next" href="#задачи"></a></div>
+</section><div><a class="slider-prev" href="#соответствие-карри-говарда"></a><a class="slider-next" href="#задачи"></a></div>
 <section id="задачи" class="slide level1">
 <h1>Задачи</h1>
 <dl>
