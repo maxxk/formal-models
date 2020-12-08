@@ -1,7 +1,7 @@
 Variable (int double : Type).
-Variable (Array : Type -> Type)
-    (set : forall {T : Type}, Array T -> int -> T -> unit)
-    (get : forall {T : Type}, Array T -> int -> T).
+Variable (Array : Type -> nat -> Type)
+    (set : forall {T : Type} {n : nat}, Array T n -> forall (i : nat), i < n -> T -> unit)
+    (get : forall {T : Type} {n : nat}, Array T n -> forall (i : nat), i < n -> T).
 Variable (toInt : nat -> int) (toDouble : nat -> double).
 Variable 
   (add sub div mul : double -> double -> double)
@@ -9,9 +9,18 @@ Variable
   (inc dec : int -> int)
   (loop : int -> int -> (int -> unit) -> unit).
 
-Definition tridiagonal (n : int) (d c e a b : Array double) (x : Array int) := (
-  set a (toInt 1) (div (neg (get e (toInt 0))) (get d (toInt 0))),
-  set b (toInt 1) (div (get b (toInt 0)) (get d (toInt 0))),
+Require Import Coq.Program.Tactics.
+Program Definition tridiagonal (n : nat) (d : Array double (S n)) (c e a b : Array double n) (x : Array int (S n)) := (
+  set a 1 _ (div (neg (get e 0 _)) (get d 0 _))
+
+).
+Obligation 1. Admitted.
+Obligation 2. Admitted.
+Obligation 3. unfold lt. Search (le). apply le_n_S. apply le_0_n. Qed.
+
+
+Search (le). auto with *. Search le. induction n. induction n. auto. auto. apply le_0_n. auto with *.
+  set b 1 (div (get b (toInt 0)) (get d (toInt 0))),
 
   loop (toInt 1) n (fun i => let 
     denominator := (add (get d i) (mul (get c i) (get a i))) in

@@ -608,7 +608,20 @@ Definition tridiagonal (n : int) (d c e a b : Array double) (x : Array int) := (
 </section><div><a class="slider-prev" href="#исчисление-конструкций-λpω"></a><a class="slider-next" href="#универсумы"></a></div>
 <section id="универсумы" class="slide level1 inference">
 <h1 class="inference">Универсумы</h1>
-<h2 id="парадокс-бурали-форти-в-исчислении-конструкций">Парадокс Бурали-Форти в исчислении конструкций</h2>
+<p>В чём «физический смысл» этого правила: Γ ⊦ * : *</p>
+<p>Тип функции на значениях:</p>
+<p>id ≡ λ(x : ℕ).x : ℕ → ℕ (≡ Π(x : ℕ).ℕ, что допустимо т.к. ℕ : *).</p>
+<p>Обобщённый список (полиморфное кодирование, как в System Fω):</p>
+<p>List T ≡ λ(T : *). Π(R : *). R → (T → R → R) → R</p>
+<p>List T : ?</p>
+<p>С последней частью всё понятно: R : *, T : * ⊢ R → (T → R → R) → R : *</p>
+<p>Для следующей части: Π(R : *). R → (T → R → R) → R</p>
+<p>нужно: Π (x : α). A : * ⊣ α : *, x : α ⊦ A : *</p>
+<p>С нашим правилом: α : * ≡ * : *</p>
+<p>Итого: List : Π(T : *).*</p>
+</section><div><a class="slider-prev" href="#все-виды-абстракций--в-один"></a><a class="slider-next" href="#парадокс-бурали-форти-в-исчислении-конструкций"></a></div>
+<section id="парадокс-бурали-форти-в-исчислении-конструкций" class="slide level1 inference">
+<h1 class="inference">Парадокс Бурали-Форти в исчислении конструкций</h1>
 <p><span class="math inline"><strong>T</strong><strong>y</strong><strong>p</strong><strong>e</strong></span> — универсум («тип всех типов»), в общем случаи такие конструкции опасны, т.к. позволяют определить парадоксы.</p>
 <div style="color: red; display: inline-block">
 <table>
@@ -627,7 +640,7 @@ Definition tridiagonal (n : int) (d c e a b : Array double) (x : Array int) := (
 <p>— рекурсивное включение универсумов, которое мы дали в первом правиле редукции сегодняшней лекции:</p>
 <p><span class="math inline"><strong>T</strong><strong>y</strong><strong>p</strong><strong>e</strong> : <strong>T</strong><strong>y</strong><strong>p</strong><strong>e</strong></span>.</p>
 <p>Оно делает противоречивым даже System F<span class="math inline"><sub><em>ω</em></sub></span> — полиморфное λ-исчисление с конструкторами типов.</p>
-</section><div><a class="slider-prev" href="#все-виды-абстракций--в-один"></a><a class="slider-next" href="#парадокс"></a></div>
+</section><div><a class="slider-prev" href="#универсумы"></a><a class="slider-next" href="#парадокс"></a></div>
 <section id="парадокс" class="slide level1">
 <h1>Парадокс</h1>
 <p>Hurkens A.J.C. A simplification of Girard’s paradox // Typed Lambda Calculi and Applications / ed. Dezani-Ciancaglini M., Plotkin G. Berlin, Heidelberg: Springer Berlin Heidelberg, 1995. Vol. 902. P. 266–278.</p>
@@ -644,7 +657,7 @@ Definition tridiagonal (n : int) (d c e a b : Array double) (x : Array int) := (
 </div>
 <p>Терм False не нормализуем.</p>
 <p><a href="http://liamoc.net/posts/2015-09-10-girards-paradox.html" class="uri">http://liamoc.net/posts/2015-09-10-girards-paradox.html</a></p>
-</section><div><a class="slider-prev" href="#универсумы"></a><a class="slider-next" href="#уровни-универсумов"></a></div>
+</section><div><a class="slider-prev" href="#парадокс-бурали-форти-в-исчислении-конструкций"></a><a class="slider-next" href="#уровни-универсумов"></a></div>
 <section id="уровни-универсумов" class="slide level1 inference">
 <h1 class="inference">Уровни универсумов</h1>
 <p>Для того, чтобы избежать таких парадоксов, рассматривают не один универсум Type : Type, а их набор Type<sub>i</sub>, где i — какой-то набор индексов с заданным строгим порядком &lt;. Обычно используется что-то вроде решётки, чтобы у любой пары индексов был максимальный индекс max, нестрого больший i, j ⩽ max(i,j).</p>
@@ -661,9 +674,6 @@ Definition tridiagonal (n : int) (d c e a b : Array double) (x : Array int) := (
 </tr>
 </tbody>
 </table>
-</section><div><a class="slider-prev" href="#парадокс"></a><a class="slider-next" href="#уровни-универсумов-1"></a></div>
-<section id="уровни-универсумов-1" class="slide level1 inference">
-<h1 class="inference">Уровни универсумов</h1>
 <p>А правила типизации зависимого произведения — к виду:</p>
 <table>
 <thead>
@@ -677,8 +687,14 @@ Definition tridiagonal (n : int) (d c e a b : Array double) (x : Array int) := (
 </tr>
 </tbody>
 </table>
+</section><div><a class="slider-prev" href="#парадокс"></a><a class="slider-next" href="#уровни-универсумов-1"></a></div>
+<section id="уровни-универсумов-1" class="slide level1">
+<h1>Уровни универсумов</h1>
 <p>При проверке типов индексы строятся в виде ориентированного графа, рёбра которого помечены &lt; и ⩽, а потом, например, алгоритмом Тарьяна, определяется, можно ли получить на основе этого графа требуемый порядок (можно, если нет ориентированного цикла с одним из рёбер, помеченных &lt;).</p>
 <p>Luo Z. ECC, an extended calculus of constructions // [1989] Proceedings. Fourth Annual Symposium on Logic in Computer Science. IEEE Comput. Soc. Press, 1989. P. 386–395.</p>
+<p>Но в итоге всё равно получается, что объявления обобщённых типов это, фактически, схемы типов, полиморфные по индексам типов:</p>
+<p>List T ≡ λ(T : Typeᵢ). Π(R : Typeⱼ). R → (T → R → R) → R</p>
+<p>List : Π(T : Typeᵢ).Typeₖ, k &gt; j.</p>
 </section><div><a class="slider-prev" href="#уровни-универсумов"></a><a class="slider-next" href="#массив-с-контролем-границ-1"></a></div>
 <section id="массив-с-контролем-границ-1" class="slide level1">
 <h1>Массив с контролем границ</h1>
@@ -692,7 +708,7 @@ Definition tridiagonal (n : int) (d c e a b : Array double) (x : Array int) := (
 </section><div><a class="slider-prev" href="#уровни-универсумов-1"></a><a class="slider-next" href="#зависимая-сумма-пара-терм--свойство"></a></div>
 <section id="зависимая-сумма-пара-терм--свойство" class="slide level1 inference">
 <h1 class="inference">Зависимая сумма (пара «терм — свойство»)</h1>
-<p>Зависимое произведение Π (x : A). B обобщает тип функций A → B таким образом, что тип B зависит от значения X. Можно считать</p>
+<p>Зависимое произведение Π (x : A). B обобщает тип функций A → B таким образом, что тип B зависит от значения X.</p>
 <p>Аналогично, зависимая сумма Σ (x : A). B обобщает тип пар A * B:</p>
 <table>
 <thead>
@@ -744,6 +760,7 @@ Definition tridiagonal (n : int) (d c e a b : Array double) (x : Array int) := (
 </section><div><a class="slider-prev" href="#зависимая-сумма-пара-терм--свойство"></a><a class="slider-next" href="#прогонка-в-λpω"></a></div>
 <section id="прогонка-в-λpω" class="slide level1">
 <h1>Прогонка в λPω</h1>
+<p><a href="07.v">./07.v</a></p>
 </section><div><a class="slider-prev" href="#разрешимые-свойства"></a><a class="slider-next" href="#что-осталось-непроверенным"></a></div>
 <section id="что-осталось-непроверенным" class="slide level1">
 <h1>Что осталось непроверенным</h1>

@@ -1,7 +1,7 @@
 <!DOCTYPE html><html><head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <title></title>
+  <title>08-Coq</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -22,8 +22,7 @@
 <h2 id="языки-программирования-на-основе-исчисления-конструкций">Языки программирования на основе Исчисления Конструкций</h2>
 <h2 id="работа-в-среде-coq">Работа в среде Coq</h2>
 <p><a href="mailto:maxim.krivchikov@gmail.com" class="email">maxim.krivchikov@gmail.com</a></p>
-<a href="https://maxxk.github.io/formal-models/" class="uri">https://maxxk.github.io/formal-models/</a><br>
-
+<a href="https://maxxk.github.io/formal-models/" class="uri">https://maxxk.github.io/formal-models/</a>
 <style>
 .inference table {
     display: inline-block;
@@ -38,25 +37,25 @@
 </section><div><a class="slider-prev"></a><a class="slider-next" href="#индукция"></a></div>
 <section id="индукция" class="slide level1">
 <h1>Индукция</h1>
-<p>Ранее мы определили натуральные числа в системе Fω, которые кодируют принцип итерации:<br>
-ℕ' ≡ Π (T : Type). T → (T → T) → T<br>
-0 : ℕ', S : ℕ' → ℕ'</p>
+<p>Ранее мы определили натуральные числа в системе Fω, которые кодируют принцип итерации:</p>
+<p>ℕ' ≡ Π (T : Type). T → (T → T) → T</p>
+<p>0 : ℕ', S : ℕ' → ℕ'</p>
 <p>Можно ли описать принцип индукции по натуральным числам в терминах зависимых типов?</p>
 <p>Для того, чтобы доказать утверждение о натуральном числе P : ℕ → Type по индукции, мы строим:</p>
 <ol type="1">
 <li class="fragment">Базу индукции — доказательство p<sub>0</sub> : P(0)</li>
 <li class="fragment">Шаг индукции — для произвольного k : ℕ способ получения P(k+1) из P(k)</li>
 </ol>
-<p>Если записать это в виде типа:<br>
-ind<sub>ℕ</sub> : Π (P : ℕ → Type). (p<sub>0</sub> : P·0). (step : Π(k : ℕ). P·k → P·(S·k))</p>
+<p>Если записать это в виде типа:</p>
+<p>ind<sub>ℕ</sub> : Π (P : ℕ → Type). (p<sub>0</sub> : P·0). (step : Π(k : ℕ). P·k → P·(S·k))</p>
 </section><div><a class="slider-prev" href="#математические-модели-вычислений"></a><a class="slider-next" href="#зависимое-удаление"></a></div>
 <section id="зависимое-удаление" class="slide level1 inference">
-<h1>Зависимое удаление</h1>
+<h1 class="inference">Зависимое удаление</h1>
 <p>Зависимое удаление для зависимой суммы позволяют получать доказательства свойств для пары:</p>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Γ ⊦ a : Σ(x:A).B&nbsp; <span class="math inline">  </span> Γ, s : Σ(x:A).B ⊦ C : Type <span class="math inline">  </span> Γ, a : A, b : B ⊦ r : C · pair(a, b)</th>
+<th style="text-align: center;">Γ ⊦ a : Σ(x:A).B&nbsp; <span class="math inline">   </span> Γ, s : Σ(x:A).B ⊦ C : Type <span class="math inline">   </span> Γ, a : A, b : B ⊦ r : C · pair(a, b)</th>
 </tr>
 </thead>
 <tbody>
@@ -68,19 +67,19 @@ ind<sub>ℕ</sub> : Π (P : ℕ → Type). (p<sub>0</sub> : P·0). (step : Π(k 
 <p>«Для любого элемента a : A, такого, что b : B(a), верно C(a, b)»</p>
 <p>Принцип индукции описывает терм зависимого удаления для натуральных чисел:</p>
 <p>ind<sub>ℕ</sub> : Π (P : ℕ → Type). (p<sub>0</sub> : P·0). (step : Π(k : ℕ). P·k → P·(S·k))</p>
-<p>К сожалению, натуральные числа с индукцией невозможно закодировать в исчислении конструкций так же, как итерацию:<br>
-ℕ'' ≡ Π (P : <strong>ℕ?</strong> → Type). (p<sub>0</sub> : P·<strong>0?</strong>). (step : Π(k : <strong>ℕ?</strong>). P·k → P·(<strong>S?</strong>·k))</p>
+<p>К сожалению, натуральные числа с индукцией невозможно закодировать в исчислении конструкций так же, как итерацию:</p>
+<p>ℕ'' ≡ Π (P : <strong>ℕ?</strong> → Type). (p<sub>0</sub> : P·<strong>0?</strong>). (step : Π(k : <strong>ℕ?</strong>). P·k → P·(<strong>S?</strong>·k))</p>
 <p>Легко заметить, что итерация следует из индукции при P ≡ λ(n : ℕ). Type.</p>
 </section><div><a class="slider-prev" href="#индукция"></a><a class="slider-next" href="#индуктивные-типы"></a></div>
 <section id="индуктивные-типы" class="slide level1">
 <h1>Индуктивные типы</h1>
 <p>— средства для создания новых типов, имеющих рекурсивную структуру. Такие средства, как правило, включают конструкторы для элементов типа и «принцип индукции» или «принцип итерации» — терм удаления элементов индуктивного типа.</p>
 <p>Натуральные числа — простейший пример индуктивного типа, можно придумать и более сложные, такие как отношение «меньше или равно» на натуральных числах:</p>
-<p>· ⩽ · : ℕ → ℕ → Type<br>
-x_leq_x : Π(x : ℕ). x ⩽ x<br>
-leq_S : Π(x y : ℕ). x ⩽ y → x ⩽ y + 1</p>
-<p>По этому определению можно вывести принцип ограниченной индукции:<br>
-leq_ind : Π (n : ℕ) (P : ℕ → Type). P · n → (Π(m : ℕ). m ⩽ n → P m → P (S m)) → Π (n<sub>0</sub> : ℕ). n ⩽ n<sub>0</sub> → P n<sub>0</sub></p>
+<p>· ⩽ · : ℕ → ℕ → Type</p>
+<p>x_leq_x : Π(x : ℕ). x ⩽ x</p>
+<p>leq_S : Π(x y : ℕ). x ⩽ y → x ⩽ y + 1</p>
+<p>По этому определению можно вывести принцип ограниченной индукции:</p>
+<p>leq_ind : Π (n : ℕ) (P : ℕ → Type). P · n → (Π(m : ℕ). m ⩽ n → P m → P (S m)) → Π (n<sub>0</sub> : ℕ). n ⩽ n<sub>0</sub> → P n<sub>0</sub></p>
 </section><div><a class="slider-prev" href="#зависимое-удаление"></a><a class="slider-next" href="#рекурсивные-типы"></a></div>
 <section id="рекурсивные-типы" class="slide level1">
 <h1>Рекурсивные типы</h1>
@@ -90,23 +89,19 @@ leq_ind : Π (n : ℕ) (P : ℕ → Type). P · n → (Π(m : ℕ). m ⩽ n → 
 <li class="fragment">введения inj<sub>F</sub> : F (μF) → μ F</li>
 <li class="fragment">удаления (принцип итерации) rec<sub>F</sub> : Π (A : Type). ((μF → A) → F ·(μ F) → A ) → μF → A,</li>
 </ul>
-<p>и правило редукции:<br>
-rec<sub>F</sub> · A · fn · (inj<sub>F</sub> · x) ⟶ fn · (rec<sub>F</sub> · A · fn) · x</p>
+<p>и правило редукции:</p>
+<p>rec<sub>F</sub> · A · fn · (inj<sub>F</sub> · x) ⟶ fn · (rec<sub>F</sub> · A · fn) · x</p>
 <p>Для натуральных чисел: F<sub>ℕ</sub> ≡ λ N. T + N.</p>
-Подробнее:<br>
-
+Подробнее:
 <div style="font-size: 0.8em">
-Abel, Andreas, Ralph Matthes, и Tarmo Uustalu. «Iteration and coiteration schemes for higher-order and nested datatypes». Theoretical Computer Science 333, вып. 1–2 (март 2005 г.): 3–66. <a href="doi:10.1016/j.tcs.2004.10.017" class="uri">doi:10.1016/j.tcs.2004.10.017</a>.<br>
-Ahn, Ki Yung, и Tim Sheard. «A hierarchy of mendler style recursion combinators». ACM SIGPLAN Notices 46, вып. 9 (сентябрь 2011 г.): 234–46. <a href="doi:10.1145/2034574.2034807" class="uri">doi:10.1145/2034574.2034807</a>.<br>
-Fumex, Clément, Neil Ghani, и Patricia Johann. «Indexed Induction and Coinduction, Fibrationally». В Algebra and Coalgebra in Computer Science, 176–91. Springer, 2011. <a href="http://link.springer.com/chapter/10.1007/978-3-642-22944-2_13" class="uri">http://link.springer.com/chapter/10.1007/978-3-642-22944-2_13</a>.<br>
-По последней статье — лучше подождать несколько занятий, пока мы не рассмотрим введение в теорию категорий.
+<p>Abel, Andreas, Ralph Matthes, и Tarmo Uustalu. «Iteration and coiteration schemes for higher-order and nested datatypes». Theoretical Computer Science 333, вып. 1–2 (март 2005 г.): 3–66. <a href="doi:10.1016/j.tcs.2004.10.017" class="uri">doi:10.1016/j.tcs.2004.10.017</a>. Ahn, Ki Yung, и Tim Sheard. «A hierarchy of mendler style recursion combinators». ACM SIGPLAN Notices 46, вып. 9 (сентябрь 2011 г.): 234–46. <a href="doi:10.1145/2034574.2034807" class="uri">doi:10.1145/2034574.2034807</a>. Fumex, Clément, Neil Ghani, и Patricia Johann. «Indexed Induction and Coinduction, Fibrationally». В Algebra and Coalgebra in Computer Science, 176–91. Springer, 2011. <a href="http://link.springer.com/chapter/10.1007/978-3-642-22944-2_13" class="uri">http://link.springer.com/chapter/10.1007/978-3-642-22944-2_13</a>. По последней статье — лучше подождать несколько занятий, пока мы не рассмотрим введение в теорию категорий.</p>
 </div>
 </section><div><a class="slider-prev" href="#индуктивные-типы"></a><a class="slider-next" href="#не-все-индуктивные-типы-допустимы"></a></div>
 <section id="не-все-индуктивные-типы-допустимы" class="slide level1">
 <h1>Не все индуктивные типы допустимы</h1>
-<p>A : Type<br>
-intro<sub>A</sub> : ((A → Type) → Type) → A<br>
-match<sub>A</sub> : A → ((A → Type) → Type)</p>
+<p>A : Type</p>
+<p>intro<sub>A</sub> : ((A → Type) → Type) → A</p>
+<p>match<sub>A</sub> : A → ((A → Type) → Type)</p>
 <p>match<sub>A</sub> (intro<sub>A</sub> · x) ⟶ x</p>
 <dl>
 <dt class="fragment"><strong>Задача 8.1 **</strong></dt>
@@ -125,18 +120,14 @@ match<sub>A</sub> : A → ((A → Type) → Type)</p>
 </ul>
 <div class="fragment">
 <p>Т.е. X не должен стоять «слева» от стрелки вообще (строго положительное) или в самой левой части стрелки (положительное)</p>
-Примеры строго положительных вхождений: X × X, ℕ → X, X × (ℕ → X)<br>
-Пример нестрого положительного вхождения: (X → ℕ) → ℕ<br>
-Примеры отрицательных вхождений: X → ℕ, (X × ℕ) → X, F(X) → X, (ℕ → X) → X (?)
+<p>Примеры строго положительных вхождений: X × X, ℕ → X, X × (ℕ → X) Пример нестрого положительного вхождения: (X → ℕ) → ℕ Примеры отрицательных вхождений: X → ℕ, (X × ℕ) → X, F(X) → X, (ℕ → X) → X (?)</p>
 </div>
 </section><div><a class="slider-prev" href="#не-все-индуктивные-типы-допустимы"></a><a class="slider-next" href="#индуктивные-типы-в-исчислении-конструкций-1"></a></div>
 <section id="индуктивные-типы-в-исчислении-конструкций-1" class="slide level1">
 <h1>Индуктивные типы в Исчислении Конструкций</h1>
 <p>μF — набор <em>конструкторов</em> — типов, в которых переменная итерации X может встречаться только в строго положительных позициях.</p>
 <p>Строгая положительность позволяет определить терм удаления и не получить при этом возможность парадоксов.</p>
-<p><span style="font-size: 0.8em"><br>
-Paulin-Mohring, Christine. «Inductive Definitions in the System Coq - Rules and Properties». In TLCA ’93 Proceedings of the International Conference on Typed Lambda Calculi and Applications, 328–45. Lecture Notes in Computer Science. Springer-Verlag London, UK, 1993. <a href="doi:10.1007/BFb0037116" class="uri">doi:10.1007/BFb0037116</a>.<br>
-</span></p>
+<p><span style="font-size: 0.8em"> Paulin-Mohring, Christine. «Inductive Definitions in the System Coq - Rules and Properties». In TLCA ’93 Proceedings of the International Conference on Typed Lambda Calculi and Applications, 328–45. Lecture Notes in Computer Science. Springer-Verlag London, UK, 1993. <a href="doi:10.1007/BFb0037116" class="uri">doi:10.1007/BFb0037116</a>. </span></p>
 </section><div><a class="slider-prev" href="#индуктивные-типы-в-исчислении-конструкций"></a><a class="slider-next" href="#коиндуктивные-типы"></a></div>
 <section id="коиндуктивные-типы" class="slide level1">
 <h1>Коиндуктивные типы</h1>
@@ -145,16 +136,10 @@ Paulin-Mohring, Christine. «Inductive Definitions in the System Coq - Rules and
 <section id="простые-расширения" class="slide level1">
 <h1>Простые расширения</h1>
 <h2 id="взаимно-индуктивные-типы">Взаимно индуктивные типы</h2>
-<p>Несколько типов A<sub>1</sub>, …, A<sub>k</sub>, определения которых могут ссылаться друг на друга.<br>
-Пример — типы списков с контролируемой чётностью длины:<br>
-μ(EvenList = T + (ℕ × OddList)<br>
-<span class="math inline">  </span> OddList = ℕ × EvenList)</p>
+<p>Несколько типов A<sub>1</sub>, …, A<sub>k</sub>, определения которых могут ссылаться друг на друга. Пример — типы списков с контролируемой чётностью длины: μ(EvenList = T + (ℕ × OddList) <span class="math inline">   </span> OddList = ℕ × EvenList)</p>
 <h2 id="индексированные-индуктивные-типы">Индексированные индуктивные типы</h2>
-<p>(индуктивные предикаты — ΠA.Type для некоторого A)<br>
-Чётность (T : Πℕ.Type) — в форме набора конструкторов:</p>
-<p>μ( Even =<br>
-even_zero : Even · 0<br>
-<span class="math inline">  </span> even_plus_2 : Π(k : ℕ).Even(k) → Even (S · S · k)</p>
+<p>(индуктивные предикаты — ΠA.Type для некоторого A) Чётность (T : Πℕ.Type) — в форме набора конструкторов:</p>
+<p>μ( Even = even_zero : Even · 0 <span class="math inline">   </span> even_plus_2 : Π(k : ℕ).Even(k) → Even (S · S · k)</p>
 </section><div><a class="slider-prev" href="#коиндуктивные-типы"></a><a class="slider-next" href="#нетривиальные-расширения"></a></div>
 <section id="нетривиальные-расширения" class="slide level1">
 <h1>Нетривиальные расширения</h1>
@@ -171,24 +156,18 @@ even_zero : Even · 0<br>
 <p>Система типов языка Haskell основана на системе Fω (точнее:</p>
 <ul>
 <li class="fragment"><a href="https://ghc.haskell.org/trac/ghc/wiki/Commentary/Compiler/FC" class="uri">https://ghc.haskell.org/trac/ghc/wiki/Commentary/Compiler/FC</a></li>
-<li class="fragment"><a href="http://stackoverflow.com/a/21220357" class="uri">http://stackoverflow.com/a/21220357</a><br>
-)</li>
+<li class="fragment"><a href="http://stackoverflow.com/a/21220357" class="uri">http://stackoverflow.com/a/21220357</a> )</li>
 </ul>
 </section><div><a class="slider-prev" href="#нетривиальные-расширения"></a><a class="slider-next" href="#исчисление-конструкций-в-языках-программирования"></a></div>
 <section id="исчисление-конструкций-в-языках-программирования" class="slide level1">
 <h1>Исчисление конструкций в языках программирования</h1>
 <p>На исчислении конструкций (полиморфном λ-исчислении с конструкторами типов и зависимыми типами) основан ряд языков программирования:</p>
-<p>Coq, Agda — среды автоматизированного доказательства теорем (proof assistants)<br>
-Idris, ATS — языки программирования</p>
-<p>Есть ещё большое количество примеров, которые мы не рассматриваем:<br>
-Matita, CubicalTypeTheory, Twelf, NuPRL — среды интерактивного доказательства теорем<br>
-Haskell — некоторые расширения языка допускают использование зависимых типов.</p>
+<p>Coq, Agda — среды автоматизированного доказательства теорем (proof assistants) Idris, ATS — языки программирования</p>
+<p>Есть ещё большое количество примеров, которые мы не рассматриваем: Matita, CubicalTypeTheory, Twelf, NuPRL — среды интерактивного доказательства теорем Haskell — некоторые расширения языка допускают использование зависимых типов.</p>
 </section><div><a class="slider-prev" href="#типизированное-λ-исчисление-в-языках-программирования"></a><a class="slider-next" href="#agda"></a></div>
 <section id="agda" class="slide level1">
 <h1>Agda</h1>
-<p>Официальный сайт: <a href="http://wiki.portal.chalmers.se/agda/pmwiki.php" class="uri">http://wiki.portal.chalmers.se/agda/pmwiki.php</a><br>
-Пример на русском языке: <a href="https://habrahabr.ru/post/148769/" class="uri">https://habrahabr.ru/post/148769/</a><br>
-Книга: A. Stump. Verified Functional Programming in Agda. 2016.</p>
+<p>Официальный сайт: <a href="http://wiki.portal.chalmers.se/agda/pmwiki.php" class="uri">http://wiki.portal.chalmers.se/agda/pmwiki.php</a> Пример на русском языке: <a href="https://habrahabr.ru/post/148769/" class="uri">https://habrahabr.ru/post/148769/</a> Книга: A. Stump. Verified Functional Programming in Agda. 2016.</p>
 <p>Язык похож по синтаксису на Haskell, использует Unicode-символы (для нормального использования стандартной библиотеки нужно работать в редакторе, который поддерживает ввод математических Unicode-символов с использованием LaTeX-подобных последовательностей)</p>
 <pre><code>data huffman-tree : Set where
   ht-leaf : string → ℕ → huffman-tree
@@ -211,8 +190,7 @@ ht-string _ = nothing</code></pre>
 </section><div><a class="slider-prev" href="#исчисление-конструкций-в-языках-программирования"></a><a class="slider-next" href="#idris"></a></div>
 <section id="idris" class="slide level1">
 <h1>Idris</h1>
-<p>Официальный сайт, документация, примеры: <a href="http://www.idris-lang.org/" class="uri">http://www.idris-lang.org/</a><br>
-Пример — игра 2048 в терминале: <a href="https://github.com/KesterTong/idris2048" class="uri">https://github.com/KesterTong/idris2048</a></p>
+<p>Официальный сайт, документация, примеры: <a href="http://www.idris-lang.org/" class="uri">http://www.idris-lang.org/</a> Пример — игра 2048 в терминале: <a href="https://github.com/KesterTong/idris2048" class="uri">https://github.com/KesterTong/idris2048</a></p>
 <p>Более новый, чем Agda, язык с зависимыми типами, нацеленный, в первую очередь, на использование в качестве полноценного языка программирования.</p>
 <pre><code>FILE_IO : Type -&gt; EFFECT
 
@@ -230,8 +208,7 @@ readLine  : Eff String [FILE_IO (OpenFile Read)]</code></pre>
 </section><div><a class="slider-prev" href="#agda"></a><a class="slider-next" href="#ats"></a></div>
 <section id="ats" class="slide level1">
 <h1>ATS</h1>
-<p>Официальный сайт, документация, примеры: <a href="http://www.ats-lang.org/" class="uri">http://www.ats-lang.org/</a><br>
-Императивный язык программирования с зависимыми типами.</p>
+<p>Официальный сайт, документация, примеры: <a href="http://www.ats-lang.org/" class="uri">http://www.ats-lang.org/</a> Императивный язык программирования с зависимыми типами.</p>
 <pre><code>fun
 fibats{n:nat}
   (n: int (n))
@@ -260,8 +237,7 @@ end // end of [fibats]</code></pre>
 </section><div><a class="slider-prev" href="#idris"></a><a class="slider-next" href="#coq"></a></div>
 <section id="coq" class="slide level1">
 <h1>Coq</h1>
-<p>Официальный сайт: <a href="https://coq.inria.fr/" class="uri">https://coq.inria.fr/</a><br>
-Книга Certified Programming with Dependent Types: <a href="http://adam.chlipala.net/cpdt/" class="uri">http://adam.chlipala.net/cpdt/</a></p>
+<p>Официальный сайт: <a href="https://coq.inria.fr/" class="uri">https://coq.inria.fr/</a> Книга Certified Programming with Dependent Types: <a href="http://adam.chlipala.net/cpdt/" class="uri">http://adam.chlipala.net/cpdt/</a></p>
 <p>Наиболее широко используемый в настоящее время язык программирования и среда интерактивного доказательства теорем с поддержкой зависимых типов.</p>
 <p>Известные результаты, полученные в Coq:</p>
 <ul>
@@ -284,15 +260,17 @@ end // end of [fibats]</code></pre>
 <p>Предложения языка разделяются точкой; ключевые слова регистрозависимы и пишутся с большой буквы.</p>
 <ul>
 <li class="fragment"><code>Variable имена переменных : тип.</code> — объявление переменных</li>
-<li class="fragment"><p>Определение функции; в круглых и фигурных скобках — аргументы.</p>
+<li class="fragment">Определение функции; в круглых и фигурных скобках — аргументы.</li>
+</ul>
 <pre><code>Definition имя (переменная : тип) ... { переменная : тип } 
-... : тип := терм.</code></pre></li>
+... : тип := терм.</code></pre>
+<ul>
 <li class="fragment">аналогично можно вводить определения ключевыми словами <code>Theorem</code>, <code>Lemma</code>.</li>
 <li class="fragment"><code>Check (терм : тип)</code> — проверить, что терм имеет заданный тип.</li>
 <li class="fragment"><code>Compute терм</code> — вычислить значение терма.</li>
 <li class="fragment">тип «стрелки» — -&gt;; (у меня шрифт с лигатурами, поэтому будет отображаться как →)</li>
 <li class="fragment">тип зависимого произведения — <code>forall (x : A), ...</code> (или ∀ вместо <code>forall</code>)</li>
-<li class="fragment"><p>λ-абстракция — терм <code>fun (переменная : тип) ... , терм</code> (у меня — λ вместо fun)</p></li>
+<li class="fragment">λ-абстракция — терм <code>fun (переменная : тип) ... , терм</code> (у меня — λ вместо fun)</li>
 </ul>
 </section><div><a class="slider-prev" href="#выделение-программ"></a><a class="slider-next" href="#индуктивные-типы-в-coq"></a></div>
 <section id="индуктивные-типы-в-coq" class="slide level1">
@@ -335,8 +313,7 @@ End ilist.</code></pre>
 </section><div><a class="slider-prev" href="#индуктивные-типы-в-coq"></a><a class="slider-next" href="#другие-команды-среды-coq"></a></div>
 <section id="другие-команды-среды-coq" class="slide level1">
 <h1>Другие команды среды Coq</h1>
-<p><code>Search About nat</code> — выводит все функции стандартной библиотеки, работающие на натуральных числах.<br>
-<code>Print t</code> — выводит определение терма <code>t</code>.</p>
+<p><code>Search About nat</code> — выводит все функции стандартной библиотеки, работающие на натуральных числах. <code>Print t</code> — выводит определение терма <code>t</code>.</p>
 <p>Пример: автоматически сгенерированный принцип рекурсии для списков с заданной длиной</p>
 <pre><code>Print ilist_ind.</code></pre>
 <pre><code>ilist_rect = 
@@ -355,12 +332,9 @@ fix F (n : nat) (i : ilist n) {struct i} :
 </section><div><a class="slider-prev" href="#другие-команды-среды-coq"></a><a class="slider-next" href="#задачи"></a></div>
 <section id="задачи" class="slide level1">
 <h1>Задачи</h1>
-<p><strong>Задача 8.2а *</strong><br>
-Сформулировать несколько (хотя бы 5) простых утверждений арифметики в Coq.</p>
-<p><strong>Задача 8.2б **</strong><br>
-Доказать утверждения, не используя тактику <code>omega</code>.</p>
-<p><strong>Задача 8.3***</strong><br>
-Реализовать функцию сортировки списка в Coq с доказательством того, что она возвращает отсортированный список.</p>
+<p><strong>Задача 8.2а *</strong> Сформулировать несколько (хотя бы 5) простых утверждений арифметики в Coq.</p>
+<p><strong>Задача 8.2б **</strong> Доказать утверждения, не используя тактику <code>omega</code>.</p>
+<p><strong>Задача 8.3***</strong> Реализовать функцию сортировки списка в Coq с доказательством того, что она возвращает отсортированный список.</p>
 </section><div><a class="slider-prev" href="#интерактивные-доказательства"></a><a class="slider-next"></a></div>
 
 <!-- start page -->
