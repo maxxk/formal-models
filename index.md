@@ -31,11 +31,13 @@ layout: default
 
 [презентация — html](presentations/01-Introduction.html)
 
-<hr/>
 
-## Entscheidungsproblem (проблема разрешения). Машина Тьюринга. Конечные автоматы и формальные языки. (2020-10-07)
+## Entscheidungsproblem (проблема разрешения). Машина Тьюринга. Конечные автоматы и формальные языки. (2021-10-20)
 
 [презентация — html](presentations/02-Entscheidungsproblem.html)
+
+<hr/>
+
 
 ## Альтернативные модели вычислений. (2020-10-14)
 
