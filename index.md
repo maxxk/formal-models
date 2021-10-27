@@ -36,13 +36,13 @@ layout: default
 
 [презентация — html](presentations/02-Entscheidungsproblem.html)
 
-<hr/>
 
-
-## Альтернативные модели вычислений. (2020-10-14)
+## Альтернативные модели вычислений. (2021-10-27)
 
 [презентация — html](presentations/03-Alternate-models.html)
 
+
+<hr/>
 
 ## Формальные системы. (2020-10-21)
 
