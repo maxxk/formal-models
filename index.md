@@ -42,11 +42,12 @@ layout: default
 [презентация — html](presentations/03-Alternate-models.html)
 
 
-<hr/>
-
-## Формальные системы. (2020-10-21)
+## Формальные системы. (2020-11-03)
 
 [презентация — html](presentations/04-Logics.html)
+
+
+<hr/>
 
 
 ## Введение в верификацию с использованием методов Model Checking. (2020-10-28)
