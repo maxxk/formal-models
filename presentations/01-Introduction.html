@@ -11,6 +11,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -83,8 +84,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="математические-модели-вычислений" class="slide level1">
 <h1>Математические модели вычислений</h1>
 <h2 id="вводное-занятие">Вводное занятие</h2>
-<h3 id="обзор-курса-предпосылки-к-задаче-формальной-верификации-актуальность-современные-методы-верификации-программ-рецензирование-тестирование-статический-анализ-формальная-верификация-и-их-интеграция-в-процессы-разработки">Обзор курса. Предпосылки к задаче формальной верификации, актуальность. Современные методы верификации программ (рецензирование, тестирование, статический анализ, формальная верификация) и их интеграция в процессы разработки</h3>
-<p>Я — <strong>Максим Александрович Кривчиков</strong>, к.ф.-м.н., с.н.с. МГУ имени М.&nbsp;В.&nbsp;Ломоносова</p>
+<h3 id="обзор-курса-предпосылки-к-задаче-формальной-верификации-актуальность-современные-методы-верификации-программ-рецензирование-тестирование-статический-анализ-формальная-верификация-и-их-интеграция-в-процессы-разработки">Обзор
+курса. Предпосылки к задаче формальной верификации, актуальность.
+Современные методы верификации программ (рецензирование, тестирование,
+статический анализ, формальная верификация) и их интеграция в процессы
+разработки</h3>
+<p>Я — <strong>Максим Александрович Кривчиков</strong>, к.ф.-м.н.,
+с.н.с. МГУ имени М.&nbsp;В.&nbsp;Ломоносова</p>
 <p><a href="mailto:maxim.krivchikov@gmail.com" class="email">maxim.krivchikov@gmail.com</a></p>
 <p>Материалы курса: <a href="https://maxxk.github.io/formal-models/" class="uri">https://maxxk.github.io/formal-models/</a></p>
 </section><div><a class="slider-prev"></a><a class="slider-next" href="#обзор-курса"></a></div>
@@ -92,42 +98,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>Обзор курса</h1>
 <p>В этом семестре — более теоретические вопросы:</p>
 <ul>
-<li class="fragment">каким образом в принципе можно что-то доказывать про программы</li>
-<li class="fragment">какие математические модели используются для описания вычислений</li>
-<li class="fragment">теоретические положения программирования с зависимыми типами этот подход тесно связан с активно развивающимся направлением современной математики — теорией типов</li>
+<li class="fragment">каким образом в принципе можно что-то доказывать
+про программы</li>
+<li class="fragment">какие математические модели используются для
+описания вычислений</li>
+<li class="fragment">теоретические положения программирования с
+зависимыми типами этот подход тесно связан с активно развивающимся
+направлением современной математики — теорией типов</li>
 </ul>
-<p>В следующем семестре («Математические модели программ и языков программирования», на английском языке) — практические вопросы:</p>
+<p>В следующем семестре («Математические модели программ и языков
+программирования», на английском языке) — практические вопросы:</p>
 <ul>
-<li class="fragment">как описывать семантику программ и языков программирования</li>
-<li class="fragment">как описывать отдельные аспекты исполнения программ</li>
+<li class="fragment">как описывать семантику программ и языков
+программирования</li>
+<li class="fragment">как описывать отдельные аспекты исполнения
+программ</li>
 <li class="fragment">как выполнять доказательства свойств программ</li>
-<li class="fragment">что делать, чтобы такие доказательства было реально получить на практике (предметно-ориентированные языки и вывод типов)</li>
-<li class="fragment">разбор существующих результатов (компилятор языка C CompCert, ядро ОС SeL4)</li>
+<li class="fragment">что делать, чтобы такие доказательства было реально
+получить на практике (предметно-ориентированные языки и вывод
+типов)</li>
+<li class="fragment">обзор известных результатов (компилятор языка C
+CompCert, ядро ОС SeL4)</li>
 </ul>
 </section><div><a class="slider-prev" href="#математические-модели-вычислений"></a><a class="slider-next" href="#общая-информация"></a></div>
 <section id="общая-информация" class="slide level1">
 <h1>Общая информация</h1>
-<p>Основные материалы для подготовки — по презентациям; по основным темам будут ссылки на литературу для расширенного изучения (в том числе — список литературы к билетам).</p>
+<p>Основные материалы для подготовки — по презентациям; по основным
+темам будут ссылки на литературу для расширенного изучения (в том числе
+— список литературы к билетам).</p>
 <p>Любые возникающие вопросы лучше задавать прямо по ходу занятия.</p>
 <h2 id="зачётэкзамен">Зачёт/экзамен</h2>
-<p>Курс — по выбору кафедры Вычислительной математики; студенты с других кафедр могут сдавать его как спецкурс. По опыту прошлого года, можно сдавать зачёт или экзамен.</p>
-<p>В рамках курса будут даваться задания для самостоятельного выполнения «со звёздочками». По итогам курса: 10* — «автомат» (попрошу ответить на один вопрос, но ответ не будет влиять на оценку), 6* — нужно ответить на один вопрос, 3* — на два вопроса, менее 3* — на три вопроса из билета.</p>
-<p>Принимаются предложения по семестровым проектам и инициативным заданиям, не включённым в список, но позволяющим лучше иллюстрировать темы курса.</p>
+<p>Курс — по выбору кафедры Вычислительной математики; студенты с других
+кафедр могут сдавать его как спецкурс. По опыту прошлого года, можно
+сдавать зачёт или экзамен.</p>
+<p>В рамках курса будут даваться задания для самостоятельного выполнения
+«со звёздочками». По итогам курса: 10* — «автомат» (попрошу ответить на
+один вопрос, но ответ не будет влиять на оценку), 6* — нужно ответить на
+один вопрос, 3* — на два вопроса, менее 3* — на три вопроса из
+билета.</p>
+<p>Принимаются предложения по семестровым проектам и инициативным
+заданиям, не включённым в список, но позволяющим лучше иллюстрировать
+темы курса.</p>
 </section><div><a class="slider-prev" href="#обзор-курса"></a><a class="slider-next" href="#похожие-курсы-в-других-университетах-мира"></a></div>
 <section id="похожие-курсы-в-других-университетах-мира" class="slide level1">
 <h1>Похожие курсы в других университетах мира</h1>
 <p>Первый семестр:</p>
 <ul>
-<li class="fragment">CMU (US) <a href="http://www.cs.cmu.edu/~rwh/courses/hott/">15-819 Homotopy Type Theory</a></li>
-<li class="fragment">Университет Стокгольма (Швеция) <a href="http://kurser.math.su.se/course/view.php?id=330">MM8036 ht15 Type Theory</a></li>
-<li class="fragment">Университет Неймегена (Нидерланды) <a href="http://cs.ru.nl/~freek/courses/tt-2011/index.html">IMC010: Type Theory and Coq</a></li>
-<li class="fragment">Университет Ноттингема (Великобритания) <a href="http://www.cs.nott.ac.uk/~psztxa/g52ifr/">G52IFR Introduction to Formal Reasoning</a></li>
+<li class="fragment">CMU (US) <a href="http://www.cs.cmu.edu/~rwh/courses/hott/">15-819 Homotopy Type
+Theory</a></li>
+<li class="fragment">Университет Стокгольма (Швеция) <a href="http://kurser.math.su.se/course/view.php?id=330">MM8036 ht15 Type
+Theory</a></li>
+<li class="fragment">Университет Неймегена (Нидерланды) <a href="http://cs.ru.nl/~freek/courses/tt-2011/index.html">IMC010: Type
+Theory and Coq</a></li>
+<li class="fragment">Университет Ноттингема (Великобритания) <a href="http://www.cs.nott.ac.uk/~psztxa/g52ifr/">G52IFR Introduction to
+Formal Reasoning</a></li>
 </ul>
 <p>Второй семестр:</p>
 <ul>
 <li class="fragment">Cornell University (US) <a href="http://courses.cornell.edu/preview_course_nopop.php?catoid=26&amp;coid=405252">CS4110</a>–<a href="http://courses.cornell.edu/preview_course_nopop.php?catoid=26&amp;coid=405289">CS6110</a></li>
-<li class="fragment">University of Edinburgh <a href="http://www.drps.ed.ac.uk/15-16/dpt/cxinfr11114.htm">INFR11114 Types and Semantics for Programming Languages</a></li>
-<li class="fragment">University of Texas in Dallas <a href="https://www.utdallas.edu/~hamlen/cs6371fa08.html">CS 6371: Advanced Programming Languages</a></li>
+<li class="fragment">University of Edinburgh <a href="http://www.drps.ed.ac.uk/15-16/dpt/cxinfr11114.htm">INFR11114
+Types and Semantics for Programming Languages</a></li>
+<li class="fragment">University of Texas in Dallas <a href="https://www.utdallas.edu/~hamlen/cs6371fa08.html">CS 6371:
+Advanced Programming Languages</a></li>
 </ul>
 </section><div><a class="slider-prev" href="#общая-информация"></a><a class="slider-next" href="#введение"></a></div>
 <section id="введение" class="slide level1 vertical-center">
@@ -152,7 +184,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="fragment">наука</li>
 <li class="fragment">производство</li>
 <li class="fragment">энергетика</li>
-<li class="fragment">вооружение</li>
+<li class="fragment">оборона</li>
 </ul>
 </section><div><a class="slider-prev" href="#введение"></a><a class="slider-next" href="#программы-пишут-на-разных-языках-программирования"></a></div>
 <section id="программы-пишут-на-разных-языках-программирования" class="slide level1">
@@ -171,53 +203,82 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="fragment">25.5% (118) используют два ЯП,</li>
 <li class="fragment">22.8% (106) используют три и более ЯП.</li>
 </ul>
-<p>Данные получены по 1256 репозиториям GitHub, наиболее популярных по количеству голосов пользователей и по количеству производных репозиториев в 2013 году.</p>
+<p>Данные получены по 1256 репозиториям GitHub, наиболее популярных по
+количеству голосов пользователей и по количеству производных
+репозиториев в 2013 году.</p>
 </section><div><a class="slider-prev" href="#программы-окружают-нас"></a><a class="slider-next" href="#программы-модифицируются-и-усложняются"></a></div>
 <section id="программы-модифицируются-и-усложняются" class="slide level1">
 <h1>Программы модифицируются и усложняются</h1>
-<h2 id="gnu-gzip-утилита-для-сжатия-данных">GNU gzip (утилита для сжатия данных)</h2>
-<p>версии 1.2.4 – 1.6 (1993–2013) × <strong>6</strong> файлов, <span class="four-em"></span> × <strong>7</strong> строк (34 ⟶ 216 файлов, <span class="four-em"></span> 5.8 ⟶ 42 тыс. строк кода)</p>
-<h2 id="ядро-ос-freebsd-для-архитектуры-i386">Ядро ОС FreeBSD для архитектуры i386</h2>
+<h2 id="gnu-gzip-утилита-для-сжатия-данных">GNU gzip (утилита для сжатия
+данных)</h2>
+<p>версии 1.2.4 – 1.6 (1993–2013) × <strong>6</strong> файлов,
+<span class="four-em"></span> × <strong>7</strong> строк (34 ⟶ 216
+файлов, <span class="four-em"></span> 5.8 ⟶ 42 тыс. строк кода)</p>
+<h2 id="ядро-ос-freebsd-для-архитектуры-i386">Ядро ОС FreeBSD для
+архитектуры i386</h2>
 <p>версии 2.0.5 – 8.4 (1995–2013)</p>
-<p>× <strong>8</strong> файлов, <span class="four-em"></span> × <strong>12</strong> строк (1066 ⟶ 8860 файлов, <span class="four-em"></span> 280 ⟶ 3380 тыс. строк кода)</p>
-<p>Данные получены утилитой <a href="https://github.com/AlDanial/cloc">CLOC</a> 1.60 для следующих типов файлов: C, C++, C/C++ Header</p>
+<p>× <strong>8</strong> файлов, <span class="four-em"></span> ×
+<strong>12</strong> строк (1066 ⟶ 8860 файлов,
+<span class="four-em"></span> 280 ⟶ 3380 тыс. строк кода)</p>
+<p>Данные получены утилитой <a href="https://github.com/AlDanial/cloc">CLOC</a> 1.60 для следующих
+типов файлов: C, C++, C/C++ Header</p>
 </section><div><a class="slider-prev" href="#программы-пишут-на-разных-языках-программирования"></a><a class="slider-next" href="#программы-содержат-ошибки"></a></div>
 <section id="программы-содержат-ошибки" class="slide level1">
 <h1>Программы содержат ошибки</h1>
 <p>Coverity Scan Open Source Report 2013:</p>
-<p>Статический анализ кода 741 Open Source проекта от &nbsp;≈10 тыс. строк до ≈8 млн строк, в среднем ≈340 тыс. строк на проект.</p>
-<p>Плотность обнаруженных ошибок: <strong>0.59</strong> на 1 тыс. строк кода. Для небольших проектов масштаба gzip (42 тыс. строк) — в среднем 24 ошибки <em>обнаружено.</em></p>
+<p>Статический анализ кода 741 Open Source проекта от &nbsp;≈10 тыс. строк до
+≈8 млн строк, в среднем ≈340 тыс. строк на проект.</p>
+<p>Плотность обнаруженных ошибок: <strong>0.59</strong> на 1 тыс. строк
+кода. Для небольших проектов масштаба gzip (42 тыс. строк) — в среднем
+24 ошибки <em>обнаружено.</em></p>
 <p>В.В. Липаев отмечал [1]:</p>
 <ul>
-<li class="fragment">высококачественное ПО имеет плотность порядка <strong>0.20</strong> ошибок на 1 тыс. строк кода</li>
-<li class="fragment">существующими средствами достижима минимальная плотность порядка <strong>0.05</strong> ошибок на 1 тыс. строк кода</li>
+<li class="fragment">высококачественное ПО имеет плотность порядка
+<strong>0.20</strong> ошибок на 1 тыс. строк кода</li>
+<li class="fragment">существующими средствами достижима минимальная
+плотность порядка <strong>0.05</strong> ошибок на 1 тыс. строк кода</li>
 </ul>
-<p>[1] Липаев В.В. Программная инженерия. Методологические основы: Учебник</p>
+<p>[1] Липаев В.В. Программная инженерия. Методологические основы:
+Учебник</p>
 </section><div><a class="slider-prev" href="#программы-модифицируются-и-усложняются"></a><a class="slider-next" href="#ошибки-в-программах-могут-приводить-к-серьёзным-последствиям"></a></div>
 <section id="ошибки-в-программах-могут-приводить-к-серьёзным-последствиям" class="slide level1">
 <h1>Ошибки в программах могут приводить к серьёзным последствиям</h1>
 <h3 id="уязвимости-в-по">Уязвимости в ПО</h3>
 <ul>
-<li class="fragment">OpenSSL Heartbleed (CVE-2014-0160) — значительная часть TLS-серверов в Интернет (популярные дистрибутивы Linux — Debian-based, RedHat-based; OpenBSD, FreeBSD, NetBSD, роутеры Cisco, Juniper, …) имели уязвимость в течение более 1 года</li>
-<li class="fragment">(подставьте уязвимость, о которой вы читали за последние полгода, за исключением различных тайминг-атак)</li>
+<li class="fragment">OpenSSL Heartbleed (CVE-2014-0160) — значительная
+часть TLS-серверов в Интернет (популярные дистрибутивы Linux —
+Debian-based, RedHat-based; OpenBSD, FreeBSD, NetBSD, роутеры Cisco,
+Juniper, …) имели уязвимость в течение более 1 года</li>
+<li class="fragment">(подставьте уязвимость, о которой вы читали за
+последние полгода, за исключением различных тайминг-атак)</li>
 </ul>
-<h3 id="недокументированные-возможности">Недокументированные возможности</h3>
+<h3 id="недокументированные-возможности">Недокументированные
+возможности</h3>
 <ul>
-<li class="fragment">Volkswagen (2015) — занижались данные по выбросам вредных веществ дизельными двигателями, компанию ожидает штраф до 18 млрд. долл.</li>
+<li class="fragment">Volkswagen (2015) — занижались данные по выбросам
+вредных веществ дизельными двигателями, компанию ожидает штраф до 18
+млрд. долл.</li>
 </ul>
 </section><div><a class="slider-prev" href="#программы-содержат-ошибки"></a><a class="slider-next" href="#и-даже-к-катастрофическим"></a></div>
 <section id="и-даже-к-катастрофическим" class="slide level1">
 <h1>...и даже к катастрофическим</h1>
 <h3 id="уязвимости-в-по-1">Уязвимости в ПО</h3>
 <ul>
-<li class="fragment">Stuxnet, Иранская ядерная программа (2009) — предположительно, повреждены центрифуги, используемые при обогащении урана</li>
+<li class="fragment">Stuxnet, Иранская ядерная программа (2009) —
+предположительно, повреждены центрифуги, используемые при обогащении
+урана</li>
 </ul>
 <h3 id="некорректная-работа-по">Некорректная работа ПО</h3>
 <ul>
-<li class="fragment">«Фобос-Грунт» (2011) — утрачена автоматическая межпланетная станция, ущерб ≈5 млрд руб.</li>
-<li class="fragment">Панама, установки лучевой терапии (2000-2001) — пострадало 28 человек, погибло не менее 5</li>
-<li class="fragment">Therac-25, установки лучевой терапии (1985-1987) — 6 пострадавших, 3 погибших</li>
-<li class="fragment">FADEC (Chinook HC.2), отказ ПО управления двигателем вертолёта — одна из вероятных причин крушения в 1994 г. — 29 погибших</li>
+<li class="fragment">«Фобос-Грунт» (2011) — утрачена автоматическая
+межпланетная станция, ущерб ≈5 млрд руб.</li>
+<li class="fragment">Панама, установки лучевой терапии (2000-2001) —
+пострадало 28 человек, погибло не менее 5</li>
+<li class="fragment">Therac-25, установки лучевой терапии (1985-1987) —
+6 пострадавших, 3 погибших</li>
+<li class="fragment">FADEC (Chinook HC.2), отказ ПО управления
+двигателем вертолёта — одна из вероятных причин крушения в 1994 г. — 29
+погибших</li>
 </ul>
 <style type="text/css">
 section.fobos-bg-returns-to-mars:after {
@@ -240,19 +301,49 @@ section.fobos-bg-ka:after {
 </section><div><a class="slider-prev" href="#и-даже-к-катастрофическим"></a><a class="slider-next" href="#фобос-грунт-wikipedia"></a></div>
 <section id="фобос-грунт-wikipedia" class="slide level1 bg fobos-bg-ka">
 <h1 class="bg fobos-bg-ka">Фобос-Грунт (<a href="https://ru.wikipedia.org/wiki/Фобос-Грунт">Wikipedia</a>)</h1>
-<p>2011 г. 9 ноября — запуск и ожидаемое выведение на траекторию полёта к Марсу:</p>
+<p>2011 г. 9 ноября — запуск и ожидаемое выведение на траекторию полёта
+к Марсу:</p>
 <p>00:16:02.871 (МСК) — старт</p>
-<p>00:27:31 (T+688 сек) — раскрытие солнечных батарей, приём телеметрии, ориентация, заряд батарей</p>
-<p>02:55:47.981 — первое включение маршевой двигательной установки АМС не состоялось; блок баков сброшен не был; после длительных поисков с привлечением российских и американских систем контроля космического пространства станция была обнаружена; вероятно, произошёл сбой при переходе от ориентации по Солнцу к ориентации по звёздам; возможно, что не прошла команда датчиков на включение двигательной установки; по уточнённым параметрам орбиты и запасу энергии, имеется 2-недельный запас времени, чтобы заново передать в АМС программу полёта;</p>
+<p>00:27:31 (T+688 сек) — раскрытие солнечных батарей, приём телеметрии,
+ориентация, заряд батарей</p>
+<p>02:55:47.981 — первое включение маршевой двигательной установки АМС
+не состоялось; блок баков сброшен не был; после длительных поисков с
+привлечением российских и американских систем контроля космического
+пространства станция была обнаружена; вероятно, произошёл сбой при
+переходе от ориентации по Солнцу к ориентации по звёздам; возможно, что
+не прошла команда датчиков на включение двигательной установки; по
+уточнённым параметрам орбиты и запасу энергии, имеется 2-недельный запас
+времени, чтобы заново передать в АМС программу полёта;</p>
 <p>...</p>
-<p>2011 г. 10 ноября — продолжение попыток установить связь с АМС: Осуществлено несколько безуспешных попыток установить связь с межпланетной станцией; попытки будут продолжены. ЕКА подключает свои станции, но тоже безуспешно.</p>
+<p>2011 г. 10 ноября — продолжение попыток установить связь с АМС:
+Осуществлено несколько безуспешных попыток установить связь с
+межпланетной станцией; попытки будут продолжены. ЕКА подключает свои
+станции, но тоже безуспешно.</p>
 <p>...</p>
-<p>2012 г. 15 января, 21:40…22:10 (МСК), 1097-й зафиксированный виток орбиты — снижение АМС «Фобос-Грунт» в плотные слои атмосферы, прекращение существования (аэродинамический перегрев, механическое разрушение и сгорание), возможное падение несгоревших фрагментов в южной части Тихого океана, Южной Америке и западной части Атлантического океана (заключение Роскосмоса на основе отсутствия аппарата на орбите по данным от средств контроля космического пространства).</p>
+<p>2012 г. 15 января, 21:40…22:10 (МСК), 1097-й зафиксированный виток
+орбиты — снижение АМС «Фобос-Грунт» в плотные слои атмосферы,
+прекращение существования (аэродинамический перегрев, механическое
+разрушение и сгорание), возможное падение несгоревших фрагментов в южной
+части Тихого океана, Южной Америке и западной части Атлантического
+океана (заключение Роскосмоса на основе отсутствия аппарата на орбите по
+данным от средств контроля космического пространства).</p>
 </section><div><a class="slider-prev" href="#фобос-грунт"></a><a class="slider-next" href="#фобос-грунт-geektimes-ieee-spectrum"></a></div>
 <section id="фобос-грунт-geektimes-ieee-spectrum" class="slide level1 bg fobos-bg-ka">
-<h1 class="bg fobos-bg-ka">Фобос-Грунт (<a href="http://geektimes.ru/post/139819/">GeekTimes</a>, <a href="http://spectrum.ieee.org/aerospace/space-flight/did-bad-memory-chips-down-russias-mars-probe">IEEE Spectrum</a>)</h1>
-<p>The report blames the loss of the probe on memory chips that became fatally damaged by cosmic rays. The probe died so suddenly that it didn’t even send an error message, but investigators concluded the only plausible failure mechanism was the simultaneous disabling of two identical chips in the dual-computer control system, causing both to restart simultaneously. This in turn led to the autopilot going into “safe mode” while maintaining the spacecraft’s orientation to the sun. (That reorientation was observed in the ensuing days as thruster firings disturbed the probe’s orbit.)</p>
-<p>Phobos-Grunt was supposed to await further instructions from Earth, but it never received them; <strong>in an incredible design oversight, the probe could receive emergency instructions only after a successful departure from parking orbit.</strong></p>
+<h1 class="bg fobos-bg-ka">Фобос-Грунт (<a href="http://geektimes.ru/post/139819/">GeekTimes</a>, <a href="http://spectrum.ieee.org/aerospace/space-flight/did-bad-memory-chips-down-russias-mars-probe">IEEE
+Spectrum</a>)</h1>
+<p>The report blames the loss of the probe on memory chips that became
+fatally damaged by cosmic rays. The probe died so suddenly that it
+didn’t even send an error message, but investigators concluded the only
+plausible failure mechanism was the simultaneous disabling of two
+identical chips in the dual-computer control system, causing both to
+restart simultaneously. This in turn led to the autopilot going into
+“safe mode” while maintaining the spacecraft’s orientation to the sun.
+(That reorientation was observed in the ensuing days as thruster firings
+disturbed the probe’s orbit.)</p>
+<p>Phobos-Grunt was supposed to await further instructions from Earth,
+but it never received them; <strong>in an incredible design oversight,
+the probe could receive emergency instructions only after a successful
+departure from parking orbit.</strong></p>
 <style>
 section.toyota:after {
   background: url(images/01-Introduction-6231d.png);
@@ -264,35 +355,96 @@ section.toyota:after {
 <section id="toyota" class="slide level1 bg toyota">
 <h1 class="bg toyota">Toyota</h1>
 <ul>
-<li class="fragment">However, on October 24, 2013, a jury ruled against Toyota and found that unintended acceleration could have been caused due to deficiencies in the drive-by-wire throttle system or Electronic Throttle Control System (ETCS). Michael Barr of the Barr Group testified that NASA had not been able to complete its examination of Toyota's ETCS and that Toyota did not follow best practices for real time life critical software, and that a single bit flip which can be caused by cosmic rays could cause unintended acceleration. As well, the run-time stack of the real-time operating system was not large enough and that it was possible for the stack to grow large enough to overwrite data that could cause unintended acceleration. (<a href="https://en.wikipedia.org/wiki/2009–11_Toyota_vehicle_recalls">Wikipedia</a>)</li>
+<li class="fragment">However, on October 24, 2013, a jury ruled against
+Toyota and found that unintended acceleration could have been caused due
+to deficiencies in the drive-by-wire throttle system or Electronic
+Throttle Control System (ETCS). Michael Barr of the Barr Group testified
+that NASA had not been able to complete its examination of Toyota's ETCS
+and that Toyota did not follow best practices for real time life
+critical software, and that a single bit flip which can be caused by
+cosmic rays could cause unintended acceleration. As well, the run-time
+stack of the real-time operating system was not large enough and that it
+was possible for the stack to grow large enough to overwrite data that
+could cause unintended acceleration. (<a href="https://en.wikipedia.org/wiki/2009–11_Toyota_vehicle_recalls">Wikipedia</a>)</li>
 </ul>
 </section><div><a class="slider-prev" href="#фобос-грунт-geektimes-ieee-spectrum"></a><a class="slider-next" href="#toyota-edn-network"></a></div>
 <section id="toyota-edn-network" class="slide level1 bg toyota">
-<h1 class="bg toyota">Toyota (<a href="http://www.edn.com/design/automotive/4423428/Toyota-s-killer-firmware--Bad-design-and-its-consequences">EDN Network</a>)</h1>
+<h1 class="bg toyota">Toyota (<a href="http://www.edn.com/design/automotive/4423428/Toyota-s-killer-firmware--Bad-design-and-its-consequences">EDN
+Network</a>)</h1>
 <p>Barr's ultimate conclusions were that:</p>
 <ul>
-<li class="fragment">Toyota’s electronic throttle control system (ETCS) source code is of unreasonable quality.</li>
-<li class="fragment">Toyota’s source code is defective and contains bugs, including bugs that can cause unintended acceleration (UA).</li>
-<li class="fragment">Code-quality metrics predict presence of additional bugs.</li>
-<li class="fragment">Toyota’s fail safes are defective and inadequate (referring to them as a “house of cards” safety architecture). The ECM software formed the core of the technical investigation. What follows is a list of the key findings.</li>
-<li class="fragment">Mirroring (where key data is written to redundant variables) was not always done. This gains extra significance in light of …</li>
-<li class="fragment">Stack overflow. Toyota claimed only 41% of the allocated stack space was being used. Barr's investigation showed that 94% was closer to the truth. On top of that, stack-killing, MISRA-C rule-violating recursion was found in the code, and the CPU doesn't incorporate memory protection to guard against stack overflow.</li>
+<li class="fragment">Toyota’s electronic throttle control system (ETCS)
+source code is of unreasonable quality.</li>
+<li class="fragment">Toyota’s source code is defective and contains
+bugs, including bugs that can cause unintended acceleration (UA).</li>
+<li class="fragment">Code-quality metrics predict presence of additional
+bugs.</li>
+<li class="fragment">Toyota’s fail safes are defective and inadequate
+(referring to them as a “house of cards” safety architecture). The ECM
+software formed the core of the technical investigation. What follows is
+a list of the key findings.</li>
+<li class="fragment">Mirroring (where key data is written to redundant
+variables) was not always done. This gains extra significance in light
+of …</li>
+<li class="fragment">Stack overflow. Toyota claimed only 41% of the
+allocated stack space was being used. Barr's investigation showed that
+94% was closer to the truth. On top of that, stack-killing, MISRA-C
+rule-violating recursion was found in the code, and the CPU doesn't
+incorporate memory protection to guard against stack overflow.</li>
 </ul>
 </section><div><a class="slider-prev" href="#toyota"></a><a class="slider-next" href="#toyota-1"></a></div>
 <section id="toyota-1" class="slide level1 bg toyota">
 <h1 class="bg toyota">Toyota</h1>
 <ul>
-<li class="fragment">Two key items were not mirrored: The RTOS' critical internal data structures; and—the most important bytes of all, the final result of all this firmware—the TargetThrottleAngle global variable.</li>
-<li class="fragment">Although Toyota had performed a stack analysis, Barr concluded the automaker had completely botched it. Toyota missed some of the calls made via pointer, missed stack usage by library and assembly functions (about 350 in total), and missed RTOS use during task switching. They also failed to perform run-time stack monitoring.</li>
-<li class="fragment">Unintentional RTOS task shutdown was heavily investigated as a potential source of the UA. As single bits in memory control each task, corruption due to HW or SW faults will suspend needed tasks or start unwanted ones. Vehicle tests confirmed that one particular dead task would result in loss of throttle control, and that the driver might have to fully remove their foot from the brake during an unintended acceleration event before being able to end the unwanted acceleration.</li>
-<li class="fragment">A litany of other faults were found in the code, including buffer overflow, unsafe casting, and race conditions between tasks.</li>
+<li class="fragment">Two key items were not mirrored: The RTOS' critical
+internal data structures; and—the most important bytes of all, the final
+result of all this firmware—the TargetThrottleAngle global
+variable.</li>
+<li class="fragment">Although Toyota had performed a stack analysis,
+Barr concluded the automaker had completely botched it. Toyota missed
+some of the calls made via pointer, missed stack usage by library and
+assembly functions (about 350 in total), and missed RTOS use during task
+switching. They also failed to perform run-time stack monitoring.</li>
+<li class="fragment">Unintentional RTOS task shutdown was heavily
+investigated as a potential source of the UA. As single bits in memory
+control each task, corruption due to HW or SW faults will suspend needed
+tasks or start unwanted ones. Vehicle tests confirmed that one
+particular dead task would result in loss of throttle control, and that
+the driver might have to fully remove their foot from the brake during
+an unintended acceleration event before being able to end the unwanted
+acceleration.</li>
+<li class="fragment">A litany of other faults were found in the code,
+including buffer overflow, unsafe casting, and race conditions between
+tasks.</li>
 </ul>
 </section><div><a class="slider-prev" href="#toyota-edn-network"></a><a class="slider-next" href="#airbus-arstechnica-bbc"></a></div>
 <section id="airbus-arstechnica-bbc" class="slide level1">
-<h1>Airbus (<a href="http://arstechnica.com/information-technology/2015/06/report-airbus-transport-crash-caused-by-wipe-of-critical-engine-control-data/">ArsTechnica</a>, <a href="http://www.bbc.com/news/technology-33078767">BBC</a>)</h1>
-<p>As Ars reported on May 19, Airbus had issued a warning to its military customers about a potential software problem in the engine control software for the A400M. The release of the exact cause of the crash, however, had been delayed because a Spanish magistrate placed the flight data recorders from the aircraft under seal. Airbus has since been able to obtain the flight data, which Lahoud said confirms that the engine control software had been improperly configured during the installation of the engines on the ill-fated aircraft.</p>
-<p>"The black boxes attest to that," Lahoud told Handelsblatt. "There are no structural defects, but we have a serious quality problem in the final assembly." The error was not in the code itself, but in configuration settings programmed into the electronic control unit (ECU) of the engines.</p>
-<p>It said the focus of the inquiry was a theory that files known as "torque calibration parameters" had been accidentally deleted during a software installation process ahead of the plane's first flight. A source later confirmed this to the BBC. The control systems of the A400M aircraft are heavily automated. Each engine is run by a separate computer called an Electronic Control Unit. The ECUs take the pilot's inputs and make the engines they control respond in the optimum way. The parameter files are used by the ECUs to interpret sensor readings about the turning force generated by each engine - the torque - which is used to make the attached propellers spin. Without the files, the ECUs cannot make sense of this data.</p>
+<h1>Airbus (<a href="http://arstechnica.com/information-technology/2015/06/report-airbus-transport-crash-caused-by-wipe-of-critical-engine-control-data/">ArsTechnica</a>,
+<a href="http://www.bbc.com/news/technology-33078767">BBC</a>)</h1>
+<p>As Ars reported on May 19, Airbus had issued a warning to its
+military customers about a potential software problem in the engine
+control software for the A400M. The release of the exact cause of the
+crash, however, had been delayed because a Spanish magistrate placed the
+flight data recorders from the aircraft under seal. Airbus has since
+been able to obtain the flight data, which Lahoud said confirms that the
+engine control software had been improperly configured during the
+installation of the engines on the ill-fated aircraft.</p>
+<p>"The black boxes attest to that," Lahoud told Handelsblatt. "There
+are no structural defects, but we have a serious quality problem in the
+final assembly." The error was not in the code itself, but in
+configuration settings programmed into the electronic control unit (ECU)
+of the engines.</p>
+<p>It said the focus of the inquiry was a theory that files known as
+"torque calibration parameters" had been accidentally deleted during a
+software installation process ahead of the plane's first flight. A
+source later confirmed this to the BBC. The control systems of the A400M
+aircraft are heavily automated. Each engine is run by a separate
+computer called an Electronic Control Unit. The ECUs take the pilot's
+inputs and make the engines they control respond in the optimum way. The
+parameter files are used by the ECUs to interpret sensor readings about
+the turning force generated by each engine - the torque - which is used
+to make the attached propellers spin. Without the files, the ECUs cannot
+make sense of this data.</p>
 <style>
 .slider > section.bg.heartbleed:after {
   background: url(images/heartbleed_explanation.png);
@@ -327,36 +479,42 @@ section.toyota:after {
 </style>
 </section><div><a class="slider-prev" href="#heartbleed"></a><a class="slider-next" href="#heartbleed-openssl-git"></a></div>
 <section id="heartbleed-openssl-git" class="slide level1 bg heartbleed-bg">
-<h1 class="bg heartbleed-bg">Heartbleed (<a href="http://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=96db902">OpenSSL Git</a>)</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode diff"><code class="sourceCode diff"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">diff --git a/ssl/d1_both.c b/ssl/d1_both.c</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>index 7a5596a..2e8cf68 100644 (file)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="dt">@@ -1459,26 +1459,36 @@ dtls1_process_heartbeat(SSL *s)</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>        unsigned int payload;</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>        unsigned int padding = 16; /* Use minimum padding */</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a><span class="st">-       /* Read type and payload length first */</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a><span class="st">-       hbtype = *p++;</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a><span class="st">-       n2s(p, payload);</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a><span class="st">-       pl = p;</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a><span class="st">-</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>// ...</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a><span class="va">+       /* Read type and payload length first */</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a><span class="va">+       if (1 + 2 + 16 &gt; s-&gt;s3-&gt;rrec.length)</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a><span class="va">+               return 0; /* silently discard */</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a><span class="va">+       hbtype = *p++;</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a><span class="va">+       n2s(p, payload);</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a><span class="va">+       if (1 + 2 + payload + 16 &gt; s-&gt;s3-&gt;rrec.length)</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a><span class="va">+               return 0; /* silently discard per RFC 6520 sec. 4 */</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a><span class="va">+       pl = p;</span></span></code></pre></div>
+<h1 class="bg heartbleed-bg">Heartbleed (<a href="http://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=96db902">OpenSSL
+Git</a>)</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode diff"><code class="sourceCode diff"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">diff --git a/ssl/d1_both.c b/ssl/d1_both.c</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>index 7a5596a..2e8cf68 100644 (file)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">@@ -1459,26 +1459,36 @@ dtls1_process_heartbeat(SSL *s)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        unsigned int payload;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        unsigned int padding = 16; /* Use minimum padding */</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">-       /* Read type and payload length first */</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">-       hbtype = *p++;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">-       n2s(p, payload);</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="st">-       pl = p;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="st">-</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>// ...</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="va">+       /* Read type and payload length first */</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="va">+       if (1 + 2 + 16 &gt; s-&gt;s3-&gt;rrec.length)</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="va">+               return 0; /* silently discard */</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="va">+       hbtype = *p++;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="va">+       n2s(p, payload);</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="va">+       if (1 + 2 + payload + 16 &gt; s-&gt;s3-&gt;rrec.length)</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="va">+               return 0; /* silently discard per RFC 6520 sec. 4 */</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="va">+       pl = p;</span></span></code></pre></div>
 </section><div><a class="slider-prev" href="#heartbleed-1"></a><a class="slider-next" href="#необходим-контроль-качества-программных-продуктов"></a></div>
 <section id="необходим-контроль-качества-программных-продуктов" class="slide level1">
 <h1>Необходим контроль качества программных продуктов</h1>
 <dl>
 <dt class="fragment"><strong>верификация</strong></dt>
-<dd class="fragment">процесс, целью которого является показать соответствие продукта, сервиса или системы требованиям, спецификациям и другим условиям, которые накладываются на продукт
+<dd class="fragment">
+процесс, целью которого является показать соответствие продукта, сервиса
+или системы требованиям, спецификациям и другим условиям, которые
+накладываются на продукт
 </dd>
 <dt class="fragment"><strong>валидация</strong></dt>
-<dd class="fragment">процесс, целью которого является определить адекватность продукта, сервиса или системы потребностям заказчика
+<dd class="fragment">
+процесс, целью которого является определить адекватность продукта,
+сервиса или системы потребностям заказчика
 </dd>
 </dl>
 </section><div><a class="slider-prev" href="#heartbleed-openssl-git"></a><a class="slider-next" href="#рецензирование-code-review"></a></div>
@@ -364,7 +522,8 @@ section.toyota:after {
 <h1>Рецензирование (code review)</h1>
 <p>— экспертный контроль качества кода.</p>
 <ol type="1">
-<li class="fragment">Формализованный процесс (например, <a href="https://en.wikipedia.org/wiki/Fagan_inspection">Fagan inspection</a>)
+<li class="fragment">Формализованный процесс (например, <a href="https://en.wikipedia.org/wiki/Fagan_inspection">Fagan
+inspection</a>)
 <ul>
 <li class="fragment">отдельная стадия разработки</li>
 <li class="fragment">большое количество участников и ролей</li>
@@ -376,58 +535,71 @@ section.toyota:after {
 <li class="fragment">рецензирование «из-за спины»</li>
 <li class="fragment">наборы изменений по email</li>
 <li class="fragment">парное программирование</li>
-<li class="fragment">средства рецензирования (например, <a href="https://reviewable.io">Reviewable</a> или встроенные в GitHub, GitLab)</li>
+<li class="fragment">средства рецензирования (например, <a href="https://reviewable.io">Reviewable</a> или встроенные в GitHub,
+GitLab)</li>
 <li class="fragment">pull-requests</li>
 </ul></li>
 </ol>
 </section><div><a class="slider-prev" href="#необходим-контроль-качества-программных-продуктов"></a><a class="slider-next" href="#рецензирование-в-mozilla"></a></div>
 <section id="рецензирование-в-mozilla" class="slide level1">
 <h1>Рецензирование в Mozilla</h1>
-<p>Проект <a href="https://github.com/servo/servo/wiki/Design">Servo</a> (перспективный параллельный движок Web-браузера)</p>
+<p>Проект <a href="https://github.com/servo/servo/wiki/Design">Servo</a>
+(перспективный параллельный движок Web-браузера)</p>
 <ul>
 <li class="fragment">разработка ведётся на GitHub</li>
-<li class="fragment">все изменения в код вносятся в отдельных ветках, которые вливаются в основную после рецензирования</li>
+<li class="fragment">все изменения в код вносятся в отдельных ветках,
+которые вливаются в основную после рецензирования</li>
 </ul>
-<p>Пример запроса на внесение изменений (pull request) с рецензией: <a href="https://github.com/servo/servo/pull/24148">Prefetch img, scripts and stylesheets during parsing</a></p>
+<p>Пример запроса на внесение изменений (pull request) с рецензией: <a href="https://github.com/servo/servo/pull/24148">Prefetch img, scripts
+and stylesheets during parsing</a></p>
 </section><div><a class="slider-prev" href="#рецензирование-code-review"></a><a class="slider-next" href="#рецензирование-в-chromium"></a></div>
 <section id="рецензирование-в-chromium" class="slide level1">
 <h1>Рецензирование в Chromium</h1>
 <p>Пример набора изменений с рецензией: <a href="https://codereview.chromium.org/1234223005/#ps260001" class="uri">https://codereview.chromium.org/1234223005/#ps260001</a></p>
-<h2 id="рецензирование-в-ядре-ос-linux">Рецензирование в ядре ОС Linux</h2>
-<p>Для ядра ОС Linux (десятки тысяч разработчиков) используется распределённая система на основе email. По словам ведущих разработчиков, никакие другие существующие средства не работают на таком масштабе.</p>
+<h2 id="рецензирование-в-ядре-ос-linux">Рецензирование в ядре ОС
+Linux</h2>
+<p>Для ядра ОС Linux (десятки тысяч разработчиков) используется
+распределённая система на основе email. По словам ведущих разработчиков,
+никакие другие существующие средства не работают на таком масштабе.</p>
 <p>Пример набора изменений с рецензией: <a href="https://lkml.org/lkml/2015/10/1/521" class="uri">https://lkml.org/lkml/2015/10/1/521</a></p>
-<h2 id="средства-рецензирования-в-github">Средства рецензирования в GitHub</h2>
+<h2 id="средства-рецензирования-в-github">Средства рецензирования в
+GitHub</h2>
 <p><a href="https://github.com/servo/webrender/pull/397" class="uri">https://github.com/servo/webrender/pull/397</a></p>
 <p><a href="https://github.com/rust-lang/rust/pull/36592" class="uri">https://github.com/rust-lang/rust/pull/36592</a></p>
 </section><div><a class="slider-prev" href="#рецензирование-в-mozilla"></a><a class="slider-next" href="#динамическое-тестирование"></a></div>
 <section id="динамическое-тестирование" class="slide level1">
 <h1>(Динамическое) тестирование</h1>
 <ul>
-<li class="fragment">процесс исследования, выполняемый с целью предоставления «заказчикам» информации о качестве продукта или сервиса.</li>
+<li class="fragment">процесс исследования, выполняемый с целью
+предоставления «заказчикам» информации о качестве продукта или
+сервиса.</li>
 <li class="fragment">(отдельная большая тема)</li>
 <li class="fragment">классификации:
 <ul>
 <li class="fragment">ручное или <strong>автоматизированное</strong></li>
 <li class="fragment">методы чёрного/белого/серого ящика</li>
-<li class="fragment">модульное (юнит-) тестирование, интеграционное, интерфейсное, системное, приёмочное</li>
+<li class="fragment">модульное (юнит-) тестирование, интеграционное,
+интерфейсное, системное, приёмочное</li>
 <li class="fragment">регрессионное тестирование</li>
 <li class="fragment">smoke-тестирование, sanity-тестирование</li>
-<li class="fragment">функциональное или нефункциональное тестирование (производительность, безопасность, живучесть, удобство использования)</li>
+<li class="fragment">функциональное или нефункциональное тестирование
+(производительность, безопасность, живучесть, удобство
+использования)</li>
 </ul></li>
 </ul>
 </section><div><a class="slider-prev" href="#рецензирование-в-chromium"></a><a class="slider-next" href="#автоматизированные-модульные-тесты"></a></div>
 <section id="автоматизированные-модульные-тесты" class="slide level1">
 <h1>Автоматизированные модульные тесты</h1>
-<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="fu">describe</span>(<span class="st">"simple parsers"</span><span class="op">,</span> <span class="kw">function</span>() {</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>  <span class="fu">it</span>(<span class="st">"regex"</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>    <span class="kw">const</span> p <span class="op">=</span> pr<span class="op">.</span><span class="fu">regex</span>(<span class="ss">/h</span><span class="sc">(</span><span class="ss">i</span><span class="sc">)?</span><span class="ss">/</span>)<span class="op">;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>    (() <span class="kw">=&gt;</span> p<span class="op">.</span><span class="fu">run</span>(<span class="st">"no"</span>))<span class="op">.</span><span class="at">should</span><span class="op">.</span><span class="fu">throw</span>(<span class="ss">/h</span><span class="sc">\(</span><span class="ss">i</span><span class="sc">\)\?</span><span class="ss">/</span>)<span class="op">;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>    <span class="kw">const</span> rv <span class="op">=</span> p<span class="op">.</span><span class="fu">execute</span>(<span class="st">"hit"</span>)<span class="op">;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>    rv<span class="op">.</span><span class="at">state</span><span class="op">.</span><span class="at">pos</span><span class="op">.</span><span class="at">should</span><span class="op">.</span><span class="fu">equal</span>(<span class="dv">2</span>)<span class="op">;</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>    rv<span class="op">.</span><span class="at">value</span>[<span class="dv">0</span>]<span class="op">.</span><span class="at">should</span><span class="op">.</span><span class="fu">eql</span>(<span class="st">"hi"</span>)<span class="op">;</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>    rv<span class="op">.</span><span class="at">value</span>[<span class="dv">1</span>]<span class="op">.</span><span class="at">should</span><span class="op">.</span><span class="fu">eql</span>(<span class="st">"i"</span>)<span class="op">;</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>  })<span class="op">;</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(<span class="st">"simple parsers"</span><span class="op">,</span> <span class="kw">function</span>() {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">it</span>(<span class="st">"regex"</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> p <span class="op">=</span> pr<span class="op">.</span><span class="fu">regex</span>(<span class="ss">/h</span><span class="sc">(</span><span class="ss">i</span><span class="sc">)?</span><span class="ss">/</span>)<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    (() <span class="kw">=&gt;</span> p<span class="op">.</span><span class="fu">run</span>(<span class="st">"no"</span>))<span class="op">.</span><span class="at">should</span><span class="op">.</span><span class="fu">throw</span>(<span class="ss">/h</span><span class="sc">\(</span><span class="ss">i</span><span class="sc">\)\?</span><span class="ss">/</span>)<span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> rv <span class="op">=</span> p<span class="op">.</span><span class="fu">execute</span>(<span class="st">"hit"</span>)<span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    rv<span class="op">.</span><span class="at">state</span><span class="op">.</span><span class="at">pos</span><span class="op">.</span><span class="at">should</span><span class="op">.</span><span class="fu">equal</span>(<span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    rv<span class="op">.</span><span class="at">value</span>[<span class="dv">0</span>]<span class="op">.</span><span class="at">should</span><span class="op">.</span><span class="fu">eql</span>(<span class="st">"hi"</span>)<span class="op">;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    rv<span class="op">.</span><span class="at">value</span>[<span class="dv">1</span>]<span class="op">.</span><span class="at">should</span><span class="op">.</span><span class="fu">eql</span>(<span class="st">"i"</span>)<span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <style type="text/css">
 p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Input Mono Narrow'}
 p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Input Mono Narrow'; color: #828282}
@@ -443,25 +615,38 @@ span.s4 {font-variant-ligatures: no-common-ligatures; color: #c33720}
 </style>
 <div style="text-align: left; max-width: 40%; float: left; font-size: 0.7em;">
 <p class="p1">
-<span class="s1"><span class="Apple-converted-space">&nbsp; </span>simple parsers</span>
+<span class="s1"><span class="Apple-converted-space">&nbsp; </span>simple
+parsers</span>
 </p>
 <p class="p2">
-<span class="s2"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3"><span class="Apple-converted-space">&nbsp; </span>✓</span><span class="s1"> reject</span>
+<span class="s2"><span class="Apple-converted-space">&nbsp;
+</span></span><span class="s3"><span class="Apple-converted-space">&nbsp;
+</span>✓</span><span class="s1"> reject</span>
 </p>
 <p class="p2">
-<span class="s2"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3"><span class="Apple-converted-space">&nbsp; </span>✓</span><span class="s1"> succeed</span>
+<span class="s2"><span class="Apple-converted-space">&nbsp;
+</span></span><span class="s3"><span class="Apple-converted-space">&nbsp;
+</span>✓</span><span class="s1"> succeed</span>
 </p>
 <p class="p2">
-<span class="s2"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3"><span class="Apple-converted-space">&nbsp; </span>✓</span><span class="s1"> end</span>
+<span class="s2"><span class="Apple-converted-space">&nbsp;
+</span></span><span class="s3"><span class="Apple-converted-space">&nbsp;
+</span>✓</span><span class="s1"> end</span>
 </p>
 <p class="p2">
-<span class="s2"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3"><span class="Apple-converted-space">&nbsp; </span>✓</span><span class="s1"> literal string</span>
+<span class="s2"><span class="Apple-converted-space">&nbsp;
+</span></span><span class="s3"><span class="Apple-converted-space">&nbsp;
+</span>✓</span><span class="s1"> literal string</span>
 </p>
 <p class="p2">
-<span class="s2"><span class="Apple-converted-space">&nbsp; </span></span><span class="s3"><span class="Apple-converted-space">&nbsp; </span>✓</span><span class="s1"> consumes the whole string</span>
+<span class="s2"><span class="Apple-converted-space">&nbsp;
+</span></span><span class="s3"><span class="Apple-converted-space">&nbsp;
+</span>✓</span><span class="s1"> consumes the whole string</span>
 </p>
 <p class="p3">
-<span class="s2"><span class="Apple-converted-space">&nbsp; </span></span><span class="s1"><span class="Apple-converted-space">&nbsp; </span>36) regex</span>
+<span class="s2"><span class="Apple-converted-space">&nbsp;
+</span></span><span class="s1"><span class="Apple-converted-space">&nbsp;
+</span>36) regex</span>
 </p>
 <p class="p4">
 <span class="s1"></span><br>
@@ -469,37 +654,47 @@ span.s4 {font-variant-ligatures: no-common-ligatures; color: #c33720}
 </div>
 <div style="text-align: left; max-width: 40%; float: right; font-size: 0.7em;">
 <p class="p1">
-<span class="s1"><span class="Apple-converted-space">&nbsp; </span>36) simple parsers regex:</span>
+<span class="s1"><span class="Apple-converted-space">&nbsp; </span>36) simple
+parsers regex:</span>
 </p>
 <p class="p5">
 <span class="s1"></span><br>
 </p>
 <p class="p3">
-<span class="s2"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; </span></span><span class="s1">AssertionError: expected 0 to be 2</span>
+<span class="s2"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp;
+</span></span><span class="s1">AssertionError: expected 0 to be 2</span>
 </p>
 <p class="p6">
-<span class="s2"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; </span></span><span class="s1">+ expected</span><span class="s2"> </span><span class="s4">- actual</span>
+<span class="s2"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp;
+</span></span><span class="s1">+ expected</span><span class="s2">
+</span><span class="s4">- actual</span>
 </p>
 <p class="p5">
 <span class="s1"></span><br>
 </p>
 <p class="p1">
-<span class="s1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; </span></span><span class="s4">-0</span>
+<span class="s1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp;
+</span></span><span class="s4">-0</span>
 </p>
 <p class="p1">
-<span class="s1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; </span></span><span class="s3">+2</span>
+<span class="s1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp;
+</span></span><span class="s3">+2</span>
 </p>
 <p class="p5">
-<span class="s1"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp; &nbsp;</span></span>
+<span class="s1"><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp;
+&nbsp;</span></span>
 </p>
 <p class="p2">
-<span class="s1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; </span>at Assertion.fail (node_modules/should/lib/assertion.js:180:17)</span>
+<span class="s1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; </span>at
+Assertion.fail (node_modules/should/lib/assertion.js:180:17)</span>
 </p>
 <p class="p2">
-<span class="s1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; </span>at Assertion.prop.value (node_modules/should/lib/assertion.js:65:17)</span>
+<span class="s1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; </span>at
+Assertion.prop.value (node_modules/should/lib/assertion.js:65:17)</span>
 </p>
 <p class="p2">
-<span class="s1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; </span>at Context.&lt;anonymous&gt; (test/src/test_simple.js:43:25)</span>
+<span class="s1"><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; </span>at
+Context.&lt;anonymous&gt; (test/src/test_simple.js:43:25)</span>
 </p>
 <p class="p7">
 <span class="s1"></span><br>
@@ -511,9 +706,13 @@ span.s4 {font-variant-ligatures: no-common-ligatures; color: #c33720}
 </section><div><a class="slider-prev" href="#динамическое-тестирование"></a><a class="slider-next" href="#tdd--bdd"></a></div>
 <section id="tdd--bdd" class="slide level1">
 <h1>TDD / BDD</h1>
-<h2 id="test-driven-development--behaviour-driven-development">Test Driven Development / Behaviour Driven Development</h2>
-<p>Перед началом разработки модуля кода разработчик пишет примеры использования этого модуля в форме тестов. Разработка модуля условно завершается, когда все тесты корректно выполняются.</p>
-<p>Пример: <a href="https://github.com/orfjackal/tdd-tetris-tutorial" class="uri">https://github.com/orfjackal/tdd-tetris-tutorial</a> — пишем Tetris на Java с использованием TDD (есть скринкасты)</p>
+<h2 id="test-driven-development--behaviour-driven-development">Test
+Driven Development / Behaviour Driven Development</h2>
+<p>Перед началом разработки модуля кода разработчик пишет примеры
+использования этого модуля в форме тестов. Разработка модуля условно
+завершается, когда все тесты корректно выполняются.</p>
+<p>Пример: <a href="https://github.com/orfjackal/tdd-tetris-tutorial" class="uri">https://github.com/orfjackal/tdd-tetris-tutorial</a> — пишем
+Tetris на Java с использованием TDD (есть скринкасты)</p>
 <ol type="1">
 <li class="fragment">FallingBlocksTest</li>
 <li class="fragment">RotatingPiecesOfBlocksTest</li>
@@ -526,13 +725,17 @@ span.s4 {font-variant-ligatures: no-common-ligatures; color: #c33720}
 </section><div><a class="slider-prev" href="#автоматизированные-модульные-тесты"></a><a class="slider-next" href="#регрессионные-тесты"></a></div>
 <section id="регрессионные-тесты" class="slide level1">
 <h1>Регрессионные тесты</h1>
-<p>— тесты, задача которых — проверять, что при внесении изменений существующая функциональность осталась неизменной и что ранее устранённые ошибки не возвращаются.</p>
-<p>Применимы в том числе и к нефункциональным требованиям (например, производительность: <a href="https://arewefastyet.com/" class="uri">https://arewefastyet.com/</a>):</p>
+<p>— тесты, задача которых — проверять, что при внесении изменений
+существующая функциональность осталась неизменной и что ранее
+устранённые ошибки не возвращаются.</p>
+<p>Применимы в том числе и к нефункциональным требованиям (например,
+производительность: <a href="https://arewefastyet.com/" class="uri">https://arewefastyet.com/</a>):</p>
 <p>Приблизительная схема работы:</p>
 <ol type="1">
 <li class="fragment">Получаем сообщение об ошибке.</li>
 <li class="fragment">Воспроизводим ошибку.</li>
-<li class="fragment">Пишем тест, который автоматически воспроизводит ошибку.</li>
+<li class="fragment">Пишем тест, который автоматически воспроизводит
+ошибку.</li>
 <li class="fragment">???</li>
 <li class="fragment">Всё работает.</li>
 </ol>
@@ -544,46 +747,69 @@ span.s4 {font-variant-ligatures: no-common-ligatures; color: #c33720}
 </section><div><a class="slider-prev" href="#tdd--bdd"></a><a class="slider-next" href="#формальные-методы-в-тестировании"></a></div>
 <section id="формальные-методы-в-тестировании" class="slide level1">
 <h1>Формальные методы в тестировании</h1>
-<p>model-based testing или specification-based testing: тесты генерируются автоматически на основе спецификации программы</p>
+<p>model-based testing или specification-based testing: тесты
+генерируются автоматически на основе спецификации программы</p>
 <ul>
-<li class="fragment">библиотека <a href="http://www.cse.chalmers.se/~rjmh/QuickCheck/manual.html">QuickCheck</a> языка программирования Haskell (и <a href="https://en.wikipedia.org/wiki/QuickCheck">производные</a> для большого количества других языков программирования) автоматически генерирует тестовые данные для опровержения гипотез о поведении функции и пытается свести такие контрпримеры к минимальному размеру;</li>
-<li class="fragment"><a href="http://burdonov.ru/doctor/dop_2008/AVTOREFERAT_Teoriya_konformnosti/1.html">теория конформности (И.Б. Бурдонов, ИСП РАН)</a></li>
+<li class="fragment">библиотека <a href="http://www.cse.chalmers.se/~rjmh/QuickCheck/manual.html">QuickCheck</a>
+языка программирования Haskell (и <a href="https://en.wikipedia.org/wiki/QuickCheck">производные</a> для
+большого количества других языков программирования) автоматически
+генерирует тестовые данные для опровержения гипотез о поведении функции
+и пытается свести такие контрпримеры к минимальному размеру;</li>
+<li class="fragment"><a href="http://burdonov.ru/doctor/dop_2008/AVTOREFERAT_Teoriya_konformnosti/1.html">теория
+конформности (И.Б. Бурдонов, ИСП РАН)</a></li>
 </ul>
 </section><div><a class="slider-prev" href="#регрессионные-тесты"></a><a class="slider-next" href="#fuzzing"></a></div>
 <section id="fuzzing" class="slide level1">
 <h1><a href="https://en.wikipedia.org/wiki/Fuzz_testing">Fuzzing</a></h1>
-<p>— автоматическое или полуавтоматическое тестирование на большом наборе корректно (или некорректно) сгенерированных входных данных.</p>
+<p>— автоматическое или полуавтоматическое тестирование на большом
+наборе корректно (или некорректно) сгенерированных входных данных.</p>
 <p>тестирование на основе спецификации входных данных:</p>
 <ul>
-<li class="fragment"><a href="http://embed.cs.utah.edu/csmith/">Csmith</a>, генератор случайных корректных C-программ для тестирования компиляторов</li>
+<li class="fragment"><a href="http://embed.cs.utah.edu/csmith/">Csmith</a>, генератор случайных
+корректных C-программ для тестирования компиляторов</li>
 <li class="fragment"><a href="http://www.cs.utah.edu/~regehr/papers/pldi13.pdf" class="uri">http://www.cs.utah.edu/~regehr/papers/pldi13.pdf</a></li>
-<li class="fragment"><a href="http://lcamtuf.coredump.cx/afl/">American Fuzzy Lop</a>, использует генетические алгоритмы для автоматического подбора наборов входных данных, обеспечивающих максимальное покрытие целевого кода. <a href="https://lcamtuf.blogspot.ru/2014/11/pulling-jpegs-out-of-thin-air.html">Пример использования — Pulling JPEGs out of thin air</a></li>
+<li class="fragment"><a href="http://lcamtuf.coredump.cx/afl/">American
+Fuzzy Lop</a>, использует генетические алгоритмы для автоматического
+подбора наборов входных данных, обеспечивающих максимальное покрытие
+целевого кода. <a href="https://lcamtuf.blogspot.ru/2014/11/pulling-jpegs-out-of-thin-air.html">Пример
+использования — Pulling JPEGs out of thin air</a></li>
 </ul>
 <p>Дополнительно: <a href="https://fuzzing-project.org/" class="uri">https://fuzzing-project.org/</a></p>
 </section><div><a class="slider-prev" href="#формальные-методы-в-тестировании"></a><a class="slider-next" href="#статический-анализ"></a></div>
 <section id="статический-анализ" class="slide level1">
 <h1>Статический анализ</h1>
 <ul>
-<li class="fragment">автоматизированная проверка исходного кода (статический = без запуска программы) алгоритмом, который предназначен для поиска того или иного класса дефектов.</li>
-<li class="fragment">фундаментальное ограничение: автоматическое доказательство свойств произвольных программ неразрешимо.</li>
+<li class="fragment">автоматизированная проверка исходного кода
+(статический = без запуска программы) алгоритмом, который предназначен
+для поиска того или иного класса дефектов.</li>
+<li class="fragment">фундаментальное ограничение: автоматическое
+доказательство свойств произвольных программ неразрешимо.</li>
 </ul>
-<p>Одно из основных свойств — достоверность (soundness) или недостоверность.</p>
-<p>Достоверные методы статического анализа не дают ложных отрицательных результатов (но дают ложные положительные).</p>
+<p>Одно из основных свойств — достоверность (soundness) или
+недостоверность.</p>
+<p>Достоверные методы статического анализа не дают ложных отрицательных
+результатов (но дают ложные положительные).</p>
 </section><div><a class="slider-prev" href="#fuzzing"></a><a class="slider-next" href="#примеры-недостоверных-средств"></a></div>
 <section id="примеры-недостоверных-средств" class="slide level1">
 <h1>Примеры «недостоверных» средств</h1>
 <p>Коммерческие средства:</p>
 <ul>
-<li class="fragment"><p><a href="https://www.coverity.com/">Coverity</a> — использовалось для статистики на <a href="#программы-содержат-ошибки">слайде 9</a></p></li>
-<li class="fragment"><p><a href="http://www.viva64.com/ru/pvs-studio/">PVS-Studio</a> (российская разработка)</p>
-<p><a href="http://habrahabr.ru/company/pvs-studio/blog/247271/">Пример обнаруженной ошибки</a>: использование функции memset непосредственно перед тем, как буфер выходит из области видимости, может быть проигнорировано компилятором.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="dt">static</span> <span class="dt">int</span> crypt_iv_tcw_whitening(....) {</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>  ....</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>  u8 buf[TCW_WHITENING_SIZE];</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>  ....</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>  out:</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>  memset(buf, <span class="dv">0</span>, <span class="kw">sizeof</span>(buf));</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>  <span class="cf">return</span> r;</span></code></pre></div></li>
+<li class="fragment"><p><a href="https://www.coverity.com/">Coverity</a>
+— использовалось для статистики на
+<a href="#программы-содержат-ошибки">слайде 9</a></p></li>
+<li class="fragment"><p><a href="http://www.viva64.com/ru/pvs-studio/">PVS-Studio</a> (российская
+разработка)</p>
+<p><a href="http://habrahabr.ru/company/pvs-studio/blog/247271/">Пример
+обнаруженной ошибки</a>: использование функции memset непосредственно
+перед тем, как буфер выходит из области видимости, может быть
+проигнорировано компилятором.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">static</span> <span class="dt">int</span> crypt_iv_tcw_whitening<span class="op">(....)</span> <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">....</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  u8 buf<span class="op">[</span>TCW_WHITENING_SIZE<span class="op">];</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">....</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  out<span class="op">:</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  memset<span class="op">(</span>buf<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>buf<span class="op">));</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> r<span class="op">;</span></span></code></pre></div></li>
 </ul>
 <p>Средства с открытым исходным кодом:</p>
 <ul>
@@ -593,30 +819,42 @@ span.s4 {font-variant-ligatures: no-common-ligatures; color: #c33720}
 <section id="статический-анализ--достоверные-средства" class="slide level1">
 <h1>Статический анализ — достоверные средства</h1>
 <ul>
-<li class="fragment"><a href="http://frama-c.com">Frama-C</a>, OpenSource, <a href="http://frama-c.com/try_out.html">пример</a></li>
+<li class="fragment"><a href="http://frama-c.com">Frama-C</a>,
+OpenSource, <a href="http://frama-c.com/try_out.html">пример</a></li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="dt">int</span> max_array(<span class="dt">int</span>* a, <span class="dt">int</span> length) {</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>  <span class="dt">int</span> m = a[<span class="dv">0</span>];</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>  <span class="co">/*@</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="co">  loop invariant 0&lt;=i&lt;=length; loop invariant</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="co">  \forall integer j; 0&lt;=j&lt;i ==&gt; m &gt;= a[j]; loop invariant</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a><span class="co">  \exists integer j; 0&lt;=j&lt;i &amp;&amp; m == a[j]; loop assigns i,m;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a><span class="co">  */</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">1</span>; i&lt;length; i++) {</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a>    <span class="cf">if</span> (a[i] &gt; m) m = a[i]; }</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a>  <span class="cf">return</span> m;</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> max_array<span class="op">(</span><span class="dt">int</span><span class="op">*</span> a<span class="op">,</span> <span class="dt">int</span> length<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> m <span class="op">=</span> a<span class="op">[</span><span class="dv">0</span><span class="op">];</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">/*@</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">  loop invariant 0&lt;=i&lt;=length; loop invariant</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">  \forall integer j; 0&lt;=j&lt;i ==&gt; m &gt;= a[j]; loop invariant</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">  \exists integer j; 0&lt;=j&lt;i &amp;&amp; m == a[j]; loop assigns i,m;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">  */</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i<span class="op">&lt;</span>length<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>a<span class="op">[</span>i<span class="op">]</span> <span class="op">&gt;</span> m<span class="op">)</span> m <span class="op">=</span> a<span class="op">[</span>i<span class="op">];</span> <span class="op">}</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> m<span class="op">;</span></span></code></pre></div>
 <ul>
-<li class="fragment"><a href="http://www.mathworks.com/products/polyspace/?s_cid=wiki_polyspace_2">Polyspace</a>, коммерческое средство от разработчиков MATLAB, на сайте есть <a href="http://www.mathworks.com/company/newsletters/articles/improving-software-quality-with-static-code-analysis.html?s_tid=srchtitle">примеры</a></li>
+<li class="fragment"><a href="http://www.mathworks.com/products/polyspace/?s_cid=wiki_polyspace_2">Polyspace</a>,
+коммерческое средство от разработчиков MATLAB, на сайте есть <a href="http://www.mathworks.com/company/newsletters/articles/improving-software-quality-with-static-code-analysis.html?s_tid=srchtitle">примеры</a></li>
 </ul>
 </section><div><a class="slider-prev" href="#примеры-недостоверных-средств"></a><a class="slider-next" href="#динамический-анализ"></a></div>
 <section id="динамический-анализ" class="slide level1">
 <h1>Динамический анализ</h1>
 <ul>
-<li class="fragment">автоматизированная проверка кода и состояния программы в процессе исполнения алгоритмом, который предназначен для поиска того или иного класса дефектов.</li>
-<li class="fragment">вносит изменения в процесс исполнения программы.</li>
-<li class="fragment">в целом, имеет те же фундаментальные ограничения, что и статический анализ.</li>
-<li class="fragment">пример: <a href="http://valgrind.org">valgrind</a> позволяет обнаруживать какая строка кода вызывает ошибку работы с памятью (использование после освобождения и выход за границы массива), кроме того содержит средства для профилирования и оценки использования кеша процессора.</li>
-<li class="fragment">пример: в современные компиляторы <a href="https://gcc.gnu.org/onlinedocs/gcc/Instrumentation-Options.html">GCC</a> и Clang входят так называемые «санитайзеры» — библиотеки, которые обнаруживают выходы за границы массива, утечки памяти и т.д.</li>
+<li class="fragment">автоматизированная проверка кода и состояния
+программы в процессе исполнения алгоритмом, который предназначен для
+поиска того или иного класса дефектов.</li>
+<li class="fragment">вносит изменения в процесс исполнения
+программы.</li>
+<li class="fragment">в целом, имеет те же фундаментальные ограничения,
+что и статический анализ.</li>
+<li class="fragment">пример: <a href="http://valgrind.org">valgrind</a>
+позволяет обнаруживать какая строка кода вызывает ошибку работы с
+памятью (использование после освобождения и выход за границы массива),
+кроме того содержит средства для профилирования и оценки использования
+кеша процессора.</li>
+<li class="fragment">пример: в комплект с современными компиляторами <a href="https://gcc.gnu.org/onlinedocs/gcc/Instrumentation-Options.html">GCC</a>
+и Clang входят так называемые «санитайзеры» — библиотеки, которые
+обнаруживают выходы за границы массива, утечки памяти и т.д.</li>
 </ul>
 </section><div><a class="slider-prev" href="#статический-анализ--достоверные-средства"></a><a class="slider-next" href="#распространённые-подходы-не-гарантируют-отсутствия-ошибок"></a></div>
 <section id="распространённые-подходы-не-гарантируют-отсутствия-ошибок" class="slide level1">
@@ -630,27 +868,37 @@ span.s4 {font-variant-ligatures: no-common-ligatures; color: #c33720}
 </ul></li>
 <li class="fragment">(динамическое автоматизированное) тестирование
 <ul>
-<li class="fragment">большой объём кода тестов по сравнению с кодом продукта (SQLite: 80 тыс. строк кода / 90 млн. строк тестов);</li>
-<li class="fragment">тесты необходимо поддерживать в актуальном состоянии;</li>
-<li class="fragment">тесты не гарантируют отсутствия дефектов/ошибок.</li>
+<li class="fragment">большой объём кода тестов по сравнению с кодом
+продукта (SQLite: 80 тыс. строк кода / 90 млн. строк тестов);</li>
+<li class="fragment">тесты необходимо поддерживать в актуальном
+состоянии;</li>
+<li class="fragment">тесты не гарантируют отсутствия
+дефектов/ошибок.</li>
 </ul></li>
 <li class="fragment">Статический и динамический анализ
 <ul>
-<li class="fragment">нетривиальные свойства неразрешимы согласно теореме Райса;</li>
+<li class="fragment">нетривиальные свойства неразрешимы согласно теореме
+Райса;</li>
 <li class="fragment">большое количество ложных срабатываний;</li>
-<li class="fragment">на практике встречаются дефекты, необнаружимые средствами статического анализа (OpenSSL Heartbleed bug: информация раскрыта 7 апреля 2014 г., адаптированные средства статического анализа появились 18 апреля 2014 г.).</li>
+<li class="fragment">на практике встречаются дефекты, необнаружимые
+средствами статического анализа (OpenSSL Heartbleed bug: информация
+раскрыта 7 апреля 2014 г., адаптированные средства статического анализа
+появились 18 апреля 2014 г.).</li>
 </ul></li>
 </ul>
 </section><div><a class="slider-prev" href="#динамический-анализ"></a><a class="slider-next" href="#формальная-верификация"></a></div>
 <section id="формальная-верификация" class="slide level1">
 <h1>Формальная верификация</h1>
 <ul>
-<li class="fragment">процесс, результатом которого является получение строгого математического доказательства соответствия программы требуемой спецификации, наличия у программы требуемых свойств.</li>
+<li class="fragment">процесс, результатом которого является получение
+строгого математического доказательства соответствия программы требуемой
+спецификации, наличия у программы требуемых свойств.</li>
 </ul>
 <p>Недостатки:</p>
 <ul>
 <li class="fragment">является трудоёмким и наукоёмким процессом</li>
-<li class="fragment">не имеет широкого распространения (в отличие от формальной верификации аппаратного обеспечения)</li>
+<li class="fragment">не имеет широкого распространения (в отличие от
+формальной верификации аппаратного обеспечения)</li>
 </ul>
 </section><div><a class="slider-prev" href="#распространённые-подходы-не-гарантируют-отсутствия-ошибок"></a><a class="slider-next" href="#область-применимости-формальной-верификации"></a></div>
 <section id="область-применимости-формальной-верификации" class="slide level1">
@@ -659,64 +907,83 @@ span.s4 {font-variant-ligatures: no-common-ligatures; color: #c33720}
 <li class="fragment">риски, превышающие затраты на верификацию</li>
 <li class="fragment">сложность системы</li>
 </ul>
-<p>Разработку программы необходимо вести с учётом требований по её формальной верификации.</p>
-<p>SeL4 — 3 тыс. строк формальных спецификаций, 10 тыс. строк кода на C, 100 тыс. строк формальных доказательств.</p>
+<p>Разработку программы необходимо вести с учётом требований по её
+формальной верификации.</p>
+<p>SeL4 — 3 тыс. строк формальных спецификаций, 10 тыс. строк кода на C,
+100 тыс. строк формальных доказательств.</p>
 </section><div><a class="slider-prev" href="#формальная-верификация"></a><a class="slider-next" href="#проблематика-формальной-верификации"></a></div>
 <section id="проблематика-формальной-верификации" class="slide level1">
 <h1>Проблематика формальной верификации</h1>
 <ul>
-<li class="fragment">программа — это нестрого определённый объект реального мира (исполнимый код? исходный код? алгоритмы?)</li>
-<li class="fragment">требования — это нестрого определённые представления заказчика о том, как должна выглядеть программа</li>
-<li class="fragment">если достаточно детализировать спецификацию, не станет ли она сложнее, чем программа?</li>
-<li class="fragment">не определено, чему можно доверять — и ОС, и стандартная библиотека, и компиляторы, и даже аппаратная реализация системы команд процессора содержат ошибки и могут вносить ошибки в процесс работы программы (<a href="http://www.anandtech.com/show/8376/intel-disables-tsx-instructions-erratum-found-in-haswell-haswelleep-broadwelly">пример</a> — ошибка в реализации расширения TSX транзакционной памяти в процессорах семейства Haswell)</li>
+<li class="fragment">программа — это нестрого определённый объект
+реального мира (исполнимый код? исходный код? алгоритмы?)</li>
+<li class="fragment">требования — это нестрого определённые
+представления заказчика о том, как должна выглядеть программа</li>
+<li class="fragment">если достаточно детализировать спецификацию, не
+станет ли она сложнее, чем программа?</li>
+<li class="fragment">не определено, чему можно доверять — и ОС, и
+стандартная библиотека, и компиляторы, и даже аппаратная реализация
+системы команд процессора содержат ошибки и могут вносить ошибки в
+процесс работы программы (<a href="http://www.anandtech.com/show/8376/intel-disables-tsx-instructions-erratum-found-in-haswell-haswelleep-broadwelly">пример</a>
+— ошибка в реализации расширения TSX транзакционной памяти в процессорах
+семейства Haswell)</li>
 </ul>
 </section><div><a class="slider-prev" href="#область-применимости-формальной-верификации"></a><a class="slider-next" href="#системы-типов-и-верификация"></a></div>
 <section id="системы-типов-и-верификация" class="slide level1">
 <h1>Системы типов и верификация</h1>
 <ul>
-<li class="fragment">в языке программирования со статической типизацией компилятор на этапе проверки типов выполняет работу статического анализатора — если компилятор принимает программу, значит она удовлетворяет спецификации с позиций безопасности типов</li>
-<li class="fragment">«выразительные способности» систем типов разных языков программирования существенно различаются:
+<li class="fragment">в языке программирования со статической типизацией
+компилятор на этапе проверки типов выполняет работу статического
+анализатора — если компилятор принимает программу, значит она
+удовлетворяет спецификации с позиций безопасности типов</li>
+<li class="fragment">«выразительные способности» систем типов разных
+языков программирования существенно различаются:
 <ul>
 <li class="fragment">в динамических языках есть только один тип</li>
-<li class="fragment">на языке Go не получится создать пользовательский тип обобщённых списков, сохраняя строгую типизацию, тогда как в C, например, получится [<a href="https://github.com/udp/list">1</a>, <a href="http://blog.kavinyao.com/2014/01/generic-linked-list-in-c/">2</a>]</li>
-<li class="fragment">на языках Java, C#, C++ можно задавать сложные пользовательские обобщённые типы (<code class="sourceCode cpp"><span class="bu">std::</span>map</code>, <code class="sourceCode cs">Dictionary&lt;TKey, TValue&gt;</code>)</li>
-<li class="fragment">система типов языка Rust позволяет выразить понятие времени жизни объекта, владельца области памяти, а также передачу прав на чтение и запись по ссылкам;</li>
-<li class="fragment">язык Haskell поддерживает полноценный полиморфизм с широкими возможностями по выводу типов</li>
+<li class="fragment">на языке Go не получится создать пользовательский
+тип обобщённых списков, сохраняя строгую типизацию, тогда как в C,
+например, получится [<a href="https://github.com/udp/list">1</a>, <a href="http://blog.kavinyao.com/2014/01/generic-linked-list-in-c/">2</a>]</li>
+<li class="fragment">на языках Java, C#, C++ можно задавать сложные
+пользовательские обобщённые типы (<code class="sourceCode cpp"><span class="bu">std::</span>map</code>, <code class="sourceCode cs">Dictionary<span class="op">&lt;</span>TKey<span class="op">,</span> TValue<span class="op">&gt;</span></code>)</li>
+<li class="fragment">система типов языка Rust позволяет выразить понятие
+времени жизни объекта, владельца области памяти, а также передачу прав
+на чтение и запись по ссылкам;</li>
+<li class="fragment">язык Haskell поддерживает полноценный полиморфизм с
+широкими возможностями по выводу типов</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="kw">instance</span> (<span class="dt">Eq</span> a, <span class="dt">Ord</span> a)  <span class="ot">=&gt;</span> <span class="dt">Eq</span> (<span class="dt">Set</span> a) <span class="kw">where</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>  (<span class="dt">Set</span> xs) <span class="op">==</span> (<span class="dt">Set</span> ys) <span class="ot">=</span> (<span class="fu">sort</span> xs) <span class="op">==</span> (<span class="fu">sort</span> ys)</span></code></pre></div></li>
+<div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">instance</span> (<span class="dt">Eq</span> a, <span class="dt">Ord</span> a)  <span class="ot">=&gt;</span> <span class="dt">Eq</span> (<span class="dt">Set</span> a) <span class="kw">where</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  (<span class="dt">Set</span> xs) <span class="op">==</span> (<span class="dt">Set</span> ys) <span class="ot">=</span> (<span class="fu">sort</span> xs) <span class="op">==</span> (<span class="fu">sort</span> ys)</span></code></pre></div></li>
 </ul>
 </section><div><a class="slider-prev" href="#проблематика-формальной-верификации"></a><a class="slider-next" href="#план-на-следующее-занятие"></a></div>
 <section id="план-на-следующее-занятие" class="slide level1">
 <h1>План на следующее занятие</h1>
-<p>Общая проблематика курса: каким образом мы можем описывать спецификации программ в понятном для машины виде.</p>
-<h2 id="проблема-разрешения-машина-тьюринга-конечные-автоматы-и-формальные-языки">Проблема разрешения. Машина Тьюринга. Конечные автоматы и формальные языки.</h2>
+<p>Общая проблематика курса: каким образом мы можем описывать
+спецификации программ в понятном для машины виде.</p>
+<h2 id="проблема-разрешения-машина-тьюринга-конечные-автоматы-и-формальные-языки">Проблема
+разрешения. Машина Тьюринга. Конечные автоматы и формальные языки.</h2>
 <ul>
-<li class="fragment">как вышло, что модели вычислений предшествовали появлению программируемых вычислительных устройств?</li>
+<li class="fragment">как вышло, что модели вычислений предшествовали
+появлению программируемых вычислительных устройств?</li>
 <li class="fragment">алгоритмически неразрешимые задачи</li>
 </ul>
 </section><div><a class="slider-prev" href="#системы-типов-и-верификация"></a><a class="slider-next" href="#задачи"></a></div>
 <section id="задачи" class="slide level1 small">
 <h1 class="small">Задачи</h1>
-<p>Задачи сдаются в форме «код + мини-отчёт (от 1 страницы / 1000 символов)». Из нескольких вариантов задачи (1.3а, 1.3б) можно сдать только один.</p>
-<dl>
-<dt class="fragment"><strong>Задача 1.0а *</strong></dt>
-<dd class="fragment">Подготовить обновление слайда «программы модифицируются и усложняются» и «программы содержат ошибки».
-</dd>
-<dt class="fragment"><strong>Задача 1.0б *</strong></dt>
-<dd class="fragment">Подготовить обновление слайда «программы пишут на разных языках программирования».
-</dd>
-<dt class="fragment"><strong>Задача 1.0в **</strong></dt>
-<dd class="fragment">Подготовить описание нетривиальных последствий одной из ошибок в программном обеспечении с 2017 года (на 2 слайда с картинкой).
-</dd>
-</dl>
-<p><a href="https://github.com/maxxk/formal-models/blob/gh-pages/presentations/01-Introduction.md">Слайды в формате Markdown, можно использовать в качестве конспекта</a></p>
+<p>Задачи сдаются в форме «код + мини-отчёт (от 1 страницы / 1000
+символов)». Из нескольких вариантов задачи (1.3а, 1.3б) можно сдать
+только один.</p>
 <dl>
 <dt class="fragment"><strong>Задача 1.1 *</strong></dt>
-<dd class="fragment">Рецензия на фрагмент кода одногруппника объёмом не менее 100 строк. Код должен представлять законченный фрагмент функциональности. Оформить рецензию в форме комментариев к коду.
+<dd class="fragment">
+Рецензия на фрагмент кода одногруппника объёмом не менее 100 строк. Код
+должен представлять законченный фрагмент функциональности. Оформить
+рецензию в форме комментариев к коду.
 </dd>
 <dt class="fragment"><strong>Задача 1.2 **</strong></dt>
-<dd class="fragment">Отправить pull-request в существующий проект с открытым исходным кодом, в котором используют рецензирование (принимается ретроспектива, т.е. если вы ранее уже такое делали).
+<dd class="fragment">
+Отправить pull-request в существующий проект с открытым исходным кодом,
+в котором используют рецензирование (принимается ретроспектива, т.е.
+если вы ранее уже такое делали).
 </dd>
 </dl>
 </section><div><a class="slider-prev" href="#план-на-следующее-занятие"></a><a class="slider-next" href="#задачи-1"></a></div>
@@ -724,28 +991,42 @@ span.s4 {font-variant-ligatures: no-common-ligatures; color: #c33720}
 <h1 class="small">Задачи</h1>
 <dl>
 <dt class="fragment"><strong>Задача 1.3а *</strong></dt>
-<dd class="fragment">Написать набор тестов к своему коду (объём кода не менее 100 строк, объём тестов не менее объёма кода; принимается ретроспектива). За нетривиальное использование в наборе тестов реализации QuickCheck, демонстрирующее редукцию контрпримера — дополнительная *.
+<dd class="fragment">
+Написать набор тестов к своему коду (объём кода не менее 100 строк,
+объём тестов не менее объёма кода; принимается ретроспектива). За
+нетривиальное использование в наборе тестов реализации QuickCheck,
+демонстрирующее редукцию контрпримера — дополнительная *.
 </dd>
 <dt class="fragment"><strong>Задача 1.3б *</strong></dt>
-<dd class="fragment">Бонус к задаче <strong>1.2</strong>, если в pull-request есть тесты.
+<dd class="fragment">
+Бонус к задаче <strong>1.2</strong>, если в pull-request есть тесты.
 </dd>
 <dt class="fragment"><strong>Задача 1.4а **</strong></dt>
-<dd class="fragment">Выполнить fuzzing-тестирование своего кода с использованием AFL или другого существующего средства fuzzing-тестирования.
+<dd class="fragment">
+Выполнить fuzzing-тестирование своего кода с использованием AFL или
+другого существующего средства fuzzing-тестирования.
 </dd>
 <dt class="fragment"><strong>Задача 1.4б ***</strong></dt>
-<dd class="fragment">Выполнить fuzzing-тестирование для проекта с открытым исходным кодом.
+<dd class="fragment">
+Выполнить fuzzing-тестирование для проекта с открытым исходным кодом.
 </dd>
 </dl>
-<p>Fuzzing-тестирование проводится долго. Для получения интересных результатов fuzzer должен работать хотя бы часов 8.</p>
+<p>Fuzzing-тестирование проводится долго. Для получения интересных
+результатов fuzzer должен работать хотя бы часов 8.</p>
 </section><div><a class="slider-prev" href="#задачи"></a><a class="slider-next" href="#задачи-2"></a></div>
 <section id="задачи-2" class="slide level1 small">
 <h1 class="small">Задачи</h1>
 <dl>
 <dt class="fragment"><strong>Задача 1.5а *</strong></dt>
-<dd class="fragment">Выполнить проверку своего кода средствами статического анализа. За использование нетривиальных средств статического анализа можно получить дополнительную *.
+<dd class="fragment">
+Выполнить проверку своего кода средствами статического анализа. За
+использование нетривиальных средств статического анализа можно получить
+дополнительную *.
 </dd>
 <dt class="fragment"><strong>Задача 1.5б ***</strong></dt>
-<dd class="fragment">Выполнить проверку средствами статического анализа проекта с открытым исходным кодом.
+<dd class="fragment">
+Выполнить проверку средствами статического анализа проекта с открытым
+исходным кодом.
 </dd>
 </dl>
 </section><div><a class="slider-prev" href="#задачи-1"></a><a class="slider-next"></a></div>
