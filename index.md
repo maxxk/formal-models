@@ -32,7 +32,7 @@ layout: default
 [презентация — html](presentations/01-Introduction.html)
 
 
-## Entscheidungsproblem (проблема разрешения). Машина Тьюринга. Конечные автоматы и формальные языки. (2021-10-20)
+## Entscheidungsproblem (проблема разрешения). Машина Тьюринга. Конечные автоматы и формальные языки. (2022-09-30)
 
 [презентация — html](presentations/02-Entscheidungsproblem.html)
 
