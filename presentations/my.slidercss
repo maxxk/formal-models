@@ -34,11 +34,11 @@ $endfor$
 $for(include-before)$
 $include-before$
 $endfor$
-  <div style="width: 640px;height: 400px;">
+  <div style="width: 640px;height: 400px;" id="container">
   <input id="slider-max" type="checkbox" checked/>
-   <article class="slider slider-indicator">
+   <article class="slider slider-indicator" id="main">
    <a id="slider-default"></a>
-   <label for="slider-max" title="Maximize"></label>
+   <label title="Flat view" id="flat-view"></label>
 
 $if(title)$
 <section id="slider-default">
@@ -70,7 +70,7 @@ $body$
   $endfor$
 
   <script type="text/javascript">
-  document.addEventListener("keydown", function(e) {
+  function handleKeydown(e) {
      if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) { return; }
      switch (e.keyCode) {
        case 35: // End
@@ -86,12 +86,14 @@ $body$
             window.location = a.href;
           }
           break;
+       case 33: // Page Up
        case 37: // left arrow
          var a = document.querySelector("section:target ~ div a.slider-prev");
          if (a && a.href) {
            window.location = a.href;
          }
          break;
+       case 34: // Page Down
        case 39: // right arrow
          var a = document.querySelector("section:target ~ div a.slider-next");
          if (a && a.href) {
@@ -99,7 +101,18 @@ $body$
          }
          break;
      }
-  });
+  }
+  document.addEventListener("keydown", handleKeydown);
+  document.getElementById("flat-view").addEventListener("click", function(e) {
+    document.getElementById("main").classList.toggle('slider');
+    if (document.getElementById("main").classList.contains('slider')) {
+      document.getElementById("container").style="width: 640px;height: 400px;";
+      document.addEventListener("keydown", handleKeydown);
+    } else {
+      document.getElementById("container").style="";
+      document.removeEventListener("keydown", handleKeydown);
+    }
+  })
   </script>
   </body>
 </html>

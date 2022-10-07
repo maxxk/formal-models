@@ -37,7 +37,7 @@ layout: default
 [презентация — html](presentations/02-Entscheidungsproblem.html)
 
 
-## Альтернативные модели вычислений. (2021-10-27)
+## Альтернативные модели вычислений. (2022-10-07)
 
 [презентация — html](presentations/03-Alternate-models.html)
 
