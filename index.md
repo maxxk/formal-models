@@ -42,7 +42,7 @@ layout: default
 [презентация — html](presentations/03-Alternate-models.html)
 
 
-## Формальные системы. (2021-11-03)
+## Формальные системы. (2022-10-07, 2022-10-14)
 
 [презентация — html](presentations/04-Logics.html)
 
@@ -52,12 +52,12 @@ layout: default
 [презентация — html](presentations/04-Model-Checking.html)
 
 
+<hr/>
+
 ## Нормальные алгорифмы Маркова. Нетипизированное λ-исчисление. λ-исчисление с простыми типами. (2021-11-17)
 
 [презентация — html](presentations/06-Markov-Refal-Lambda-calculus.html)
 
-
-<hr/>
 
 ## Алгоритмы проверки типов и свойство сильной нормализации (2020-11-18)
 
